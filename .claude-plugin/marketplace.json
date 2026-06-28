@@ -1,0 +1,17 @@
+{
+  "name": "bluerock",
+  "owner": { "name": "BlueRock" },
+  "description": "BlueRock for Builders — the builder toolkit for Claude Code.",
+  "plugins": [
+    {
+      "name": "bluerock",
+      "source": "./plugins/bluerock",
+      "description": "Get to know your Hub, then run a daily operating rhythm: onboarding that learns who you are and how you write, capture, a morning brew that seeds your priorities, a living today list, meeting prep + recap, and a wrap-up that closes the loop."
+    },
+    {
+      "name": "bluerock-examples",
+      "source": "./plugins/bluerock-examples",
+      "description": "Agent-example teams for BlueRock for Builders. Account Research: point an agent team at a target company and get a sourced dossier — overview, recent signals, and strategic angles in your voice. More examples coming."
+    }
+  ]
+}

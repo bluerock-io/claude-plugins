@@ -1,0 +1,7 @@
+{
+  "name": "bluerock",
+  "description": "BlueRock for Builders — get to know your Hub, then run a daily operating rhythm: onboarding that learns who you are and how you write, capture all day, a morning brew that seeds your priorities, a living today list, meeting prep + recap, and a wrap-up that closes the loop and refreshes your build dashboard.",
+  "version": "0.3.0",
+  "author": { "name": "BlueRock" },
+  "homepage": "https://builders.bluerock.io"
+}
