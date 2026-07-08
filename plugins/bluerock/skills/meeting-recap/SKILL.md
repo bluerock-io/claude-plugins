@@ -12,6 +12,19 @@ Draft a meeting recap email from call notes. The email is FROM me, TO the
 people I met with. Keep it short enough that a busy person reads the
 whole thing.
 
+## First — anchor to the Hub
+
+When I don't paste notes, you read them from my Hub — the repo I cloned from the
+starter. In an SSH/cloud container the session usually starts in the **home folder**,
+with the Hub one level down. I named it when I cloned (`maria-hub`, `alex-hub` — don't
+assume a fixed name like `hub-starter`); identify it by its signature, not its name.
+Before reading a notes file: run `ls`. See `CLAUDE.md` and `design/` side by side?
+You're in the Hub. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`, else
+`find ~ -maxdepth 3 -path '*/design/dashboard.html'`. `cd` into that folder and read the
+notes at its **absolute path** (e.g. `/home/you/maria-hub/notes/…`). Can't find it? Ask
+me where I cloned my Hub. (If I pasted the notes into chat, skip all this — you already
+have what you need.)
+
 ## Inputs, in priority order
 
 1. Notes or a transcript pasted into the chat with the request.

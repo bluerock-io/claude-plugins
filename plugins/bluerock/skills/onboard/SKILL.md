@@ -15,6 +15,20 @@ help), `voice.md` (how they write), and `objectives.md` (what they're working
 on). The better these are, the better every other skill works — so this is the
 highest-leverage thing they can do first.
 
+## First — anchor to the Hub
+
+The three profile files belong in the builder's Hub — the repo they cloned from the
+starter. In an SSH/cloud container the session usually starts in the **home folder**,
+with the Hub one level down. The builder named it when they cloned (`maria-hub`,
+`alex-hub` — don't assume a fixed name like `hub-starter`); identify it by its
+signature, not its name. Before writing: run `ls`. See `CLAUDE.md` and `design/` side
+by side? You're in the Hub. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`,
+else `find ~ -maxdepth 3 -path '*/design/dashboard.html'`. `cd` into that folder,
+capture its **absolute path** with `pwd`, and write all three files to that full path
+(e.g. `/home/you/maria-hub/CLAUDE.md`) — never a bare `CLAUDE.md`, so nothing lands in
+the home folder. Can't find it at all? Ask the builder where they cloned their Hub.
+Never write their files outside it.
+
 ## The fastest start: the portability prompt
 
 The builder has likely used ChatGPT or Claude for months — that assistant
@@ -63,7 +77,10 @@ Keep it concrete and paste-ready — a brief I'd hand a new assistant on day one
 ## The three artifacts
 
 ### `CLAUDE.md` — the standing brief
-Loads every session. Fill the seeded sections: **Who I am** (role, team,
+Loads every session. The Hub's `CLAUDE.md` already ships with content — including a
+session-start greeting block. **Fill the seeded sections in place and keep everything
+else; never overwrite the whole file** (a clobbered greeting block breaks the walk-in
+on their next session). Fill: **Who I am** (role, team,
 day-to-day), **What I'm working on this quarter** (pull from objectives),
 **Voice and tone preferences** (a pointer to `voice.md` plus the headline
 rules), **Standing rules**, **What good looks like**, and a **Domain context**

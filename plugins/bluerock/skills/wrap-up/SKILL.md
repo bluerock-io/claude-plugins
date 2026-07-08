@@ -15,6 +15,24 @@ back up.
 
 ## Steps, in order
 
+### 0. Anchor to the Hub
+
+Everything below reads and writes inside the builder's Hub — the repo they cloned from
+the starter: `today.md`, `session-log.md`, the Hub's `.bluerock/runs.json`, and
+`design/dashboard-data.js` — and `git` and the dashboard server both run from the Hub
+root. In an SSH/cloud container the session usually starts in the **home folder**, with
+the Hub one level down. The builder named it when they cloned (`maria-hub`, `alex-hub` —
+don't assume a fixed name like `hub-starter`); identify it by its signature, not its
+name. Confirm first: run `ls`. See `CLAUDE.md` and `design/` side by side? You're in the
+Hub. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`, else
+`find ~ -maxdepth 3 -path '*/design/dashboard.html'`. **`cd` into that folder and stay
+there for the rest of the wrap-up**, and capture its absolute path with `pwd` so every
+write below targets the full path (e.g. `/home/you/maria-hub/design/dashboard-data.js`).
+Skipping this writes the dashboard and log to the home folder and runs `git` against the
+wrong repo (or none). Can't find it? Ask the builder where they cloned their Hub before
+wrapping up. (`session-metrics.py` below is the one exception — it's read via
+`${CLAUDE_PLUGIN_ROOT}`, so it runs correctly from anywhere.)
+
 ### 1. Review the session
 
 Look back over this conversation and identify what got done (finished things,
@@ -39,7 +57,9 @@ this session.") Then:
   toolsCalled, filesRead, model, costUsd, guardrailEvents }`. Quantitative fields
   from the script; qualitative (agent, target, output) from the session. `model`
   = the canonical undated alias from the usage payload (e.g. `claude-sonnet-4-6`).
-- **Append the atom(s) to the run history** (keep all atoms, e.g. `.bluerock/runs.json`).
+- **Append the atom(s) to the run history** — the Hub's own `.bluerock/runs.json`
+  (keep all atoms). Note this is the Hub-local `.bluerock/`, distinct from the home
+  `~/.bluerock/` workspace facts read below.
 - **Tally today's priorities.** Read `today.md` and count Focus items: `set` (total),
   `closed` (`[x]`), `carried` (`[>]`). Offer to check off anything I finished this
   session that's still `[ ]`. This feeds the dashboard's "priorities set vs. closed."
@@ -53,7 +73,7 @@ Provenance is a trust claim. Beta has **no BlueRock sensor pipeline**, so the la
 is **"From your sessions,"** never "sensor-sourced." Specifically:
 - `guardrail` = `{ wired: false, events: [] }`.
 - `cost` only if a pricing table is present (tokens × price); otherwise zeros / placeholder — never a fabricated number under a trust label.
-- `meta` (builder, workspace, region, trial) comes from the **workspace facts file** — read `~/.bluerock/workspace.json` (or `./.bluerock/workspace.json`). Compute `meta.trialDaysLeft = trial_days − (today − provisioned_at)`; take `builder` / `workspace` / `region` from the same file. **If the file is absent, degrade honestly:** omit the trial countdown (neutral "Trial," no number), generic builder name — never scrape boot time or file timestamps for the provision date (the container suspends/resumes, so those are wrong).
+- `meta` (builder, workspace, region, trial) comes from the **workspace facts file** — the home `~/.bluerock/workspace.json` (Eng-provisioned, workspace-level; NOT the Hub's `.bluerock/`). Compute `meta.trialDaysLeft = trial_days − (today − provisioned_at)`; take `builder` / `workspace` / `region` from the same file. **If the file is absent, degrade honestly:** omit the trial countdown (neutral "Trial," no number), generic builder name — never scrape boot time or file timestamps for the provision date (the container suspends/resumes, so those are wrong).
 - `meta.outputsSince` is **singular "you," single user (not a team)**; `count` = outputs this week from `runs[]` (not a last-visit anchor); 0/unknown → greeting only, no fabricated number.
 - `priorities` = `{ set, closed, carried }` for this week, counted from `today.md` (the closure loop). Derived "from your sessions," not sensors.
 - `actions` = `{ total, byAgent: [{ name, count, tone, timeMin }] }` — agent actions this week from `runs[]`, grouped by `agent`. `name` = the agent's name (required — labels the bar), `count` = its action total, `tone` = a stable palette key (`coral`/`plum`/`composer`/`sage`) for the bar (omit → defaults to coral; reuse the same tone per agent across weeks), `timeMin` = wall-clock minutes for that agent this week (from `runs[].runTimeSec`, rolled up). For a multi-agent **team** (e.g. Account Research = researcher + signal-scanner + composer), emit one entry for the team plus `members: [{ name, count, timeMin }]` (members sum to the team's `count` and `timeMin`); use the same team label in `runs[]` so it reads consistently across the Actions card and section 04.

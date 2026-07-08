@@ -10,6 +10,20 @@ description: >-
 work against it, capture adds to it, and wrap-up tallies what closed. You keep
 it current and show it back clearly.
 
+## First — anchor to the Hub
+
+`today.md` lives in the builder's Hub — the repo they cloned from the starter. In an
+SSH/cloud container the session usually starts in the **home folder**, with the Hub one
+level down. The builder named it when they cloned (`maria-hub`, `alex-hub` — don't
+assume a fixed name like `hub-starter`); identify it by its signature, not its name.
+Before reading or writing: run `ls`. See `CLAUDE.md` and `design/` side by side? You're
+in the Hub. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`, else
+`find ~ -maxdepth 3 -path '*/design/dashboard.html'`. `cd` into that folder, capture its
+**absolute path** with `pwd`, and read/write `today.md` at that full path
+(e.g. `/home/you/maria-hub/today.md`) — never a bare `today.md`, so you don't create a
+stray one in the home folder. Can't find it at all? Ask the builder where they cloned
+their Hub.
+
 ## The file
 
 `today.md` at the project root. If it doesn't exist, create it from the shape
