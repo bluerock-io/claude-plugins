@@ -7,7 +7,7 @@
 ## Install
 
 ```
-/plugin marketplace add lvn-bluerock/claude-plugins
+/plugin marketplace add bluerock-io/claude-plugins
 /plugin install bluerock-examples@bluerock
 ```
 

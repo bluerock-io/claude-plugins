@@ -13,7 +13,7 @@ The BlueRock plugin marketplace for Claude Code. Two plugins:
 ## Install
 
 ```
-/plugin marketplace add lvn-bluerock/claude-plugins
+/plugin marketplace add bluerock-io/claude-plugins
 /plugin install bluerock@bluerock
 /plugin install bluerock-examples@bluerock
 ```
