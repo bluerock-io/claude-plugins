@@ -1,5 +1,10 @@
 # Changelog — `bluerock` plugin
 
+## 0.4.0 — agent-example teams (Account Research)
+- **New:** the **Account Research** agent team, folded into this plugin (was the separate `bluerock-examples` plugin). `/bluerock:research <company>` runs three agents in sequence — **researcher** (company profile), **signal-scanner** (recent, dated signals), **composer** (the dossier) — and writes a sourced dossier to `my-work/account-research/<company>/<company>.md`: overview, recent signals, and strategic angles, in your voice.
+- Reads `voice.md` + `objectives.md` (from `/bluerock:onboard`) so the angles and tone are yours. Public-web research via Claude Code's built-in `WebSearch` / `WebFetch` — no MCP, no hooks. Cites sources; marks gaps instead of inventing.
+- **Consolidation:** one `bluerock` plugin now ships the daily rhythm **and** the agent-example teams, so every command is uniformly `/bluerock:<verb>` (incl. `/bluerock:research`). The first example team; Insights Analyzer and Comparative Research come next.
+
 ## 0.3.0 — priming (get to know your Hub)
 - **New:** `/bluerock:onboard` — the get-to-know-you. Paste what ChatGPT/Claude already knows about you (via the portability prompt) plus a couple of writing samples; it interviews for gaps and writes three builder-owned files: `CLAUDE.md` (who you are + how to help), `voice.md` (how you write), and `objectives.md` (what you're working on — which `daily-brew` reads to rank your focus).
 - **Why:** knowing the builder well is the highest-leverage, most-compounding setup step — every downstream skill produces output that's actually yours. The voice guide is the entry carrot.

@@ -56,12 +56,27 @@ is **"From your sessions,"** never "sensor-sourced." Specifically:
 - `meta` (builder, workspace, region, trial) comes from the **workspace facts file** — read `~/.bluerock/workspace.json` (or `./.bluerock/workspace.json`). Compute `meta.trialDaysLeft = trial_days − (today − provisioned_at)`; take `builder` / `workspace` / `region` from the same file. **If the file is absent, degrade honestly:** omit the trial countdown (neutral "Trial," no number), generic builder name — never scrape boot time or file timestamps for the provision date (the container suspends/resumes, so those are wrong).
 - `meta.outputsSince` is **singular "you," single user (not a team)**; `count` = outputs this week from `runs[]` (not a last-visit anchor); 0/unknown → greeting only, no fabricated number.
 - `priorities` = `{ set, closed, carried }` for this week, counted from `today.md` (the closure loop). Derived "from your sessions," not sensors.
+- `actions` = `{ total, byAgent: [{ name, count, tone, timeMin }] }` — agent actions this week from `runs[]`, grouped by `agent`. `name` = the agent's name (required — labels the bar), `count` = its action total, `tone` = a stable palette key (`coral`/`plum`/`composer`/`sage`) for the bar (omit → defaults to coral; reuse the same tone per agent across weeks), `timeMin` = wall-clock minutes for that agent this week (from `runs[].runTimeSec`, rolled up). For a multi-agent **team** (e.g. Account Research = researcher + signal-scanner + composer), emit one entry for the team plus `members: [{ name, count, timeMin }]` (members sum to the team's `count` and `timeMin`); use the same team label in `runs[]` so it reads consistently across the Actions card and section 04.
 - `perf` = `{ successRate, runs:{successful,total}, avgSessionMin, avgSessionDeltaMin, outputsShipped }` — the honest set only. **No** output-quality/reader-rating and **no** cache-hit rate (dropped — no honest source / operator metric). `success` is your judgment (a run that completed without error or guardrail block); `avgSessionMin` from `session-metrics.py`; delta is neutral (shorter ≠ better).
 - `resume` chapter comes from curriculum progress, not the transcript.
 
 The source of truth for the shape + renderer is the builder's own design — the
 data contract (`design/dashboard-data-contract.md`) and `dashboard.html`. Target
 that contract; do not invent or restyle the dashboard.
+
+**Then open it for me — one step, no fuss.** The Hub runs in a cloud workspace, so
+`file://` won't render `design/dashboard.html` (the file is on the container, not my
+machine). Serve it and hand me a link instead. Do this now, and any time I say
+**"open my dashboard"**:
+
+```bash
+(cd design && nohup python3 -m http.server 8137 >/tmp/br-dashboard.log 2>&1 &) ; echo "Dashboard → http://localhost:8137/dashboard.html"
+```
+
+Cursor auto-forwards the port — tell me to click the link (or the "port forwarded"
+popup) and my dashboard opens in my browser. Works the same if I'm ever fully local.
+If port 8137 is busy, pick another and tell me the URL. To stop it later:
+`lsof -ti:8137 | xargs kill`.
 
 ### 3. Update the session log
 

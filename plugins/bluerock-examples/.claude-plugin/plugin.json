@@ -1,7 +1,0 @@
-{
-  "name": "bluerock-examples",
-  "description": "Agent-example teams for BlueRock for Builders. Account Research: an agent team that researches a target company and produces a sourced dossier — overview, recent signals, and strategic angles in your voice. More examples coming.",
-  "version": "0.1.0",
-  "author": { "name": "BlueRock" },
-  "homepage": "https://builders.bluerock.io"
-}
