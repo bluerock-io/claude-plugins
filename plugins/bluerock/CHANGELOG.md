@@ -1,5 +1,8 @@
 # Changelog — `bluerock` plugin
 
+## 0.4.2 — `/check` stops gracefully when there's no Hub yet
+- **Fixed:** `/bluerock:check`, when run before the builder has created their Hub (common — they test the check early), used to widen the search and spider the home folder looking for a Hub that doesn't exist. It now takes one quick look (`ls */CLAUDE.md`, `ls ~/*/CLAUDE.md`), and if nothing turns up, stops and says plainly "you haven't created your Hub yet — do the Create-your-Hub step," treating it as a normal post-setup state rather than an error. No more spidering.
+
 ## 0.4.1 — run correctly at user scope (Hub anchoring)
 - **Fixed:** the plugin installs at user scope (`~/.claude`), so its skills load from *any* folder — but in the cloud workspace the Hub is a subfolder of the container, so a skill firing from the wrong folder used to scatter files (profile, notes, dashboard data) outside the Hub, silently. Every file-touching skill (`onboard`, `today`, `capture`, `meeting-recap`, `research`, `wrap-up`) now anchors to the Hub first: it identifies the Hub by its signature (`CLAUDE.md` + `design/` together, not a fixed folder name), finds it a level down or via `find` when the session started in the home folder (the common SSH/cloud case), resolves its **absolute path** at runtime, and writes to that full path — so nothing leaks into the container home even when Claude Code is launched from outside the Hub.
 - **`/bluerock:check`** now *fixes* a wrong-folder situation instead of only flagging it — it walks the builder back into their Hub (`cd`, or reopen the folder) and asks them to re-run.
