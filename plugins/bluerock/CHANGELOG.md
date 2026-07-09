@@ -1,5 +1,8 @@
 # Changelog — `bluerock` plugin
 
+## 0.4.3 — wrap-up shows your numbers in the panel first
+- **Changed:** `/bluerock:wrap-up` now prints a short, honest readout of the session (runs + what each did, session length, priorities set/closed/carried, success rate, cost-if-known) **in the panel first**, so the payoff lands with no server or port involved. It then still serves + offers to open the visual `design/dashboard.html`. Rationale: in the VS Code/Cursor extension over remote SSH, the served `localhost` port is not always reachable from the client (Connector port-forwarding gap), so the visual open can fail; the in-panel numbers degrade gracefully. The visual-open step is intentionally unchanged for now (we want the port issue surfaced until the Connector forwards ports — see `bfb-beta-onboarding-friction-report.md`).
+
 ## 0.4.2 — `/check` stops gracefully when there's no Hub yet
 - **Fixed:** `/bluerock:check`, when run before the builder has created their Hub (common — they test the check early), used to widen the search and spider the home folder looking for a Hub that doesn't exist. It now takes one quick look (`ls */CLAUDE.md`, `ls ~/*/CLAUDE.md`), and if nothing turns up, stops and says plainly "you haven't created your Hub yet — do the Create-your-Hub step," treating it as a normal post-setup state rather than an error. No more spidering.
 

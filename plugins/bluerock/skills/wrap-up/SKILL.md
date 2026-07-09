@@ -84,9 +84,16 @@ The source of truth for the shape + renderer is the builder's own design — the
 data contract (`design/dashboard-data-contract.md`) and `dashboard.html`. Target
 that contract; do not invent or restyle the dashboard.
 
-**Then open it for me — one step, no fuss.** The Hub runs in a cloud workspace, so
+**First, show me my numbers in the panel.** Before opening the visual dashboard, print a
+short, plain readout of this session so the payoff lands even if the page doesn't open:
+the runs this session and what each did, session length, priorities set / closed /
+carried (from `today.md`), success rate, and cost only if a pricing table was present
+(else "not tracked this session" — never a guessed number). A few honest lines, "from
+your sessions." This always works, with no server or port involved.
+
+**Then open the visual dashboard for me.** The Hub runs in a cloud workspace, so
 `file://` won't render `design/dashboard.html` (the file is on the container, not my
-machine). Serve it and hand me a link instead. Do this now, and any time I say
+machine). Serve it and hand me a link. Do this now, and any time I say
 **"open my dashboard"**:
 
 ```bash
