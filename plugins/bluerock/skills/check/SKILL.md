@@ -36,7 +36,19 @@ never run a destructive command.**
    — need 3.x. If missing, that's the one thing to flag.
 4. **Git is available** (for saving work): `git --version`.
 5. **The BlueRock skills are installed.** `/bluerock:check` running confirms the plugin is
-   active; mention that `/bluerock:wrap-up` and the BlueRock agents are available too.
+   active; mention that `/bluerock:wrap-up` and the BlueRock agents are available too. While
+   here, read the installed plugin **version** from
+   `~/.claude/plugins/marketplaces/*/plugins/bluerock/.claude-plugin/plugin.json` — you'll use
+   it in the next check.
+6. **Your toolkit list is current** (optional, never a blocker). The builder's `your-toolkit.md`
+   (in the Hub, from `/bluerock:whats-installed`) carries a marker line
+   `<!-- bluerock-toolkit-version: X.Y.Z -->` on its first line. Read it and compare to the
+   installed version from check 5:
+   - **Match** → their toolkit list is current; nothing to say.
+   - **File is missing, still the placeholder (`bluerock-toolkit-version: placeholder`), or a
+     different/older version** → their list is stale or ungenerated. This is **not** a "needs
+     attention" — it's a soft, optional tip (see Report).
+   - **Can't read either version** → say nothing; never nag on ambiguity.
 
 ## Report
 
@@ -47,9 +59,16 @@ doesn't exist yet. Then a single closing line:
 - **All green:** "You're all set — head into your curriculum" (or "run your first agent").
 - **Something missing:** name the single next step, nothing more.
 
-When all green, add one line pointing them to their toolkit: *"Want to see everything you can
-do? Say 'what can I do' and I'll write your toolkit to your Hub."* (That runs
-`/bluerock:whats-installed`.)
+When all green, add one line about their toolkit (from check 6), phrased to the situation —
+this is always a soft invitation, never a "needs attention":
+- **Toolkit current, or you couldn't compare versions:** *"Want to see everything you can do?
+  Say 'what can I do' and I'll write your toolkit to your Hub."*
+- **Toolkit missing or still the placeholder:** *"Your toolkit list isn't filled in yet — say
+  'what can I do' and I'll write it to your Hub."*
+- **Toolkit is an older version than what's installed:** *"Your BlueRock tools updated since
+  your toolkit list was written (you're on vX.Y.Z now) — say 'what can I do' to refresh it."*
+
+All three run `/bluerock:whats-installed`.
 
 Keep the whole thing scannable — a beginner should feel reassured, not audited.
 

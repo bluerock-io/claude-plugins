@@ -34,12 +34,18 @@ see below.)
    version too.
 3. **Write `your-toolkit.md` at the Hub root** — a friendly, browsable reference, overwritten
    in place each run (so it stays current after a plugin update). Shape:
+   - **First line — a version marker, exactly this format:**
+     `<!-- bluerock-toolkit-version: X.Y.Z -->` where `X.Y.Z` is the installed plugin
+     version you read in step 2. This is a machine marker `/bluerock:check` reads to tell the
+     builder when their toolkit is out of date — always write it, always the real version,
+     never a placeholder.
    - A one-line header: how to use these — say what you want in plain language (everyday
      path), or use the `/bluerock:` command (explicit path).
    - **Skills** (things you run): each = name, what it does, and how to trigger it (a plain
      phrase + the `/bluerock:<verb>` command).
    - **Agents** (specialists you point at work): each = name + what it does.
-   - Footer: the plugin version and "regenerate this anytime by saying 'what can I do'."
+   - Footer: the plugin version (human-readable, e.g. "Generated from the BlueRock plugin
+     vX.Y.Z") and "regenerate this anytime by saying 'what can I do'."
 4. **Show a short summary** in the panel — count of skills + agents, plugin version, and
    where you saved it ("Your toolkit → your-toolkit.md"). Don't reprint the whole file.
 
