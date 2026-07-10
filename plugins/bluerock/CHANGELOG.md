@@ -1,5 +1,8 @@
 # Changelog — `bluerock` plugin
 
+## 0.4.4 — see what's installed (`/bluerock:whats-installed`)
+- **New:** `/bluerock:whats-installed` (say "what can I do" / "what's installed" / "show my toolkit"). The plugin installs at user scope, so its skills and agents don't appear as files in the builder's Hub — they can't browse what they have. This skill reads the actually-installed plugin (skills + agents + version) and writes a friendly, browsable `your-toolkit.md` into the Hub, so there's an in-Hub map of what the builder can do. Re-run anytime to refresh after an update. Read-only against the plugin; the only thing it writes is `your-toolkit.md`. `/bluerock:check` now points to it.
+
 ## 0.4.3 — wrap-up shows your numbers in the panel first
 - **Changed:** `/bluerock:wrap-up` now prints a short, honest readout of the session (runs + what each did, session length, priorities set/closed/carried, success rate, cost-if-known) **in the panel first**, so the payoff lands with no server or port involved. It then still serves + offers to open the visual `design/dashboard.html`. Rationale: in the VS Code/Cursor extension over remote SSH, the served `localhost` port is not always reachable from the client (Connector port-forwarding gap), so the visual open can fail; the in-panel numbers degrade gracefully. The visual-open step is intentionally unchanged for now (we want the port issue surfaced until the Connector forwards ports — see `bfb-beta-onboarding-friction-report.md`).
 

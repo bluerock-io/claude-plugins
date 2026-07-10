@@ -53,6 +53,8 @@ The skills that run your day. Say what you want, or use the command:
   email after.
 - **`/bluerock:wrap-up`** — ends the session: logs what happened, refreshes your dashboard
   (a local page that shows what your agents did), and — with your okay — commits and pushes.
+- **`/bluerock:whats-installed`** — say "what can I do" and it writes a browsable
+  `your-toolkit.md` into your Hub, listing every skill and agent you have.
 
 ## Run them, then make them your own
 

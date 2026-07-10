@@ -36,6 +36,10 @@ Give a short checklist — each line marked **Ready** or **Needs attention**, wi
 - **All green:** "You're all set — head into your curriculum" (or "run your first agent").
 - **Something missing:** name the single next step, nothing more.
 
+When all green, add one line pointing them to their toolkit: *"Want to see everything you can
+do? Say 'what can I do' and I'll write your toolkit to your Hub."* (That runs
+`/bluerock:whats-installed`.)
+
 Keep the whole thing scannable — a beginner should feel reassured, not audited.
 
 ## Tone
