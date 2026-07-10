@@ -1,5 +1,8 @@
 # Changelog — `bluerock` plugin
 
+## 0.4.5 — `/check`: a Hub found as a subfolder is a PASS
+- **Fixed:** `/bluerock:check` used to mark the Hub line amber ("Your Hub — needs attention") and tell the builder to open the `my-hub` folder and re-run to "turn green" whenever the session started one level above the Hub (the normal cloud/SSH case, and exactly what the Cancel-the-clone-popup flow produces on purpose). That contradicted our own design: the plugin installs at user scope so tools run from anywhere, and every skill self-heals into the Hub, so being a level above it is fine — the builder does not need to open the Hub to be ready. Now, a Hub found right here **or** as a subfolder nearby (e.g. `my-hub`) is a **PASS**. Opening the folder is offered only as an optional nicety (a focused file tree + the CLAUDE.md welcome greeting), never a required step. "Needs attention" on the Hub line is now reserved for the one real case: the Hub hasn't been created yet.
+
 ## 0.4.4 — see what's installed (`/bluerock:whats-installed`)
 - **New:** `/bluerock:whats-installed` (say "what can I do" / "what's installed" / "show my toolkit"). The plugin installs at user scope, so its skills and agents don't appear as files in the builder's Hub — they can't browse what they have. This skill reads the actually-installed plugin (skills + agents + version) and writes a friendly, browsable `your-toolkit.md` into the Hub, so there's an in-Hub map of what the builder can do. Re-run anytime to refresh after an update. Read-only against the plugin; the only thing it writes is `your-toolkit.md`. `/bluerock:check` now points to it.
 
