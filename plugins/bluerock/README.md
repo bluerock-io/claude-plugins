@@ -15,12 +15,10 @@ app: the output is your files, and they're yours with or without the plugin.
 
 ## Install
 
-In Claude Code (the panel inside Cursor):
-
-```
-/plugin marketplace add bluerock-io/claude-plugins
-/plugin install bluerock@bluerock
-```
+In the Claude Code panel, type `/plugins` (plural) to open the plugin manager. On the
+**Marketplaces** tab, enter `bluerock-io/claude-plugins` and click **Add**. On the **Plugins**
+tab, find **bluerock** under Available → **Install** → choose **"Install for you"** and trust it.
+Click **Restart** when prompted.
 
 Then run `/bluerock:check` to confirm you're set. You'll want a Hub to run it in — the
 [starter template](https://github.com/bluerock-io/hub-starter) gives you one in a click.

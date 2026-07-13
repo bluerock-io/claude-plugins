@@ -12,10 +12,9 @@ The BlueRock plugin marketplace for Claude Code. One plugin, `bluerock`, with tw
 
 ## Install
 
-```
-/plugin marketplace add bluerock-io/claude-plugins
-/plugin install bluerock@bluerock
-```
+In the Claude Code panel, type `/plugins` (plural) to open the plugin manager. On the
+**Marketplaces** tab, add `bluerock-io/claude-plugins`. On the **Plugins** tab, install
+**bluerock** ("Install for you"), trust it, and **Restart**.
 
 Then try `/bluerock:onboard` to set up, or `/bluerock:research <company>` for a dossier.
 
