@@ -13,6 +13,22 @@ app: the output is your files, and they're yours with or without the plugin.
 > **New here?** The [BlueRock for Builders curriculum](https://builders.bluerock.io) sets
 > up your Hub and walks you through everything below — start there.
 
+## What's in the toolkit
+
+Everything is organized by what it's *for* — not by whether it's a skill or an agent. Say what
+you want; the right one runs.
+
+| Category | What it's for |
+|---|---|
+| **Set up your Hub** | Get oriented, teach your Hub who you are, stay current: `onboard`, `check`, `whats-installed` |
+| **Your daily rhythm** | The loop that runs your day: `daily-brew`, `today`, `capture`, `wrap-up` |
+| **Meetings** | A brief before a call, a follow-up after: `meeting-prep`, `meeting-recap` |
+| **Account research** | Point a three-agent team at a company for a sourced dossier: `research` |
+
+Run `/bluerock:whats-installed` (or say *"what can I do"*) anytime and it writes this same map,
+grouped and up to date, into your Hub as `your-toolkit.md`. The set grows over time — new skills
+and role-specific packs land here as they ship.
+
 ## Install
 
 In the Claude Code panel, type `/plugins` (plural) to open the plugin manager. On the

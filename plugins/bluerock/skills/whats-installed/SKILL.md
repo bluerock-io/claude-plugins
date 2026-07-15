@@ -42,9 +42,26 @@ folder. (Do NOT confuse the Hub with `~/.claude/`, which is where the plugin liv
      placeholder.
    - A one-line header: how to use these — say what you want in plain language (everyday path),
      or use the `/bluerock:` command (explicit path).
-   - **Skills** (things you run): each = name, what it does, how to trigger it (a plain phrase
-     + the `/bluerock:<verb>` command).
-   - **Agents** (specialists you point at work): each = name + what it does.
+   - **Group everything by what it's FOR, not by skill-vs-agent.** A builder thinks "I'm
+     prepping a meeting," not "I need an agent." Use these categories, in this order, and put
+     each installed skill and agent under the one that fits:
+
+     | Category | What it's for | Belongs here |
+     |---|---|---|
+     | **Set up your Hub** | Getting oriented and staying current | `onboard`, `check`, `whats-installed` |
+     | **Your daily rhythm** | The loop that runs your day | `daily-brew`, `today`, `capture` (+ `scribe`), `wrap-up` |
+     | **Meetings** | Before a call, after a call | `meeting-prep`, `meeting-recap` |
+     | **Account research** | Point a team at a company | `research` (+ `researcher`, `signal-scanner`, `composer`) |
+
+   - Under each category, list its items. For a **skill** (something you run): name, what it
+     does, and how to trigger it (a plain phrase + the `/bluerock:<verb>` command). For an
+     **agent** (a specialist you point at work): name + what it does. A one-word tag —
+     `(run)` for skills, `(specialist)` for agents — keeps the distinction without splitting
+     the list.
+   - **Anything installed that doesn't match a category above goes in a final "More in your
+     toolkit" group** — never drop it, never force it into the wrong category. This keeps the
+     map honest as the plugin grows (new vertical packs and skills will land here until this
+     skill learns their category).
    - A line pointing to the files: "Want to read how any of these actually work? Open the
      `toolkit/` folder — it holds a copy of every skill and agent."
    - Footer: the plugin version (human-readable, e.g. "Generated from the BlueRock plugin
