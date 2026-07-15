@@ -19,8 +19,8 @@ back up.
 
 Everything below reads and writes inside the builder's Hub — the repo they cloned from
 the starter: `today.md`, `session-log.md`, the Hub's `.bluerock/runs.json`, and
-`design/dashboard-data.js` — and `git` and the dashboard server both run from the Hub
-root. In an SSH/cloud container the session usually starts in the **home folder**, with
+`design/dashboard-data.js` — and `git` runs from the Hub root. In an SSH/cloud
+container the session usually starts in the **home folder**, with
 the Hub one level down. The builder named it when they cloned (`maria-hub`, `alex-hub` —
 don't assume a fixed name like `hub-starter`); identify it by its signature, not its
 name. Confirm first: run `ls`. See `CLAUDE.md` and `design/` side by side? You're in the
@@ -73,7 +73,7 @@ Provenance is a trust claim. Beta has **no BlueRock sensor pipeline**, so the la
 is **"From your sessions,"** never "sensor-sourced." Specifically:
 - `guardrail` = `{ wired: false, events: [] }`.
 - `cost` only if a pricing table is present (tokens × price); otherwise zeros / placeholder — never a fabricated number under a trust label.
-- `meta` (builder, workspace, region, trial) comes from the **workspace facts file** — the home `~/.bluerock/workspace.json` (Eng-provisioned, workspace-level; NOT the Hub's `.bluerock/`). Compute `meta.trialDaysLeft = trial_days − (today − provisioned_at)`; take `builder` / `workspace` / `region` from the same file. **If the file is absent, degrade honestly:** omit the trial countdown (neutral "Trial," no number), generic builder name — never scrape boot time or file timestamps for the provision date (the container suspends/resumes, so those are wrong).
+- `meta` (builder, workspace, region) comes from the **workspace facts file** — the home `~/.bluerock/workspace.json` (Eng-provisioned, workspace-level; NOT the Hub's `.bluerock/`). Take `builder` / `workspace` / `region` from it; if it's absent, degrade honestly to a generic builder name. **No trial countdown.** The trial clock is not passed into the workspace and the dashboard is a value mirror, not a conversion surface — trial timing and upgrade prompts live in the email lifecycle and Console, not here. Never scrape boot time or file timestamps to fake a provision date (the container suspends/resumes, so those are wrong).
 - `meta.outputsSince` is **singular "you," single user (not a team)**; `count` = outputs this week from `runs[]` (not a last-visit anchor); 0/unknown → greeting only, no fabricated number.
 - `priorities` = `{ set, closed, carried }` for this week, counted from `today.md` (the closure loop). Derived "from your sessions," not sensors.
 - `actions` = `{ total, byAgent: [{ name, count, tone, timeMin }] }` — agent actions this week from `runs[]`, grouped by `agent`. `name` = the agent's name (required — labels the bar), `count` = its action total, `tone` = a stable palette key (`coral`/`plum`/`composer`/`sage`) for the bar (omit → defaults to coral; reuse the same tone per agent across weeks), `timeMin` = wall-clock minutes for that agent this week (from `runs[].runTimeSec`, rolled up). For a multi-agent **team** (e.g. Account Research = researcher + signal-scanner + composer), emit one entry for the team plus `members: [{ name, count, timeMin }]` (members sum to the team's `count` and `timeMin`); use the same team label in `runs[]` so it reads consistently across the Actions card and section 04.
@@ -91,19 +91,41 @@ carried (from `today.md`), success rate, and cost only if a pricing table was pr
 (else "not tracked this session" — never a guessed number). A few honest lines, "from
 your sessions." This always works, with no server or port involved.
 
-**Then open the visual dashboard for me.** The Hub runs in a cloud workspace, so
-`file://` won't render `design/dashboard.html` (the file is on the container, not my
-machine). Serve it and hand me a link. Do this now, and any time I say
-**"open my dashboard"**:
+**Then render my visual dashboard as a Claude Artifact.** The Hub runs in a remote,
+headless cloud workspace — there's no browser on the container and no forwarded port,
+so a served page (`localhost:...`) never reaches my machine. Instead, publish the
+dashboard as a **Claude Artifact**: it's hosted for me and opens right here, no port,
+no browser on the container, nothing to install. Do this now, and any time I say
+**"open my dashboard"**.
 
-```bash
-(cd design && nohup python3 -m http.server 8137 >/tmp/br-dashboard.log 2>&1 &) ; echo "Dashboard → http://localhost:8137/dashboard.html"
-```
+Build a **single, self-contained HTML page** from the rolled-up data above and hand it
+to me as an artifact. The static `design/dashboard.html` is your visual reference (the
+cool-paper look — light theme, Source Serif / DM Sans / JetBrains Mono headings, the
+card layout), but the artifact must be self-contained, so:
 
-Cursor auto-forwards the port — tell me to click the link (or the "port forwarded"
-popup) and my dashboard opens in my browser. Works the same if I'm ever fully local.
-If port 8137 is busy, pick another and tell me the URL. To stop it later:
-`lsof -ti:8137 | xargs kill`.
+- **Inline everything** — all CSS and all data in one file. Read the rolled-up values
+  out of `design/dashboard-data.js` and write them directly into the page as literal
+  values (or an inline `<script>` that sets them); do **not** `fetch()` or load an
+  external `dashboard-data.js`, and do not use ES-module imports.
+- **No external requests of any kind** — no CDN scripts, no external stylesheets, no
+  web fonts, no remote images. Artifacts run under a strict CSP that blocks them.
+  Use system-font fallbacks (`Georgia, serif` for the serif headings;
+  `system-ui, sans-serif` for body; `ui-monospace, monospace` for numerals) so it
+  still reads like the design without the web fonts.
+- **No CTA buttons and no trial countdown.** This is a read-only value mirror — what my
+  agents did, what shipped, what it cost. No "Upgrade," no "Start trial," no
+  "days left." Conversion and trial timing live in the email lifecycle and Console,
+  not here. A dead button in a sandboxed artifact is worse than no button.
+- Keep the **"From your sessions"** provenance label and the honest-data rules above —
+  omit any section you don't have honest data for rather than faking it.
+
+Also **overwrite `design/dashboard-data.js`** as specified above regardless — it's the
+data of record (and the source for the future hosted render), even though the artifact
+inlines its own copy.
+
+If publishing an artifact isn't available in my environment for any reason, don't
+block: the plain in-panel readout above is the always-works fallback, and the data
+file is saved — just tell me the artifact couldn't be created and show me the numbers.
 
 ### 3. Update the session log
 

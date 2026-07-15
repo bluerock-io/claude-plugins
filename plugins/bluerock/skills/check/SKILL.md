@@ -40,15 +40,20 @@ never run a destructive command.**
    here, read the installed plugin **version** from
    `~/.claude/plugins/marketplaces/*/plugins/bluerock/.claude-plugin/plugin.json` — you'll use
    it in the next check.
-6. **Your toolkit list is current** (optional, never a blocker). The builder's `your-toolkit.md`
-   (in the Hub, from `/bluerock:whats-installed`) carries a marker line
-   `<!-- bluerock-toolkit-version: X.Y.Z -->` on its first line. Read it and compare to the
-   installed version from check 5:
-   - **Match** → their toolkit list is current; nothing to say.
-   - **File is missing, still the placeholder (`bluerock-toolkit-version: placeholder`), or a
-     different/older version** → their list is stale or ungenerated. This is **not** a "needs
-     attention" — it's a soft, optional tip (see Report).
-   - **Can't read either version** → say nothing; never nag on ambiguity.
+6. **Your tools are visible + current** (optional, never a blocker). Two light reads,
+   both in the Hub:
+   - **The visible `toolkit/` folder is present.** Check the Hub root for a `toolkit/`
+     folder with `toolkit/skills/` and `toolkit/agents/` inside — the browsable copies of
+     every skill and agent (written by `/bluerock:onboard` on first setup, or
+     `/bluerock:whats-installed` anytime). If it's there, say so in a word: their tools are
+     browsable in `toolkit/`. If it's **absent**, that's the soft tip below — not a "needs
+     attention" (the plugin still works from the cache; the folder is just the window onto
+     it).
+   - **The list is current.** `your-toolkit.md` carries a marker line
+     `<!-- bluerock-toolkit-version: X.Y.Z -->` on its first line. Compare it to the
+     installed version from check 5: **match** → current, nothing to say; **missing, still
+     the placeholder, or older** → stale/ungenerated, soft tip below; **can't read either**
+     → say nothing, never nag on ambiguity.
 
 ## Report
 
@@ -61,12 +66,14 @@ doesn't exist yet. Then a single closing line:
 
 When all green, add one line about their toolkit (from check 6), phrased to the situation —
 this is always a soft invitation, never a "needs attention":
-- **Toolkit current, or you couldn't compare versions:** *"Want to see everything you can do?
-  Say 'what can I do' and I'll write your toolkit to your Hub."*
-- **Toolkit missing or still the placeholder:** *"Your toolkit list isn't filled in yet — say
-  'what can I do' and I'll write it to your Hub."*
+- **Toolkit folder present + current, or you couldn't compare versions:** *"Want to see
+  everything you can do? Your tools are in `toolkit/` — open any one, or say 'what can I do'
+  to refresh the list."*
+- **`toolkit/` folder or list missing / still the placeholder:** *"Want your tools where you
+  can see them? Say 'what can I do' and I'll write browsable copies of every skill and agent
+  into a `toolkit/` folder in your Hub."*
 - **Toolkit is an older version than what's installed:** *"Your BlueRock tools updated since
-  your toolkit list was written (you're on vX.Y.Z now) — say 'what can I do' to refresh it."*
+  your toolkit was written (you're on vX.Y.Z now) — say 'what can I do' to refresh it."*
 
 All three run `/bluerock:whats-installed`.
 
