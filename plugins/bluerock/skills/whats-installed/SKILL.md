@@ -41,7 +41,9 @@ folder. (Do NOT confuse the Hub with `~/.claude/`, which is where the plugin liv
      when their toolkit is out of date — always write it, always the real version, never a
      placeholder.
    - A one-line header: how to use these — say what you want in plain language (everyday path),
-     or use the `/bluerock:` command (explicit path).
+     or type the command. Note the short form: each tool has a full name like `/bluerock:today`,
+     and you can drop the prefix and type `/today` as long as no other installed tool shares the
+     name; the full `/bluerock:today` always works as a fallback.
    - **Group everything by what it's FOR, not by skill-vs-agent.** A builder thinks "I'm
      prepping a meeting," not "I need an agent." Use these categories, in this order, and put
      each installed skill and agent under the one that fits:
@@ -54,7 +56,8 @@ folder. (Do NOT confuse the Hub with `~/.claude/`, which is where the plugin liv
      | **Account research** | Point a team at a company | `research` (+ `researcher`, `signal-scanner`, `composer`) |
 
    - Under each category, list its items. For a **skill** (something you run): name, what it
-     does, and how to trigger it (a plain phrase + the `/bluerock:<verb>` command). For an
+     does, and how to trigger it (a plain phrase + the short `/<verb>` command, e.g. say
+     "wrap up my session" or type `/wrap-up`). For an
      **agent** (a specialist you point at work): name + what it does. A one-word tag —
      `(run)` for skills, `(specialist)` for agents — keeps the distinction without splitting
      the list.

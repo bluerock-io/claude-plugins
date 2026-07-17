@@ -6,9 +6,12 @@ you a sourced dossier. This is the plugin behind
 Cursor) into a set of skills and agents that do your real work and write it back as plain
 markdown you own.
 
-You drive it in plain language; the `/bluerock:` commands are there when you'd rather be
-explicit. Everything runs inside your own repo — your **Hub** — so nothing is locked in an
-app: the output is your files, and they're yours with or without the plugin.
+You drive it in plain language, or use the commands when you'd rather be explicit. Every tool
+has a full name like `/bluerock:check` (the `/bluerock:` part just says which toolkit it came
+from), and you can drop that prefix and type the short form, `/check`, as long as no other
+installed tool has the same name — right now none do. If a short name ever gets crowded, the
+full `/bluerock:check` always works. Everything runs inside your own repo, your **Hub**, so
+nothing is locked in an app: the output is your files, and they're yours with or without the plugin.
 
 > **New here?** The [BlueRock for Builders curriculum](https://builders.bluerock.io) sets
 > up your Hub and walks you through everything below — start there.
@@ -25,7 +28,7 @@ you want; the right one runs.
 | **Meetings** | A brief before a call, a follow-up after: `meeting-prep`, `meeting-recap` |
 | **Account research** | Point a three-agent team at a company for a sourced dossier: `research` |
 
-Run `/bluerock:whats-installed` (or say *"what can I do"*) anytime and it writes this same map,
+Say *"what can I do"* (or run `/whats-installed`) anytime and it writes this same map,
 grouped and up to date, into your Hub as `your-toolkit.md`. The set grows over time — new skills
 and role-specific packs land here as they ship.
 
@@ -36,12 +39,12 @@ In the Claude Code panel, type `/plugins` (plural) to open the plugin manager. O
 tab, find **bluerock** under Available → **Install** → choose **"Install for you"** and trust it.
 Click **Restart** when prompted.
 
-Then run `/bluerock:check` to confirm you're set. You'll want a Hub to run it in — the
+Then say *"check my workspace"* (or run `/check`) to confirm you're set. You'll want a Hub to run it in — the
 [starter template](https://github.com/bluerock-io/hub-starter) gives you one in a click.
 
 ## Account Research — point a team at a company
 
-`/bluerock:research <company>` runs three agents in order and hands you a sourced dossier.
+`/research <company>` (or *"research Acme Corp"*) runs three agents in order and hands you a sourced dossier.
 Each has one job:
 
 - **`researcher`** — the company profile: what they do, their stage, size, and who's who.
@@ -57,17 +60,17 @@ the plugin; more come next.
 
 The skills that run your day. Say what you want, or use the command:
 
-- **`/bluerock:onboard`** — teaches your Hub who you are and how you write (writes your
+- **`/onboard`** — teaches your Hub who you are and how you write (writes your
   `CLAUDE.md`, `voice.md`, and `objectives.md`).
-- **`/bluerock:capture`** + the **`scribe`** agent — drop a note any time; it gets filed.
+- **`/capture`** + the **`scribe`** agent — drop a note any time; it gets filed.
 - **`daily-brew`** agent — a morning brief that closes yesterday's loop and sets today's
   priorities.
-- **`/bluerock:today`** — your living to-do for the day.
-- **`meeting-prep`** + **`/bluerock:meeting-recap`** — a brief before a call, a follow-up
+- **`/today`** — your living to-do for the day.
+- **`meeting-prep`** + **`/meeting-recap`** — a brief before a call, a follow-up
   email after.
-- **`/bluerock:wrap-up`** — ends the session: logs what happened, refreshes your dashboard
-  (a local page that shows what your agents did), and — with your okay — commits and pushes.
-- **`/bluerock:whats-installed`** — say "what can I do" and it writes a browsable
+- **`/wrap-up`** — ends the session: logs what happened, refreshes your dashboard
+  (a local page that shows what your agents did), and, with your okay, commits and pushes.
+- **`/whats-installed`** — say "what can I do" and it writes a browsable
   `your-toolkit.md` into your Hub, listing every skill and agent you have.
 
 ## Run them, then make them your own
@@ -79,7 +82,7 @@ build your own (the curriculum walks you through it):
   `/standup`).
 - **Your own agents** live under `.claude/agents/`; name one after a plugin agent (like
   `daily-brew`) and yours takes over.
-- A couple — `/bluerock:wrap-up` and `/bluerock:check` — you just run; they keep your
+- A couple, `/wrap-up` and `/check`, you just run; they keep your
   dashboard correct for you.
 
 Everything stays inside your own files — no servers, nothing reaching outside your repo

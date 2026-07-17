@@ -30,7 +30,7 @@ captured note the builder can't find later is worse than none.
    threads / Brain dump). For anything substantial, hand off to the `scribe`
    agent; for a one-liner, just append.
 2. **If it's a task or priority,** also add it to `today.md` Focus as a `[ ]`
-   item (see `/bluerock:today`).
+   item (see `/today`).
 3. **Confirm in one line** — where it went. Don't re-print the file.
 
 ## Rules

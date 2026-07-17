@@ -2,13 +2,18 @@
 
 The BlueRock plugin marketplace for Claude Code. One plugin, `bluerock`, with two things in it:
 
-- **A daily operating rhythm.** `/bluerock:onboard` learns who you are and how you write,
+- **A daily operating rhythm.** `/onboard` learns who you are and how you write,
   `scribe` captures your day, `daily-brew` seeds a morning brief and priorities,
-  `/bluerock:today` keeps the list, `meeting-prep` and `/bluerock:meeting-recap` bracket
-  your meetings, and `/bluerock:wrap-up` closes the loop and refreshes your build dashboard.
-- **An Account Research agent team.** `/bluerock:research <company>` runs researcher →
+  `/today` keeps the list, `meeting-prep` and `/meeting-recap` bracket
+  your meetings, and `/wrap-up` closes the loop and refreshes your build dashboard.
+- **An Account Research agent team.** `/research <company>` runs researcher →
   signal-scanner → composer at a target and hands you a sourced dossier: overview, recent
   signals, and strategic angles in your voice.
+
+You drive it in plain language ("wrap up my session") or with commands. Each tool has a full
+name like `/bluerock:check` — you can drop the `/bluerock:` prefix and type the short form,
+`/check`, as long as no other installed tool has the same name (right now none do); the full
+`/bluerock:check` always works if a short one is ever taken.
 
 ## Install
 
@@ -16,7 +21,7 @@ In the Claude Code panel, type `/plugins` (plural) to open the plugin manager. O
 **Marketplaces** tab, add `bluerock-io/claude-plugins`. On the **Plugins** tab, install
 **bluerock** ("Install for you"), trust it, and **Restart**.
 
-Then try `/bluerock:onboard` to set up, or `/bluerock:research <company>` for a dossier.
+Then try `/onboard` (or say "onboard me") to set up, or `/research <company>` for a dossier.
 
 ## Safe by default
 

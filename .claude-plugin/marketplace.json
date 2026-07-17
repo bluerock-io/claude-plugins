@@ -6,7 +6,7 @@
     {
       "name": "bluerock",
       "source": "./plugins/bluerock",
-      "description": "Your daily rhythm in Claude Code — onboarding that learns who you are and how you write, a morning brief that seeds your priorities, a living to-do, meeting prep + recap, and an end-of-day wrap-up that refreshes your dashboard. Plus an Account Research agent team — point it at a company and get a sourced dossier (overview, recent signals, strategic angles) in your voice. Say what you want, or use /bluerock: commands."
+      "description": "Your daily rhythm in Claude Code — onboarding that learns who you are and how you write, a morning brief that seeds your priorities, a living to-do, meeting prep + recap, and an end-of-day wrap-up that refreshes your dashboard. Plus an Account Research agent team — point it at a company and get a sourced dossier (overview, recent signals, strategic angles) in your voice. Say what you want, or use commands like /check (full name /bluerock:check)."
     }
   ]
 }

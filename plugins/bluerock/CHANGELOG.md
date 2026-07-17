@@ -1,5 +1,18 @@
 # Changelog — `bluerock` plugin
 
+## 0.4.10 — lead with the short command form (`/check`, not `/bluerock:check`)
+- **Changed:** builder-facing instructions and generated output now lead with the **short
+  command form** — `/check`, `/wrap-up`, `/today` — instead of the verbose `/bluerock:check`.
+  Claude Code lets you drop the `/bluerock:` prefix and type the short form as long as no other
+  installed tool has the same name (right now none do); the full `/bluerock:<verb>` name still
+  always works and is documented as the fallback for when a short name is ever taken. The plain
+  phrase ("check my workspace") stays the primary, most beginner-friendly path.
+- **Changed:** `/check` now refers to the other tools by their short form in its readiness
+  report, and `/whats-installed` writes `your-toolkit.md` teaching the short form (with the
+  `/bluerock:` full name as the fallback), so the builder's own toolkit map models the convention.
+- **Note:** naming is unchanged — this is a documentation/phrasing change only. The canonical
+  namespaced name (`/bluerock:check`) is unchanged and remains valid everywhere.
+
 ## 0.4.9 — the toolkit is organized by what it's for
 - **Changed:** `/bluerock:whats-installed` now groups `your-toolkit.md` by **what each thing is for** — Set up your Hub · Your daily rhythm · Meetings · Account research — instead of a flat skills-vs-agents split. A builder thinks "I'm prepping a meeting," not "I need an agent," so the map now reads that way. Each item keeps a small `(run)` / `(specialist)` tag so the distinction survives, and anything installed that doesn't match a known category lands in a "More in your toolkit" catch-all — never dropped, never misfiled — so the map stays honest as new skills and role-specific packs ship. Because `/bluerock:onboard` delegates the summary layout to this skill, the toolkit a builder sees on first open is organized the same way, with no duplicated logic.
 - **Changed:** the plugin `README.md` now leads with a scannable "What's in the toolkit" category table (same four categories), so the marketplace listing reads as an organized catalog rather than a prose list.

@@ -77,6 +77,6 @@ find it and the voice tuning silently skips.
   so if a section came back thin; never present guesses as findings.
 - **Tune to me.** If `voice.md` / `objectives.md` exist, the dossier should sound
   like me and rank angles by what I actually care about. If they don't, run anyway
-  and suggest running `/bluerock:onboard` to make the next one sharper.
+  and suggest running `/onboard` (or saying "onboard me") to make the next one sharper.
 - If `researcher` or `signal-scanner` returns almost nothing (private company, no
   public footprint), tell me plainly rather than padding the dossier.

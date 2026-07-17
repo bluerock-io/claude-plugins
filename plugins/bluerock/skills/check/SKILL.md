@@ -32,11 +32,13 @@ never run a destructive command.**
      (make a copy of the template, clone it into the home folder, Cancel the "open cloned
      repository?" popup — it becomes a subfolder and the skills step in). This is a normal
      state right after setup, not an error.
-3. **Python is available** (powers `/bluerock:wrap-up` and the dashboard): `python3 --version`
+3. **Python is available** (powers `wrap-up` and the dashboard): `python3 --version`
    — need 3.x. If missing, that's the one thing to flag.
 4. **Git is available** (for saving work): `git --version`.
-5. **The BlueRock skills are installed.** `/bluerock:check` running confirms the plugin is
-   active; mention that `/bluerock:wrap-up` and the BlueRock agents are available too. While
+5. **The BlueRock skills are installed.** This check running confirms the plugin is
+   active; mention that `/wrap-up` (or just say "wrap up my session") and the BlueRock agents
+   are available too. Refer to the tools by their short form (`/wrap-up`, `/today`), not the
+   long `/bluerock:` form — the short form works and reads friendlier. While
    here, read the installed plugin **version** from
    `~/.claude/plugins/marketplaces/*/plugins/bluerock/.claude-plugin/plugin.json` — you'll use
    it in the next check.
@@ -44,8 +46,8 @@ never run a destructive command.**
    both in the Hub:
    - **The visible `toolkit/` folder is present.** Check the Hub root for a `toolkit/`
      folder with `toolkit/skills/` and `toolkit/agents/` inside — the browsable copies of
-     every skill and agent (written by `/bluerock:onboard` on first setup, or
-     `/bluerock:whats-installed` anytime). If it's there, say so in a word: their tools are
+     every skill and agent (written by `/onboard` on first setup, or
+     `/whats-installed` anytime). If it's there, say so in a word: their tools are
      browsable in `toolkit/`. If it's **absent**, that's the soft tip below — not a "needs
      attention" (the plugin still works from the cache; the folder is just the window onto
      it).
@@ -75,7 +77,7 @@ this is always a soft invitation, never a "needs attention":
 - **Toolkit is an older version than what's installed:** *"Your BlueRock tools updated since
   your toolkit was written (you're on vX.Y.Z now) — say 'what can I do' to refresh it."*
 
-All three run `/bluerock:whats-installed`.
+All three run `/whats-installed`.
 
 Keep the whole thing scannable — a beginner should feel reassured, not audited.
 
