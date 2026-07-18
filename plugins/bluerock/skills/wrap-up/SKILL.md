@@ -112,10 +112,20 @@ card layout), but the artifact must be self-contained, so:
   Use system-font fallbacks (`Georgia, serif` for the serif headings;
   `system-ui, sans-serif` for body; `ui-monospace, monospace` for numerals) so it
   still reads like the design without the web fonts.
+- **Embed the logo as a `data:` URI.** The BlueRock for Builders logo must be inlined as a
+  base64 `data:` URI built from the Hub's `design/builders-logo-light.svg` (the design-system
+  logo, alongside `dashboard.html`) — never an `<img src>` that points at that file. The same
+  CSP that blocks remote images blocks a file reference too, so it fails silently and every
+  builder's dashboard ships with a broken logo. Read the SVG, base64-encode it, and set
+  `src="data:image/svg+xml;base64,…"`. If the file isn't present, omit the logo rather than
+  reference it externally.
 - **No CTA buttons and no trial countdown.** This is a read-only value mirror — what my
   agents did, what shipped, what it cost. No "Upgrade," no "Start trial," no
   "days left." Conversion and trial timing live in the email lifecycle and Console,
   not here. A dead button in a sandboxed artifact is worse than no button.
+- **Topbar is the logo only.** No account chrome in the header — no builder name, no
+  workspace id, no avatar. The dashboard is a read-only value mirror, not a logged-in
+  console, so the top bar carries the logo and nothing else.
 - Keep the **"From your sessions"** provenance label and the honest-data rules above —
   omit any section you don't have honest data for rather than faking it.
 

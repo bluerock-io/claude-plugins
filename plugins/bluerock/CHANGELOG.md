@@ -12,6 +12,11 @@
   `/bluerock:` full name as the fallback), so the builder's own toolkit map models the convention.
 - **Note:** naming is unchanged — this is a documentation/phrasing change only. The canonical
   namespaced name (`/bluerock:check`) is unchanged and remains valid everywhere.
+- **Fixed (dashboard artifact):** `/wrap-up` now embeds the BlueRock for Builders logo as a
+  base64 `data:` URI (from the Hub's `design/builders-logo-light.svg`) instead of an external
+  `<img src>` — the artifact CSP blocks external images, so a file reference failed silently and
+  shipped a broken logo. And the artifact topbar is now the **logo only** — no builder name,
+  workspace id, or avatar. The dashboard is a read-only value mirror, not a logged-in console.
 
 ## 0.4.9 — the toolkit is organized by what it's for
 - **Changed:** `/bluerock:whats-installed` now groups `your-toolkit.md` by **what each thing is for** — Set up your Hub · Your daily rhythm · Meetings · Account research — instead of a flat skills-vs-agents split. A builder thinks "I'm prepping a meeting," not "I need an agent," so the map now reads that way. Each item keeps a small `(run)` / `(specialist)` tag so the distinction survives, and anything installed that doesn't match a known category lands in a "More in your toolkit" catch-all — never dropped, never misfiled — so the map stays honest as new skills and role-specific packs ship. Because `/bluerock:onboard` delegates the summary layout to this skill, the toolkit a builder sees on first open is organized the same way, with no duplicated logic.
