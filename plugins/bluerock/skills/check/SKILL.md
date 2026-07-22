@@ -1,6 +1,6 @@
 ---
 name: check
-description: Make sure your BlueRock workspace is ready — confirms Claude Code is working, your starter project is in place, and the tools the curriculum needs are available. Use right after you connect, or any time something feels off.
+description: Make sure your secure workspace is ready — confirms Claude Code is working, your AI Work Hub (from the Starter) is in place, and the tools the curriculum needs are available. Use right after you connect, or any time something feels off.
 ---
 
 You are giving a BlueRock builder a friendly, reassuring readiness check. They may be in
@@ -11,7 +11,7 @@ never run a destructive command.**
 ## Checks (all read-only)
 
 1. **Claude Code is working.** The fact this skill ran is the proof — say so.
-2. **Your Hub is here.** Run `ls` and look for the Hub's signature: `CLAUDE.md` and a
+2. **Your AI Work Hub is here.** Run `ls` and look for the Hub's signature: `CLAUDE.md` and a
    `design/` folder (holding `design/dashboard.html`) side by side, plus the curriculum.
    If they're right there, you're set. If not, take **one quick look** for the Hub nearby —
    `ls */CLAUDE.md` (one level down) and `ls ~/*/CLAUDE.md` (one level under home). That's
@@ -28,7 +28,7 @@ never run a destructive command.**
      green.
    - **If nothing turns up, stop and conclude — don't keep hunting:** they most likely
      **haven't created their Hub yet**. This is the only case that gets a "needs attention."
-     Say so warmly and point them to the *"Create your Hub from the starter template"* step
+     Say so warmly and point them to the *"Create your AI Work Hub from the Starter"* step
      (make a copy of the template, clone it into the home folder, Cancel the "open cloned
      repository?" popup — it becomes a subfolder and the skills step in). This is a normal
      state right after setup, not an error.

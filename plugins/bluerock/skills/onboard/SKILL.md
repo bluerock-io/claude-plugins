@@ -1,7 +1,7 @@
 ---
 name: onboard
 description: >-
-  Get to know me and set up my Hub so it knows who I am, what I'm working on,
+  Get to know me and set up my AI Work Hub so it knows who I am, what I'm working on,
   and how I write. Use when I say "onboard me", "get to know me", "set up my
   Hub", "prime my Hub", "build my profile", or when I paste what ChatGPT/Claude
   already knows about me.
@@ -17,8 +17,8 @@ highest-leverage thing they can do first.
 
 ## First — anchor to the Hub
 
-The three profile files belong in the builder's Hub — the repo they cloned from the
-starter. In an SSH/cloud container the session usually starts in the **home folder**,
+The three profile files belong in the builder's AI Work Hub — the repo they cloned from the
+Starter. In an SSH/cloud container the session usually starts in the **home folder**,
 with the Hub one level down. The builder named it when they cloned (`maria-hub`,
 `alex-hub` — don't assume a fixed name like `hub-starter`); identify it by its
 signature, not its name. Before writing: run `ls`. See `CLAUDE.md` and `design/` side
