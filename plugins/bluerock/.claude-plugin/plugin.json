@@ -1,7 +1,7 @@
 {
   "name": "bluerock",
   "description": "The plugin for BlueRock for Builders (builders.bluerock.io). Your AI Work Hub, trained on how you write — it runs your morning brief, tracks today's priorities, preps and recaps meetings, wraps up your sessions, and points an Account Research agent team at any company to hand you a sourced dossier in your voice. Drive it in plain language, or with commands like /check (full name /bluerock:check).",
-  "version": "0.4.11",
+  "version": "0.4.12",
   "author": { "name": "BlueRock" },
   "homepage": "https://builders.bluerock.io"
 }

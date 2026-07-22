@@ -1,5 +1,19 @@
 # Changelog — `bluerock` plugin
 
+## 0.4.12 — `/check` reads as a "signs of life" milestone, not a parts inventory
+- **Changed:** `/check` now reports the milestone instead of a parts-inventory checklist. The
+  builder is non-dev (GTM / RevOps / ops), so the readiness report no longer lists Claude Code,
+  Python, Git, and the plugin as separate green/amber line items. It **leads with the payoff**
+  ("Your AI Work Hub is alive."), rolls the plumbing checks into **one** reassurance ("Your tools
+  are ready."), and **surfaces a specific item only if something is actually wrong**. All the same
+  read-only checks still run behind the scenes; only the framing changed.
+- **Changed:** the closing line now **points to the first win** — "say hello to your first agent
+  team in Session 2" — instead of sending the builder to "the curriculum" generically.
+- **Changed:** the skill `description` and the no-Hub-yet pointer are reframed to the milestone
+  ("came alive in your cloud workspace," *"Get the Starter → your AI Work Hub"*), matching the
+  learn.bluerock.io Get Started Session 1 language. Hub-found-as-subfolder is still a PASS; a Hub
+  that doesn't exist yet is still the one "needs attention" case.
+
 ## 0.4.11 — align messaging to "your AI Work Hub"
 - **Changed:** builder-facing copy now names the owned repo **"your AI Work Hub"** (introduced
   once per surface, then "your Hub") to match the learn.bluerock.io curriculum and Get Started.
