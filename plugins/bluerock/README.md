@@ -10,7 +10,7 @@ You drive it in plain language, or use the commands when you'd rather be explici
 has a full name like `/bluerock:check` (the `/bluerock:` part just says which toolkit it came
 from), and you can drop that prefix and type the short form, `/check`, as long as no other
 installed tool has the same name — right now none do. If a short name ever gets crowded, the
-full `/bluerock:check` always works. Everything runs inside your own repo, your **Hub**, so
+full `/bluerock:check` always works. Everything runs inside your own repo, your **AI Work Hub**, so
 nothing is locked in an app: the output is your files, and they're yours with or without the plugin.
 
 > **New here?** The [BlueRock for Builders curriculum](https://builders.bluerock.io) sets
@@ -40,7 +40,7 @@ tab, find **bluerock** under Available → **Install** → choose **"Install for
 Click **Restart** when prompted.
 
 Then say *"check my workspace"* (or run `/check`) to confirm you're set. You'll want a Hub to run it in — the
-[starter template](https://github.com/bluerock-io/hub-starter) gives you one in a click.
+[the Starter](https://github.com/bluerock-io/hub-starter) gives you one in a click.
 
 ## Account Research — point a team at a company
 

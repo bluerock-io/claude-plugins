@@ -1,5 +1,16 @@
 # Changelog — `bluerock` plugin
 
+## 0.4.11 — align messaging to "your AI Work Hub"
+- **Changed:** builder-facing copy now names the owned repo **"your AI Work Hub"** (introduced
+  once per surface, then "your Hub") to match the learn.bluerock.io curriculum and Get Started.
+  `/check` now reports "Your AI Work Hub is here," points a builder without one to *"Create your
+  AI Work Hub from the Starter,"* and its description says "your secure workspace" (not "BlueRock
+  workspace") and "your AI Work Hub (from the Starter)" (not "starter project"). `/onboard` and
+  the plugin README introduce "your AI Work Hub" at first mention and call the template **the
+  Starter**. The plugin description leads with "Your AI Work Hub."
+- **Changed:** `daily-brew` curriculum references renumbered to the 8-session model
+  (M5 → Session 7, M2–M4 → Sessions 4–6).
+
 ## 0.4.10 — lead with the short command form (`/check`, not `/bluerock:check`)
 - **Changed:** builder-facing instructions and generated output now lead with the **short
   command form** — `/check`, `/wrap-up`, `/today` — instead of the verbose `/bluerock:check`.

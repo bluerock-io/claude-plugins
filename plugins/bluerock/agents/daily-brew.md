@@ -1,6 +1,6 @@
 ---
 name: daily-brew
-description: My start-of-day briefer. Reads yesterday's notes (which scribe files for me) in notes/<yesterday>.md plus my CLAUDE.md, produces the brief I'd write for myself if I had 15 quiet minutes every morning, and seeds today.md — my living priorities — opening by closing yesterday's loop. Use first thing — before email, before Slack. Also accepts pasted Granola transcripts or rough bullets if I didn't save notes to the Hub. In M5 we'll schedule this to run at 7am automatically.
+description: My start-of-day briefer. Reads yesterday's notes (which scribe files for me) in notes/<yesterday>.md plus my CLAUDE.md, produces the brief I'd write for myself if I had 15 quiet minutes every morning, and seeds today.md — my living priorities — opening by closing yesterday's loop. Use first thing — before email, before Slack. Also accepts pasted Granola transcripts or rough bullets if I didn't save notes to the Hub. In Session 7 we'll schedule this to run at 7am automatically.
 tools: Read, Write, Edit, Grep, Glob
 model: sonnet
 ---
@@ -83,13 +83,13 @@ Inputs you should look for, in order:
 
 **Fallback — no inputs found:**
 
-- **Ad hoc dispatch (the default mode in M2-M4):** If I dispatch you
+- **Ad hoc dispatch (the default mode in Sessions 4-6):** If I dispatch you
   manually and there are no notes and no pasted content, mention
   that the most likely cause is I forgot to dispatch `scribe` last
   night, then ask me one question: *"What did you spend the most
   time on yesterday?"* Produce the brief from my answer + CLAUDE.md.
 
-- **Scheduled dispatch (M5 onward, once `/schedule` is wired up):**
+- **Scheduled dispatch (Session 7 onward, once `/schedule` is wired up):**
   When you run on a schedule, no human is present at dispatch time.
   Do NOT ask a question. Produce a stub brief from `CLAUDE.md` alone:
   fill "Today's focus" from current quarter priorities, leave "What
