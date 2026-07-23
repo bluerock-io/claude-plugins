@@ -1,7 +1,7 @@
 {
   "name": "bluerock",
   "description": "The plugin behind BlueRock for Builders (builders.bluerock.io). The run-as-is core for your AI Work Hub: it gets to know you, tracks today's priorities, wraps up your sessions into a dashboard, and points a fast Account Scorecard team at any company. Your Hub comes seeded with more agents and skills you own and edit. Drive it in plain language, or with commands like /check (full name /bluerock:check).",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "author": { "name": "BlueRock" },
   "homepage": "https://builders.bluerock.io"
 }

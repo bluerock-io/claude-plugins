@@ -20,8 +20,16 @@ when the evidence is thin.
 - `scan.md` in the working folder (the scout's output — your only source of facts).
 - If present at the Hub root, `voice.md` (so the scorecard sounds like the builder) and
   `objectives.md` (so **Fit** is judged against what the builder actually cares about
-  this quarter, not a generic ICP). If they're absent, score against a sensible default
-  and say so in one line.
+  this quarter, not a generic ICP).
+- **If `objectives.md` is absent, score Fit against a general business profile only** —
+  is this a real, plausible, reachable B2B buyer at all — and **always add this one-line
+  note under Fit:** *"Scored against a general profile — set your objectives (run
+  /bluerock:onboard) to score Fit against what you actually sell."* Do **not** invent an
+  ICP, and do **not** reward the account for being in any particular space (especially do
+  not treat "AI-focused" or buzzy as higher Fit — that is the builder's ICP to define, not
+  yours). A generic builder may sell to logistics, fintech, or healthcare; an AI company is
+  not automatically a better fit for them. Timing and Reachability still score normally
+  from the scan's facts; only Fit carries the default caveat.
 
 ## Job — score three dimensions
 
@@ -29,7 +37,7 @@ Rate each **High / Medium / Low** with a one-line rationale that points at a fac
 the scan (cite the signal or source where it matters):
 
 - **Fit** — does this account match what the builder sells to / cares about (per
-  `objectives.md` if present)?
+  `objectives.md` if present; if absent, the general-profile default + caveat above)?
 - **Timing** — is there a recent signal that says *now* (funding, hiring, launch,
   leadership change)?
 - **Reachability** — is there an obvious way in (a named person, a warm angle, a public
@@ -58,15 +66,22 @@ external requests — no CDN, no web fonts, no remote images, no scripts.** It i
 page. Print-friendly, read-only, no CTAs or buttons.
 
 **Layout** — one centered column, `max-width: 640px`, generous whitespace:
-1. **Header** — company name (serif, ~30px, ink-900); a subline in muted ink:
-   `Account Scorecard · Scored <today's date> · <N> sources`.
-2. **Three dimension rows**, stacked. Each row: the label (`Fit` / `Timing` /
-   `Reachability`, small uppercase, letter-spacing), a **rating pill** (`High` / `Medium`
-   / `Low`, color-coded per the palette), and the one-line rationale beneath in body ink.
+1. **Header** — company name (serif, ~30px, ink-900); a one-line **descriptor** beneath in
+   muted ink (stage + what they do, e.g. `Series B · B2B analytics SaaS for GTM teams`, from
+   the scan); then a subline in muted ink: `Account Scorecard · Scored <today's date> · <N>
+   sources`.
+2. **Three dimension rows**, stacked. Each row: a small rating-colored dot + the label
+   (`Fit` / `Timing` / `Reachability`, small uppercase, letter-spacing), a **rating pill**
+   (`High` / `Medium` / `Low`, color-coded per the palette), and the one-line rationale
+   beneath in body ink. (When Fit uses the no-objectives default, render its one-line caveat
+   here in muted ink.)
 3. **Why now** — a highlighted callout: cream tint background, a 3px accent-blue left
    border, the one sentence in ink-900.
-4. **Recommended next action** — its own block, labeled, the concrete step in body ink.
-5. **Footer** — small muted text: `Built with BlueRock · Account Scorecard`.
+4. **Recommended next step** — its own block, labeled, the concrete step in body ink.
+5. **Sources** — a small "Sources" label, then the scan's source domains as a wrapped row
+   of small mono chips (cream fill, hairline border), so the `<N> sources` count is visible
+   and clickable-looking. Keep to the domains the scout actually used.
+6. **Footer** — small muted text: `Built with BlueRock · Account Scorecard · scout + scorer`.
 
 **Palette** (Builders "cool-paper", light-only — use these hex values directly since the
 Artifact can't read the app's CSS variables):
