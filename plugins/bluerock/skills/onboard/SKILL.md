@@ -71,19 +71,7 @@ Keep it concrete and paste-ready — a brief I'd hand a new assistant on day one
    they gave no samples, ask for one or two).
 3. **Write the three files** (below). Draft them, then show the builder the key
    parts and offer to adjust — these are theirs.
-4. **Make their tools visible.** Right after the profile files, generate the builder's
-   **toolkit mirror** so their BlueRock tools show up in their own file tree from the
-   very first session. This matters: the plugin installs at account scope, so its
-   skills and agents live in an opaque plugin cache the builder can't browse — without
-   this, their file tree looks empty of the toolkit, which is confusing and makes the
-   skills hard to review or fork. Do exactly what `/bluerock:whats-installed` does (it's
-   the source of this behavior — don't re-specify the layout here): write read-only
-   copies of every installed skill and agent into a visible `toolkit/` folder at the Hub
-   root, plus the `your-toolkit.md` summary with its version marker. Each copy keeps the
-   "reference copy — copy into `.claude/` to make it yours" note (the fork-to-own path
-   for editing). Then tell them in one line where to look: *"Your tools are in `toolkit/` —
-   open any one to see how it works, or copy it into `.claude/` to make it your own."*
-5. **Confirm and point forward.** One line per file on what you captured, then
+4. **Confirm and point forward.** One line per file on what you captured, then
    send them to their next step (the curriculum, or running `daily-brew`).
 
 ## The three artifacts
