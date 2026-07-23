@@ -1,5 +1,41 @@
 # Changelog — `bluerock` plugin
 
+## 0.5.0 — plugin = run-as-is core; editable agents + skills move to the Hub
+- **Changed (delivery model, Linda 2026-07-22):** the plugin is now the **run-as-is core**,
+  and everything meant to be **edited and owned** ships seeded in the builder's Hub (`.claude/`)
+  instead of the plugin. Rationale: the lesson is "edit agents and create more," and a plugin's
+  agents live read-only in a cache (you must fork to edit). Project-scope `.claude/agents/` and
+  `.claude/skills/` are directly editable, committed, and **outrank** the plugin (project > user >
+  plugin), so seeding in the Hub is clean and gives one editable home. Keeping `wrap-up` + `check`
+  plugin-owned is deliberate — it protects the dashboard schema.
+- **Plugin now ships:** skills `onboard`, `today`, `wrap-up`, `check`, and the new **`scorecard`**
+  team; agents `scout` + `scorer`. That's it.
+- **New — Account Scorecard (`/bluerock:scorecard <company>`, "score Acme Corp"):** a fast,
+  tight two-agent team (`scout` scans, `scorer` grades **Fit / Timing / Reachability** + a "why
+  now" + a recommended next action) that renders a one-page scorecard Claude Artifact. Built as
+  the Session-2 first win — seconds, not the minutes the deep dossier takes.
+- **Moved to the Hub (seeded, editable):** agents `daily-brew`, `scribe`, `meeting-prep`, and the
+  Account Research team `researcher` / `signal-scanner` / `composer`; skills `meeting-recap`,
+  `capture`, and `research` (now `.claude/skills/research/`, invoked bare `/research`; it dispatches
+  the seeded trio). These are what a builder reads, edits, and builds on.
+- **Retired:** `whats-installed` and the `toolkit/` mirror. With the editable agents and skills
+  now living visibly in the Hub's `.claude/`, "make the invisible plugin visible" is moot.
+  `/onboard` no longer writes the mirror; `/check` no longer points to it.
+
+## 0.4.12 — `/check` reads as a "signs of life" milestone, not a parts inventory
+- **Changed:** `/check` now reports the milestone instead of a parts-inventory checklist. The
+  builder is non-dev (GTM / RevOps / ops), so the readiness report no longer lists Claude Code,
+  Python, Git, and the plugin as separate green/amber line items. It **leads with the payoff**
+  ("Your AI Work Hub is alive."), rolls the plumbing checks into **one** reassurance ("Your tools
+  are ready."), and **surfaces a specific item only if something is actually wrong**. All the same
+  read-only checks still run behind the scenes; only the framing changed.
+- **Changed:** the closing line now **points to the first win** — "say hello to your first agent
+  team in Session 2" — instead of sending the builder to "the curriculum" generically.
+- **Changed:** the skill `description` and the no-Hub-yet pointer are reframed to the milestone
+  ("came alive in your cloud workspace," *"Get the Starter → your AI Work Hub"*), matching the
+  learn.bluerock.io Get Started Session 1 language. Hub-found-as-subfolder is still a PASS; a Hub
+  that doesn't exist yet is still the one "needs attention" case.
+
 ## 0.4.11 — align messaging to "your AI Work Hub"
 - **Changed:** builder-facing copy now names the owned repo **"your AI Work Hub"** (introduced
   once per surface, then "your Hub") to match the learn.bluerock.io curriculum and Get Started.
