@@ -1,5 +1,19 @@
 # Changelog — `bluerock` plugin
 
+## 0.5.1 — scorer: honest Fit default + richer scorecard artifact
+- **Fixed (`scorer`):** when `objectives.md` is absent, Fit is now scored against a **general
+  business profile** with a required one-line caveat ("set your objectives to score against
+  what you actually sell"), and must **not** reward the account for being AI-focused/buzzy —
+  that's the builder's ICP to define, not ours. Validated against a real run (Cognition, no
+  objectives.md) where the old "score against a sensible default" wording let the scorer
+  invent an AI-favoring ICP. Timing/Reachability still score from scan facts; only Fit carries
+  the default caveat. Strengthens the priming payoff (Fit sharpens after `/bluerock:onboard`).
+- **Changed (`scorer` artifact):** the scorecard artifact now renders a company **descriptor
+  line**, a rating-colored dot per dimension, a **Sources** chip row (paying off the "N
+  sources" count), and the footer `Built with BlueRock · Account Scorecard · scout + scorer` —
+  so the real output matches the builders.bluerock.io landing mockup. Header subline carries
+  the scored date.
+
 ## 0.5.0 — plugin = run-as-is core; editable agents + skills move to the Hub
 - **Changed (delivery model, Linda 2026-07-22):** the plugin is now the **run-as-is core**,
   and everything meant to be **edited and owned** ships seeded in the builder's Hub (`.claude/`)
