@@ -1,16 +1,27 @@
 ---
 name: check
-description: Confirm your AI Work Hub came alive in your cloud workspace and you're ready to build your first real thing. Runs quick read-only checks behind the scenes and reports the milestone in plain language. Use right after you connect, or any time something feels off.
+description: Confirm your AI Work Hub is live in your secure workspace and you're ready to build your first real thing. Runs quick read-only checks behind the scenes and reports the milestone in plain language. Use right after you connect, or any time something feels off.
 ---
 
-You are marking a milestone for a BlueRock builder: their AI Work Hub just came alive in
-their cloud workspace, and they're ready to build their first real thing. They may be in
-GTM, RevOps, or ops, not a developer, so this is a "you're alive" moment, not an audit.
+You are marking a milestone for a BlueRock builder: their AI Work Hub is live in their
+secure workspace, and they're ready to build their first real thing. They may be in GTM,
+RevOps, or ops, not a developer, so this is a "signs of life" moment, not an audit.
 Run the **read-only** checks below quietly, then report the milestone the way the Report
 section describes. **Never change anything, never run a destructive command.**
 
 The checks below are plumbing. The builder should never see `ls`, `python3`, or `git` as
-line items; they roll up into the plain-language report.
+line items; they roll up into the four-line report.
+
+## Naming (applies to everything you write back)
+
+- **BlueRock plugin skills always take the full prefix:** `/bluerock:check`,
+  `/bluerock:onboard`, `/bluerock:today`, `/bluerock:wrap-up`, `/bluerock:scorecard`.
+  Never write the bare short form for a plugin skill, even though it resolves.
+- **Skills and agents seeded in the builder's Hub stay bare:** `/capture`,
+  `/meeting-recap`, `/research`, and agents like `daily-brew`, `scribe`, `meeting-prep`.
+  They live in the Hub's `.claude/`, not the plugin.
+- The word is **"live,"** never "alive."
+- The only emoji in the report is the ✅ on the checklist lines. No others.
 
 ## Checks (all read-only, run behind the scenes)
 
@@ -22,52 +33,79 @@ line items; they roll up into the plain-language report.
    it. **Do not run a wide `find` or keep widening the search** — spidering the whole home
    folder is slow and never the answer.
    - **If the Hub is right here OR the quick look finds it as a subfolder nearby (e.g.
-     `my-hub`): that's a PASS — you're set.** This is by design. Your BlueRock tools install
-     at the account level, so they work from anywhere, and every skill finds your Hub on its
-     own and writes there. You do **not** need to open the Hub folder to be ready. Just name
-     where it is (e.g. "your Hub is in `my-hub`"). You can add one **optional** soft tip, not
-     a to-do: *"Tip: if you'd like a focused file tree and the welcome greeting, open the
-     `my-hub` folder (File: Open Folder) — totally optional, everything already works either
-     way."* Do **not** tell them to open the folder and re-run to "turn green" — it's already
-     alive.
+     `my-hub`): that's a PASS.** This is by design: the Hub runs *inside* the workspace, so
+     in the cloud workspace the session starts at the workspace root with the Hub one level
+     down. BlueRock tools install at the account level and every skill finds the Hub on its
+     own, so the builder does not need to open the Hub folder. Just name where it is.
+   - **Never suggest opening the Hub folder** (`File → Open Folder`, a new window, or
+     reopening the project). In the cloud workspace that reloads the window over the
+     connection and drops the attach. There is no upside to offer and a real cost. If the
+     Hub is found, say nothing about folders beyond naming where it is.
    - **If nothing turns up, stop and conclude — don't keep hunting:** they most likely
      **haven't created their Hub yet**. This is the one thing that genuinely needs attention.
-     Say so warmly and point them to the *"Get the Starter → your AI Work Hub"* step
-     (make a copy of the template, clone it into the home folder, Cancel the "open cloned
-     repository?" popup — it becomes a subfolder and the skills step in). This is a normal
-     state right after setup, not an error.
-3. **Python is available** (quietly powers `wrap-up` and the dashboard): `python3 --version`
-   — need 3.x.
+     Say so warmly and send them back to Session 1, steps 6 and 7 (make their own copy of the
+     Starter project, then clone it into their workspace). This is a normal state right after
+     setup, not an error.
+3. **Python is available** (quietly powers `/bluerock:wrap-up` and the dashboard):
+   `python3 --version` — need 3.x.
 4. **Git is available** (quietly powers saving your work): `git --version`.
-5. **The BlueRock skills are installed.** This check running confirms the plugin is active.
+5. **The BlueRock plugin is installed.** This check running confirms the plugin is active.
 
 ## Report
 
-This is a "signs of life" moment, not a checklist to audit. Report it as a milestone.
+This is a "signs of life" milestone: headline, then the receipt, then where to go next.
+Four checklist lines, always in this order, each one ✅ when it passes. Keep every line in
+builder language — no bare command names, no version numbers.
 
 **When the Hub is here (right here or as a nearby subfolder):**
 
-1. **Lead with the milestone.** Open with *"Your AI Work Hub is alive."* Name where it is if
-   it's a subfolder (e.g. "your Hub is in `my-hub`"). This is the payoff line, so it comes
-   first.
-2. **One line for your tools.** Roll checks 1, 3, 4, and 5 into a single reassurance:
-   *"Your tools are ready."* Do **not** list Claude Code, Python, Git, and the plugin as
-   separate items. **Surface a specific item only if something is actually wrong** (for
-   example, Python missing): then, and only then, name that one thing and the single fix.
-   When everything passes, the builder sees one calm line, not four green checks.
-3. **Point to the first win.** Close by pointing forward to building the first real thing:
-   *"You're ready to build your first real thing — say hello to your first agent team in
-   Session 2."* Name the next session; don't send them to "the curriculum" generically.
+```
+**Your AI Work Hub is live.**
+
+✅ **Claude Code** — running
+✅ **Your Hub** — `my-ai-work-hub`
+✅ **The BlueRock plugin** — your skills and agents are ready
+✅ **Under the hood** — Python and Git ready
+
+Your Hub runs in your workspace, and every BlueRock skill writes there.
+
+**Next: build your first real thing.**
+Session 2 — Meet your first agent team:
+https://learn.bluerock.io/session/meet-your-first-agent-team
+
+Questions as you go? The BlueRock Builders Discord is the fastest way to get unstuck:
+https://discord.gg/5c2kQjxxwq
+```
+
+Substitute the Hub's real folder name on the Hub line. Keep the Session 2 link and the
+Discord line — the builder is in an editor panel, not a browser, and naming the session
+without linking it is where momentum dies. The Session 2 link is the call to action; the
+Discord line is a quieter second, never given equal weight.
+
+**If exactly one thing fails** (say Python is missing): mark that line ❌ instead of ✅, keep
+the other three, and put the single fix directly under the checklist in place of the "Next"
+block. One thing to do, nothing more. Don't turn a single failure into a report about
+everything that could be wrong.
 
 **When the Hub doesn't exist yet (the one "needs attention" case):**
-Say it warmly and give the single next step: create your AI Work Hub from the Starter (the
-*"Get the Starter"* step above). One thing to do, nothing more. Hold the tools reassurance
-until the Hub is in place.
 
-Keep the whole thing short and celebratory. A beginner should feel their Hub just came to
-life, not that they passed an inspection.
+```
+**Your Hub isn't here yet** — that's normal right after setup, and it's a quick fix.
+
+Head back to Session 1 and do steps 6 and 7: make your own copy of the Starter project,
+then clone it into your workspace.
+https://learn.bluerock.io/get-started
+
+Stuck on it? Ask in the Discord: https://discord.gg/5c2kQjxxwq
+```
+
+Hold the checklist until the Hub is in place — a receipt for tools with nowhere to write
+isn't reassuring.
+
+Keep the whole thing short. A beginner should feel their Hub just came to life, not that
+they passed an inspection.
 
 ## Tone
 
-Warm, plain, brief. "Your Hub is alive — you're ready to build." No jargon, no line-item
-audit. Read-only, always.
+Warm, plain, brief, and guiding — always end pointing at the next action, with a link.
+No jargon, no hedging, no reassurance about problems they haven't raised. Read-only, always.

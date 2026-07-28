@@ -1,5 +1,45 @@
 # Changelog — `bluerock` plugin
 
+## 0.5.2 — `/bluerock:check` reports a receipt and hands off to Session 2
+- **Fixed (`check`):** the report said the Hub was **"alive."** The locked word is **"live"**
+  (decision 2026-07-23) — it shipped on the learn site but never reached the plugin, so the
+  curriculum promised one word and the product said another at the payoff moment. Now "live"
+  everywhere, including the skill description.
+- **Fixed (`check`):** the report's optional tip invited the builder to open their Hub folder
+  via `File → Open Folder` for "a focused file tree and the welcome greeting." In the cloud
+  workspace that **reloads the window over the SSH connection and drops the attach** — the same
+  failure Session 1 step 7 warns about — and the greeting it promised can't fire from the
+  workspace root anyway. The tip is gone, and the skill is now explicitly barred from ever
+  suggesting the builder open the Hub folder. The Hub sitting one level below the workspace
+  root is the intended shape, not a problem to fix.
+- **Changed (`check`):** the all-clear is a **four-line ✅ receipt** under the milestone
+  headline (Claude Code · your Hub · the plugin · under the hood), not a single flat line.
+  0.4.11 collapsed the checks to one sentence to avoid a "parts inventory," but Claude Code
+  renders every tool call anyway, so the collapse hid nothing and cost the builder the visible
+  proof. A single failure marks that one line ❌ and shows one fix; it never becomes a report
+  about everything that could be wrong.
+- **Changed (`check`):** the report now **links** where it points. It named Session 2 without a
+  URL, leaving the builder to go find learn.bluerock.io from inside an editor panel at the
+  highest-momentum moment in setup. It now carries the Session 2 link as the call to action and
+  a quieter BlueRock Builders Discord line beneath it. The no-Hub path likewise links back to
+  Session 1 instead of naming a step that no longer exists by that name.
+- **Changed (naming, Linda 2026-07-27):** plugin skills are always written with the full
+  `/bluerock:` prefix; skills and agents seeded in the builder's Hub stay bare (`/capture`,
+  `daily-brew`). Written into `check` as a standing rule and applied across the plugin README,
+  which still taught builders to drop the prefix.
+- **Vocab:** "your cloud workspace" → **"your secure workspace"**; "the template" → **"the
+  Starter project"**; the no-Hub path points at Session 1 steps 6–7 by their real titles.
+- **Fixed (public copy, was two releases stale):** the marketplace catalog description and the
+  repo's root README both still led with the Account Research dossier as the plugin's marquee
+  feature — that moved to the Hub seed in 0.5.0 and is no longer in the plugin — and neither
+  mentioned the Account Scorecard, which is the actual first win. The root README also still
+  taught builders to drop the `/bluerock:` prefix. Both rewritten: Scorecard first, the
+  run-as-is vs. make-it-yours split made explicit, and a note that custom marketplaces don't
+  auto-update. The root README had drifted because nothing synced it — it now has a source of
+  truth in `marketing-hub` alongside the rest of the plugin.
+- **Fixed:** the plugin README said Claude Code runs "inside Cursor." The workspace serves
+  **Cursor or VS Code**.
+
 ## 0.5.1 — scorer: honest Fit default + richer scorecard artifact
 - **Fixed (`scorer`):** when `objectives.md` is absent, Fit is now scored against a **general
   business profile** with a required one-line caveat ("set your objectives to score against

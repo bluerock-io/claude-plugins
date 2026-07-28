@@ -1,12 +1,14 @@
 {
   "name": "bluerock",
-  "owner": { "name": "BlueRock" },
-  "description": "BlueRock for Builders — the builder toolkit for Claude Code. Say 'research Acme Corp' and an agent team hands you a sourced dossier; set it up once and it runs your morning brief, your meetings, and your session wrap-up — all on your own files. Part of the BlueRock for Builders program at builders.bluerock.io.",
+  "owner": {
+    "name": "BlueRock"
+  },
+  "description": "BlueRock for Builders \u2014 the builder toolkit for Claude Code. Say 'score Acme Corp' and a two-agent team hands you a one-page account scorecard; set it up once and it runs your priorities and your session wrap-up, all on your own files. Part of the BlueRock for Builders program at builders.bluerock.io.",
   "plugins": [
     {
       "name": "bluerock",
       "source": "./plugins/bluerock",
-      "description": "Your daily rhythm in Claude Code — onboarding that learns who you are and how you write, a morning brief that seeds your priorities, a living to-do, meeting prep + recap, and an end-of-day wrap-up that refreshes your dashboard. Plus an Account Research agent team — point it at a company and get a sourced dossier (overview, recent signals, strategic angles) in your voice. Say what you want, or use commands like /check (full name /bluerock:check)."
+      "description": "Point a two-agent team at a company and get a one-page Account Scorecard \u2014 Fit, Timing, Reachability, and the recommended next step. Plus your daily rhythm: onboarding that learns who you are and how you write, a living to-do, and an end-of-day wrap-up that refreshes your dashboard. Your Hub comes seeded with more agents and skills you own and edit. Everything writes plain markdown into your own repo. Say what you want, or use commands like /bluerock:scorecard."
     }
   ]
 }

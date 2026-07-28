@@ -3,15 +3,15 @@
 Say *"score Acme Corp"* and a two-agent team hands you a one-page account scorecard. Say
 *"wrap up my session"* and it logs your work and refreshes your dashboard. This is the
 plugin behind [BlueRock for Builders](https://builders.bluerock.io) — the run-as-is core
-that turns Claude Code (inside Cursor) into tools that do your real work and write it back
+that turns Claude Code (inside Cursor or VS Code) into tools that do your real work and write it back
 as plain markdown you own.
 
-You drive it in plain language, or use the commands when you'd rather be explicit. Every
-tool has a full name like `/bluerock:check` (the `/bluerock:` part just says which toolkit
-it came from), and you can drop the prefix and type the short form, `/check`, as long as no
-other installed tool has the same name. Everything runs inside your own repo, your **AI Work
-Hub**, so nothing is locked in an app: the output is your files, yours with or without the
-plugin.
+You drive it in plain language, or use the commands when you'd rather be explicit. Plugin
+tools are written with their full name — `/bluerock:check`, `/bluerock:wrap-up` — where the
+`/bluerock:` part says which toolkit they came from. The skills and agents seeded in your own
+Hub are yours, so those stay bare: `/capture`, `/research`, `daily-brew`. Everything runs
+inside your own repo, your **AI Work Hub**, so nothing is locked in an app: the output is your
+files, yours with or without the plugin.
 
 > **New here?** The [BlueRock for Builders curriculum](https://builders.bluerock.io) sets
 > up your Hub and walks you through everything below — start there.
@@ -22,13 +22,13 @@ The **run-as-is core** — you drive these; you don't edit them:
 
 | Category | What it's for |
 |---|---|
-| **Set up** | Get to know you, confirm you're ready: `onboard`, `check` |
-| **Your daily rhythm** | Today's priorities and the end-of-session wrap: `today`, `wrap-up` |
-| **Account Scorecard** | Point a fast team at a company for a one-page scorecard: `scorecard` (agents `scout` + `scorer`) |
+| **Set up** | Get to know you, confirm you're ready: `/bluerock:onboard`, `/bluerock:check` |
+| **Your daily rhythm** | Today's priorities and the end-of-session wrap: `/bluerock:today`, `/bluerock:wrap-up` |
+| **Account Scorecard** | Point a fast team at a company for a one-page scorecard: `/bluerock:scorecard` (agents `scout` + `scorer`) |
 
 ## Account Scorecard — the fast first win
 
-`/scorecard <company>` (or *"score Acme Corp"*) runs two agents and hands you a one-page
+`/bluerock:scorecard <company>` (or *"score Acme Corp"*) runs two agents and hands you a one-page
 scorecard:
 
 - **`scout`** — a quick, sourced scan: what they do, size and stage, one or two recent signals.
@@ -60,13 +60,15 @@ In the Claude Code panel, type `/plugins` (plural) to open the plugin manager. O
 **Plugins** tab, find **bluerock** under Available → **Install** → choose **"Install for
 you"** and trust it. Click **Restart** when prompted.
 
-Then say *"check my workspace"* (or run `/check`) to confirm you're set. You'll want a Hub to
+Then say *"check my workspace"* (or run `/bluerock:check`) to confirm you're set. You'll want a Hub to
 run it in — [the Starter](https://github.com/bluerock-io/hub-starter) gives you one in a click.
 
 ## Run as-is vs. make it yours
 
-- The plugin's core (`onboard`, `today`, `wrap-up`, `check`, `scorecard`) you run as-is.
-  `/wrap-up` and `/check` especially stay plugin-owned so they keep your dashboard correct.
+- The plugin's core (`/bluerock:onboard`, `/bluerock:today`, `/bluerock:wrap-up`,
+  `/bluerock:check`, `/bluerock:scorecard`) you run as-is.
+  `/bluerock:wrap-up` and `/bluerock:check` especially stay plugin-owned so they keep your
+  dashboard correct.
 - Everything in your Hub's `.claude/` is yours: edit it in place, or build your own
   alongside. Name a skill of your own (`/standup`) and it just works; name an agent after a
   seeded one and yours takes over.

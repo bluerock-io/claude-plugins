@@ -1,19 +1,36 @@
 # BlueRock for Builders — Claude Code plugin
 
-The BlueRock plugin marketplace for Claude Code. One plugin, `bluerock`, with two things in it:
+The BlueRock plugin marketplace for Claude Code. One plugin, `bluerock`: the run-as-is core
+for your **AI Work Hub**.
 
-- **A daily operating rhythm.** `/onboard` learns who you are and how you write,
-  `scribe` captures your day, `daily-brew` seeds a morning brief and priorities,
-  `/today` keeps the list, `meeting-prep` and `/meeting-recap` bracket
-  your meetings, and `/wrap-up` closes the loop and refreshes your build dashboard.
-- **An Account Research agent team.** `/research <company>` runs researcher →
-  signal-scanner → composer at a target and hands you a sourced dossier: overview, recent
-  signals, and strategic angles in your voice.
+Say *"score Acme Corp"* and a two-agent team hands you a one-page account scorecard — Fit,
+Timing, Reachability, why now, and the recommended next step. Say *"wrap up my session"* and
+it logs what you did and refreshes your dashboard. Everything it produces is plain markdown
+in your own repo.
 
-You drive it in plain language ("wrap up my session") or with commands. Each tool has a full
-name like `/bluerock:check` — you can drop the `/bluerock:` prefix and type the short form,
-`/check`, as long as no other installed tool has the same name (right now none do); the full
-`/bluerock:check` always works if a short one is ever taken.
+## What's in it
+
+- **Account Scorecard.** `/bluerock:scorecard <company>` runs `scout` → `scorer` and returns
+  a one-page scorecard you can act on. This is the fast first win.
+- **Your daily rhythm.** `/bluerock:onboard` learns who you are and how you write,
+  `/bluerock:today` keeps your priorities, and `/bluerock:wrap-up` closes the day and
+  refreshes your dashboard.
+- **A readiness check.** `/bluerock:check` confirms your Hub is live and points you at
+  what's next.
+
+Plugin tools are written with their full name — `/bluerock:check`, `/bluerock:wrap-up` —
+where the `/bluerock:` part says which toolkit they came from. You can also just say what you
+want in plain language.
+
+## Run as-is vs. make it yours
+
+The plugin is the part you **run**. The part you **edit** ships seeded in your own Hub, in
+`.claude/` — agents like `daily-brew`, `scribe`, and `meeting-prep`, and skills like
+`/capture` and `/research`. Those are yours: change them in place, or write your own
+alongside. Hub skills and agents stay bare (no `/bluerock:` prefix), and a Hub agent named
+after a seeded one takes over from it.
+
+`/bluerock:wrap-up` and `/bluerock:check` stay plugin-owned so your dashboard keeps working.
 
 ## Install
 
@@ -21,7 +38,12 @@ In the Claude Code panel, type `/plugins` (plural) to open the plugin manager. O
 **Marketplaces** tab, add `bluerock-io/claude-plugins`. On the **Plugins** tab, install
 **bluerock** ("Install for you"), trust it, and **Restart**.
 
-Then try `/onboard` (or say "onboard me") to set up, or `/research <company>` for a dossier.
+Then say *"check my workspace"* (or run `/bluerock:check`) to confirm you're set. You'll want
+a Hub to run it in — [the Starter](https://github.com/bluerock-io/hub-starter) gives you one
+in a click.
+
+Already installed? Custom marketplaces don't auto-update — run `/plugins`, open
+**Marketplaces**, and refresh `bluerock` to pick up a new release.
 
 ## Safe by default
 
