@@ -3,7 +3,7 @@
 Say *"score Acme Corp"* and a two-agent team hands you a one-page account scorecard. Say
 *"wrap up my session"* and it logs your work and refreshes your dashboard. This is the
 plugin behind [BlueRock for Builders](https://builders.bluerock.io) — the run-as-is core
-that turns Claude Code (inside Cursor) into tools that do your real work and write it back
+that turns Claude Code (inside Cursor or VS Code) into tools that do your real work and write it back
 as plain markdown you own.
 
 You drive it in plain language, or use the commands when you'd rather be explicit. Plugin

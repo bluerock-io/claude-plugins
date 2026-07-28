@@ -29,6 +29,16 @@
   which still taught builders to drop the prefix.
 - **Vocab:** "your cloud workspace" → **"your secure workspace"**; "the template" → **"the
   Starter project"**; the no-Hub path points at Session 1 steps 6–7 by their real titles.
+- **Fixed (public copy, was two releases stale):** the marketplace catalog description and the
+  repo's root README both still led with the Account Research dossier as the plugin's marquee
+  feature — that moved to the Hub seed in 0.5.0 and is no longer in the plugin — and neither
+  mentioned the Account Scorecard, which is the actual first win. The root README also still
+  taught builders to drop the `/bluerock:` prefix. Both rewritten: Scorecard first, the
+  run-as-is vs. make-it-yours split made explicit, and a note that custom marketplaces don't
+  auto-update. The root README had drifted because nothing synced it — it now has a source of
+  truth in `marketing-hub` alongside the rest of the plugin.
+- **Fixed:** the plugin README said Claude Code runs "inside Cursor." The workspace serves
+  **Cursor or VS Code**.
 
 ## 0.5.1 — scorer: honest Fit default + richer scorecard artifact
 - **Fixed (`scorer`):** when `objectives.md` is absent, Fit is now scored against a **general
