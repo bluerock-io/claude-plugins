@@ -1,5 +1,24 @@
 # Changelog — `bluerock` plugin
 
+## 0.5.3 — install-listing copy and metadata
+
+Copy-only. No skill, agent, or behavior changes.
+
+- **Changed (install pane):** `plugin.json`'s description opened with "The plugin behind
+  BlueRock for Builders" and the internal phrase "the run-as-is core," a distinction that only
+  lands once you already know the Hub seeds editable agents too. That sentence was the last
+  thing a builder read before clicking Install. It now places the plugin inside the program,
+  names the Hub prerequisite plainly, and leads with the Account Scorecard.
+- **Changed (browse row):** the marketplace entry's description ran 465 characters against an
+  official-marketplace median of 176, so the row truncated before it said anything. Cut to 210,
+  with the brand and the Hub context inside the first 100.
+- **Added:** `displayName: "BlueRock Builder Toolkit"` on both the plugin manifest and the
+  marketplace entry. The Discover row and install pane header were rendering the raw `bluerock`
+  slug. This does not affect namespacing — `/bluerock:check` is unchanged.
+- **Added:** `author`, `homepage`, `category`, and `keywords` on the marketplace entry, plus
+  `repository` and `keywords` on the manifest. The install screen asks builders to trust the
+  source, and none of the provenance fields were set.
+
 ## 0.5.2 — `/bluerock:check` reports a receipt and hands off to Session 2
 - **Fixed (`check`):** the report said the Hub was **"alive."** The locked word is **"live"**
   (decision 2026-07-23) — it shipped on the learn site but never reached the plugin, so the

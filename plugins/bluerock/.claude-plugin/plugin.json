@@ -1,7 +1,10 @@
 {
   "name": "bluerock",
-  "description": "The plugin behind BlueRock for Builders (builders.bluerock.io). The run-as-is core for your AI Work Hub: it gets to know you, tracks today's priorities, wraps up your sessions into a dashboard, and points a fast Account Scorecard team at any company. Your Hub comes seeded with more agents and skills you own and edit. Drive it in plain language, or with commands like /bluerock:check.",
-  "version": "0.5.2",
+  "displayName": "BlueRock Builder Toolkit",
+  "description": "The tools that come with BlueRock for Builders. They run inside your AI Work Hub, the repo you set up in the curriculum. A research team sizes up any company and hands back a one-page Account Scorecard: Fit, Timing, Reachability, and the recommended next step. Onboarding learns how you write, a living list holds your daily priorities, and an end-of-day wrap-up keeps your dashboard current. Everything it writes is plain markdown in your own repo.",
+  "version": "0.5.3",
   "author": { "name": "BlueRock" },
-  "homepage": "https://builders.bluerock.io"
+  "homepage": "https://builders.bluerock.io",
+  "repository": "https://github.com/bluerock-io/claude-plugins",
+  "keywords": ["gtm", "revops", "sales", "account-research", "productivity", "markdown"]
 }
