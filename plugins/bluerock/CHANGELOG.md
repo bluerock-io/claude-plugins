@@ -1,5 +1,26 @@
 # Changelog — `bluerock` plugin
 
+## 0.5.4 — Hub-seeded skills load from the workspace root
+
+- **Fixed (`check`):** Hub-seeded skills and agents did not load in the sandbox because Claude Code
+  starts at `/home/ubuntu` and resolves `.claude/` from there, not downward into the builder's Hub.
+  `/bluerock:check` now finds the Hub by the same signature as `/bluerock:onboard`, asks before
+  creating `~/.claude/skills` and `~/.claude/agents` symlinks, and points those links at the Hub's
+  editable `.claude/` folders. The files stay in the builder's Hub repo; the links live outside it
+  and do not appear in `git status`.
+- **Changed (`check` contract):** the install-pane description and body no longer promise a purely
+  inspection-only check. The new contract is stricter where it matters: never change anything without
+  asking, never seed a stale Hub, never clobber a real `~/.claude/skills` or `~/.claude/agents`
+  directory, and silently no-op when the links already point at this Hub.
+- **Changed (`check` receipt):** the plugin line now says the BlueRock plugin is ready instead of
+  claiming the Hub set is ready before the Hub load path has been verified. If links
+  were just added, the report tells the builder to open a new Claude Code chat because plugins,
+  skills, and agents load when a session starts. The Session 2 label is now "Meet your first
+  agents."
+- **Changed (`scorecard`, Starter `research`):** model-facing orchestration now says to dispatch
+  ordinary subagents sequentially and not use agent-teams tooling. Human-facing "team" language
+  stays intact; the mechanism is the only thing clarified.
+
 ## 0.5.3 — install-listing copy and metadata
 
 Copy-only. No skill, agent, or behavior changes.

@@ -32,7 +32,10 @@ where they cloned their Hub.
 2. **Make the working folder.** Slugify the name → `my-work/account-scorecard/<slug>/`.
    Create it. `my-work/` is builder-owned and never overwritten.
 
-## Run the team, in order
+## Run the agents, in order
+
+Dispatch these as ordinary subagents, one at a time, waiting for each. Do not use
+agent-teams tooling; this runs identically in every client.
 
 3. **Dispatch `scout`** with the company (+ hint) and the working folder. It writes a
    quick, sourced `scan.md` (what they do, size/stage, recent signal). It's bounded to a

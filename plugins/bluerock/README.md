@@ -9,9 +9,9 @@ as plain markdown you own.
 You drive it in plain language, or use the commands when you'd rather be explicit. Plugin
 tools are written with their full name — `/bluerock:check`, `/bluerock:wrap-up` — where the
 `/bluerock:` part says which toolkit they came from. The skills and agents seeded in your own
-Hub are yours, so those stay bare: `/capture`, `/research`, `daily-brew`. Everything runs
-inside your own repo, your **AI Work Hub**, so nothing is locked in an app: the output is your
-files, yours with or without the plugin.
+Hub live in that Hub's `.claude/` folders; `/bluerock:check` can link them for new chats while
+the files stay in your repo. Everything runs inside your own repo, your **AI Work Hub**, so
+nothing is locked in an app: the output is your files, yours with or without the plugin.
 
 > **New here?** The [BlueRock for Builders curriculum](https://builders.bluerock.io) sets
 > up your Hub and walks you through everything below — start there.

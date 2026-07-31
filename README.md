@@ -27,8 +27,8 @@ want in plain language.
 The plugin is the part you **run**. The part you **edit** ships seeded in your own Hub, in
 `.claude/` — agents like `daily-brew`, `scribe`, and `meeting-prep`, and skills like
 `/capture` and `/research`. Those are yours: change them in place, or write your own
-alongside. Hub skills and agents stay bare (no `/bluerock:` prefix), and a Hub agent named
-after a seeded one takes over from it.
+alongside. Ask for them in plain language rather than as slash commands, and a Hub agent
+named after a seeded one takes over from it.
 
 `/bluerock:wrap-up` and `/bluerock:check` stay plugin-owned so your dashboard keeps working.
 
