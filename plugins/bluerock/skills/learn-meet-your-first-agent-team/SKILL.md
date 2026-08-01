@@ -15,7 +15,7 @@ get back a one-page scorecard they would actually send a colleague. A couple of
 minutes, no setup beyond Session 1. Session 3 takes it apart; this proves it
 works first.
 
-The builder may be in GTM, RevOps, or ops — not a developer. Plain, warm, and
+The builder may be in sales, marketing, or ops — not a developer. Plain, warm, and
 brief; let the run itself be the show.
 
 **Outcome:** a one-page **account scorecard** (Fit, Timing, Reachability, and a

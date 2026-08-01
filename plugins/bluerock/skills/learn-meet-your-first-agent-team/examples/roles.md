@@ -2,8 +2,9 @@
 
 Role changes the examples and the share moment, never the lesson: every role
 runs the same scorecard team on a real company. Read the builder's `role` from
-`learning/progress.json` and use the matching block. If their role isn't one of
-the authored ones, or is unset, use the neutral block.
+`learning/progress.json` (values: `sales`, `marketing`, `operations`) and use
+the matching block. For `operations`, use the sales block with a one-line
+"adapt this to your ops work." If role is unset, use the neutral block.
 
 ## sales
 
@@ -34,7 +35,7 @@ the authored ones, or is unset, use the neutral block.
 - **Debrief flavor:** a finished one-pager you'd bring to a planning
   conversation, with a "why now" you can defend.
 
-## neutral (any other role, or role unset)
+## neutral (role unset)
 
 - **Read the scorecard as:** a fast, sourced read on whether a company deserves
   your attention, and what to do next.

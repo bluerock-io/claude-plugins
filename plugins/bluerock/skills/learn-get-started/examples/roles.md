@@ -4,9 +4,10 @@ Session 1 is setup, so the lesson is identical for every role. What role
 changes here is the two-sentence scene-setting at the top and the "what you can
 now do" line at the close — the *why this is worth 20 minutes* framing.
 
-Read the builder's `role` from `learning/progress.json`. Use the matching block
-below. If their role isn't one of the authored ones, or is unset, use the
-neutral framing. Never change the steps.
+Read the builder's `role` from `learning/progress.json` (values: `sales`,
+`marketing`, `operations`). Use the matching block below. For `operations`,
+use the sales block with a one-line "adapt this to your ops work." If role is
+unset, use the neutral framing. Never change the steps.
 
 ## sales
 
@@ -29,7 +30,7 @@ neutral framing. Never change the steps.
   want a read on — a competitor you keep meaning to size up works well — and
   get back a one-pager you could actually share."
 
-## neutral (any other role, or role unset)
+## neutral (role unset)
 
 - **Scene-setting:** "You're about to set up the project everything else builds
   in: your own workspace, your own repo, and a toolkit of agents that do real
