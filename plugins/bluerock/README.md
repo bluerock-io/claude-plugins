@@ -25,6 +25,7 @@ The **run-as-is core** — you drive these; you don't edit them:
 | **Set up** | Get to know you, confirm you're ready: `/bluerock:onboard`, `/bluerock:check` |
 | **Your daily rhythm** | Today's priorities and the end-of-session wrap: `/bluerock:today`, `/bluerock:wrap-up` |
 | **Account Scorecard** | Point a fast team at a company for a one-page scorecard: `/bluerock:scorecard` (agents `scout` + `scorer`) |
+| **Messaging Doc** | Point a fast team at your website for your core messaging doc: `/bluerock:messaging-doc` (agents `site-reader` + `distiller`) |
 
 ## Account Scorecard — the fast first win
 
@@ -37,6 +38,19 @@ scorecard:
 
 Seconds, not a deep dig — the "is this worth my time, and what do I do next" read. For the
 deep, multi-section dossier, that's the **Account Research team** seeded in your Hub (below).
+
+## Messaging Doc — the marketing first win
+
+`/bluerock:messaging-doc <your site>` (or *"build my messaging doc"*) runs two agents and hands
+you your **core messaging doc** — positioning, voice, and the phrases your brand actually uses:
+
+- **`site-reader`** — reads your homepage and the pages that carry the messaging, capturing
+  exactly what the site says: quoted, sourced, never paraphrased.
+- **`distiller`** — turns that (plus anything you paste in: a recent post, campaign copy) into
+  the one-page doc, with honest gaps named.
+
+One website address plus whatever you paste — no exports, no logins. The doc saves in your Hub
+and becomes the baseline every later draft leans on.
 
 ## Your Hub comes with more — and they're yours
 
