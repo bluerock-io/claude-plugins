@@ -83,6 +83,16 @@ outcomes, times, prerequisites, and which sessions run in-session vs. on the
 web. Read it for routing and for "what's left" answers, and use its titles and
 times when you name a session — don't improvise them.
 
+**Resolving a session's outcome:** a session's `outcome` is the default. A
+session may also carry an optional `outcomes` map with per-role overrides
+(only where the lanes genuinely differ — today that's Session 2). When you
+name a session's outcome, look up `outcomes[<role>]` using the builder's
+`role` from `progress.json` — the same field the session lanes key on. **Fall
+back to the default `outcome` whenever the lookup misses: no `role` set yet,
+no `outcomes` map on the session, or no entry for the builder's role.** Never
+read two sessions' outcomes with two different roles; the role is the
+builder's, stored once.
+
 ## Capture surface and role — once, ever
 
 `progress.json` holds the single stored copy of two choices. Check before

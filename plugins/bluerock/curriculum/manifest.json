@@ -23,7 +23,12 @@
       "title": "Meet your first agent team",
       "skill": "learn-meet-your-first-agent-team",
       "delivery": "in-session",
-      "outcome": "Your first win from a two-agent team, opened as a Claude Artifact and saved in your project — sales and operations: a one-page account scorecard (Fit, Timing, Reachability, and a recommended next action); marketing: a core messaging doc for your brand (positioning, voice, and the phrases you actually use).",
+      "outcome": "Your first win from a two-agent team: a one-page work product you would actually send a colleague, opened as a Claude Artifact and saved in your project.",
+      "outcomes": {
+        "sales": "A one-page account scorecard (Fit, Timing, Reachability, and a recommended next action), opened as a Claude Artifact and saved in your project.",
+        "operations": "A one-page account scorecard (Fit, Timing, Reachability, and a recommended next action), opened as a Claude Artifact and saved in your project.",
+        "marketing": "A core messaging doc for your brand (positioning, voice, and the phrases you actually use), opened as a Claude Artifact and saved in your project."
+      },
       "time": "~5 min",
       "phase": "setup",
       "prerequisites": [1],

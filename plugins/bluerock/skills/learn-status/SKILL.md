@@ -21,7 +21,12 @@ not here, `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`, else
 
 Session titles and times come from
 `${CLAUDE_PLUGIN_ROOT}/curriculum/manifest.json` — read it alongside so the
-summary names sessions correctly.
+summary names sessions correctly. If you name a session's outcome ("what
+you'll walk out with"), resolve it role-aware: use `outcomes[<role>]` from the
+session's optional per-role `outcomes` map, with `role` read from
+`progress.json` — and fall back to the session's default `outcome` whenever
+the lookup misses (no `role` set, no `outcomes` map, or no entry for that
+role).
 
 ## Report
 
