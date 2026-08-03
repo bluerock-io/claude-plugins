@@ -24,7 +24,7 @@ so — a gap named honestly is more useful than a gap papered over.
 - `references.md` in the same folder, if present (material the builder pasted in:
   recent posts, campaign copy, an email). Weight it equally with the site — it is often
   closer to how the brand actually sounds today.
-- If present at the Hub root, `voice.md` and `objectives.md` — context on the builder,
+- If present at the project root, `voice.md` and `objectives.md` — context on the builder,
   not a source of brand claims. Never import the builder's personal voice as the
   brand's voice; if the two clearly differ, note it in Gaps.
 
@@ -50,7 +50,7 @@ matter; never upgrade a plain phrase into marketing-speak.
 
 1. Write `messaging-doc.md` in the working folder: the sections above, with a one-line
    header naming the brand, the site, the date, and the sources read. Close with one
-   line: *"This doc is the baseline your Hub drafts against — keep it current and every
+   line: *"This doc is the baseline your project drafts against — keep it current and every
    draft gets sharper."* Never invent facts beyond the sources.
 
 2. **Publish it as a Claude Artifact** — a hosted page the builder opens in-panel and

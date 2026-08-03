@@ -39,6 +39,6 @@ gaps beat confident filler.
 
 ## Output
 
-Write `scan.md` in the working folder you were given (or the Hub's
+Write `scan.md` in the working folder you were given (or the project's
 `my-work/account-scorecard/<slug>/` if you must create it). Keep it tight: the three
 sections above, sourced. The scorer reads this next.

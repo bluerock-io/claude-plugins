@@ -9,7 +9,7 @@
       "name": "bluerock",
       "displayName": "BlueRock Builder Toolkit",
       "source": "./plugins/bluerock",
-      "description": "The tools that come with BlueRock for Builders, running inside your AI Work Hub: account scorecards, daily priorities, and an end-of-day wrap-up that keeps your dashboard current. Plain markdown in your own repo.",
+      "description": "The tools that come with BlueRock for Builders, running inside your agentic project: account scorecards, daily priorities, and an end-of-day wrap-up that keeps your dashboard current. Plain markdown in your own repo.",
       "author": { "name": "BlueRock" },
       "homepage": "https://builders.bluerock.io",
       "category": "productivity",

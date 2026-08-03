@@ -15,21 +15,21 @@ back up.
 
 ## Steps, in order
 
-### 0. Anchor to the Hub
+### 0. Anchor to the project
 
-Everything below reads and writes inside the builder's Hub — the repo they cloned from
-the starter: `today.md`, `session-log.md`, the Hub's `.bluerock/runs.json`, and
-`design/dashboard-data.js` — and `git` runs from the Hub root. In an SSH/cloud
+Everything below reads and writes inside the builder's project — the repo they cloned from
+the starter: `today.md`, `session-log.md`, the project's `.bluerock/runs.json`, and
+`design/dashboard-data.js` — and `git` runs from the project root. In an SSH/cloud
 container the session usually starts in the **home folder**, with
-the Hub one level down. The builder named it when they cloned (`maria-hub`, `alex-hub` —
+the project one level down. The builder named it when they cloned (`maria-hub`, `alex-hub` —
 don't assume a fixed name like `hub-starter`); identify it by its signature, not its
 name. Confirm first: run `ls`. See `CLAUDE.md` and `design/` side by side? You're in the
-Hub. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`, else
+project. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`, else
 `find ~ -maxdepth 3 -path '*/design/dashboard.html'`. **`cd` into that folder and stay
 there for the rest of the wrap-up**, and capture its absolute path with `pwd` so every
 write below targets the full path (e.g. `/home/you/maria-hub/design/dashboard-data.js`).
 Skipping this writes the dashboard and log to the home folder and runs `git` against the
-wrong repo (or none). Can't find it? Ask the builder where they cloned their Hub before
+wrong repo (or none). Can't find it? Ask the builder where they cloned their project before
 wrapping up. (`session-metrics.py` below is the one exception — it's read via
 `${CLAUDE_PLUGIN_ROOT}`, so it runs correctly from anywhere.)
 
@@ -57,8 +57,8 @@ this session.") Then:
   toolsCalled, filesRead, model, costUsd, guardrailEvents }`. Quantitative fields
   from the script; qualitative (agent, target, output) from the session. `model`
   = the canonical undated alias from the usage payload (e.g. `claude-sonnet-4-6`).
-- **Append the atom(s) to the run history** — the Hub's own `.bluerock/runs.json`
-  (keep all atoms). Note this is the Hub-local `.bluerock/`, distinct from the home
+- **Append the atom(s) to the run history** — the project's own `.bluerock/runs.json`
+  (keep all atoms). Note this is the project-local `.bluerock/`, distinct from the home
   `~/.bluerock/` workspace facts read below.
 - **Tally today's priorities.** Read `today.md` and count Focus items: `set` (total),
   `closed` (`[x]`), `carried` (`[>]`). Offer to check off anything I finished this
@@ -73,7 +73,7 @@ Provenance is a trust claim. Beta has **no BlueRock sensor pipeline**, so the la
 is **"From your sessions,"** never "sensor-sourced." Specifically:
 - `guardrail` = `{ wired: false, events: [] }`.
 - `cost` only if a pricing table is present (tokens × price); otherwise zeros / placeholder — never a fabricated number under a trust label.
-- `meta` (builder, workspace, region) comes from the **workspace facts file** — the home `~/.bluerock/workspace.json` (Eng-provisioned, workspace-level; NOT the Hub's `.bluerock/`). Take `builder` / `workspace` / `region` from it; if it's absent, degrade honestly to a generic builder name. **No trial countdown.** The trial clock is not passed into the workspace and the dashboard is a value mirror, not a conversion surface — trial timing and upgrade prompts live in the email lifecycle and Console, not here. Never scrape boot time or file timestamps to fake a provision date (the container suspends/resumes, so those are wrong).
+- `meta` (builder, workspace, region) comes from the **workspace facts file** — the home `~/.bluerock/workspace.json` (Eng-provisioned, workspace-level; NOT the project's `.bluerock/`). Take `builder` / `workspace` / `region` from it; if it's absent, degrade honestly to a generic builder name. **No trial countdown.** The trial clock is not passed into the workspace and the dashboard is a value mirror, not a conversion surface — trial timing and upgrade prompts live in the email lifecycle and Console, not here. Never scrape boot time or file timestamps to fake a provision date (the container suspends/resumes, so those are wrong).
 - `meta.outputsSince` is **singular "you," single user (not a team)**; `count` = outputs this week from `runs[]` (not a last-visit anchor); 0/unknown → greeting only, no fabricated number.
 - `priorities` = `{ set, closed, carried }` for this week, counted from `today.md` (the closure loop). Derived "from your sessions," not sensors.
 - `actions` = `{ total, byAgent: [{ name, count, tone, timeMin }] }` — agent actions this week from `runs[]`, grouped by `agent`. `name` = the agent's name (required — labels the bar), `count` = its action total, `tone` = a stable palette key (`coral`/`plum`/`composer`/`sage`) for the bar (omit → defaults to coral; reuse the same tone per agent across weeks), `timeMin` = wall-clock minutes for that agent this week (from `runs[].runTimeSec`, rolled up). For a multi-agent **team** (e.g. Account Research = researcher + signal-scanner + composer), emit one entry for the team plus `members: [{ name, count, timeMin }]` (members sum to the team's `count` and `timeMin`); use the same team label in `runs[]` so it reads consistently across the Actions card and section 04.
@@ -91,7 +91,7 @@ carried (from `today.md`), success rate, and cost only if a pricing table was pr
 (else "not tracked this session" — never a guessed number). A few honest lines, "from
 your sessions." This always works, with no server or port involved.
 
-**Then render my visual dashboard as a Claude Artifact.** The Hub runs in a remote,
+**Then render my visual dashboard as a Claude Artifact.** The project runs in a remote,
 headless cloud workspace — there's no browser on the container and no forwarded port,
 so a served page (`localhost:...`) never reaches my machine. Instead, publish the
 dashboard as a **Claude Artifact**: it's hosted for me and opens right here, no port,
@@ -113,7 +113,7 @@ card layout), but the artifact must be self-contained, so:
   `system-ui, sans-serif` for body; `ui-monospace, monospace` for numerals) so it
   still reads like the design without the web fonts.
 - **Embed the logo as a `data:` URI.** The BlueRock for Builders logo must be inlined as a
-  base64 `data:` URI built from the Hub's `design/builders-logo-light.svg` (the design-system
+  base64 `data:` URI built from the project's `design/builders-logo-light.svg` (the design-system
   logo, alongside `dashboard.html`) — never an `<img src>` that points at that file. The same
   CSP that blocks remote images blocks a file reference too, so it fails silently and every
   builder's dashboard ships with a broken logo. Read the SVG, base64-encode it, and set
@@ -169,7 +169,7 @@ click. Don't retry silently.
 Last, print a short prompt I can paste into my next session:
 
 ```
-I'm continuing work in my Hub.
+I'm continuing work in my project.
 
 Last session (YYYY-MM-DD): [one sentence: what got done]
 Next up: [what to work on]

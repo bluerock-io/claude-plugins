@@ -9,12 +9,13 @@ as plain markdown you own.
 You drive it in plain language, or use the commands when you'd rather be explicit. Plugin
 tools are written with their full name — `/bluerock:check`, `/bluerock:wrap-up` — where the
 `/bluerock:` part says which toolkit they came from. The skills and agents seeded in your own
-Hub live in that Hub's `.claude/` folders; `/bluerock:check` can link them for new chats while
-the files stay in your repo. Everything runs inside your own repo, your **AI Work Hub**, so
+project live in that project's `.claude/` folders; `/bluerock:check` can link them for new chats while
+the files stay in your repo. Everything runs inside your own repo, your **agentic project**
+(older docs call the same repo your AI Work Hub — same thing), so
 nothing is locked in an app: the output is your files, yours with or without the plugin.
 
 > **New here?** The [BlueRock for Builders curriculum](https://builders.bluerock.io) sets
-> up your Hub and walks you through everything below — start there.
+> up your project and walks you through everything below — start there.
 
 ## What the plugin gives you
 
@@ -37,7 +38,7 @@ scorecard:
   concrete next action, in your voice and against your objectives.
 
 Seconds, not a deep dig — the "is this worth my time, and what do I do next" read. For the
-deep, multi-section dossier, that's the **Account Research team** seeded in your Hub (below).
+deep, multi-section dossier, that's the **Account Research team** seeded in your project (below).
 
 ## Messaging Doc — the marketing first win
 
@@ -49,12 +50,12 @@ you your **core messaging doc** — positioning, voice, and the phrases your bra
 - **`distiller`** — turns that (plus anything you paste in: a recent post, campaign copy) into
   the one-page doc, with honest gaps named.
 
-One website address plus whatever you paste — no exports, no logins. The doc saves in your Hub
+One website address plus whatever you paste — no exports, no logins. The doc saves in your project
 and becomes the baseline every later draft leans on.
 
-## Your Hub comes with more — and they're yours
+## Your project comes with more — and they're yours
 
-Your Hub (from [the Starter](https://github.com/bluerock-io/hub-starter)) ships seeded
+Your project (from [the Starter](https://github.com/bluerock-io/hub-starter)) ships seeded
 agents and skills in `.claude/` that you can open, run, **edit**, and build on:
 
 - **Agents** (`.claude/agents/`) — `daily-brew` (a morning brief that closes yesterday's
@@ -74,7 +75,7 @@ In the Claude Code panel, type `/plugins` (plural) to open the plugin manager. O
 **Plugins** tab, find **bluerock** under Available → **Install** → choose **"Install for
 you"** and trust it. Click **Restart** when prompted.
 
-Then say *"check my workspace"* (or run `/bluerock:check`) to confirm you're set. You'll want a Hub to
+Then say *"check my workspace"* (or run `/bluerock:check`) to confirm you're set. You'll want a project to
 run it in — [the Starter](https://github.com/bluerock-io/hub-starter) gives you one in a click.
 
 ## Run as-is vs. make it yours
@@ -83,7 +84,7 @@ run it in — [the Starter](https://github.com/bluerock-io/hub-starter) gives yo
   `/bluerock:check`, `/bluerock:scorecard`) you run as-is.
   `/bluerock:wrap-up` and `/bluerock:check` especially stay plugin-owned so they keep your
   dashboard correct.
-- Everything in your Hub's `.claude/` is yours: edit it in place, or build your own
+- Everything in your project's `.claude/` is yours: edit it in place, or build your own
   alongside. Name a skill of your own (`/standup`) and it just works; name an agent after a
   seeded one and yours takes over.
 

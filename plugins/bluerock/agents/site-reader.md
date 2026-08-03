@@ -47,7 +47,7 @@ Capture these, quoting verbatim and noting the page URL on each item:
 
 ## Output
 
-Write `signals.md` in the working folder you were given (or the Hub's
+Write `signals.md` in the working folder you were given (or the project's
 `my-work/messaging-doc/<slug>/` if you must create it). Keep it tight: the five
 sections above, quoted and sourced, plus a one-line list of the pages you read. The
 distiller reads this next.

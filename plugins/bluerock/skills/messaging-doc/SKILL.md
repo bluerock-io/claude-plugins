@@ -15,17 +15,17 @@ one-page source of truth for positioning, voice, and the exact phrases the brand
 You orchestrate two agents; they do the work. Keep it tight: a bounded site read and a
 distillation, aiming for about five minutes, not a brand audit.
 
-## First — anchor to the Hub
+## First — anchor to the project
 
 The doc, its working folder, and the `voice.md` / `objectives.md` the run reads all
-live in the builder's Hub (the repo they cloned from the Starter). In an SSH/cloud
-container the session usually starts in the **home folder**, with the Hub one level
+live in the builder's project (the repo they cloned from the Starter). In an SSH/cloud
+container the session usually starts in the **home folder**, with the project one level
 down, named by the builder (`maria-hub`, `alex-hub` — don't assume a fixed name).
 Identify it by signature, not name: run `ls`; see `CLAUDE.md` and `design/` side by
-side? You're in the Hub. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`,
+side? You're in the project. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`,
 else `find ~ -maxdepth 3 -path '*/design/dashboard.html'`. `cd` in, capture the
 **absolute path** with `pwd`, and use that full path throughout. Can't find it? Ask
-where they cloned their Hub.
+where they cloned their project.
 
 ## Setup
 
@@ -52,7 +52,7 @@ agent-teams tooling; this runs identically in every client.
    positioning lines, voice notes, and exact recurring phrases, quoted and sourced. It's
    bounded to a handful of fetches — let it be fast. Wait for it.
 6. **Dispatch `distiller`** with the same folder. It reads `signals.md` (plus
-   `references.md` if present, and `voice.md` / `objectives.md` from the Hub root),
+   `references.md` if present, and `voice.md` / `objectives.md` from the project root),
    writes `messaging-doc.md`, and renders the one-page doc artifact.
 
 ## Finish
@@ -69,8 +69,8 @@ agent-teams tooling; this runs identically in every client.
 
 ## Why this doc matters
 
-This is not a one-off report — it's the Hub's memory seed for everything the builder
-writes from here. Later sessions wire it into the Hub's memory, drafting skills lean on
+This is not a one-off report — it's the project's memory seed for everything the builder
+writes from here. Later sessions wire it into the project's memory, drafting skills lean on
 its phrase bank, and the same two-agent run pointed at a competitor's site gives a
 side-by-side messaging comparison with this doc as the baseline. The better this doc,
-the more the whole Hub sounds like the brand.
+the more the whole project sounds like the brand.

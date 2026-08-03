@@ -18,7 +18,7 @@ when the evidence is thin.
 ## Read first
 
 - `scan.md` in the working folder (the scout's output — your only source of facts).
-- If present at the Hub root, `voice.md` (so the scorecard sounds like the builder) and
+- If present at the project root, `voice.md` (so the scorecard sounds like the builder) and
   `objectives.md` (so **Fit** is judged against what the builder actually cares about
   this quarter, not a generic ICP).
 - **If `objectives.md` is absent, score Fit against a general business profile only** —
