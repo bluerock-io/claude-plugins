@@ -23,7 +23,7 @@
       "title": "Meet your first agent team",
       "skill": "learn-meet-your-first-agent-team",
       "delivery": "in-session",
-      "outcome": "A one-page account scorecard (Fit, Timing, Reachability, and a recommended next action), opened as a Claude Artifact and saved in your project.",
+      "outcome": "Your first win from a two-agent team, opened as a Claude Artifact and saved in your project — sales and operations: a one-page account scorecard (Fit, Timing, Reachability, and a recommended next action); marketing: a core messaging doc for your brand (positioning, voice, and the phrases you actually use).",
       "time": "~5 min",
       "phase": "setup",
       "prerequisites": [1],
@@ -120,6 +120,17 @@
       "surfaces": ["desktop", "cursor"],
       "recommended_after": [],
       "one_liner": "Point a small agent team at a company and get a fast, one-page scorecard: Fit, Timing, Reachability, and a recommended next action."
+    },
+    {
+      "id": "messaging-doc",
+      "type": "skill",
+      "category": "research-intelligence",
+      "roles": ["marketing"],
+      "tier": "core",
+      "used_in_sessions": [2],
+      "surfaces": ["desktop", "cursor"],
+      "recommended_after": [],
+      "one_liner": "Point a small agent team at your website and get your core messaging doc: positioning, voice, and the phrases you actually use — the doc every later draft leans on."
     },
     {
       "id": "research",
@@ -219,6 +230,28 @@
       "surfaces": ["desktop", "cursor"],
       "recommended_after": [],
       "one_liner": "Grades an account for Fit, Timing, and Reachability, and recommends a concrete next action."
+    },
+    {
+      "id": "site-reader",
+      "type": "agent",
+      "category": "research-intelligence",
+      "roles": ["marketing"],
+      "tier": "core",
+      "used_in_sessions": [2],
+      "surfaces": ["desktop", "cursor"],
+      "recommended_after": [],
+      "one_liner": "Reads a brand's website like an editor: captures the positioning lines, the voice, and the exact recurring phrases, quoted and sourced."
+    },
+    {
+      "id": "distiller",
+      "type": "agent",
+      "category": "research-intelligence",
+      "roles": ["marketing"],
+      "tier": "core",
+      "used_in_sessions": [2],
+      "surfaces": ["desktop", "cursor"],
+      "recommended_after": [],
+      "one_liner": "Turns the site read plus anything you paste into your core messaging doc — positioning, voice, and your phrases, every line traceable to a source."
     },
     {
       "id": "researcher",

@@ -1,12 +1,15 @@
 # Session 2 — role example blocks
 
-Role changes the examples and the share moment, never the lesson: every role
-runs the same scorecard team on a real company. Read the builder's `role` from
-`learning/progress.json` (values: `sales`, `marketing`, `operations`) and use
-the matching block. For `operations`, use the sales block with a one-line
-"adapt this to your ops work." If role is unset, use the neutral block.
+Role picks the **lane** first, then the examples inside it — the lesson (point
+a two-agent team at something real, get a finished work product, share it,
+wrap up) is the same everywhere. Read the builder's `role` from
+`learning/progress.json` (values: `sales`, `marketing`, `operations`):
+`marketing` runs the messaging-doc lane; `sales` and `operations` run the
+scorecard lane (for `operations`, use the sales block with a one-line "adapt
+this to your ops work"). If role is unset, ask once; if they'd rather not say,
+use the neutral block on the scorecard lane.
 
-## sales
+## sales — scorecard lane
 
 - **Read the scorecard as:** a pre-call read — is this account worth your time,
   and what do you do next.
@@ -20,22 +23,27 @@ the matching block. For `operations`, use the sales block with a one-line
 - **Debrief flavor:** a finished scorecard you would actually act on, with a
   next action you agree with.
 
-## marketing
+## marketing — messaging-doc lane
 
-- **Read the scorecard as:** a competitive read — a sourced size-up of a
-  company you position against or alongside.
-- **Company suggestions:** the competitor you keep meaning to size up; a
-  partner you're weighing for co-marketing; a company whose category move
-  everyone is talking about this week.
-- **Framing for step 1:** "Sizing up a company before you position against it:
-  what they do, what changed lately, and whether now is the moment."
-- **The share moment (step 4):** send it to a teammate before your next
-  campaign or positioning discussion — a one-page competitive read that didn't
-  exist five minutes ago.
-- **Debrief flavor:** a finished one-pager you'd bring to a planning
-  conversation, with a "why now" you can defend.
+- **Read the messaging doc as:** your brand's source of truth — what your
+  site actually says, how it sounds, and the exact phrases you use, on one
+  page for the first time.
+- **Target:** your own brand's website — the one you write for. If they market
+  more than one brand, the one they'll draft for most this quarter. (A
+  competitor's site is a Session 6 move, with this doc as the baseline.)
+- **The paste offer (step 2):** a recent post, a campaign email, copy they're
+  proud of — the doc gets sharper with material the website doesn't carry.
+  Optional; never let it stall the run.
+- **Framing for step 1:** "Before you draft anything else with AI, pin down
+  what your brand actually says and how it says it — so everything you build
+  from here sounds like you, not like generic AI."
+- **The share moment (step 4):** send it to whoever guards the brand voice —
+  your manager, your content lead, the founder who rewrites everyone's copy.
+  It's the messaging one-pager that usually takes a workshop to produce.
+- **Debrief flavor:** a doc you'd actually keep open while writing, with
+  phrases pulled verbatim and gaps you recognize as real.
 
-## neutral (role unset)
+## neutral (role unset) — scorecard lane
 
 - **Read the scorecard as:** a fast, sourced read on whether a company deserves
   your attention, and what to do next.

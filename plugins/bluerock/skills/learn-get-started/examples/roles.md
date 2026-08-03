@@ -26,9 +26,9 @@ unset, use the neutral framing. Never change the steps.
   and keeps running the parts of your week you used to assemble by hand.
   Twenty minutes of setup, and in the very next session it hands you a real
   work product."
-- **At the close:** "Next session, you point a team of agents at a company you
-  want a read on — a competitor you keep meaning to size up works well — and
-  get back a one-pager you could actually share."
+- **At the close:** "Next session, you point a team of agents at your own
+  website and get back your core messaging doc — positioning, voice, and the
+  phrases you actually use, on one page you could actually share."
 
 ## neutral (role unset)
 
