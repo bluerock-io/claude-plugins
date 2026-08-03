@@ -46,50 +46,19 @@ matter; never upgrade a plain phrase into marketing-speak.
   taglines in circulation, an audience never named, pasted copy that sounds unlike the
   site. Skip the section entirely if there is nothing real to say.
 
+**Minimum-viability floor:** if `signals.md` is mostly gaps — a thin or nearly empty
+site — do not assemble a hollow doc. Write the short honest version: name what the site
+does establish, list what's missing for a real messaging doc, and suggest what to paste
+in on a re-run. A thin doc that says so is the deliverable; an invented one is a
+failure.
+
 ## Output
 
-1. Write `messaging-doc.md` in the working folder: the sections above, with a one-line
-   header naming the brand, the site, the date, and the sources read. Close with one
-   line: *"This doc is the baseline your project drafts against — keep it current and every
-   draft gets sharper."* Never invent facts beyond the sources.
+Write `messaging-doc.md` in the working folder: the sections above, with a one-line
+header naming the brand, the site, the date, and the sources read. Close with one
+line: *"This doc is the baseline your project drafts against — keep it current and every
+draft gets sharper."* Never invent facts beyond the sources.
 
-2. **Publish it as a Claude Artifact** — a hosted page the builder opens in-panel and
-   can share, not just a saved file. Explicitly create it as an Artifact; the finished,
-   shareable view is the aha of the run. If artifact publishing isn't available in the
-   environment, don't block: the `messaging-doc.md` is saved — say so and give its path.
-
-### The artifact — design contract (follow it exactly)
-
-A single self-contained HTML page. **CSP-safe: inline ALL CSS in one `<style>` block, no
-external requests — no CDN, no web fonts, no remote images, no scripts.** It is a static
-page. Print-friendly, read-only, no CTAs or buttons.
-
-**Layout** — one centered column, `max-width: 640px`, generous whitespace:
-1. **Header** — brand name (serif, ~30px, ink-900); the positioning one-liner beneath in
-   muted ink; then a subline in muted ink: `Core Messaging Doc · Distilled <today's
-   date> · <N> pages read`.
-2. **Positioning** — a small uppercase section label (letter-spacing), then the two-to-
-   three-sentence positioning in body ink. If it carries the "assembled from fragments"
-   caveat, render the caveat beneath in muted ink.
-3. **Voice** — the same section label treatment, then each attribute as a row: the
-   attribute name in ink-900, its quoted example beneath in body ink with a hairline
-   left border.
-4. **The phrases you actually use** — section label, then the verbatim phrases as a
-   wrapped row of small mono chips (cream fill, hairline border). Exact words, one
-   phrase per chip.
-5. **Gaps** — only if the doc has the section: a highlighted callout per note — cream
-   tint background, a 3px accent-blue left border, the note in ink-900.
-6. **Sources** — a small "Sources" label, then the pages read (and "pasted references"
-   if used) as small mono chips, same treatment as the phrase chips.
-7. **Footer** — small muted text: `Built with BlueRock · Messaging Doc · site-reader +
-   distiller`.
-
-**Palette** (Builders "cool-paper", light-only — use these hex values directly since the
-Artifact can't read the app's CSS variables):
-- Page background `#F5F1EA`; card surface `#FFFFFF`; card border `#E7E0D6`, radius `14px`.
-- Ink: headings `#1B2130`, body `#3D4658`, muted `#7B8494`.
-- Accent (BlueRock blue) `#1559C4`.
-
-**Type** (CSP-safe fallbacks, no web fonts): headings `Georgia, 'Times New Roman', serif`;
-body + labels `system-ui, -apple-system, sans-serif`. Labels small and uppercase with
-slight letter-spacing; chips in `ui-monospace, monospace`.
+Your job ends at the markdown. The `/bluerock:messaging-doc` skill that dispatched you
+reads `messaging-doc.md` and renders the one-page doc artifact — don't attempt to
+publish one yourself.

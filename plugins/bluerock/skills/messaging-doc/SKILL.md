@@ -52,18 +52,65 @@ agent-teams tooling; this runs identically in every client.
    positioning lines, voice notes, and exact recurring phrases, quoted and sourced. It's
    bounded to a handful of fetches — let it be fast. Wait for it.
 6. **Dispatch `distiller`** with the same folder. It reads `signals.md` (plus
-   `references.md` if present, and `voice.md` / `objectives.md` from the project root),
-   writes `messaging-doc.md`, and renders the one-page doc artifact.
+   `references.md` if present, and `voice.md` / `objectives.md` from the project root)
+   and writes `messaging-doc.md`. Wait for it.
+
+## Publish the artifact — you, not the agents
+
+7. When `distiller` finishes, read `messaging-doc.md` and **publish it as a Claude
+   Artifact** yourself, in this conversation, following the design contract below. The
+   agents write markdown only — they have no artifact publishing; the finished,
+   shareable view is yours to render. If artifact publishing isn't available in my
+   environment, don't block — the markdown is saved; say so and give the path.
+
+### The artifact — design contract (follow it exactly)
+
+A single self-contained HTML page. **CSP-safe: inline ALL CSS in one `<style>` block, no
+external requests — no CDN, no web fonts, no remote images, no scripts.** It is a static
+page. Print-friendly, read-only, no CTAs or buttons.
+
+**Layout** — one centered column, `max-width: 640px`, generous whitespace:
+1. **Header** — brand name (serif, ~30px, heading ink); the positioning one-liner beneath
+   in muted ink; then a subline in muted ink: `Core Messaging Doc · Distilled <today's
+   date> · <N> pages read`. When Positioning carries the "assembled from fragments"
+   caveat, the one-liner slot uses the doc's **first positioning sentence** as written,
+   with the caveat rendered beneath in muted ink — never invent a cleaner line than the
+   doc has.
+2. **Positioning** — a small uppercase section label (letter-spacing), then the two-to-
+   three-sentence positioning in body ink. If it carries the "assembled from fragments"
+   caveat, render the caveat beneath in muted ink.
+3. **Voice** — the same section label treatment, then each attribute as a row: the
+   attribute name in heading ink, its quoted example beneath in body ink with a hairline
+   left border.
+4. **The phrases you actually use** — section label, then the verbatim phrases as a
+   wrapped row of small mono chips (cream fill, hairline border). Exact words, one
+   phrase per chip.
+5. **Gaps** — only if the doc has the section: a highlighted callout per note — cream
+   tint background, a 3px accent-blue left border, the note in heading ink.
+6. **Sources** — a small "Sources" label, then the pages read (and "pasted references"
+   if used) as small mono chips, same treatment as the phrase chips.
+7. **Footer** — small muted text: `Built with BlueRock · Messaging Doc · site-reader +
+   distiller`.
+
+**Palette** (Builders "cool-paper", light-only — use these hex values directly since the
+Artifact can't read the app's CSS variables):
+- Page background `#F5F1EA`; card surface `#FFFFFF`; card border `#E7E0D6`, radius `14px`.
+- Cream (the "cream tint" / "cream fill" above): `#F5F1EA` — the page-background value
+  reused as a tint on the white card.
+- Ink: heading `#1B2130`, body `#3D4658`, muted `#7B8494`.
+- Accent (BlueRock blue) `#1559C4`.
+
+**Type** (CSP-safe fallbacks, no web fonts): headings `Georgia, 'Times New Roman', serif`;
+body + labels `system-ui, -apple-system, sans-serif`. Labels small and uppercase with
+slight letter-spacing; chips in `ui-monospace, monospace`.
 
 ## Finish
 
-7. The **messaging doc artifact** is the payoff — a clean, one-page view (brand header
+8. The **messaging doc artifact** is the payoff — a clean, one-page view (brand header
    with the positioning one-liner, the voice attributes with quoted examples, the
    verbatim phrase bank, any honest gaps, and the pages read). The `messaging-doc.md`
-   is the source of record the builder keeps and can push to their repo. If artifact
-   publishing isn't available in my environment, don't block — the markdown is saved;
-   say so and give the path.
-8. **Report:** the doc's path, the positioning one-liner it found (or the "assembled
+   is the source of record the builder keeps and can push to their repo.
+9. **Report:** the doc's path, the positioning one-liner it found (or the "assembled
    from fragments" caveat if the site never says it cleanly), and the artifact (or the
    fallback note). Don't reprint the whole thing.
 
