@@ -24,6 +24,7 @@ The **run-as-is core** — you drive these; you don't edit them:
 | Category | What it's for |
 |---|---|
 | **Set up** | Get to know you, confirm you're ready: `/bluerock:onboard`, `/bluerock:check` |
+| **When you're stuck** | One diagnosis, one next step: `/bluerock:help` |
 | **Your daily rhythm** | Today's priorities and the end-of-session wrap: `/bluerock:today`, `/bluerock:wrap-up` |
 | **Account Scorecard** | Point a fast team at a company for a one-page scorecard: `/bluerock:scorecard` (agents `scout` + `scorer`) |
 | **Messaging Doc** | Point a fast team at your website for your core messaging doc: `/bluerock:messaging-doc` (agents `site-reader` + `distiller`) |

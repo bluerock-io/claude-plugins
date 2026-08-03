@@ -215,6 +215,17 @@
       "one_liner": "Confirm your workspace is set up and healthy."
     },
     {
+      "id": "help",
+      "type": "skill",
+      "category": "workspace-setup",
+      "roles": ["sales", "marketing", "operations"],
+      "tier": "core",
+      "used_in_sessions": [],
+      "surfaces": ["desktop", "cursor"],
+      "recommended_after": [],
+      "one_liner": "Stuck? One diagnosis and one next step \u2014 setup, the curriculum, a skill that came back thin, or not knowing what to ask."
+    },
+    {
       "id": "scout",
       "type": "agent",
       "category": "research-intelligence",
