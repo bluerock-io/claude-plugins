@@ -1,5 +1,15 @@
 # Changelog — `bluerock` plugin
 
+## 0.6.1 — `check` was still naming the workspace by a retired name
+
+- **Fixed (`check`):** the skill description and its opening line said the project is live in
+  "your secure workspace." That name was superseded on 2026-08-01 by **your Cloud AI
+  Workspace**, David's term, and the description is marketplace-visible — it is the last
+  thing a builder reads before installing. Shipped in 0.6.0 because the sweep that release
+  carried was scoped to the project noun and "the curriculum", and this is a different slot.
+  Found by auditing all three surfaces (learn, plugin, starter) against the vocabulary tokens
+  rather than against each other.
+
 ## 0.6.0 — the learning path runs in-session, and a way out when you're stuck
 
 The first release where the plugin *teaches*, not just works. Sessions 1 and 2 run inside the
