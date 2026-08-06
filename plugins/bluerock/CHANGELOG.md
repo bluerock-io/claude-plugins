@@ -1,5 +1,59 @@
 # Changelog — `bluerock` plugin
 
+## 0.6.0 — the learning path runs in-session, and a way out when you're stuck
+
+The first release where the plugin *teaches*, not just works. Sessions 1 and 2 run inside the
+conversation instead of only on the web, and a stuck builder has somewhere to go that isn't
+Discord.
+
+- **New:** `/bluerock:learn`, the front door. Reads where the builder is, greets them
+  honestly, and hands off to the right session skill. It only runs when asked; it never
+  surfaces mid-task. `/bluerock:learn-status` is its read-only companion: sessions done, what
+  was built, what's next and how long it takes. It changes nothing, ever.
+- **New:** `/bluerock:learn-get-started` runs Session 1 in-session, on both surfaces. Its twist
+  is that the builder can only be talking to you because *some* of the setup already worked,
+  so it orients before it teaches and never walks anyone through a step they have done.
+- **New:** `/bluerock:learn-meet-your-first-agent-team` runs Session 2, the first win, now
+  **two-lane**: marketing builds a core messaging doc for their own brand, sales and
+  operations get the account scorecard. Same lesson, a first output each role would actually
+  send someone.
+- **New:** `/bluerock:messaging-doc` and the two agents behind it, `site-reader` → `distiller`.
+  Point them at your website and get back positioning, voice, and the phrases you actually
+  use. This is the doc every later draft leans on, which is what makes it a first win rather
+  than a demo.
+- **New:** `/bluerock:help`, triage for a stuck builder. One diagnosis and **one** next step,
+  in plain language: it looks before it asks, matches to a single shape of stuck, and routes.
+  It is explicitly not a manual, a menu, or an audit: a wall of green checks reads as
+  "everything is fine" to someone whose thing is not working. What it is really teaching is
+  that plain language works, so a good run of it makes the next one less necessary.
+- **New:** `curriculum/manifest.json`, a machine-readable index of sessions and Library
+  records (numbers, titles, outcomes, times, prerequisites, and which sessions run in-session
+  vs. on the web), so skills stop improvising session names and times.
+- **Changed:** session outcomes are **role-aware**: a default `outcome` plus an optional
+  per-role `outcomes` map, used only where the lanes genuinely differ (today, Session 2). The
+  canonical role list is three values: **sales · marketing · operations**.
+- **Changed (`scorecard`):** the finished scorecard is now **published as a Claude Artifact**
+  by the skill itself, against a fixed design contract (self-contained, CSP-safe, print-
+  friendly, Builders "cool-paper" palette). The agents write markdown only; rendering the
+  shareable view is the orchestrating skill's job. If artifact publishing isn't available it
+  degrades honestly to the saved path rather than blocking. `scorer` slimmed accordingly.
+- **Changed:** the **"Hub" / "AI Work Hub" noun is retired plugin-wide**. The builder's owned
+  repo is **your agentic project**, then "your project". Every skill keeps a bridging line
+  telling the model that older docs call the same repo a Hub and never to rename a builder's
+  folder, so nobody with a `my-hub` directory gets churned.
+- **Changed:** two more retired nouns swept out of builder-facing copy: **"the curriculum" →
+  "the learning path"** (Linda, 2026-08-01) and **"the Starter" → "the starter kit"**, which
+  is what Session 1 actually titles the step. The repo-root `README.md`, which sits outside
+  `plugins/bluerock/` and had been missed by the earlier sweep, is included.
+- **Changed:** the listing takes the **"BlueRock for AI Builders"** rename, deferred on
+  2026-07-30 to the next functional release precisely so it would ride one for free. The
+  community identity stays "BlueRock Builders".
+- **Fixed (`check`):** the no-project message told the builder to "do steps 6 and 7." The two
+  tracks number differently. Claude Desktop has eight steps and copy/clone are 5 and 6;
+  Cursor has nine and they are 6 and 7, so the numbers were wrong for the default client, in
+  the one message a builder reads when they are already stuck. It now names both steps by
+  their real titles, which is correct on either track.
+
 ## 0.5.4 — Hub-seeded skills load from the workspace root
 
 - **Fixed (`check`):** Hub-seeded skills and agents did not load in the sandbox because Claude Code

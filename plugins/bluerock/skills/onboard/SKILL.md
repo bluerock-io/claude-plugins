@@ -1,9 +1,9 @@
 ---
 name: onboard
 description: >-
-  Get to know me and set up my AI Work Hub so it knows who I am, what I'm working on,
+  Get to know me and set up my agentic project so it knows who I am, what I'm working on,
   and how I write. Use when I say "onboard me", "get to know me", "set up my
-  Hub", "prime my Hub", "build my profile", or when I paste what ChatGPT/Claude
+  project", "prime my project", "build my profile", or when I paste what ChatGPT/Claude
   already knows about me.
 ---
 
@@ -15,18 +15,19 @@ help), `voice.md` (how they write), and `objectives.md` (what they're working
 on). The better these are, the better every other skill works — so this is the
 highest-leverage thing they can do first.
 
-## First — anchor to the Hub
+## First — anchor to the project
 
-The three profile files belong in the builder's AI Work Hub — the repo they cloned from the
-Starter. In an SSH/cloud container the session usually starts in the **home folder**,
-with the Hub one level down. The builder named it when they cloned (`maria-hub`,
+The three profile files belong in the builder's project — the repo they cloned from the
+starter kit (some older docs and repos call the same repo a Hub — same thing; never rename
+the builder's folder). In an SSH/cloud container the session usually starts in the **home folder**,
+with the project one level down. The builder named it when they cloned (`maria-hub`,
 `alex-hub` — don't assume a fixed name like `hub-starter`); identify it by its
 signature, not its name. Before writing: run `ls`. See `CLAUDE.md` and `design/` side
-by side? You're in the Hub. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`,
+by side? You're in the project. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`,
 else `find ~ -maxdepth 3 -path '*/design/dashboard.html'`. `cd` into that folder,
 capture its **absolute path** with `pwd`, and write all three files to that full path
 (e.g. `/home/you/maria-hub/CLAUDE.md`) — never a bare `CLAUDE.md`, so nothing lands in
-the home folder. Can't find it at all? Ask the builder where they cloned their Hub.
+the home folder. Can't find it at all? Ask the builder where they cloned their project.
 Never write their files outside it.
 
 ## The fastest start: the portability prompt
@@ -67,17 +68,17 @@ Keep it concrete and paste-ready — a brief I'd hand a new assistant on day one
    post, an email they're proud of). Read it all before writing anything.
 2. **Interview only for the gaps.** Don't re-ask what the pasted material already
    answers. Ask a few targeted questions only where a section is thin — most
-   importantly objectives (what they want the Hub to help with) and voice (if
+   importantly objectives (what they want the project to help with) and voice (if
    they gave no samples, ask for one or two).
 3. **Write the three files** (below). Draft them, then show the builder the key
    parts and offer to adjust — these are theirs.
 4. **Confirm and point forward.** One line per file on what you captured, then
-   send them to their next step (the curriculum, or running `daily-brew`).
+   send them to their next step (the learning path, or running `daily-brew`).
 
 ## The three artifacts
 
 ### `CLAUDE.md` — the standing brief
-Loads every session. The Hub's `CLAUDE.md` already ships with content — including a
+Loads every session. The project's `CLAUDE.md` already ships with content — including a
 session-start greeting block. **Fill the seeded sections in place and keep everything
 else; never overwrite the whole file** (a clobbered greeting block breaks the walk-in
 on their next session). Fill: **Who I am** (role, team,
