@@ -1,8 +1,8 @@
-# BlueRock for Builders
+# BlueRock for AI Builders
 
 Say *"score Acme Corp"* and a two-agent team hands you a one-page account scorecard. Say
 *"wrap up my session"* and it logs your work and refreshes your dashboard. This is the
-plugin behind [BlueRock for Builders](https://builders.bluerock.io) — the run-as-is core
+plugin behind [BlueRock for AI Builders](https://builders.bluerock.io) — the run-as-is core
 that turns Claude Code (inside Cursor or VS Code) into tools that do your real work and write it back
 as plain markdown you own.
 
@@ -14,7 +14,7 @@ the files stay in your repo. Everything runs inside your own repo, your **agenti
 (older docs call the same repo your AI Work Hub — same thing), so
 nothing is locked in an app: the output is your files, yours with or without the plugin.
 
-> **New here?** The [BlueRock for Builders learning path](https://builders.bluerock.io) sets
+> **New here?** The [BlueRock for AI Builders learning path](https://builders.bluerock.io) sets
 > up your project and walks you through everything below — start there.
 
 ## What the plugin gives you

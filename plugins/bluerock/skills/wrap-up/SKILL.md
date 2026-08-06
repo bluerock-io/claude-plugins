@@ -112,7 +112,7 @@ card layout), but the artifact must be self-contained, so:
   Use system-font fallbacks (`Georgia, serif` for the serif headings;
   `system-ui, sans-serif` for body; `ui-monospace, monospace` for numerals) so it
   still reads like the design without the web fonts.
-- **Embed the logo as a `data:` URI.** The BlueRock for Builders logo must be inlined as a
+- **Embed the logo as a `data:` URI.** The BlueRock for AI Builders logo must be inlined as a
   base64 `data:` URI built from the project's `design/builders-logo-light.svg` (the design-system
   logo, alongside `dashboard.html`) — never an `<img src>` that points at that file. The same
   CSP that blocks remote images blocks a file reference too, so it fails silently and every

@@ -1,4 +1,4 @@
-# BlueRock for Builders — Claude Code plugin
+# BlueRock for AI Builders — Claude Code plugin
 
 The BlueRock plugin marketplace for Claude Code. One plugin, `bluerock`: the run-as-is core
 for your **agentic project**.
@@ -53,7 +53,7 @@ research); your files stay yours, your API calls go straight to Anthropic.
 
 ## Pairs with
 
-The **BlueRock for Builders** starter kit and Learning Paths →
+The **BlueRock for AI Builders** starter kit and Learning Paths →
 [builders.bluerock.io](https://builders.bluerock.io)
 
 ---
