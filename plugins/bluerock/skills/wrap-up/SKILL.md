@@ -18,7 +18,7 @@ back up.
 ### 0. Anchor to the project
 
 Everything below reads and writes inside the builder's project — the repo they cloned from
-the starter: `today.md`, `session-log.md`, the project's `.bluerock/runs.json`, and
+the starter kit: `today.md`, `session-log.md`, the project's `.bluerock/runs.json`, and
 `design/dashboard-data.js` — and `git` runs from the project root. In an SSH/cloud
 container the session usually starts in the **home folder**, with
 the project one level down. The builder named it when they cloned (`maria-hub`, `alex-hub` —
@@ -66,7 +66,7 @@ this session.") Then:
 - **Roll up the sections and overwrite the dashboard data file** so my dashboard
   repaints — match the pinned contract exactly, all keys present:
   `window.__BR_DASH__ = { meta, productivity, cost, actions, guardrail, perf, brag, priorities, runs }`
-  (write it to the starter's `design/dashboard-data.js`). The renderer just paints —
+  (write it to the starter kit's `design/dashboard-data.js`). The renderer just paints —
   roll the sections up here, don't make the browser re-aggregate.
 
 Provenance is a trust claim. Beta has **no BlueRock sensor pipeline**, so the label

@@ -12,7 +12,7 @@ it current and show it back clearly.
 
 ## First — anchor to the project
 
-`today.md` lives in the builder's project — the repo they cloned from the starter. In an
+`today.md` lives in the builder's project — the repo they cloned from the starter kit. In an
 SSH/cloud container the session usually starts in the **home folder**, with the project one
 level down. The builder named it when they cloned (`maria-hub`, `alex-hub` — don't
 assume a fixed name like `hub-starter`); identify it by its signature, not its name.
