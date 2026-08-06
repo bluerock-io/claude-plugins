@@ -32,7 +32,7 @@ line items; they roll up into the four-line report.
 
 1. **Claude Code is working.** The fact this skill ran is the proof.
 2. **Your project is here.** Run `ls` and look for the project's signature: `CLAUDE.md` and a
-   `design/` folder (holding `design/dashboard.html`) side by side, plus the curriculum.
+   `design/` folder (holding `design/dashboard.html`) side by side, plus the learning path.
    If they're right there, you're set. If not, take **one quick look** for the project nearby:
    `ls */CLAUDE.md` (one level down) and `ls ~/*/CLAUDE.md` (one level under home). If
    several match, choose the one with `design/dashboard.html`. If those quick checks do not
@@ -54,9 +54,10 @@ line items; they roll up into the four-line report.
      project is found, say nothing about folders beyond naming where it is.
    - **If nothing turns up, stop and conclude — don't keep hunting:** they most likely
      **haven't created their project yet**. This is the one thing that genuinely needs attention.
-     Say so warmly and send them back to Session 1, steps 6 and 7 (make their own copy of the
-     Starter project, then clone it into their workspace). This is a normal state right after
-     setup, not an error.
+     Say so warmly and send them back to Session 1 — the **Make your own copy of the starter
+     kit** and **Clone your project into your workspace** steps. Name those steps, never their
+     numbers: the Claude Desktop and Cursor tracks number their steps differently, so a number
+     is wrong for one of them. This is a normal state right after setup, not an error.
 3. **The project's own skills and agents can load in new chats.** Use the project path found in
    step 2. Look for `.claude/agents/` and `.claude/skills/` inside that project.
    - **If either project folder is missing, create no links.** Stop after the plumbing checks
@@ -151,8 +152,8 @@ everything that could be wrong.
 ```
 **Your project isn't here yet** — that's normal right after setup, and it's a quick fix.
 
-Head back to Session 1 and do steps 6 and 7: make your own copy of the Starter project,
-then clone it into your workspace.
+Head back to Session 1 and do two steps: **Make your own copy of the starter kit**, then
+**Clone your project into your workspace**.
 https://learn.bluerock.io/get-started
 
 Stuck on it? Ask in the Discord: https://discord.gg/5c2kQjxxwq
