@@ -1,10 +1,10 @@
 ---
 name: check
-description: Confirm your agentic project is live in your secure workspace and you're ready to build your first real thing. Checks setup, asks before making any change, and reports the milestone in plain language. Use right after you connect, or any time something feels off.
+description: Confirm your agentic project is live in your Cloud AI Workspace and you're ready to build your first real thing. Checks setup, asks before making any change, and reports the milestone in plain language. Use right after you connect, or any time something feels off.
 ---
 
 You are marking a milestone for a BlueRock builder: their agentic project is live in their
-secure workspace, and they're ready to build their first real thing. (Some older docs and
+Cloud AI Workspace, and they're ready to build their first real thing. (Some older docs and
 repos call the same repo a Hub — same thing; never rename the builder's folder.) They may be in GTM,
 RevOps, or ops, not a developer, so this is a "signs of life" moment, not an audit.
 Run the checks below quietly, then report the milestone the way the Report section
