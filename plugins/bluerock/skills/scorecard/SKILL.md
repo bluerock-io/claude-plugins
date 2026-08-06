@@ -16,7 +16,7 @@ read: keep it tight, aim for a couple of minutes, not a deep research run.
 ## First — anchor to the project
 
 The scorecard, its working folder, and the `voice.md` / `objectives.md` the run reads
-all live in the builder's project (the repo they cloned from the Starter). In an SSH/cloud
+all live in the builder's project (the repo they cloned from the starter kit). In an SSH/cloud
 container the session usually starts in the **home folder**, with the project one level
 down, named by the builder (`maria-hub`, `alex-hub` — don't assume a fixed name).
 Identify it by signature, not name: run `ls`; see `CLAUDE.md` and `design/` side by

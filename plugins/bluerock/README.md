@@ -14,7 +14,7 @@ the files stay in your repo. Everything runs inside your own repo, your **agenti
 (older docs call the same repo your AI Work Hub — same thing), so
 nothing is locked in an app: the output is your files, yours with or without the plugin.
 
-> **New here?** The [BlueRock for Builders curriculum](https://builders.bluerock.io) sets
+> **New here?** The [BlueRock for Builders learning path](https://builders.bluerock.io) sets
 > up your project and walks you through everything below — start there.
 
 ## What the plugin gives you
@@ -56,7 +56,7 @@ and becomes the baseline every later draft leans on.
 
 ## Your project comes with more — and they're yours
 
-Your project (from [the Starter](https://github.com/bluerock-io/hub-starter)) ships seeded
+Your project (from [the starter kit](https://github.com/bluerock-io/hub-starter)) ships seeded
 agents and skills in `.claude/` that you can open, run, **edit**, and build on:
 
 - **Agents** (`.claude/agents/`) — `daily-brew` (a morning brief that closes yesterday's
@@ -66,7 +66,7 @@ agents and skills in `.claude/` that you can open, run, **edit**, and build on:
 - **Skills** (`.claude/skills/`) — `meeting-recap` (a follow-up after a call), `capture`
   (drop a note), and `research` (point the research team at a company for the full dossier).
 
-These are yours from day one: edit any of them, or build your own alongside. The curriculum
+These are yours from day one: edit any of them, or build your own alongside. The learning path
 walks you through it.
 
 ## Install
@@ -77,7 +77,7 @@ In the Claude Code panel, type `/plugins` (plural) to open the plugin manager. O
 you"** and trust it. Click **Restart** when prompted.
 
 Then say *"check my workspace"* (or run `/bluerock:check`) to confirm you're set. You'll want a project to
-run it in — [the Starter](https://github.com/bluerock-io/hub-starter) gives you one in a click.
+run it in — [the starter kit](https://github.com/bluerock-io/hub-starter) gives you one in a click.
 
 ## Run as-is vs. make it yours
 

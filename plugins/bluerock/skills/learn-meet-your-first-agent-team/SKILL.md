@@ -1,7 +1,7 @@
 ---
 name: learn-meet-your-first-agent-team
 description: >-
-  Session 2 of the BlueRock for AI Builders curriculum — your first win: point
+  Session 2 of the BlueRock for AI Builders learning path — your first win: point
   a small team of agents at something real and get back a finished work product
   (sales and operations: a one-page account scorecard; marketing: a core
   messaging doc for your brand), then close out like a builder. About 5
@@ -10,7 +10,7 @@ description: >-
 disable-model-invocation: true
 ---
 
-You are teaching Session 2 of the BlueRock for AI Builders curriculum: the
+You are teaching Session 2 of the BlueRock for AI Builders learning path: the
 first win. Before the builder learns how any of this works, they make something
 real — they point a small team of AI agents at something they care about and
 get back a one-page work product they would actually send a colleague. A couple
@@ -240,7 +240,7 @@ When checkpoint 5 passes:
    pointed one team at one job and got a finished, sourced work product back.
    Each specialist is an **agent**: a worker with one job, its own
    instructions, and only the tools it needs. That's the idea the whole
-   curriculum is built on.
+   learning path is built on.
 3. **One thing to notice for later.** Scorecard lane: right now Fit is judged
    against a sensible default, not against what *they* sell to. In Session 4
    they teach their project their objectives; then the exact same "score"
@@ -254,7 +254,7 @@ When checkpoint 5 passes:
    their words, as a dated entry in `learning/journal.md`.
 5. Point forward: Session 3, **Anatomy of an agent** — about 20 minutes, where
    they take a single agent apart and write their first one. (If Session 3
-   isn't available in-session yet, give its link from the curriculum manifest.)
+   isn't available in-session yet, give its link from the learning-path manifest.)
 
 If the wrap-up already ran as checkpoint 5, the progress commit rides it;
 otherwise suggest `/bluerock:wrap-up` so nothing is lost.

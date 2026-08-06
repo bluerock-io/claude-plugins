@@ -1,7 +1,7 @@
 # BlueRock for Builders — Claude Code plugin
 
 The BlueRock plugin marketplace for Claude Code. One plugin, `bluerock`: the run-as-is core
-for your **AI Work Hub**.
+for your **agentic project**.
 
 Say *"score Acme Corp"* and a two-agent team hands you a one-page account scorecard — Fit,
 Timing, Reachability, why now, and the recommended next step. Say *"wrap up my session"* and
@@ -15,7 +15,7 @@ in your own repo.
 - **Your daily rhythm.** `/bluerock:onboard` learns who you are and how you write,
   `/bluerock:today` keeps your priorities, and `/bluerock:wrap-up` closes the day and
   refreshes your dashboard.
-- **A readiness check.** `/bluerock:check` confirms your Hub is live and points you at
+- **A readiness check.** `/bluerock:check` confirms your project is live and points you at
   what's next.
 
 Plugin tools are written with their full name — `/bluerock:check`, `/bluerock:wrap-up` —
@@ -24,11 +24,11 @@ want in plain language.
 
 ## Run as-is vs. make it yours
 
-The plugin is the part you **run**. The part you **edit** ships seeded in your own Hub, in
+The plugin is the part you **run**. The part you **edit** ships seeded in your own project, in
 `.claude/` — agents like `daily-brew`, `scribe`, and `meeting-prep`, and skills like
 `/capture` and `/research`. Those are yours: change them in place, or write your own
-alongside. Ask for them in plain language rather than as slash commands, and a Hub agent
-named after a seeded one takes over from it.
+alongside. Ask for them in plain language rather than as slash commands, and an agent in
+your project named after a seeded one takes over from it.
 
 `/bluerock:wrap-up` and `/bluerock:check` stay plugin-owned so your dashboard keeps working.
 
@@ -39,7 +39,7 @@ In the Claude Code panel, type `/plugins` (plural) to open the plugin manager. O
 **bluerock** ("Install for you"), trust it, and **Restart**.
 
 Then say *"check my workspace"* (or run `/bluerock:check`) to confirm you're set. You'll want
-a Hub to run it in — [the Starter](https://github.com/bluerock-io/hub-starter) gives you one
+a project to run it in — [the starter kit](https://github.com/bluerock-io/hub-starter) gives you one
 in a click.
 
 Already installed? Custom marketplaces don't auto-update — run `/plugins`, open
@@ -53,7 +53,7 @@ research); your files stay yours, your API calls go straight to Anthropic.
 
 ## Pairs with
 
-The **BlueRock for Builders** starter project and curriculum →
+The **BlueRock for Builders** starter kit and Learning Paths →
 [builders.bluerock.io](https://builders.bluerock.io)
 
 ---

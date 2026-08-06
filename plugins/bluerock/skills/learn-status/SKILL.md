@@ -1,13 +1,13 @@
 ---
 name: learn-status
 description: >-
-  Where I am in the BlueRock for AI Builders curriculum, in plain language —
+  Where I am in the BlueRock for AI Builders learning path, in plain language —
   sessions done, what I built, and what's next with its time. Read-only; run via
   /bluerock:learn-status.
 disable-model-invocation: true
 ---
 
-Render the builder's curriculum progress as a short, plain-language summary.
+Render the builder's learning-path progress as a short, plain-language summary.
 Read-only: this skill changes nothing, ever. If something needs fixing or
 resuming, point at `/bluerock:learn` — don't do it here.
 
@@ -33,7 +33,7 @@ role).
 A few honest lines, shaped like this:
 
 ```
-**Your course so far: 2 of 8 sessions complete.**
+**Your learning path so far: 2 of 8 sessions complete.**
 
 Done: Session 1 (project set up and live) · Session 2 (account scorecard on Ramp)
 Next: Session 3 — Anatomy of an agent, ~20 min

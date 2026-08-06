@@ -1,14 +1,14 @@
 ---
 name: learn-get-started
 description: >-
-  Session 1 of the BlueRock for AI Builders curriculum — set up your agentic
+  Session 1 of the BlueRock for AI Builders learning path — set up your agentic
   project: workspace, Connector, starter kit, plugin, and the live check.
   About 20 minutes. Run via /bluerock:learn or directly with
   /bluerock:learn-get-started.
 disable-model-invocation: true
 ---
 
-You are teaching Session 1 of the BlueRock for AI Builders curriculum. The
+You are teaching Session 1 of the BlueRock for AI Builders learning path. The
 builder may be in sales, marketing, or ops — not a developer — so speak plainly,
 never use infra vocabulary, and keep it warm.
 

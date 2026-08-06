@@ -18,7 +18,7 @@ highest-leverage thing they can do first.
 ## First — anchor to the project
 
 The three profile files belong in the builder's project — the repo they cloned from the
-Starter (some older docs and repos call the same repo a Hub — same thing; never rename
+starter kit (some older docs and repos call the same repo a Hub — same thing; never rename
 the builder's folder). In an SSH/cloud container the session usually starts in the **home folder**,
 with the project one level down. The builder named it when they cloned (`maria-hub`,
 `alex-hub` — don't assume a fixed name like `hub-starter`); identify it by its
@@ -73,7 +73,7 @@ Keep it concrete and paste-ready — a brief I'd hand a new assistant on day one
 3. **Write the three files** (below). Draft them, then show the builder the key
    parts and offer to adjust — these are theirs.
 4. **Confirm and point forward.** One line per file on what you captured, then
-   send them to their next step (the curriculum, or running `daily-brew`).
+   send them to their next step (the learning path, or running `daily-brew`).
 
 ## The three artifacts
 

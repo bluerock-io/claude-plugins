@@ -2,7 +2,7 @@
 name: help
 description: >-
   Stuck? Start here. Works out where you are, what is actually wrong, and points
-  you at the one thing that fixes it — setup trouble, lost in the curriculum, a
+  you at the one thing that fixes it — setup trouble, lost in the learning path, a
   skill that did not do what you expected, or just not sure what to ask. Use when
   I say "help", "I'm stuck", "this isn't working", "what do I do now", "where am
   I", "what can I ask for", or "what is this".
@@ -42,7 +42,7 @@ else.
 | What you see | What it is | The one next step |
 |---|---|---|
 | No project, or the project is there but a skill cannot write to it, or the plugin's skills are not loading | Setup | **`/bluerock:check`** — it confirms the project is live and repairs the load path with their okay. Do not diagnose plumbing yourself; that skill owns it. |
-| They do not know where they are in the curriculum, or want to pick it back up | Lost in the course | **`/bluerock:learn`** to continue, or **`/bluerock:learn-status`** for the map. Name the session they are actually on. |
+| They do not know where they are in the learning path, or want to pick it back up | Lost in the learning path | **`/bluerock:learn`** to continue, or **`/bluerock:learn-status`** for the map. Name the session they are actually on. |
 | A session stalled mid-way — a checkpoint did not pass, a step did not do what the session said | Session-level | Re-enter that session: it resumes at the checkpoint rather than starting over. Give the honest reason it stalled if you can see it. |
 | A skill ran but the result was thin, wrong, or empty | Tool-level | Name the likely cause from the skill's own recovery notes (a thin website, a company with little public presence, an unsaved paste), then offer the single change that fixes it — usually more input, not a different tool. |
 | "What can I even ask for?" / "What is this?" | Orientation | The short orientation below. Then hand them one concrete thing to try. |
@@ -59,13 +59,13 @@ Keep it to what helps them act. Longer is not kinder.
 - **Skills** are things you run by name — `/bluerock:scorecard`, `/bluerock:messaging-doc`.
   **Agents** are workers you dispatch; they do one job and report back. A team is two or three
   agents that hand work to each other through your files.
-- **The curriculum** is eight sessions from setup to a system running a real slice of your week.
+- **The learning path** is eight sessions from setup to a system running a real slice of your week.
   **Sessions 1 and 2 run right here in this conversation**; Sessions 3 to 8 live on
   learn.bluerock.io today. Say that plainly if they ask for one of those — never pretend to
   teach a session you do not have.
 - **`/bluerock:wrap-up`** closes a working session and refreshes your dashboard. A fresh chat
   per task, do the work, wrap up.
-- **BlueRock** builds the tools for running AI agents safely; this curriculum is how business
+- **BlueRock** builds the tools for running AI agents safely; this learning path is how business
   builders learn to build with them. For anything more than that, send them to the site rather
   than pitching.
 
