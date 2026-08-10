@@ -1,5 +1,13 @@
 # Changelog — `bluerock` plugin
 
+## 0.6.3 — say it without `git status`
+
+- **Changed (`check`):** the consent prompt's reassurance said the links "won't show up in
+  `git status`." Watching 0.6.2 run live, the model rendered that as **"won't show up as a
+  change to your project"** on its own — plainer, and truer to the audience: a builder has met
+  `repo` and `clone` by this point in Session 1, but not `git status`. Folded the model's
+  wording back into the skill so it is the instruction rather than a lucky paraphrase.
+
 ## 0.6.2 — `check` recommends the one decision it asks you to make
 
 - **Changed (`check`):** the load-path consent question was neutral plumbing: *"I can link
