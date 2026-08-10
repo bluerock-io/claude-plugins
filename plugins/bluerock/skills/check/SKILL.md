@@ -76,7 +76,8 @@ line items; they roll up into the four-line report.
      one level above your project, so right now they won't load in a new chat. I can put a
      pointer where Claude Code looks. **I'd say yes:** the agents and skills you build from
      here on all live in that folder, and this is what makes them run. Nothing moves — your
-     files stay in your project, and it won't show up in `git status`. Want me to?"
+     files stay in your project, and it won't show up as a change to your project. Want me
+     to?"
      If they say yes, create `~/.claude/` if needed and add the missing links. **If they say
      no, say plainly what it costs** — their project's own skills and agents will not load
      in new chats until this is on — and that rerunning `/bluerock:check` offers again. Then
