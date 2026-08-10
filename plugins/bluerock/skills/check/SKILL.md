@@ -78,6 +78,8 @@ line items; they roll up into the four-line report.
      here on all live in that folder, and this is what makes them run. Nothing moves — your
      files stay in your project, and it won't show up as a change to your project. Want me
      to?"
+     (Not part of the run: this wording is quoted by learn.bluerock.io. See "Who depends on
+     this skill's wording" at the end of this file before changing it.)
      If they say yes, create `~/.claude/` if needed and add the missing links. **If they say
      no, say plainly what it costs** — their project's own skills and agents will not load
      in new chats until this is on — and that rerunning `/bluerock:check` offers again. Then
@@ -180,3 +182,25 @@ they passed an inspection.
 
 Warm, plain, brief, and guiding — always end pointing at the next action, with a link.
 No jargon, no hedging, no reassurance about problems they haven't raised.
+
+---
+
+## Who depends on this skill's wording
+
+Not part of a run. Read this before rewording anything a builder sees.
+
+- **The consent prompt in step 3 is quoted by `/learn`.** Session 1's final step tells
+  builders *"say yes — it explains itself when it asks"*, and that claim is only true
+  because this prompt explains itself. The page copy was written against the 0.6.2 / 0.6.3
+  wording. Reword here and the page goes stale silently, because nothing links them at
+  build time. The page lives in `marketing-hub/workbench/app/learn/_data/setup-desktop.tsx`
+  and `setup-cursor.tsx`, in the "See your project come alive" step; the reasoning is in
+  `08-sops/mimi/handoffs/2026-08-10-s1-connect-consent.md`. Change both together, or tell
+  that workstream.
+- **The no-project message names Session 1's steps by title, never by number.** The Claude
+  Desktop and Cursor tracks number differently — eight steps against nine — so any number is
+  wrong for one of them.
+- **The two tracks diverge on purpose, and `/learn` documents it.** On Desktop the builder
+  asks Claude to clone, so Claude runs a command and a permission dialog appears. On Cursor
+  the builder clones through the Command Palette, so nothing runs on their behalf until this
+  skill does. Do not assume both surfaces have met a permission prompt before reaching here.
