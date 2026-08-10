@@ -1,5 +1,19 @@
 # Changelog — `bluerock` plugin
 
+## 0.6.4 — record who depends on this skill's wording
+
+- **Added (`check`, maintainer note):** the consent prompt's wording is quoted by
+  learn.bluerock.io — Session 1 tells builders *"say yes, it explains itself when it asks"*,
+  which is only true while this prompt does. Nothing links the two at build time, so rewording
+  here silently falsifies the page. The skill now says so at the prompt and carries a
+  "who depends on this skill's wording" section naming the files and the handoff. Flagged by
+  the learn workstream after applying the page change: the dependency was documented
+  downstream and invisible from here.
+- Also recorded there: the report names Session 1's steps by title rather than number (the two
+  tracks number differently), and the tracks diverge on purpose — a Cursor builder has met no
+  permission prompt before reaching this skill, a Desktop builder has.
+- No builder-facing string changed.
+
 ## 0.6.3 — say it without `git status`
 
 - **Changed (`check`):** the consent prompt's reassurance said the links "won't show up in
