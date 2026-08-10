@@ -65,12 +65,22 @@ line items; they roll up into the four-line report.
      yet include the starter skills and agents. Do not seed files.
    - **If `~/.claude/agents` and `~/.claude/skills` already symlink to this project's
      matching folders, this is a PASS.** Say nothing extra; this is the steady state.
-   - **If either path is absent, ask before linking.** Propose the two links in one plain
-     line: "I found your project. To make the skills and agents inside it available from new
-     chats, I can link `~/.claude/skills` and `~/.claude/agents` to your project. The files
-     stay in your project repo; the links live outside it and will not show in `git status`.
-     Do you want me to do that?" If they say yes, create `~/.claude/` if needed and add
-     the missing links. If they say no, stop with a short "nothing changed" note.
+   - **If either path is absent, ask before linking — and recommend yes, with the reason.**
+     This is the only decision in the whole check, and it arrives at the milestone moment.
+     Worded as plumbing it reads like something to ask IT about, so a builder who does not
+     know what it is for will say no — and a no quietly costs them everything they build
+     later. Lead with the recommendation, give the reason in their terms, and close the
+     ownership question before they think to ask it. Say it roughly this way, in your own
+     words: "One thing to turn on. Your project keeps its own agents and skills inside it,
+     and Claude Code only looks for them where a chat **starts** — in your workspace that's
+     one level above your project, so right now they won't load in a new chat. I can put a
+     pointer where Claude Code looks. **I'd say yes:** the agents and skills you build from
+     here on all live in that folder, and this is what makes them run. Nothing moves — your
+     files stay in your project, and it won't show up in `git status`. Want me to?"
+     If they say yes, create `~/.claude/` if needed and add the missing links. **If they say
+     no, say plainly what it costs** — their project's own skills and agents will not load
+     in new chats until this is on — and that rerunning `/bluerock:check` offers again. Then
+     stop with a short "nothing changed" note. Never link without a yes.
    - **If a path is a symlink to another project, report where it points and ask before
      repointing.** On yes, remove only the symlink and recreate it to this project. On no,
      stop with a short "nothing changed" note.
