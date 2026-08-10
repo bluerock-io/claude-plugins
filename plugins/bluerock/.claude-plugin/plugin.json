@@ -2,7 +2,7 @@
   "name": "bluerock",
   "displayName": "BlueRock Builder Toolkit",
   "description": "The tools that come with BlueRock for AI Builders. They run inside your agentic project, the repo you set up in the learning path. A research team sizes up any company and hands back a one-page Account Scorecard: Fit, Timing, Reachability, and the recommended next step. Onboarding learns how you write, a living list holds your daily priorities, and an end-of-day wrap-up keeps your dashboard current. Everything it writes is plain markdown in your own repo.",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "author": { "name": "BlueRock" },
   "homepage": "https://builders.bluerock.io",
   "repository": "https://github.com/bluerock-io/claude-plugins",

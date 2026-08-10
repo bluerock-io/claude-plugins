@@ -1,5 +1,25 @@
 # Changelog — `bluerock` plugin
 
+## 0.6.2 — `check` recommends the one decision it asks you to make
+
+- **Changed (`check`):** the load-path consent question was neutral plumbing: *"I can link
+  `~/.claude/skills` and `~/.claude/agents` to your project... Do you want me to do that?"*
+  No recommendation, no reason, and the mechanism first. To a builder who is not a developer
+  that reads like something to ask IT about, and it lands at the milestone moment at the end
+  of Session 1. A no is not neutral: Claude Code resolves `.claude/` from where a chat
+  **starts**, which in the workspace is one level above the project, so without the links the
+  project's own skills and agents silently do not load in new chats — and every agent and
+  skill the builder goes on to build lives in exactly that folder. They would build it and it
+  would not be there, with no error pointing at the cause.
+- Now it leads with the recommendation, gives the reason in the builder's terms (what breaks,
+  not where the symlink goes), and closes the ownership question before they think to ask it
+  — nothing moves, the files stay in their project, it will not show in `git status`.
+- **Changed (`check`, the no path):** saying no now states plainly what it costs and that
+  rerunning `/bluerock:check` offers again, instead of a bare "nothing changed." A builder who
+  declines should know what they declined and that it is one command to undo.
+- Consent itself is unchanged: still asked, never assumed, and still refuses to touch a real
+  directory at either path.
+
 ## 0.6.1 — `check` was still naming the workspace by a retired name
 
 - **Fixed (`check`):** the skill description and its opening line said the project is live in
