@@ -27,7 +27,11 @@ Never open with "what seems to be the problem?" if you can see it yourself. Quie
    Session 1 — creating the project is what it teaches.
 3. **Read `learning/progress.json`** if it exists: their `role`, their `surface`, which sessions
    are complete, which is `in_progress` and at which checkpoint.
-4. **Read the last thing that happened** in this conversation. Most "it isn't working" reports
+4. **Check which project the load-path links point at.** `ls -l ~/.claude/agents
+   ~/.claude/skills`. If they resolve into a *different* project folder than the one you just
+   found, that is very likely the whole diagnosis — see the row for it below. Cheap to look,
+   and it explains a class of report that otherwise points nowhere.
+5. **Read the last thing that happened** in this conversation. Most "it isn't working" reports
    are about the previous message, not the whole system.
 
 Then say what you found in one line — "you are partway through Session 2, at the point where
@@ -44,6 +48,7 @@ else.
 | No project, or the project is there but a skill cannot write to it, or the plugin's skills are not loading | Setup | **`/bluerock:check`** — it confirms the project is live and repairs the load path with their okay. Do not diagnose plumbing yourself; that skill owns it. |
 | They do not know where they are in the learning path, or want to pick it back up | Lost in the learning path | **`/bluerock:learn`** to continue, or **`/bluerock:learn-status`** for the map. Name the session they are actually on. |
 | A session stalled mid-way — a checkpoint did not pass, a step did not do what the session said | Session-level | Re-enter that session: it resumes at the checkpoint rather than starting over. Give the honest reason it stalled if you can see it. |
+| A skill or agent ran, but behaved like an older version of itself, or like it belongs to another project — and the builder has more than one project | Wrong project's tools | `~/.claude/skills` and `~/.claude/agents` point at whichever project they first ran `/bluerock:check` in. Sitting in a second project does not change that: they are running the first one's copies. Say so plainly, then **`/bluerock:check`** in the project they want, which offers to repoint. A new chat after. |
 | A skill ran but the result was thin, wrong, or empty | Tool-level | Name the likely cause from the skill's own recovery notes (a thin website, a company with little public presence, an unsaved paste), then offer the single change that fixes it — usually more input, not a different tool. |
 | "What can I even ask for?" / "What is this?" | Orientation | The short orientation below. Then hand them one concrete thing to try. |
 | Something is genuinely broken, or it is about billing, access, or their account | Not yours | The escalation ladder below. Do not improvise a fix for account problems. |

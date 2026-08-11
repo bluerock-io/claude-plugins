@@ -1,5 +1,28 @@
 # Changelog — `bluerock` plugin
 
+## 0.7.0 — the load-path links pin you to one project, and now something says so
+
+Found live: a builder cloned a second project, ran `daily brew` in it, and got the *first*
+project's agent — an older copy, with retired vocabulary and no anchoring. Nothing was broken;
+the wrong files were loading, and the symptom pointed nowhere near the cause.
+
+- **The mechanism.** `/bluerock:check` links `~/.claude/skills` and `~/.claude/agents` to the
+  project it was first run in. Claude Code loads user-scope skills and agents from those paths,
+  and in the workspace a session starts at the home folder — so a second project's own
+  `.claude/` is never consulted. The builder is sitting in project B running project A's tools,
+  and everything appears to work.
+- **Changed (`check`):** the repoint branch already asked before repointing, but framed it as
+  housekeeping. It now names the cost: which project's tools they are actually getting, that
+  this project's own are not loading yet, and that a stale copy behaves like an older version
+  of itself. The "no" path repeats which project's tools they will keep.
+- **Changed (`help`):** added the diagnosis, because `help` is what a stuck builder actually
+  runs. Its look-before-you-ask ladder now compares where the links resolve against the project
+  it just found, and the shapes-of-stuck table carries a row for "behaved like an older version
+  of itself, or like another project's" routing to `/bluerock:check` in the intended project.
+
+Minor rather than patch: `help` gains a diagnostic step and a routing row, which changes what
+it does rather than only what it says.
+
 ## 0.6.4 — record who depends on this skill's wording
 
 - **Added (`check`, maintainer note):** the consent prompt's wording is quoted by
