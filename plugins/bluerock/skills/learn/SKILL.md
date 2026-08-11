@@ -15,9 +15,13 @@ week. The builder may be in sales, marketing, or ops — not a developer — so 
 plainly and keep it warm. Your job here is routing and state, not teaching: read
 where they are, greet them honestly, and hand off to the right session skill.
 
-The learning path runs where they build. Sessions 1 and 2 run fully in-session today;
-Sessions 3–8 still live on learn.bluerock.io, and you say so plainly when asked
-for one (never pretend to teach a session you don't have).
+The learning path runs where they build. **Never state from memory which
+sessions run in-session — read it from the manifest** (below). Each session
+carries a `delivery` field (`in-session` or `web`) and a `skill` name; that is
+the only source of truth for what you can teach, and it ships in the same plugin
+release as the session skills themselves, so the two cannot drift. Say plainly
+what's available when asked, and never pretend to teach a session you don't
+have.
 
 ## First — anchor to their project
 
@@ -142,21 +146,28 @@ manifest maps them. Handle directly:
 - **"What's left?" / "where am I?"** — a plain-language rundown (or point at
   `/bluerock:learn-status`, which renders the same thing).
 
-To hand off to a session that runs in-session, read the session skill file and
-follow it as the lesson, in this same conversation:
+**Hand off by reading the manifest, never by a list kept here.** For the session
+they're going to:
 
-| Session | Skill file |
-|---|---|
-| 1 — Get Started | `${CLAUDE_PLUGIN_ROOT}/skills/learn-get-started/SKILL.md` |
-| 2 — Meet your first agent team | `${CLAUDE_PLUGIN_ROOT}/skills/learn-meet-your-first-agent-team/SKILL.md` |
+- **`delivery: "in-session"`** — read the session skill at
+  `${CLAUDE_PLUGIN_ROOT}/skills/<its `skill` value>/SKILL.md` and follow it as
+  the lesson, in this same conversation. The builder can also invoke it directly
+  as `/bluerock:<skill>` (e.g. `/bluerock:learn-get-started`).
+- **`delivery: "web"`** — say plainly that this one runs on the web for now and
+  give its `web` link from the manifest. Offer to keep `progress.json` honest
+  when they come back: if they report finishing it, verify what it produced in
+  the project before marking it complete (see the rules).
 
-(The builder can also invoke these directly: `/bluerock:learn-get-started`,
-`/bluerock:learn-meet-your-first-agent-team`.)
+**If the manifest says `in-session` but the skill file isn't there,** trust the
+file, not the manifest: treat it as a web session, give the link, and say the
+session isn't installed in this version of the plugin. That mismatch should never
+happen in a release, and if it does, honest degradation beats a promise you can't
+keep.
 
-For Sessions 3–8, say plainly that those sessions run on the web for now and
-give the session's link from the manifest. Offer to keep `progress.json` honest
-when they come back: if they report finishing one, verify what it produced in
-the project before marking it complete (see the rules).
+**Answering "what's left" and "what runs where":** count and describe from the
+manifest, in that moment. Do not carry a remembered figure — a plugin release can
+change it, and this skill's whole job is telling a builder where they actually
+are.
 
 ## Rules
 
@@ -174,3 +185,28 @@ the project before marking it complete (see the rules).
   normal working session. If this skill fired and the builder clearly wanted
   something else, step aside without ceremony.
 - Plain English, warm and brief. No jargon, no ceremony.
+
+## Who depends on this skill's wording
+
+Not part of a run. Read this before rewording anything a builder sees.
+
+- **This skill must never name which sessions run in-session.** It did once —
+  a hardcoded "Sessions 1 and 2 run fully in-session today; Sessions 3–8 still
+  live on learn.bluerock.io" — and landing Session 3 made the orientation skill
+  the one telling builders the wrong thing. It now derives everything from
+  `curriculum/manifest.json` (`delivery`, `skill`, `web`). **Adding a session
+  should require no edit here at all.** If you find yourself about to write a
+  session number into this file, that's the regression.
+- **`curriculum/manifest.json` is this skill's data contract.** It supplies
+  titles, times, outcomes (including the per-role `outcomes` map), prerequisites,
+  delivery, skill names, and web links. `/bluerock:learn-status` reads the same
+  file for the same purpose. Change a field name and both go stale together.
+- **`progress.json`'s shape is shared with every session skill.** The template
+  here is the canonical one; `surface` and `role` are stored **once**, here or by
+  `/bluerock:onboard`, and every session skill reads the same two fields rather
+  than keeping a copy. Session 4 reconciles `role` after onboard runs and writes
+  to this same field.
+- **Session skills own their own teaching; this skill owns routing and state.**
+  Don't restate a session's outcome in your own words — read it from the manifest,
+  role-resolved. That rule is what keeps eight sessions' promises consistent in
+  one place.
