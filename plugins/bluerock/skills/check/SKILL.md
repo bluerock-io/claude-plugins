@@ -85,8 +85,15 @@ line items; they roll up into the four-line report.
      in new chats until this is on — and that rerunning `/bluerock:check` offers again. Then
      stop with a short "nothing changed" note. Never link without a yes.
    - **If a path is a symlink to another project, report where it points and ask before
-     repointing.** On yes, remove only the symlink and recreate it to this project. On no,
-     stop with a short "nothing changed" note.
+     repointing — and say what it costs to leave it.** This is not cosmetic: the links decide
+     which project's skills and agents actually load, so until they are repointed the builder
+     is running the *other* project's copies while sitting in this one. That failure is
+     invisible from the inside — the tools appear to work, they are just the wrong ones, and
+     a stale copy behaves like an older version of itself. Name the other project by folder
+     name, say plainly that this project's own skills and agents are not loading yet, and
+     ask. On yes, remove only the symlink and recreate it to this project, then tell them to
+     open a new chat. On no, stop with a short "nothing changed" note that repeats which
+     project's tools they will get.
    - **If a path is a real directory (empty or not) or any other non-symlink file, do not
      clobber it.** Report that Claude Code already has a real folder or file at that path
      and ask them to bring it to the BlueRock Builders Discord. Do not move, rename, copy,
