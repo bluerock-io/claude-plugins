@@ -1,5 +1,111 @@
 # Changelog — `bluerock` plugin
 
+## 0.8.0 — the learning path runs in-session, all eight sessions
+
+Phase 1 of `bluerock-in-session-curriculum-build-spec.md` is complete. 0.6.0 shipped
+the router, `progress.json`, `learn-status`, and Sessions 1–2; this adds the
+remaining six, built against the site's session specs in
+`marketing-hub/workbench/app/learn/_data/`.
+
+- **Added — six session skills**, each with `checkpoints.md` and
+  `examples/roles.md`, following the Session 2 template and its "How to teach"
+  contract:
+  - `learn-anatomy-of-an-agent` (3) — runs the seeded `scribe`, names the five
+    parts against the real file, then adds one line to it. Its checkpoint is a
+    **git diff**, and the diff being *small* is a pass condition: a large one
+    means Claude rewrote the spec instead of adding to it, which is the failure
+    the approval habit exists to catch.
+  - `learn-give-your-agent-memory` (4) — orchestrates `/bluerock:onboard` rather
+    than reimplementing the interview.
+  - `learn-turn-a-task-into-a-skill` (5) — the builder authors their own skill, so
+    the checkpoints verify **shape, not content**.
+  - `learn-assemble-a-team-of-agents` (6) — the 60–90 minute one; says so up front
+    and splits into two sittings at the part boundary.
+  - `learn-put-an-agent-on-a-schedule` (7) — see the honesty notes below.
+  - `learn-run-your-system` (8) — see the capstone decision below.
+- **Changed (`learn`, the router) — it no longer names which sessions run
+  in-session.** It hardcoded *"Sessions 1 and 2 run fully in-session today;
+  Sessions 3–8 still live on learn.bluerock.io"*, which landing Session 3 would
+  have made false **inside the one skill whose job is telling a builder where they
+  are.** Availability, handoff paths, and "what's left" now all derive from
+  `curriculum/manifest.json`, which ships in the same release as the skills and so
+  cannot drift from them. Adding a session now requires no edit to the router at
+  all. If the manifest claims a skill the release doesn't contain, the router
+  trusts the filesystem and degrades to the web link.
+- **Changed (`curriculum/manifest.json`):** sessions 3–8 gain their `skill` names,
+  `delivery: "in-session"`, and real `checkpoints` counts (3, 4, 6, 5, 5, 5), plus
+  outcomes written at the same grain as Sessions 1–2 instead of the site's
+  four-word summaries.
+- **Added — the dependency-note convention, applied everywhere.** Every session
+  skill and the router now end with a **"Who depends on this skill's wording"**
+  section, the pattern 0.6.4 introduced in `check` after the learn workstream
+  found that class of coupling downstream and invisibly. Each block names its site
+  page, the starter-kit files it quotes, and the neighboring sessions that depend
+  on its close-out. Six new skills would otherwise have created six new instances
+  of the same silent-staleness bug.
+- **`learn-status` unchanged** — it was already manifest-driven and already
+  handled web-versus-in-session generically.
+
+### Three site-copy bugs found while porting, and how this release handles them
+
+Content was ported from the site specs, not invented. Three claims did not survive
+verification against `bluerock-io/hub-starter` `main`. **The skills use the
+verified facts and record the divergence**; the site pages still need fixing.
+
+- **Session 5's skills path is wrong on the site.** The page says
+  `.claude/commands/meeting-recap/SKILL.md` and tells builders to create their own
+  skill at `.claude/commands/<name>/SKILL.md`. The starter kit has **no
+  `.claude/commands/` directory at all** — seeded skills are at
+  `.claude/skills/`, which the starter kit's own README documents. As written, the
+  page sends a builder to a file that does not exist and has them file their first
+  skill where nothing will find it beside the others.
+- **Session 6's dispatch command is wrong on the site.** The page says
+  `/bluerock:research`. `research` is a **builder-owned** skill shipped in the
+  starter kit, so it fires bare: `/research`. There is no `research` skill in this
+  plugin, so the prefixed form resolves to nothing. Cause is recorded in the page's
+  own provenance comment: the 2026-07-22 `/bluerock:` convention was applied to it,
+  but that convention covers **plugin** skills only — exactly what the Session 5
+  page says. The two pages contradict each other on the same rule.
+- **Session 7 calls `daily-brew` read-only.** Its tools line is
+  `Read, Write, Edit, Grep, Glob` and it seeds `today.md`. The *principle* the note
+  is making — you don't loosen a specialist's tools line because the trigger
+  changed — is correct and is ported; the false claim is not.
+
+### Two sessions needed a design decision before code
+
+- **Session 7 teaches a surface BlueRock does not own, and says so.** `/schedule`
+  is a native Claude Code command; Routines run in **Anthropic's cloud** against
+  the builder's GitHub repo, not in the BlueRock workspace. The skill attributes
+  that plainly, keeps the site's "the buttons may move" honesty line, and treats
+  the one-time GitHub grant as a consent moment the skill **explains but cannot
+  complete or confirm**. Its checkpoints separate **reported** from
+  **inspectable** evidence (the Session 1 model): a routine's existence is not
+  inspectable from the project, so the session's real checkpoint is the file a
+  **manual fire** produces. Hence the ported discipline: never let 7am be the
+  first test. `progress.json` cannot reach `complete` on a routine that has never
+  produced a file.
+- **Session 8 is a reflection and wrap, not a taught session** — option 1 of the
+  three in `bfb-sessions-3-8-in-session-scope.md` §2, the only one where
+  `progress.json` can honestly reach `complete`. The site's capstone is *present
+  one workflow live*, which no skill can verify. This one **reads the real project**
+  (splitting what the builder built from what the starter kit seeded), names it
+  back with counts, then does with them what the audience would have done: finds
+  the gap. The presentation stays as a strongly-offered exercise with an
+  explicitly **unverifiable** checkpoint that never blocks completion. Making the
+  capstone presentation-gated later is a product decision, not a copy fix — it
+  changes what finishing the path means.
+
+### Not done
+
+- **None of the six has had a real run in a real workspace**, which the scope
+  doc sets as the bar for calling a session done ("reading one proves nothing").
+  These are instructions to a model, and the two shipped sessions took real
+  iteration. Treat this release as unproven until Sessions 4 and 3 have each been
+  run end to end in a workspace.
+- Out of scope, per the spec: the `learning-coach` subagent (Phase 2 — coach
+  behavior stays embedded in each session skill), the dynamic manifest, and
+  telemetry.
+
 ## 0.7.0 — the load-path links pin you to one project, and now something says so
 
 Found live: a builder cloned a second project, ran `daily brew` in it, and got the *first*
