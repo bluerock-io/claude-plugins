@@ -221,8 +221,13 @@ work lives; the plugin is what runs in it.
   verify, say so, and skip the mechanics.
 - *Recovery:* command not found — they typed `/plugin`; it's `/plugins`.
   Pasted into the Plugins tab instead of Marketplaces — won't work; use
-  Marketplaces. BlueRock commands don't appear when typing `/blue` — they're
-  still in the old chat; plugins only load when a session starts.
+  Marketplaces. BlueRock commands don't appear in the chat they installed
+  from — plugins only load when a session starts, so open a new one.
+- ⚑ *Never offer a partial slash command as the test.* Claude Desktop does not
+  resolve partials, so `/blue` — or `/bluerock` — answers `Unknown command`
+  even on a perfect install. A builder who had done everything right was told
+  three times she had failed. Use `/bluerock:check` (step 8), or the Plugins
+  screen listing **BlueRock Builder Toolkit**.
 - *Checkpoint 7:* the bluerock plugin is installed and its commands resolve.
 
 ### 8. See your project come alive
