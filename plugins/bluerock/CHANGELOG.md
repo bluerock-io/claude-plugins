@@ -1,5 +1,28 @@
 # Changelog — `bluerock` plugin
 
+## 0.8.1 — the baked-image transition stops breaking flows that assumed a clone
+
+The workspace image now ships with the project baked in (hub-starter: "no template, no
+clone, project is the root"), and no GitHub remote exists until the builder connects
+one. Three skills assumed the old flow; each now checks state instead of assuming it.
+
+- **Fixed — `learn-get-started`:** step 5 now checks the workspace by signature before
+  instructing the template + clone flow. If the project is already baked in, it says
+  so, skips steps 5–6, creates `learning/` + `progress.json`, and continues at step 7.
+  (The full rewrite of steps 5–6 for the baked image is pending a walkthrough — this
+  guard stops the shipped skill from walking a builder into a wall today.)
+- **Fixed — `wrap-up`:** step 5 checks `git remote` before pushing. No remote is
+  normal pre–Save-your-work: commit locally, skip the push without calling it a
+  failure, and say where backup starts later.
+- **Fixed — `learn-put-an-agent-on-a-schedule`:** Before-you-start now verifies the
+  GitHub remote exists and the branch is pushed — the one prerequisite that genuinely
+  blocks, since Routines run in Anthropic's cloud against the builder's repo. If
+  missing, it helps connect one before anything gets scheduled.
+- **Added — repo `CLAUDE.md`:** the skill authoring guide (facilitation standard) —
+  the teach loop, capture discipline, session-skill shape, voice, environment honesty,
+  and hard rules, distilled from the Session 2 exemplar. Auto-loads for every session
+  working in this repo.
+
 ## 0.8.0 — the learning path runs in-session, all eight sessions
 
 Phase 1 of `bluerock-in-session-curriculum-build-spec.md` is complete. 0.6.0 shipped

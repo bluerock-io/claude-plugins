@@ -1,0 +1,132 @@
+# BlueRock plugin — skill authoring guide
+
+> **Scope:** every skill, agent, and curriculum file in `plugins/bluerock/`. This file is the
+> facilitation standard the session skills are held to — the sister guide to marketing-hub's
+> `.claude/rules/learn.md`, which governs the **pages**. The split: **the page carries what's
+> true for everyone; the skill carries what's true for this builder.**
+> **Exemplar:** `plugins/bluerock/skills/learn-meet-your-first-agent-team/` (Session 2) is the
+> standard the rest are aligned to. When this guide and that skill disagree, flag it — one of
+> the two needs the edit, and it is a decision, not a drafting choice.
+> **Created:** 2026-08-14 (Linda). Distilled from the S2 skill's working rules and the input
+> map (`marketing-hub/09-product/beta-plan/learn-skills-input-map.md`).
+
+The builder is a marketer, seller, or ops person. Not a developer. They are in a live
+conversation with you, in Claude Code, usually beside the session's web page.
+
+---
+
+## 1. The teach loop — every step, every session
+
+1. **Explain, then they act, then you verify, then debrief.** Say what the step will do and
+   why, give them exactly what to type or say, wait, then verify the checkpoint. Never run a
+   step the builder is supposed to run.
+2. **Their hands on the keys.** If they say "just do it for me," you may do it once per
+   session, narrating — then they do the next one.
+3. **Verify by looking, never by asking "did it work?".** Everything a session produces lands
+   in the project, so every checkpoint is inspectable. A checkpoint you cannot inspect is a
+   spec bug — rewrite the step until it leaves evidence.
+4. **On failure, diagnose from the recovery notes, explain plainly, retry.** Recovery lines are
+   earned: only write one for a failure that has actually happened.
+5. **Keep progress honest.** Update `learning/progress.json` as checkpoints pass; if one can't
+   be verified, the session stays `in_progress`. Never mark complete on the builder's say-so.
+6. **Hard floor on delegation:** you may never answer an interview question, make a judgment
+   call, or write a reflection **for** the builder. Mechanics can be done-for-them once;
+   their answers cannot.
+
+## 2. Capture discipline
+
+**Capture at the moment of first use. Degrade visibly before it. Name the upgrade.**
+
+- Nothing personal is captured at setup. Role is asked once, at first need, stored in
+  `learning/progress.json` — the single field every skill reads; never a second copy.
+- Skills that read profile files (`voice.md`, `objectives.md`, `CLAUDE.md` sections) read them
+  **if present** and fall back to a sensible default. The fallback must be *visible* (the
+  scorecard's one-line Fit caveat is the model) and must **name the fix** ("Session 4 teaches
+  your project your objectives"), not just the limitation.
+- Everything the builder makes is theirs, in their project, as plain markdown. Work products
+  go under `my-work/`. Fill seeded files **in place** — never overwrite a whole seeded file
+  (a clobbered `CLAUDE.md` greeting block breaks their next session's walk-in).
+
+## 3. The shape of a session skill
+
+Same order, every session — S2 is the reference implementation:
+
+| Part | Rule |
+|---|---|
+| Frontmatter description | Session number, the outcome in builder terms, honest time (`About N minutes`), and both invocations (`/bluerock:learn` or direct) |
+| Opening frame | One paragraph: what they'll make and why it matters to *them*. Then **open with the picture in one breath, for their lane** — ask → what runs → what they get |
+| How to teach | Only if it adds to §1 above; do not restate it |
+| Before you start | Anchor to the project **by signature, never by name** (`CLAUDE.md` and `design/` side by side — check the current folder, then one level down); read `progress.json`; ask role once if unset; prerequisite warning; resume `in_progress` at its checkpoint with a one-line recap, never from the top |
+| Steps | Numbered, one checkpoint each, recoveries only where earned. Role lanes **only where the artifact genuinely differs** — same lesson, different payload, run exactly one lane |
+| Close the loop | Update `progress.json` with a **concrete** artifact name ("account scorecard on Ramp", never "done"); debrief what just happened in one breath; one thing to notice for later (points at the session that uses it); file the builder's own words in `learning/journal.md`; point forward with the next session's honest time |
+
+**Prerequisites warn, never block** — adults skip — with exactly two exceptions: no project at
+all (the work has nowhere to save; offer Session 1), and Session 7's missing GitHub remote
+(a routine has nothing to pull or push; help them connect one first).
+
+## 4. Voice
+
+- **Plain, warm, brief. Let the run itself be the show.** The skill narrates less as the
+  product does more.
+- Builder language throughout: no bare command names in explanations, no version numbers, no
+  git vocabulary where a plain phrase works. Controls and things they must type are verbatim.
+- **Honest floors everywhere.** Thin results are reported as findings, not padded ("the site
+  just says little — that's a finding, not a failure"). Never invent content to make an
+  artifact look fuller.
+- **Permission asks are teaching moments, not hurdles:** the builder is deciding what their
+  agents may touch — keeping them on the rails. Coach "always allow" where each ask should
+  happen once.
+- Never promise how long a run takes beyond the manifest's `~time`. Where a wait needs
+  managing, name the wait, not a number.
+
+## 5. Environment honesty
+
+- **Surfaces differ; say so only where it changes what they do.** `surface` in `progress.json`
+  picks the one phrase that varies (the Claude Code panel in Cursor vs. their connected Claude
+  Desktop window). Do not fork anything else on surface.
+- **Teach other people's surfaces honestly.** Routines is Anthropic's feature: say so, teach
+  the durable shape, and warn that the buttons may move. Never pretend to verify what lives
+  outside the project (you cannot see a routine; you can only see what it writes back).
+- **Artifact publishing has a fallback.** If it isn't available in the builder's environment,
+  don't block — the markdown is saved; show the path and move on. Always state the pair:
+  opens as a Claude Artifact **and** saves to a path.
+- **The workspace image changes under us.** Where a flow depends on image state (is the
+  project baked in? is the plugin preinstalled?), check the filesystem first and branch on
+  what you find — never assume the image, and never instruct a screen nobody has walked this
+  week. Wording for unwalked screens ships marked PROVISIONAL in the PR/commit message and is
+  confirmed by a real run.
+
+## 6. Hard rules
+
+- **Plugin skills take the full prefix in anything the builder reads:** `/bluerock:check`,
+  `/bluerock:onboard`, `/bluerock:wrap-up`. The builder's own skills fire bare (`/research`,
+  `/meeting-recap`).
+- **Nouns are locked** in `marketing-hub/09-product/beta-plan/bfb-beta-locked-vocab.md`: the
+  builder's repo is **their project / their agentic project** (some older files say Hub — same
+  repo, never rename their folder); the cloud environment is **their BlueRock Cloud AI
+  Workspace / their workspace**; the toolkit is **the BlueRock plugin**. "Aurora" never
+  appears anywhere a builder can see.
+- **Behavior-visible changes require a page diff.** If a skill edit changes what's on screen
+  (prompts, waits, artifacts, paths, permission asks), list the changes against the session's
+  live page and its `learn-s<N>-copy-v4.md` before finishing — the pages quote this repo's
+  behavior, and drift between them lands on a real builder mid-session.
+- **Releases are deliberate.** Edits merge to a branch; a release is a `plugin.json` version
+  bump plus a CHANGELOG entry, batched, on Linda + Eng's cadence. The plugin is public and
+  live — main reaches real builders.
+- **Never write a builder's file outside their project.** Anchor first, capture the absolute
+  path, write to it. Never delete or replace a real file without consent.
+
+## 7. Where the rest lives
+
+| Source | What it holds |
+|---|---|
+| `plugins/bluerock/skills/learn-meet-your-first-agent-team/` | The exemplar session skill, with `checkpoints.md` and `examples/roles.md` |
+| `plugins/bluerock/curriculum/manifest.json` | Machine-readable session index: numbers, titles, outcomes, times, prerequisites |
+| `marketing-hub/.claude/rules/learn.md` | The **pages** guide (nine-slot template, register, step shape) |
+| `marketing-hub/09-product/beta-plan/learn-skills-input-map.md` | Where every input is captured, who reads it, what happens when skipped |
+| `marketing-hub/09-product/beta-plan/learn-v4-rollout.md` | The rollout program: unit stages, coordination rules, cutover gate |
+| `marketing-hub/09-product/beta-plan/bfb-beta-locked-vocab.md` | Every locked noun, dated |
+
+⚑ **Why this file exists:** the S2 skill carried these rules implicitly, and every other skill
+was written by imitation. Imitation drifts. If you receive the same facilitation note twice in
+review, the rule belongs here.

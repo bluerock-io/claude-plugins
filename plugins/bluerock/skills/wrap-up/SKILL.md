@@ -160,9 +160,14 @@ ritual; it is not yet permission to commit.
 
 ### 5. Commit and push (only after I confirm)
 
-Once I confirm: stage the files, commit with the agreed message, push. If the
-push fails (usually authentication), tell me plainly what happened and what to
-click. Don't retry silently.
+Once I confirm: stage the files, commit with the agreed message, then check for
+a remote (`git remote`) before pushing. **No remote is normal until the builder
+connects their own GitHub repo** (the Save your work step, later in the learning
+path) — in that case commit locally, skip the push without treating it as a
+failure, and say it in one line: "committed in your workspace; once you connect
+your own GitHub repo, wrap-up will back this up there too." If a remote exists
+and the push fails (usually authentication), tell me plainly what happened and
+what to click. Don't retry silently.
 
 ### 6. Hand me the continuation prompt
 

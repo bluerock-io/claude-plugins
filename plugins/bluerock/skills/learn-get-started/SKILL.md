@@ -171,6 +171,14 @@ workspace.
 
 ### 5. Make your own copy of the starter kit
 
+**First, check whether this step even applies.** Newer workspace images ship
+with the project already baked in — no template, no clone. Look for it by
+signature before instructing anything: `ls` the home folder for `CLAUDE.md` and
+`design/` side by side, then `ls */CLAUDE.md`. If the project is already there,
+say so plainly ("your workspace came with your project already in place"), skip
+steps 5 and 6 entirely, create `learning/` and write `progress.json` if missing
+(checkpoint 6's close), and continue at step 7.
+
 In the browser, on GitHub: open the starter kit's template at
 https://github.com/bluerock-io/hub-starter, click **"Use this template"**,
 create a new repository, name it, set it to **Private**, create it, and copy
