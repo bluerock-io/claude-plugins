@@ -57,11 +57,41 @@ mostly reads what's already there.** Two consequences that change how you run it
 5. **Role picks the examples**, never the lesson. Read `role` from
    `progress.json`; `examples/roles.md` carries per-role framings and who to
    present to.
+6. **Say "save a checkpoint" and "back up to GitHub."** Never *commit*, *sync*,
+   or *push* as bare verbs — nothing in the eight sessions teaches them, and the
+   wrap-up skill this session hands over was rewritten for exactly that reason.
+   **Two exceptions, both silent:** the `git` commands in step 1 and in
+   `checkpoints.md` are yours to run, and you report what they tell you in
+   builder words ("you've saved 47 times since March 3"), never the command or
+   its vocabulary.
+7. **Encouragement: two beats, and they are earned.** Affirm after a verified
+   checkpoint, never before, and always with something specific from their own
+   project. **Checkpoint 1** — the inventory, because it is the first time they
+   see the whole thing at once, and the numbers are theirs, not yours
+   ("`briefs/` has eleven files in it; none of them existed six weeks ago").
+   **Checkpoint 5** — they finished the path. Nothing at 2, 3, or 4: those are
+   the reflective ones, and praise on a hard question stops it being asked
+   honestly. If a checkpoint doesn't verify, the warmth goes into the recovery,
+   never into pretending it worked.
+8. **When a recovery doesn't take, climb the ladder** rather than retrying: your
+   own recovery once, then `/bluerock:help` by name, then the BlueRock Builders
+   Discord — and write their post for them, in their words ("Session 8 — wrap-up
+   saved locally but the backup to GitHub was refused"). This is the last session
+   in the path, so a builder who gets stuck here has nowhere further to be routed
+   and no next session to recover in. Never leave them holding an error with no
+   named next move.
 
 ## The frame
 
+**"System" has been a loose word up to now, and this session is where it gets an
+exact one.** It has meant "the whole thing" since Session 1's framing. Say the
+definition out loud when you first use it here: their system is four parts, each
+built in a different session, that now run together. A builder who has been told
+for seven sessions that they were building a system has never once been told
+what one is made of.
+
 Everything they built across seven sessions — each piece making the next one
-easier — now runs as one system:
+easier — now runs as those four parts:
 
 | | Part | What it is |
 |---|---|---|
@@ -71,8 +101,8 @@ easier — now runs as one system:
 | 4 | **Routines** | the work that runs while they sleep |
 
 And the line worth landing: a fresh chat starts from zero every time. **Their
-project hasn't started from zero since Session 4** — and that gap widens every
-week they work in it. The system is the moat.
+project hasn't started from zero since Session 4**, and it knows more every week
+they work in it. That difference is the whole return on the eight sessions.
 
 ## Before you start
 
@@ -99,8 +129,13 @@ at its absolute path:
   theirs.
 - **Agents** — `.claude/agents/`. Same split: seeded versus the team they built in
   Session 6. Name theirs, and name their tools lines.
-- **Output** — `notes/`, `briefs/`, `my-work/`. **Count the files.** This is the
-  number that lands hardest, because it's the one they haven't been watching.
+- **Output** — `notes/`, `my-work/`, and whatever folder their routine writes to
+  (`briefs/` in the shipped example). **Count the files.** This is the number
+  that lands hardest, because it's the one they haven't been watching. Only
+  `notes/` ships with the starter kit: `my-work/` appears the first time a team
+  runs, and the routine's folder exists only if Session 7's instruction named
+  one. **A folder that isn't there is a finding, not an error** — say which and
+  carry it to step 4.
 - **History** — `git -C <project> log --oneline | wc -l` and the date of the first
   commit. How long they've been at it, and how many times they saved.
 
@@ -122,9 +157,9 @@ properly.
 The shape to steal:
 
 > Every evening I tell scribe what happened, and every weekday at 7am a routine
-> dispatches daily-brew. By the time I sit down there is a morning brief committed
-> to my repo, built from yesterday's notes. I stopped reconstructing my week from
-> memory and chat scrollback.
+> dispatches daily-brew. By the time I sit down there is a morning brief waiting
+> in my project, built from yesterday's notes. I stopped reconstructing my week
+> from memory and chat scrollback.
 
 **Check the third sentence hardest.** Nobody is impressed that an agent ran;
 everybody understands what they *stopped doing by hand*. If the third sentence is
@@ -190,18 +225,33 @@ skills" is not it; "add a check for whether the follow-up already went out" is.
 ### 5. Close for real with `/bluerock:wrap-up`
 
 The last habit the path teaches, and the one that outlasts it. They run it
-themselves: **"wrap up my session"** or `/bluerock:wrap-up`.
+themselves: **"wrap up"** or `/bluerock:wrap-up`.
 
-- *What they'll see:* a proposed session-log entry and commit message, **waiting on
-  their confirm** — starting the ritual is not yet permission to commit. They read
-  it, confirm, watch the push land, and keep the **continuation prompt** it prints.
-  Then their dashboard, refreshed: eight sessions in, it shows the system they
-  built — their agents, their skills, the runs, and the work that came out.
-- *Recovery:* if nothing pushes, they haven't confirmed yet. If the push is
-  rejected, pull first — their routine or another session may have pushed since —
-  then run wrap-up again.
-- *Checkpoint 5:* wrap-up ran to completion: the session-log entry exists, the
-  commit is pushed, and they kept the continuation prompt.
+- *What they'll see, in this order:* their numbers for the session printed in the
+  panel, then the dashboard itself, published as a **Claude Artifact** with its
+  data saved in their project at `design/dashboard-data.js`. Eight sessions in, it
+  shows the system they built — their agents, their skills, the runs, and the work
+  that came out. Then a dated entry appended to `session-log.md`, then a plain
+  summary of what is about to be saved: which files are new, which changed, and a
+  one-line description of the session, **waiting on their confirm.** Starting the
+  ritual is not permission to save. They confirm, and it prints the
+  **continuation prompt**.
+- **Whether it also offers to back up to GitHub depends on what it finds**, and it
+  checks before it offers rather than failing in front of them. By this session
+  the repo is theirs — Session 7 blocked until it was — so the open question is
+  whether their workspace is authenticated to it. Authenticated: it offers the
+  save and the backup together. Not: it saves in the workspace and mentions backup
+  once. **Both are the session finishing correctly.** Say so plainly; a local save
+  is not a partial result.
+- *Recovery:* if nothing was saved, they haven't confirmed yet — the common case,
+  not a failure. If the backup is refused because the copy on GitHub has moved on
+  (their routine may have written to it since), ask Claude Code to bring down the
+  latest first, then run wrap-up again.
+- *If the Artifact can't be published* in their environment, don't block: the
+  printed numbers are the always-works version, and the data file is written
+  either way. Show them the numbers and carry on.
+- *Checkpoint 5:* wrap-up ran to completion — the session-log entry exists, the
+  checkpoint is saved, and they kept the continuation prompt.
 
 ## Close the loop
 
@@ -211,7 +261,7 @@ When checkpoint 5 passes:
    `{ "status": "complete", "completed": "YYYY-MM-DD", "artifact": "..." }` — and
    this one completes the path. Say that out loud; it's worth a sentence.
 2. **The takeaway that outlasts the path.** What survives when the conversation
-   closes is exactly what got written to a file and committed. Every session they
+   closes is exactly what got written to a file and saved. Every session they
    ran ended the same way: the context window closed and everything in it
    evaporated. The notes scribe filed survived. The skill they refined survived.
    **The decision they made and didn't write down did not** — and they've probably
@@ -230,11 +280,11 @@ When checkpoint 5 passes:
 5. Ask "how would you describe what you built?" one last time and file their
    answer in `learning/journal.md`. This entry is the one they'll want later.
 6. **The commitment, and it's the practice for this session:** write four lines and
-   commit them — one skill to add, one agent to refine, one routine to keep,
+   save them — one skill to add, one agent to refine, one routine to keep,
    change, or kill, and one thing they'll stop doing by hand. Thirty days from now
    their session log is the record of whether it happened. And the habit that keeps
-   the other four honest: **close every session with `/bluerock:wrap-up` from now
-   on.**
+   the other four honest: **close every working chat with `/bluerock:wrap-up` from
+   now on.**
 7. **Where it goes next**, offered once and without a pitch:
    - **Keep building.** The next thing to grow is their project's reach. MCP
      (Model Context Protocol) is the open standard that lets agents connect to the
@@ -275,20 +325,43 @@ Not part of a run. Read this before rewording anything a builder sees.
   **If someone later decides the capstone must be presentation-gated, that's a
   product decision, not a copy fix** — it changes what "complete" means for the
   whole path.
-- **Step 1's inventory reads real paths**, and they are the shipped ones:
-  `.claude/skills/` (not `.claude/commands/`), `.claude/agents/`, `notes/`,
-  `briefs/`, `my-work/`, and the three memory files at the project root. The
-  seeded-versus-theirs split names `meeting-recap`, `capture`, and `research` as
-  shipped skills, and the six shipped agents. If `hub-starter` changes what it
-  seeds, this inventory mislabels the builder's own work as seeded — which is the
-  one error in this session that would actually sting.
+- **Step 1's inventory reads real paths, and not all of them ship.** Checked
+  against `bluerock-io/hub-starter` `main` on 2026-08-15. **Shipped:**
+  `.claude/skills/` (not `.claude/commands/`) holding `meeting-recap`, `capture`,
+  and `research`; `.claude/agents/` holding `scribe`, `daily-brew`, `researcher`,
+  `signal-scanner`, `composer`, and `meeting-prep`; `notes/`; and `CLAUDE.md`,
+  `voice.md`, `objectives.md` at the root. **Not shipped, and step 1 says so:**
+  `my-work/` is created the first time a team runs (Session 2), and `briefs/`
+  exists only if their Session 7 instruction named it. An earlier version of this
+  note called all of them shipped, which would have had the inventory report a
+  missing folder as an anomaly rather than as the finding it is. If `hub-starter`
+  changes what it seeds, this inventory mislabels the builder's own work as
+  seeded — the one error in this session that would actually sting.
 - **`/bluerock:wrap-up`'s behavior is quoted in step 5**, verified against the
-  shipped skill: it refreshes the dashboard, writes a dated `session-log.md`
-  entry, **shows what's about to be saved and commits only after the builder
-  confirms**, and prints a continuation prompt. The confirm gate is the part
-  builders are told about explicitly ("starting the ritual is not yet permission
-  to commit"); if that gate is ever removed, this session and the site page both
-  become wrong in a way that matters.
+  shipped skill (`skills/wrap-up/SKILL.md`, plugin 0.9.1). Three things step 5
+  depends on, in the order wrap-up does them: it prints the session's numbers and
+  publishes the **dashboard as a Claude Artifact** (writing `design/dashboard-data.js`
+  either way, and falling back to the printed numbers if publishing is
+  unavailable); it appends a dated `session-log.md` entry; and it **shows what is
+  about to be saved and saves only after the builder confirms**, then prints the
+  continuation prompt. ⚑ **The backup is conditional and is not promised here.**
+  wrap-up's step 4 checks identity, remote, and authentication first and offers
+  only what will succeed — so "watch the push land" is a sentence this session may
+  not say. If the confirm gate is ever removed, or the check dropped, this session
+  and the site page both become wrong in a way that matters.
+- **The vocabulary is wrap-up's own**, and rule 6 above exists because this
+  session used to break it in six places. wrap-up was rewritten around
+  *save a checkpoint* / *back up to GitHub* after a live tester who ships this
+  product believed a local save had sent her files somewhere. A vocabulary sweep
+  that reaches only the site page leaves this session saying *commit* and *push*
+  out loud, which is worse than either surface being wrong alone.
+- **Concept-ledger rows this session owns** (`marketing-hub/09-product/beta-plan/learn-concept-ledger.md`,
+  § Session 8): **system** — the ledger's finding is that a loose word gets a
+  load-bearing meaning here without the shift being marked, and "The frame" above
+  now marks it explicitly; skill and page share that row. **The dashboard** — the
+  ledger records its proper gloss as waiting until Session 8, which is step 5's
+  first bullet. **Continuation prompt**, **workflow statement**, and **the gap**
+  are healthy and glossed in the steps that introduce them.
 - **Session 7's practice is this session's input** (the three-sentence workflow
   statement). If it moves, step 2 needs its own way to source one.
 - **The closing BlueRock beat is deliberately one paragraph, once, at the very
@@ -301,3 +374,14 @@ Not part of a run. Read this before rewording anything a builder sees.
   month's prompt, where it lives so it rotates without a release) is still
   undefined. This skill carries the keep-building items instead. When that
   mechanism lands, this close-out gains the dated slot.
+- **Backup does NOT belong in this session, and the record has to say so, because
+  the standing recommendation says the opposite.** The E2E run
+  (`E2E-testing-Claude_Desktop.pdf`, p.39) argued Session 8 was backup's home —
+  *"a system that runs part of your real job is a system worth backing up"* — and
+  left it to Linda as a curriculum decision rather than a skill edit. **It was
+  decided the other way** (Harold + David, 2026-08-14): backup gets its own
+  standalone "Save your work" step ahead of Session 7, where a routine makes it a
+  hard prerequisite. This session teaches the close-out ritual and mentions backup
+  only as one branch of what wrap-up may offer. Do not fold a backup lesson in
+  here on the strength of the E2E note — it is superseded, and the ledger still
+  quotes it.

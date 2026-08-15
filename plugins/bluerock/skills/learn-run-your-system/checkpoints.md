@@ -21,8 +21,12 @@ Run inspection commands quietly. `<project>` is the project's absolute path.
     `research`) from **theirs**.
   - `ls <project>/.claude/agents/` — split shipped (`scribe`, `daily-brew`,
     `researcher`, `signal-scanner`, `composer`, `meeting-prep`) from **theirs**.
-  - `ls <project>/notes/ <project>/briefs/ <project>/my-work/` and **count the
-    files** — the number they haven't been watching.
+  - `ls <project>/notes/ <project>/my-work/` plus whatever folder their routine
+    writes to, and **count the files** — the number they haven't been watching.
+    Only `notes/` ships with the starter kit; `my-work/` appears at the first team
+    run and the routine's folder only if Session 7's instruction named one, so
+    **a missing folder is a reading, not an error** — report which is absent and
+    carry it into step 4.
   - `git -C <project> log --oneline | wc -l`, and the first commit's date.
   - `learning/journal.md` — read it; their own words are the best material here.
 - **Pass spec:** you have named back, **specifically**, what is actually there.
@@ -85,16 +89,23 @@ Run inspection commands quietly. `<project>` is the project's absolute path.
 
 - **Inspectable, fully**, and it's the session's hard evidence:
   - `session-log.md` at the project root has a dated entry for today;
-  - `git -C <project> log -1` shows the wrap-up commit;
+  - `git -C <project> log -1` shows wrap-up's saved checkpoint;
   - `design/dashboard-data.js` was refreshed by the wrap-up.
+
+  Run these quietly and report what they say in builder words. **This checkpoint
+  is inspected in git and described in plain language** — "your work is saved and
+  today's entry is in the log," never "the commit landed."
 - **The builder runs it themselves.** wrap-up has a confirm gate; confirming is
   theirs, and running it for them removes the one habit this session exists to
   hand over.
-- **A blocked push still passes** on the local commit and the log entry. Say the
-  sync needs fixing; don't teach git here.
-- **If nothing pushed, they probably haven't confirmed yet** — that's the common
-  case, not a failure. If the push was rejected, have them pull (their routine may
-  have pushed since) and run wrap-up again.
+- **A backup that doesn't go through still passes**, on the saved checkpoint and
+  the log entry. wrap-up checks authentication before it offers, so in the normal
+  case backup is never raised; if it was offered and failed, say the save worked
+  and the backup is the part that didn't, and stop there. Don't teach git here.
+- **If nothing was saved, they probably haven't confirmed yet** — the common case,
+  not a failure. If the backup was refused because the copy on GitHub has moved on
+  (their routine may have written to it since), have them ask Claude Code to bring
+  down the latest, then run wrap-up again.
 - **The continuation prompt is part of the checkpoint:** confirm they have it and
   know what it's for. It is the artifact that makes the *next* session cheap, and
   it's the last thing the path teaches.
