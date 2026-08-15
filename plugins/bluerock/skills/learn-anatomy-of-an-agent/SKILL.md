@@ -238,7 +238,7 @@ When checkpoint 3 passes:
    the highest-leverage session in the path. Name it from the manifest, and if
    it isn't available in-session yet, give its link from there.
 
-Suggest `/bluerock:wrap-up` so the progress commit rides the save habit.
+Suggest `/bluerock:wrap-up` so the progress update rides the checkpoint habit.
 
 ## Who depends on this skill's wording
 

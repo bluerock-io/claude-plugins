@@ -172,8 +172,10 @@ builder language — no bare command names, no version numbers.
 Your project runs in your workspace, and every BlueRock skill writes there. Your project's own
 skills and agents are linked for new chats.
 
-**Next: build your first real thing.**
-Session 2 — Meet your first agents:
+**Next: build your first real thing — right here.**
+Say **teach me Session 2** in this chat and the session runs with you: about 5
+minutes, and you finish with a one-page work product you'd actually send someone.
+Prefer to see it first? The session page has the overview and a short video:
 https://learn.bluerock.io/session/meet-your-first-agent-team
 
 Questions as you go? The BlueRock Builders Discord is the fastest way to get unstuck:
@@ -183,10 +185,11 @@ https://discord.gg/5c2kQjxxwq
 Substitute the project's real folder name on the project line. If the links were created or
 repointed in this run, add one sentence before the Next block: "Open a new Claude Code
 chat before using your project's own skills and agents; plugins only load when a session
-starts." Keep the Session 2 link and the
-Discord line — the builder is in an editor panel, not a browser, and naming the session
-without linking it is where momentum dies. The Session 2 link is the call to action; the
-Discord line is a quieter second, never given equal weight.
+starts." **The in-chat action is the call to action** — the builder is already sitting in
+the one place where the next step can begin, and every session runs in-session, so sending
+them to a browser at the ready moment breaks the momentum the milestone just created. The
+session-page link stays as the companion for whoever wants the picture first; the Discord
+line is a quieter third, never given equal weight (Linda, 2026-08-15).
 
 **When checks 7 or 8 found something** (they never fail the checklist — everything works,
 it just works less well), add one short block **after the checklist and before the Next

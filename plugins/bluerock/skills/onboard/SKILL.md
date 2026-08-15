@@ -66,6 +66,16 @@ Keep it concrete and paste-ready — a brief I'd hand a new assistant on day one
 1. **Gather what they have.** Accept, in any combination: the pasted output of
    the portability prompt, a pasted LinkedIn profile, and 2–5 writing samples (a
    post, an email they're proud of). Read it all before writing anything.
+1b. **Save the samples themselves — verbatim, as files.** Each writing sample goes
+   into `writing-samples/`, one file each, named for what it is
+   (`linkedin-post-sewing.md`), with a one-line header noting the kind and the
+   byline (personal voice vs. brand voice) so a later agent knows how to weight
+   it. Create `writing-samples/` if the project predates it. `voice.md` describes
+   the voice; that folder holds the proof — an agent that needs a real specimen
+   reads it there. **Never paste a full sample into `voice.md`:** it loads on
+   every content-skill run, and a full post there burns tokens on every draft
+   (found 2026-08-15: onboard distilled a sample and discarded it, so no file in
+   the project contained a word the builder actually wrote).
 2. **Interview only for the gaps.** Don't re-ask what the pasted material already
    answers. Ask a few targeted questions only where a section is thin — most
    importantly objectives (what they want the project to help with) and voice (if

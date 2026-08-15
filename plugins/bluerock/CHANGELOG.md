@@ -1,5 +1,21 @@
 # Changelog — `bluerock` plugin
 
+## 0.9.1 — the next step happens in this chat, and the builder's own words get kept
+
+- **Changed — `check`'s closing:** the call to action is now the in-chat one ("Say **teach
+  me Session 2** in this chat…") with the session page demoted to companion ("prefer to see
+  it first?") and Discord a quieter third. Every session runs in-session; linking out at the
+  ready moment broke the momentum the milestone had just created. The rule is now in the
+  authoring guide: when an in-chat equivalent exists, it is the primary CTA.
+- **Fixed — `onboard` keeps the samples themselves:** writing samples are saved verbatim
+  into `writing-samples/`, one file each with a kind-and-byline header; `voice.md` holds the
+  distilled guide and a pointer, never a full sample (it loads on every content-skill run).
+  Found 2026-08-15: onboard distilled a pasted post and discarded it, leaving no file in the
+  project containing a word the builder actually wrote. Pairs with the starter kit's new
+  `writing-samples/` folder (my-workspace `ee9c275`).
+- **Wording — `learn-anatomy-of-an-agent`:** "the progress commit rides the save habit" →
+  "the progress update rides the checkpoint habit," matching wrap-up's 0.9.0 vocabulary.
+
 ## 0.9.0 — the session stops asking what it can see, and wrap-up stops proposing what will fail
 
 Two live runs on 2026-08-15 produced the same class of finding: a skill asking a builder

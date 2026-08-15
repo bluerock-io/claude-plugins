@@ -98,6 +98,13 @@ all (the work has nowhere to save; offer Session 1), and Session 7's missing Git
 
 ## 6. Hard rules
 
+- **The next action a skill offers is one the builder can take in this chat.** Every session
+  runs in-session, so when an in-chat equivalent exists, the in-chat action is the primary
+  call to action ("Say **teach me Session 2** in this chat…"); links to learn pages are
+  companions for whoever wants the overview first, never the primary step, and Discord is a
+  quieter third. (Linda, 2026-08-15 — check's closing was the outlier: it linked out at the
+  exact moment the builder was ready to act.)
+
 - **Plugin skills take the full prefix in anything the builder reads:** `/bluerock:check`,
   `/bluerock:onboard`, `/bluerock:wrap-up`. The builder's own skills fire bare (`/research`,
   `/meeting-recap`).
