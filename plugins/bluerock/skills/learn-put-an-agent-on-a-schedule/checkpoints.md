@@ -49,8 +49,8 @@ Run inspection commands quietly; the builder sees conclusions, not plumbing.
 - **Inspectable:** the relevant spec has a scheduled-dispatch branch.
   - For `daily-brew` (the default): `.claude/agents/daily-brew.md` contains its
     scheduled-dispatch instruction — do not ask a question, produce a stub brief
-    from `CLAUDE.md` alone. It ships with the starter kit, so this passes on a
-    fresh project; the work of the step is that **they read it**.
+    from `CLAUDE.md` alone. It ships with the project, so this passes on a
+    fresh workspace; the work of the step is that **they read it**.
   - For their own agent: they added such a branch, and it's in the file now.
 - **Conversational half, required:** they can say in one sentence what the agent
   does when a scheduled run has no inputs, and **why that branch must not ask a
@@ -84,8 +84,8 @@ Run inspection commands quietly; the builder sees conclusions, not plumbing.
   under the project, with fresh content and a recent timestamp — e.g.
   `briefs/<today>.md`. Check the path they actually specified in checkpoint 2, not
   a path you assume.
-- **The pull is a required step, not a detail.** The routine pushed its commit
-  to GitHub; the builder's machine does not have it until they pull. **A missing
+- **The pull is a required step, not a detail.** The routine backed its result up
+  to GitHub; the builder's own copy does not have it until they pull. **A missing
   file before a pull proves nothing** — pull first (`git -C <project> pull`, or
   have them ask Claude Code to), then look. Diagnosing "the routine didn't work"
   on an un-pulled repo is the easiest wrong conclusion in this session.
