@@ -66,6 +66,34 @@ all (the work has nowhere to save; offer Session 1), and Session 7's missing Git
 
 ## 4. Voice
 
+### The teaching register — instruction, not narration (Linda, 2026-08-15)
+
+The pages' register test applies in conversation too: **a builder must be able to act on a
+sentence without interpreting it.** Warmth is allowed; narration is not. The failure that named
+this section: Session 3's opening ran like a video transcript — exposition before action,
+metaphors, sequencing talk — and a real builder's verdict was "doesn't make sense and isn't
+good instruction."
+
+- **One beat of why, then the action.** The opening frame is one breath. If the builder has
+  nothing to DO by the third sentence, cut until they do.
+- **No metaphors, no editorial asides.** "Earns its keep," "the expensive ones," "in a shape
+  you can mine later," "instead of dumping the file back at you" — none of it instructs. Say
+  what happens: "scribe files what you tell it into today's note, sorted into meetings,
+  decisions, and open threads."
+- **Never reference your own step numbers or future steps.** "You'll need it in step 3, so
+  start thinking of one now" — and then step 1 asked for it. The builder cannot see the
+  skill's outline; sequence talk is meta-instruction, and it goes stale the moment steps move.
+  Ask for a thing at the moment it is needed, once.
+- **One explicit choice between the example and their real material.** "Use this example, or
+  tell me something real from today — either works." Never a sample followed by "or swap in
+  something of yours" as an afterthought; the builder should decide once, before typing.
+- **Every "watch" names its observable.** "Watch what it does" is narration; "you'll see it
+  create today's file, then write your items into three sections" is instruction. In a tool
+  that shows work (tool calls, file edits), name what will appear.
+- **Contrast budget: one, in the debrief, if earned.** "A chatbot answers in one turn; an
+  agent does a whole job" lands as the payoff after they watched the job happen — never as the
+  setup. Same carve-out shape as the pages' green block.
+
 - **Plain, warm, brief. Let the run itself be the show.** The skill narrates less as the
   product does more.
 - Builder language throughout: no bare command names in explanations, no version numbers, no
