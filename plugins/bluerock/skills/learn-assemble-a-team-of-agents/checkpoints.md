@@ -87,8 +87,14 @@ Run inspection commands quietly; the builder sees conclusions, not plumbing.
 - **Assert nothing about the identity or procedure text.** That's theirs.
 - **Reused seeded agents need no new file.** Note which roles are reused and
   verify only the new ones.
-- **Committed:** `git -C <project> log -1 --stat` shows the new agent files. A
-  blocked push still passes on the local commit.
+- **Saved:** `git -C <project> log -1 --stat` shows the new agent files. Run it
+  quietly — the builder sees the conclusion ("your new agents are saved"), not
+  the command. **Verify the result, never the mechanism**, and say "saved," never
+  *committed*: a workspace with no remote is the normal finished state, so a save
+  that never leaves the workspace is a pass, and pushing, backup, and GitHub stay
+  unmentioned unless they ask. If this is their first save of the session and
+  Claude asks what name and email to record it under, that is expected on a fresh
+  workspace, not an error — say so and let them answer.
 
 ## Checkpoint 5 — the team ran on a real job and handed off
 
@@ -105,8 +111,8 @@ Run inspection commands quietly; the builder sees conclusions, not plumbing.
   output teaches nothing, and it is the exact failure the session exists to make
   legible.
 - **"A result I would use" is theirs to judge, and a no is still a pass** — as
-  long as they can say what to sharpen. Then have them sharpen one spec and
-  commit; that edit is the loop.
+  long as they can say what to sharpen. Then have them sharpen one spec and save
+  a checkpoint; that edit is the loop.
 - **A real job, not a toy.** Same standard as Session 5: made-up input makes the
   editor read fake too.
 

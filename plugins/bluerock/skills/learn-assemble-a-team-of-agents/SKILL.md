@@ -48,6 +48,12 @@ wrong. One honest sentence prevents that.
 4. **On failure, diagnose from the recovery notes,** explain plainly, retry. The
    one failure to know cold: a second specialist that starts from scratch instead
    of picking up the handoff is missing the "read `<file>` first" line.
+   **When the recovery doesn't hold, take the ladder and never dead-end:** the
+   recovery once, then `/bluerock:help` by name, then the BlueRock Builders
+   Discord — and write their post for them, in their words ("Session 6, step 5 —
+   my second agent re-gathers instead of reading the first one's file"). This
+   session is long enough that a builder who gets stuck at minute fifty will
+   otherwise just close the window.
 5. **Keep progress honest.** Update `learning/progress.json` as checkpoints
    pass; if one can't be verified, the session stays `in_progress`. Given the
    length, **record progress diligently here** — this is the session most likely
@@ -63,6 +69,22 @@ wrong. One honest sentence prevents that.
    stored one and is never written back. Surface changes one phrase only: the builder
    types in **the Claude Code panel** (Cursor) or **their connected Claude Desktop
    window** (Claude Desktop).
+7. **Two beats of recognition, both earned, and no more.** This session has two
+   genuine firsts, and they are the only places a beat belongs: **checkpoint 2**,
+   where they explain the handoff themselves — the end of part one, and where the
+   two-sitting split lands — and **checkpoint 5**, where a team they named ran on
+   real work. Name what they made, in their terms: "you just read three specs and
+   found the one line that makes them a team" lands; "great job" reads as canned.
+   **Never before a checkpoint verifies.** If it didn't verify, the warmth goes
+   into the recovery ("this is the normal snag here — here's the fix"), never
+   into pretending it worked. Nothing at the other three checkpoints;
+   per-step cheerleading trains skimming.
+8. **Say "save a checkpoint," never bare *commit*, *sync*, or *push*.** The
+   builder has not been shown those words — nothing in the eight sessions teaches
+   them — and `/bluerock:wrap-up` deliberately avoids them for that reason. Two
+   saves happen in this session (steps 4 and 5), so the vocabulary is load-bearing
+   here rather than incidental. Backing up to GitHub is a separate second step;
+   don't raise it unless they ask.
 
 ## The idea, in one frame
 
@@ -125,9 +147,11 @@ finishes and files, then signal-scanner picks up, then composer.
   signals to `signals.md`; `composer` reads both plus their `voice.md` and
   `objectives.md` and writes the dossier. It opens as a Claude Artifact and saves
   to `my-work/account-research/<company>/`.
-- *Frame it against Session 2:* this is the deep version of the fast scorecard —
-  the same kind of team, running longer for a multi-section dossier. **Depth is
-  the trade**, and knowing which one to reach for is worth naming.
+- *Frame it against Session 2:* this is the deep version of the fast scorecard.
+  Same kind of team, running longer, producing a multi-section dossier instead of
+  a one-page read. Tell them which to reach for: the scorecard when they need to
+  decide whether a company is worth their time, the dossier when they've already
+  decided and need to go in prepared.
 - *Recovery:* a thin section means the company has a small web footprint. The
   team **flags the gap rather than inventing** — the same source-fidelity floor
   their Session 5 skill has, operating at team scale. That's a finding, not a
@@ -217,10 +241,10 @@ Two rules to hold them to, because these are the ones that bite later:
 of one new agent plus `researcher` is a real team, and noticing that reuse is
 available is part of the lesson.
 
-Then: **"commit and sync my new agents."**
+Then: **"save a checkpoint of my new agents."**
 
 - *Checkpoint 4:* each role is an agent file in `.claude/agents/`, tools scoped
-  to its job, with a fallback, committed.
+  to its job, with a fallback, saved.
 
 ### 5. Dispatch the team on a real job
 
@@ -235,7 +259,7 @@ Because each agent runs in its own room, several can be dispatched at once —
 more rooms, more results, the same files holding them together.
 
 Then they read both results **like an editor**: what would they change before
-using them? Then sharpen one spec with what they learned, and commit.
+using them? Then sharpen one spec with what they learned, and save a checkpoint.
 
 - *Recovery, the one to know cold:* if the second specialist starts from
   scratch instead of picking up the handoff, **its spec doesn't name the file to
@@ -244,8 +268,10 @@ using them? Then sharpen one spec with what they learned, and commit.
   and fixing it themselves teaches the mechanism better than a clean first run.
 - *Recovery:* if a spec produced something generic, the identity is thin. Have
   them tighten it to one specific sentence and re-dispatch.
-- *If they finish early:* add a third role and watch the team scale. **The shape
-  doesn't change** — that's the point worth feeling rather than being told.
+- *If they finish early:* add a third role and dispatch all three. They'll see
+  the same thing they saw with two — each specialist finishing and filing, the
+  next one picking up from that file. **Adding a role adds a file; it doesn't
+  change the shape.**
 - *Checkpoint 5:* their team ran on a real job, the roles handed off through
   files, and they have a result they'd use.
 
@@ -279,16 +305,19 @@ When checkpoint 5 passes:
 6. Ask "how would you describe what you built?" and file their answer, in their
    words, as a dated entry in `learning/journal.md`.
 7. **Practice worth naming:** dispatch the team on real work **three times**,
-   refining one spec after each dispatch and committing. Three dispatches is
-   where a team stops being a demo and starts being staff. And the pre-work for
+   refining one spec after each dispatch and saving a checkpoint. Three dispatches
+   is where a team stops being a demo and starts being staff. And the pre-work for
    next session: **watch for the dispatch they repeat at the same time every day
    or week** — write down when it should run, and what should be true by the time
    they look. That's Session 7's input.
 8. Point forward: Session 7, **Put an agent on a schedule** — about 20 minutes,
-   where one of these runs without them. Name it from the manifest, and if it
-   isn't available in-session yet, give its link from there.
+   where one of these runs without them. Name it from the manifest, and offer the
+   action they can take right here: say **teach me Session 7** in this chat. The
+   learn page is a companion for whoever wants the overview first, never the
+   primary step.
 
-Suggest `/bluerock:wrap-up` so the progress commit rides the save habit.
+Suggest `/bluerock:wrap-up` to close out — it updates their dashboard and saves a
+checkpoint, the same habit as every session since Session 2.
 
 ## Who depends on this skill's wording
 
@@ -309,6 +338,12 @@ Not part of a run. Read this before rewording anything a builder sees.
   ("only the run-as-is plugin core carries the prefix"). The two pages
   contradict each other. Verified 2026-08-11. **Fix the site page**; when it's
   fixed, delete this note rather than the bare form.
+  **Status, 2026-08-15:** the fix is written and is waiting on cutover, not on a
+  decision. The **v4 preview page** (`workbench/app/learn/v4/assemble-a-team-of-agents/`)
+  says `/research`, bare. The **live** page still says `/bluerock:research` and
+  stays that way — `learn-session-page-drafts.md` freezes live session pages until
+  the v4 set ships. So step 1's one-line redirect stays earned until the v4 page
+  is promoted; **delete this note and that redirect at cutover, together.**
 - **Part one quotes all three seeded agent specs, and every quote is verified
   against `bluerock-io/hub-starter` `main`:** `researcher` and `signal-scanner`
   carry `Read, Write, WebSearch, WebFetch, Glob`; `composer` carries
@@ -319,6 +354,18 @@ Not part of a run. Read this before rewording anything a builder sees.
   and step 2's central point evaporates, here and on the site page.
 - **The three-layer memory answer in the close-out is the site's Reflection**
   section, restacked. If the site rewrites it, this should follow.
+- **This session owns the deep definition of `context window`,** and the ledger
+  records it that way (`learn-concept-ledger.md`, finding 6). Session 3's page
+  now glosses it in the same breath where the word first does work — *"it works
+  in its own context window, the model's working memory for one conversation, so
+  it never sees yours"* — and points forward to here. **The frame above stays the
+  full version.** Don't re-introduce the term as if it were new, and don't thin
+  this one to avoid repeating S3: the clean-room mechanism is what part one's
+  whole lesson rests on.
+- **`save a checkpoint` is a glossary term** (`_data/glossary.ts`, added
+  2026-08-15 from the ledger's finding 1), which is why rule 8 above can say the
+  phrase without teaching it. If the glossary entry moves or is reworded, steps 4
+  and 5 and checkpoint 4 move with it.
 - **Session 5's practice is this session's input.** The one-line job description
   a builder writes at the end of Session 5 is what step 3 splits into roles. If
   Session 5 drops that practice item, step 3 needs its own way to source a job,
