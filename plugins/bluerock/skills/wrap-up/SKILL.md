@@ -72,7 +72,7 @@ this session.") Then:
 Provenance is a trust claim. Beta has **no BlueRock sensor pipeline**, so the label
 is **"From your sessions,"** never "sensor-sourced." Specifically:
 - `guardrail` = `{ wired: false, events: [] }`.
-- `cost` only if a pricing table is present (tokens × price); otherwise zeros / placeholder — never a fabricated number under a trust label.
+- `cost` = `{ available, today, deltaPct, series }`. **`available: true` only when a real pricing table is present in the workspace and you read it** (tokens × price). Otherwise write `available: false` and leave the rest as they are: the card renders **"Coming soon"** and no number. Never estimate a rate, never carry one over from elsewhere, and never write a zero — a zero is a claim about spend, and "not tracked" is not "$0.00." Say it in one line in the plain readout too: cost isn't tracked in this workspace yet, which is a missing source rather than a free session.
 - `meta` (builder, workspace, region) comes from the **workspace facts file** — the home `~/.bluerock/workspace.json` (Eng-provisioned, workspace-level; NOT the project's `.bluerock/`). Take `builder` / `workspace` / `region` from it; if it's absent, degrade honestly to a generic builder name. **No trial countdown.** The trial clock is not passed into the workspace and the dashboard is a value mirror, not a conversion surface — trial timing and upgrade prompts live in the email lifecycle and Console, not here. Never scrape boot time or file timestamps to fake a provision date (the container suspends/resumes, so those are wrong).
 - `meta.outputsSince` is **singular "you," single user (not a team)**; `count` = outputs this week from `runs[]` (not a last-visit anchor); 0/unknown → greeting only, no fabricated number.
 - `priorities` = `{ set, closed, carried }` for this week, counted from `today.md` (the closure loop). Derived "from your sessions," not sensors.
@@ -80,9 +80,37 @@ is **"From your sessions,"** never "sensor-sourced." Specifically:
 - `perf` = `{ successRate, runs:{successful,total}, avgSessionMin, avgSessionDeltaMin, outputsShipped }` — the honest set only. **No** output-quality/reader-rating and **no** cache-hit rate (dropped — no honest source / operator metric). `success` is your judgment (a run that completed without error or guardrail block); `avgSessionMin` from `session-metrics.py`; delta is neutral (shorter ≠ better).
 - `resume` chapter comes from learning-path progress, not the transcript.
 
-The source of truth for the shape + renderer is the builder's own design — the
-data contract (`design/dashboard-data-contract.md`) and `dashboard.html`. Target
-that contract; do not invent or restyle the dashboard.
+**`design/dashboard-data-contract.md` is the single authority on the shape, and this skill
+is its one consumer.** Write only the fields it defines, in the structure it defines:
+no invented fields, no improvised formats, no restyling, no "helpful" extras. Where a
+value has no honest source, write the empty state that file specifies rather than a
+plausible number. Read it before you write, not from memory — it is a file in the
+builder's own project and it can be ahead of you. `dashboard.html` is the renderer that
+paints what you write; if the contract and the renderer disagree, that is a bug to
+report, not a gap to fill with a guess.
+
+### Writing when another session is also wrapping up
+
+Builders run more than one chat at once, and two wrap-ups against one project will race.
+This happened on 2026-08-15: `design/dashboard-data.js` was rewritten mid-write and
+`.bluerock/runs.json` gained two atoms from a session that had started after this one.
+
+**Immediately before you write `design/dashboard-data.js`, `.bluerock/runs.json`, or
+`session-log.md`, re-read each one.** Not the copy you read at the start of the wrap-up —
+the file as it is now.
+
+- **Merge, never overwrite.** Append your atoms to what is there. Entries you did not
+  write are not yours to remove, reorder, or "clean up," and a run history that silently
+  loses runs is worse than one that is briefly untidy.
+- **If a file changed between your read and your write, re-read and reconcile again.**
+  Repeat until your write lands on the version you actually read.
+- **`session-log.md` is append-only, always.** Add your entry; never rewrite the file.
+- **If another session's reconciliation is more complete than yours, leave it alone.**
+  On 2026-08-15 the other session had already restored all four run atoms with better
+  notes on the token overlap than this one was about to write, and leaving its work in
+  place was the right call. Correct only what is yours.
+- **Say so in one line** when you find another session's work: which files moved, what you
+  merged, what you left. The builder is the only one who can see both chats.
 
 **First, show me my numbers in the panel.** Before opening the visual dashboard, print a
 short, plain readout of this session so the payoff lands even if the page doesn't open:
@@ -251,6 +279,10 @@ session into a support ticket. `/bluerock:check` is where that conversation belo
 
 Not part of a run. Read this before rewording anything a builder sees.
 
+- **`design/dashboard-data-contract.md` in the builder's project owns the dashboard's
+  shape, and this skill is the only thing that writes to it.** That file names this skill
+  in return. A field added here without a contract change is a field the renderer will not
+  paint; a contract change without a skill change is a field nothing ever writes.
 - **The identity repair is this skill's only write outside the builder's own files**, and
   it is consented, scoped to their project, and asked in builder language. It is never
   `--global`, and it is never inferred from something you happen to know about them. If

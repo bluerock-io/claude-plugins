@@ -86,6 +86,26 @@ about her own work, and only the work question came back.
   language they use internally and the language the site carries. It now always renders,
   with an explicit "nothing inconsistent turned up" state, and the run's report and Session
   2's debrief both lead with it.
+- **Fixed — `wrap-up`: two sessions wrapping up at once no longer lose runs.** Builders
+  run more than one chat, and on 2026-08-15 two wrap-ups raced against one project:
+  `dashboard-data.js` was rewritten mid-write and `runs.json` gained atoms from a session
+  that started later. The skill now re-reads `dashboard-data.js`, `.bluerock/runs.json`,
+  and `session-log.md` immediately before writing each, merges rather than overwrites,
+  re-reads and reconciles again if a file moved under it, treats `session-log.md` as
+  append-only, and **leaves another session's reconciliation alone when it is more
+  complete** — which is exactly the judgment call that got made correctly on the day, now
+  written down instead of improvised.
+- **Changed — `wrap-up`: the data contract is the authority, in both directions.** The
+  skill writes only the fields `design/dashboard-data-contract.md` defines, in its
+  structure, with no invented fields and no format improvisation, and reads that file
+  rather than working from memory. The contract now names this skill as its one consumer,
+  so the dependency is recorded at both ends.
+- **Changed — `wrap-up`: cost says "coming soon," never a number it cannot stand behind.**
+  `cost` gains `available`, false by default. A beta workspace has no pricing table, so
+  tokens cannot become dollars honestly, and the old zero rendered as `$0` with a flat
+  sparkline and a "vs yesterday" pill — a real, reassuring figure standing in for a
+  missing one. Rates are never estimated or carried over. (Renderer and contract ship in
+  the starter kit; this is the writer half.)
 - **Changed — `agents/`: em dashes stripped from all four agent specs.** They were written
   in the style they then reproduce, and two strings in `distiller.md` are mandated
   verbatim into every messaging doc every builder generates, bypassing the builder's own
