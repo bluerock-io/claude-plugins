@@ -67,8 +67,14 @@ plumbing.
 - **Inspectable, trivially:** this skill came from the plugin, so the plugin is
   installed and loaded in this session. Pass and say so.
 - Only if teaching from *outside* a plugin-loaded session (rare): reported —
-  ask what appears when they type `/blue` in a new chat; the BlueRock commands
-  listing is the evidence.
+  ask whether the Plugins screen lists **BlueRock Builder Toolkit** as
+  installed. That is the visible evidence; the functional evidence is
+  checkpoint 8's `/bluerock:check`.
+- ⚑ **Never ask them to type a partial slash command as the test.** Claude
+  Desktop does not resolve partials, so `/blue` and `/bluerock` both answer
+  `Unknown command` on a perfectly good install. This exact test produced a
+  false negative for a real builder in three places at once. A check that can
+  fail while the thing it checks succeeded is worse than no check.
 
 ## Checkpoint 8 — /bluerock:check reports live
 
