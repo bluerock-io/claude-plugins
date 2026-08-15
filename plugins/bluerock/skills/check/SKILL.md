@@ -8,9 +8,9 @@ Cloud AI Workspace, and they're ready to build their first real thing. (Some old
 repos call the same repo a Hub — same thing; never rename the builder's folder.) They may be in GTM,
 RevOps, or ops, not a developer, so this is a "signs of life" moment, not an audit.
 Run the checks below quietly, then report the milestone the way the Report section
-describes. Most checks only inspect setup. The only write this skill may make is the
-consented project load-path repair in step 3. Never delete or replace a real file or
-directory.
+describes. Most checks only inspect setup. The only writes this skill may make are the two
+consented repairs: the project load-path links (check 3) and removing the inherited template
+remote (check 5). Never delete or replace a real file or directory.
 
 The checks below are plumbing. The builder should never see `ls`, `python3`, or `git` as
 line items; they roll up into the four-line report.
@@ -103,7 +103,25 @@ line items; they roll up into the four-line report.
      cannot use the newly linked project set yet.
 4. **Python is available** (quietly powers `/bluerock:wrap-up` and the dashboard):
    `python3 --version` — need 3.x.
-5. **Git is available** (quietly powers saving your work): `git --version`.
+5. **Git is available** (quietly powers saving your work): `git --version`. Then, using the
+   project path from check 2, quietly inspect its remote: `git -C <project> remote -v`.
+   - **No remote: PASS, say nothing.** This is the steady state on newer workspaces — the
+     builder connects a backup home of their own later in the learning path.
+   - **A remote of their own (anything not the template): PASS, say nothing.**
+   - **`origin` pointing at BlueRock's template** (URL contains `bluerock-io/my-workspace`):
+     the inherited-template case — earlier workspace images shipped the project still pointed
+     at the shared template, so a save could land on the template instead of anywhere of
+     theirs. **Ask before removing — and recommend yes, with the reason**, in the same spirit
+     as check 3's ask. Say it roughly this way, in your own words: "One thing to clean up.
+     Your project's backups currently point at BlueRock's shared template — a leftover from
+     how earlier workspaces were built, not anything you did. Until it's removed, a save
+     could try to land on the template instead of anywhere of yours. I can remove the
+     pointer — your files stay exactly where they are, and later in the learning path you'll
+     connect a backup home of your own. **I'd say yes.** Want me to?"
+     On yes: `git -C <project> remote remove origin`, and say it's done in one line. On no,
+     say plainly what it costs — wrap-up will skip backing up, and a save could still target
+     the template — and that rerunning `/bluerock:check` offers again. **Never remove
+     without a yes.** When this repair ran, the report carries one plain sentence about it.
 6. **The BlueRock plugin is installed.** This check running confirms the plugin is active.
 
 ## Report

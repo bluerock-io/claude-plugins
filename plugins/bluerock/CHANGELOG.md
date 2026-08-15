@@ -1,5 +1,22 @@
 # Changelog — `bluerock` plugin
 
+## 0.8.2 — nothing ever pushes to the template
+
+Earlier workspace images shipped the builder's project still pointing its `origin` at
+BlueRock's shared template (`bluerock-io/my-workspace`) — so a builder's first backup was
+rejected with a confusing permission error, and anyone with org write could silently land
+their work on the template. Eng is fixing the image (fresh `git init`, no remote); this
+release protects every existing workspace in the meantime, and stays correct after.
+
+- **`check`:** now inspects the project's remote. No remote or their own remote: silent
+  pass. The inherited template remote: explained plainly and removed **with consent**, in
+  the same ask-first shape as the load-path repair. The skill's write contract widens to
+  exactly these two consented repairs.
+- **`wrap-up`:** never pushes to the template remote, even when the push would succeed —
+  commits locally and points at `/bluerock:check` for the cleanup.
+- **`learn-put-an-agent-on-a-schedule`:** a template remote counts as missing — a routine
+  is never scheduled against the shared template.
+
 ## 0.8.1 — the baked-image transition stops breaking flows that assumed a clone
 
 The workspace image now ships with the project baked in (hub-starter: "no template, no

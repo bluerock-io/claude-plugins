@@ -83,16 +83,18 @@ All three are native Claude Code commands and stay bare — no `/bluerock:` pref
 
 - Anchor to the project (signature: `CLAUDE.md` and `design/` side by side).
   Capture its **absolute path**. Read `learning/progress.json`.
-- **Confirm the project has a GitHub remote and the branch is pushed**
+- **Confirm the project has a GitHub remote of their own and the branch is pushed**
   (`git remote -v`, then whether the current branch exists on it). Routines run
   in Anthropic's cloud against the builder's GitHub repo — with no remote there
-  is nothing for a routine to pull or push. This is the one prerequisite that
-  genuinely blocks: if it's missing, stop before scheduling anything, say why in
-  one line ("a routine runs against your repo on GitHub, so first your project
-  needs to live there"), then help them connect it — create a **private** repo
-  under their own GitHub account, add it as the remote, push, and walk what git
-  asks for honestly. Never schedule a routine against a project that exists only
-  in the workspace.
+  is nothing for a routine to pull or push. **A remote pointing at BlueRock's
+  template (`bluerock-io/my-workspace` in its URL) counts as missing** — that is
+  the shared template, never schedule anything against it; `/bluerock:check`
+  offers the cleanup. This is the one prerequisite that genuinely blocks: if
+  it's missing, stop before scheduling anything, say why in one line ("a routine
+  runs against your repo on GitHub, so first your project needs to live there"),
+  then help them connect it — create a **private** repo under their own GitHub
+  account, add it as the remote, push, and walk what git asks for honestly.
+  Never schedule a routine against a project that exists only in the workspace.
 - **Confirm the seeded agent is there:** `.claude/agents/daily-brew.md`. Most
   builders schedule this one, and step 3 reads its fallback.
 - If Session 6 isn't complete, warn in one honest line — "this session starts

@@ -160,14 +160,20 @@ ritual; it is not yet permission to commit.
 
 ### 5. Commit and push (only after I confirm)
 
-Once I confirm: stage the files, commit with the agreed message, then check for
-a remote (`git remote`) before pushing. **No remote is normal until the builder
+Once I confirm: stage the files, commit with the agreed message, then check the
+remote (`git remote -v`) before pushing. **No remote is normal until the builder
 connects their own GitHub repo** (the Save your work step, later in the learning
 path) — in that case commit locally, skip the push without treating it as a
 failure, and say it in one line: "committed in your workspace; once you connect
-your own GitHub repo, wrap-up will back this up there too." If a remote exists
-and the push fails (usually authentication), tell me plainly what happened and
-what to click. Don't retry silently.
+your own GitHub repo, wrap-up will back this up there too." **If the remote is
+BlueRock's template (`bluerock-io/my-workspace` in its URL), never push to it,
+even if the push would succeed** — that is the shared template every builder
+starts from, not their backup; earlier workspace images left it pointed there.
+Commit locally, skip the push, and say it in one line: "committed in your
+workspace — your project still points at BlueRock's template rather than a
+backup of your own; `/bluerock:check` can clean that up." If their own remote
+exists and the push fails (usually authentication), tell me plainly what
+happened and what to click. Don't retry silently.
 
 ### 6. Hand me the continuation prompt
 
