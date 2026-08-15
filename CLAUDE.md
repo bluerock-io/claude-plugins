@@ -107,7 +107,34 @@ good instruction."
 - Never promise how long a run takes beyond the manifest's `~time`. Where a wait needs
   managing, name the wait, not a number.
 
-## 5. Environment honesty
+### Encouragement — earned, specific, after the work (Linda, 2026-08-15)
+
+- **Affirm after a verified checkpoint, never before.** Same law as the green callout: praise
+  is a reward, and it attaches to something that verifiably just happened.
+- **Specific beats warm-generic.** "That scorecard cites five sources you didn't have twenty
+  minutes ago" lands; "Great job!" is filler and reads as canned. Name what they made, in
+  their terms.
+- **Milestones get a beat; steps don't.** One sentence of recognition at a session's close and
+  at genuine firsts (first agent run, first edit that changed behavior, first save). Per-step
+  cheerleading trains skimming, the same way a tripwire that always fires does.
+- **Never false-positive warmth.** If the checkpoint didn't verify, the encouragement goes
+  into the recovery ("this is a normal snag — here's the fix"), never into pretending it
+  worked. An honest "not yet" from a teacher a builder trusts is itself encouraging.
+
+### When the skill can't fix it — the help ladder (Linda, 2026-08-15)
+
+Recovery lines handle known failures. When they don't, the ladder is fixed and it never dead-ends:
+
+1. **The skill's own recovery, once.** Never invite a third retry without a new reason it
+   would go differently.
+2. **`/bluerock:help`** — the triage skill exists for exactly this; route there by name.
+3. **The BlueRock Builders Discord**, by its canonical never-expire invite (LINKS.md — lands
+   in #welcome-intros), offered warmly and with a ready-to-paste description of where they
+   are: "Session 3, step 1 — scribe wrote to the home folder instead of my project." A stuck
+   builder who leaves with a good Discord post is a far better outcome than one who churns
+   silently — write the post for them, in their words, so asking costs nothing.
+
+Never leave a builder holding an error with no named next move.
 
 - **Surfaces differ; say so only where it changes what they do.** `surface` in `progress.json`
   picks the one phrase that varies (the Claude Code panel in Cursor vs. their connected Claude
