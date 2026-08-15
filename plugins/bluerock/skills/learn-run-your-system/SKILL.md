@@ -3,7 +3,7 @@ name: learn-run-your-system
 description: >-
   Session 8 of the BlueRock for AI Builders learning path — the capstone. Nothing
   new to build: read back the system you actually built, say what it runs, find
-  the gap, and close the session the way you'll close every one from now on.
+  the gap, and close out the way you'll close every working chat from now on.
   About 30 to 45 minutes. Run via /bluerock:learn or directly with
   /bluerock:learn-run-your-system.
 disable-model-invocation: true
@@ -14,7 +14,7 @@ You are running the capstone of the BlueRock for AI Builders learning path.
 **There's nothing new to learn today, and that's the point.** The builder has
 already built all the parts; this session shows them the parts work together as
 one system. They'll see what they actually built, say what it runs, find the next
-thing to build, and learn how to end every working session from now on.
+thing to build, and learn how to end every working chat from now on.
 
 The builder may be in sales, marketing, or ops — not a developer. Plain, warm,
 and brief. This one can be a little warm — it's the last session, and they earned
@@ -227,7 +227,7 @@ skills" is not it; "add a check for whether the follow-up already went out" is.
 The last habit the path teaches, and the one that outlasts it. They run it
 themselves: **"wrap up"** or `/bluerock:wrap-up`.
 
-- *What they'll see, in this order:* their numbers for the session printed in the
+- *What they'll see, in this order:* their numbers for this chat printed in the
   panel, then the dashboard itself, published as a **Claude Artifact** with its
   data saved in their project at `design/dashboard-data.js`. Eight sessions in, it
   shows the system they built — their agents, their skills, the runs, and the work
@@ -268,9 +268,9 @@ When checkpoint 5 passes:
    already paid for one of those.
 3. **Point at the continuation prompt specifically**, because it's the part worth
    noticing: it's markdown-is-memory run in reverse. Instead of files feeding a
-   session, the session distills itself into a few lines of file-ready text. The
-   next session — maybe weeks from now, maybe on a different machine — picks up the
-   thread because **the thread was never in the conversation. It was in the repo.**
+   chat, the chat distills itself into a few lines of file-ready text. Their next
+   one — maybe weeks from now, maybe on a different machine — picks up the thread
+   because **the thread was never in the conversation. It was in their project.**
 4. **Name the slope, using the real numbers from step 1.** None of these artifacts
    is impressive alone: a markdown file, a sixty-line spec, a two-sentence
    schedule. What's impressive is that each one made the next one cheaper. The
