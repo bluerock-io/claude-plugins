@@ -10,7 +10,11 @@ RevOps, or ops, not a developer, so this is a "signs of life" moment, not an aud
 Run the checks below quietly, then report the milestone the way the Report section
 describes. Most checks only inspect setup. The only writes this skill may make are the two
 consented repairs: the project load-path links (check 3) and removing the inherited template
-remote (check 5). Never delete or replace a real file or directory.
+remote (check 5). Checks 7 and 8 are **detect-only** — nothing inside the workspace can fix
+either one, so there is nothing to consent to. (Check 7 keeps a dated cache at
+`~/.bluerock/plugin-version-check.json` so it asks the network at most once a day; that
+file is in the workspace folder, never in the builder's project, and it is the one write
+here that isn't a repair.) Never delete or replace a real file or directory.
 
 The checks below are plumbing. The builder should never see `ls`, `python3`, or `git` as
 line items; they roll up into the four-line report.
@@ -123,6 +127,31 @@ line items; they roll up into the four-line report.
      the template — and that rerunning `/bluerock:check` offers again. **Never remove
      without a yes.** When this repair ran, the report carries one plain sentence about it.
 6. **The BlueRock plugin is installed.** This check running confirms the plugin is active.
+7. **The BlueRock tools are current** (detect-only). Run the shared procedure in
+   `${CLAUDE_PLUGIN_ROOT}/shared/version-drift.md`. If the fetch is skipped or fails, this
+   check simply isn't part of this run — say nothing about it either way, and never imply
+   it passed. If it finds drift, this is the one place that explains it and gives the steps
+   out: use that file's explanation and its **PROVISIONAL** steps, in that order, and don't
+   improvise the menus. You cannot fix this from here — the plugin lives in the builder's
+   Claude account and is mirrored into the workspace when they connect — so offer no repair
+   and ask for no consent. Never say a version number.
+8. **Their profile files are filled in** (detect-only, **and not yet at setup**). Read
+   `learning/progress.json` first: **if Session 4 isn't complete, skip this check
+   entirely and say nothing.** Unfilled profile files are the expected state until the
+   session that fills them, and the builder most likely to run this skill is one who just
+   finished Session 1 — reporting it there turns a milestone into a chore and sends them
+   at a session they haven't reached. It is drift only after the curriculum has covered
+   it. (No `learning/` folder at all: skip it too, same reasoning.) When it does run: read
+   the project's `CLAUDE.md`,
+   `voice.md`, and `objectives.md` and look for the bracketed placeholders they ship with
+   (`[e.g., ...]`, `[Words and phrasings that sound like me.]`). Same class, one line
+   cheaper: `your-toolkit.md` still carrying `bluerock-toolkit-version: placeholder`.
+   This is not a failure — everything runs — so report it as the thing that will make
+   their output better, name the cost in their terms (every skill that writes for them
+   reads those files, and unfilled means generic output with no signal why), and route to
+   `/bluerock:onboard`.
+   ⚠️ **Never fill them in for the builder**, not even a first draft, not even if they
+   ask you to guess. Routing to `/bluerock:onboard` *is* the fix. Their answers are theirs.
 
 ## Report
 
@@ -158,6 +187,26 @@ starts." Keep the Session 2 link and the
 Discord line — the builder is in an editor panel, not a browser, and naming the session
 without linking it is where momentum dies. The Session 2 link is the call to action; the
 Discord line is a quieter second, never given equal weight.
+
+**When checks 7 or 8 found something** (they never fail the checklist — everything works,
+it just works less well), add one short block **after the checklist and before the Next
+block**, so the milestone still lands first. Lead with the tier in plain words, then at
+most one short paragraph each, in this order: the profile files, then the tools:
+
+```
+**One thing will make your output better.**
+
+Your standing brief, your voice guide, and your objectives are still the templates
+they shipped as. Every skill that writes for you reads those three, so right now
+it's writing without knowing you. `/bluerock:onboard` fills them in, in about ten
+minutes, in your own words.
+```
+
+Two findings get one block with both paragraphs and the plural headline ("Two things will
+make your output better"). Neither is a ❌ on the checklist, neither gets a repair offer,
+and if only one of the two checks found something, the other is not mentioned at all.
+**When nothing was found, or a lookup didn't happen, this block does not appear** — a
+report that speaks every session is a report builders learn to skim.
 
 **When the project is here but its seeded `.claude/` folders are missing:**
 
@@ -225,6 +274,11 @@ Not part of a run. Read this before rewording anything a builder sees.
 - **The no-project message names Session 1's steps by title, never by number.** The Claude
   Desktop and Cursor tracks number differently — eight steps against nine — so any number is
   wrong for one of them.
+- **The version-drift explanation and its steps live in
+  `shared/version-drift.md`, not here.** `/bluerock:wrap-up` and `/bluerock:learn` carry
+  the tripwire that sends builders to this skill, and all three read that one file so the
+  menu steps have a single home. The steps are **PROVISIONAL** until someone walks them on
+  a current build; clear the marker there.
 - **The two tracks diverge on purpose, and `/learn` documents it.** On Desktop the builder
   asks Claude to clone, so Claude runs a command and a permission dialog appears. On Cursor
   the builder clones through the Command Palette, so nothing runs on their behalf until this

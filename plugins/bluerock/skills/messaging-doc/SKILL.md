@@ -85,8 +85,10 @@ page. Print-friendly, read-only, no CTAs or buttons.
 4. **The phrases you actually use** — section label, then the verbatim phrases as a
    wrapped row of small mono chips (cream fill, hairline border). Exact words, one
    phrase per chip.
-5. **Gaps** — only if the doc has the section: a highlighted callout per note — cream
-   tint background, a 3px accent-blue left border, the note in heading ink.
+5. **Gaps** — always present, because the doc always has the section: a highlighted
+   callout per note — cream tint background, a 3px accent-blue left border, the note in
+   heading ink. When the distiller found nothing inconsistent, render its one line the
+   same way; an empty-handed Gaps section is a real result and reads as one.
 6. **Sources** — a small "Sources" label, then the pages read (and "pasted references"
    if used) as small mono chips, same treatment as the phrase chips.
 7. **Footer** — small muted text: `Built with BlueRock · Messaging Doc · site-reader +
@@ -110,9 +112,14 @@ slight letter-spacing; chips in `ui-monospace, monospace`.
    with the positioning one-liner, the voice attributes with quoted examples, the
    verbatim phrase bank, any honest gaps, and the pages read). The `messaging-doc.md`
    is the source of record the builder keeps and can push to their repo.
-9. **Report:** the doc's path, the positioning one-liner it found (or the "assembled
-   from fragments" caveat if the site never says it cleanly), and the artifact (or the
-   fallback note). Don't reprint the whole thing.
+9. **Report, gaps first.** Lead with the sharpest thing in Gaps, in one sentence, before
+   anything else: it is the part they could not have written themselves, and it is what
+   makes the run feel like the tool saw something they didn't. ("Nothing in your internal
+   vocabulary shows up on the site" beats "here's your messaging doc.") If the distiller
+   found nothing inconsistent, say that plainly and move on. Then the doc's path, the
+   positioning one-liner it found (or the "assembled from fragments" caveat if the site
+   never says it cleanly), and the artifact (or the fallback note). Don't reprint the
+   whole thing.
 
 ## Why this doc matters
 

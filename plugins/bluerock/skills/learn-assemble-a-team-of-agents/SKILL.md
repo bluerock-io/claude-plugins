@@ -52,11 +52,17 @@ wrong. One honest sentence prevents that.
    pass; if one can't be verified, the session stays `in_progress`. Given the
    length, **record progress diligently here** — this is the session most likely
    to be finished across two days.
-6. **Role picks the examples, never the lesson.** Read `role` and `surface` from
+6. **Role picks the examples, never the lesson.** Read `role` from
    `progress.json`; `examples/roles.md` carries per-role team shapes for part
-   two. Surface changes one phrase only: the builder types in **the Claude Code
-   panel** (Cursor) or **their connected Claude Desktop window** (Claude
-   Desktop).
+   two.
+   **Surface is detected, never asked.** Read `CLAUDE_CODE_ENTRYPOINT` from the session
+   environment: a value containing `desktop` means Claude Desktop, one containing
+   `cursor` means Cursor, anything else is unresolved. If unresolved, fall back to
+   `surface` in `progress.json`. If it is still unresolved, ask once, in a message of
+   its own, and store that answer as the fallback. A detected value always beats a
+   stored one and is never written back. Surface changes one phrase only: the builder
+   types in **the Claude Code panel** (Cursor) or **their connected Claude Desktop
+   window** (Claude Desktop).
 
 ## The idea, in one frame
 

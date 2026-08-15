@@ -69,6 +69,12 @@ template (fill `started` with today's date):
 }
 ```
 
+**`surface` is a last resort, not the builder's surface.** It is read only when
+detection fails (see the next section but one), it is never written from a detected
+value, and nothing should restore it to the authority it used to have: it describes one
+session, and it outlives that session in a file. `role` is the opposite — undetectable,
+durable, and correctly stored here.
+
 Then welcome them: "You're at the start — Session 1 gets your project running."
 
 If the file exists but isn't valid JSON (hand-edited, usually), don't overwrite
@@ -98,14 +104,34 @@ no `outcomes` map on the session, or no entry for the builder's role.** Never
 read two sessions' outcomes with two different roles; the role is the
 builder's, stored once.
 
-## Capture surface and role — once, ever
+## Resolve the surface, capture the role
 
-`progress.json` holds the single stored copy of two choices. Check before
-asking; the builder never answers twice:
+Two different things. The surface is a fact about **this session** and you detect it;
+the role is a durable fact about the **person** and it lives in `progress.json`.
 
-- **`surface`** — `desktop` (the Claude Desktop app) or `cursor`. If unset,
-  ask one plain question: "Are you building in the Claude Desktop app, or in
-  Cursor?" Every UI instruction downstream depends on this.
+**Resolving the surface — the same four steps in every session skill:**
+
+1. Read `CLAUDE_CODE_ENTRYPOINT` from the session environment
+   (`echo $CLAUDE_CODE_ENTRYPOINT`, run quietly — the builder never sees it).
+2. Map the value: contains `desktop` → `desktop`; contains `cursor` → `cursor`;
+   anything else → unresolved.
+3. If unresolved, read `surface` from `learning/progress.json` as a fallback.
+4. If still unresolved, ask once — **in its own message** — "Are you building in the
+   Claude Desktop app, or in Cursor?", and write that answer to `progress.json` as a
+   fallback only.
+
+**A detected value always beats a stored one, and a detected value is never written back
+to `progress.json`.** Writing it back is exactly what made the stored copy go stale: a
+builder who ran one session in Desktop and the next in Cursor carried a file that was
+confidently wrong, and every UI instruction downstream inherited the error.
+
+**Ask stored-fact questions alone.** Anything you still cannot detect gets its own
+message, never bundled with a question about the builder's work. The content question
+wins every time, because it is the one they came for — a bookkeeping question sent
+alongside "confirm the website you want the doc built from" simply does not get answered.
+
+**Then the role**, which cannot be detected and so is genuinely stored:
+
 - **`role`** — one of `sales`, `marketing`, or `operations` (operations
   includes revenue and marketing operations). If unset, first look at the
   project's `CLAUDE.md` ("Who I am" — `/bluerock:onboard` may have already
@@ -117,8 +143,21 @@ asking; the builder never answers twice:
   and note their exact words in `learning/journal.md` so nothing is lost. Role
   changes the examples they'll see, never the lesson.
 
-Write both into `progress.json`. If `/bluerock:onboard` runs later, it updates
-this same field — one location, never two.
+Ask it at first need, never at setup: Session 2 is where it first decides something, and
+a question a builder can see the point of is a question they answer. Ask it **alone**,
+never alongside a question about their work. Write it into `progress.json`. If
+`/bluerock:onboard` runs later, it updates this same field — one location, never two.
+
+## A quiet check before you offer anything
+
+Run the shared version-drift procedure in
+`${CLAUDE_PLUGIN_ROOT}/shared/version-drift.md` once, quietly. **Silent when clean, and
+silent when the lookup didn't happen.** If it finds drift, say that file's `learn`
+tripwire line — one line, before you offer the next session — and then carry on with the
+session you *do* have. This is the one place where being behind changes what a builder is
+offered: a session that runs in the chat may only exist in the newer version, and a
+builder who never hears that just gets a quietly worse path. Never name session numbers
+or counts in that line; the manifest you can read is the installed one.
 
 ## Greet, then offer
 
@@ -202,10 +241,20 @@ Not part of a run. Read this before rewording anything a builder sees.
   delivery, skill names, and web links. `/bluerock:learn-status` reads the same
   file for the same purpose. Change a field name and both go stale together.
 - **`progress.json`'s shape is shared with every session skill.** The template
-  here is the canonical one; `surface` and `role` are stored **once**, here or by
-  `/bluerock:onboard`, and every session skill reads the same two fields rather
-  than keeping a copy. Session 4 reconciles `role` after onboard runs and writes
-  to this same field.
+  here is the canonical one; `role` is stored **once**, here or by
+  `/bluerock:onboard`, and every session skill reads that same field rather than
+  keeping a copy. Session 4 reconciles `role` after onboard runs and writes to it too.
+  **`surface` is no longer stored authority** — the four-step resolution above is
+  repeated verbatim in every session skill, so a change to it is a change in nine
+  files, and half-applying it is how one session starts contradicting the next.
+- **The Cursor half of the surface mapping has never been observed.**
+  `CLAUDE_CODE_ENTRYPOINT=claude-desktop` was confirmed live on 2026-08-15; the `cursor`
+  value is an assumption, and it ships **PROVISIONAL**. The fallback chain is what makes
+  that survivable — a wrong guess degrades to asking rather than to misrouting — so
+  **do not remove the fallback as a simplification later**, and do not claim detection
+  works on Cursor until someone running it posts `echo $CLAUDE_CODE_ENTRYPOINT`.
+  `CLAUDE_CODE_ENTRYPOINT` is an internal variable, not a documented contract, and can
+  change without notice.
 - **Session skills own their own teaching; this skill owns routing and state.**
   Don't restate a session's outcome in your own words — read it from the manifest,
   role-resolved. That rule is what keeps eight sessions' promises consistent in

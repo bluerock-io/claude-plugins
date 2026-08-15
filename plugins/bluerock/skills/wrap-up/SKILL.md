@@ -2,10 +2,10 @@
 name: wrap-up
 description: >-
   End-of-session ritual: log what this session did, refresh my BlueRock
-  dashboard, then (with my go-ahead) commit, push, and hand me a continuation
-  prompt for next time. Use when I say "wrap up", "done for today", "end
-  session", "ship it", or "save my progress". Not for mid-session saves; only
-  when the session is actually ending.
+  dashboard, then (with my go-ahead) save a checkpoint of my project and hand me
+  a continuation prompt for next time. Use when I say "wrap up", "done for
+  today", "end session", "ship it", or "save my progress". Not for mid-session
+  saves; only when the session is actually ending.
 ---
 
 Wrap up this working session. Conversations end; the work persists. Make sure
@@ -153,31 +153,69 @@ title if it doesn't exist). Newest at the bottom, short — a trail, not a diary
 
 ### 4. Show me what's about to be saved
 
-Run `git status` and show me a plain summary: which files, new or changed, and a
-proposed one-line commit message that says what the session accomplished (not
-"updates"). **Wait for my go-ahead before committing.** "Wrap up" starts the
-ritual; it is not yet permission to commit.
+First, check what is actually possible. Run `git status`, `git remote -v`,
+`gh auth status`, and `git config user.name` / `git config user.email`. What you offer
+depends on what you find:
 
-### 5. Commit and push (only after I confirm)
+- **No identity configured** (either is empty) → **fix this before anything else, and
+  never by letting the save fail first.** On a fresh workspace nothing is configured, so
+  this is every new builder's first wrap-up, and it breaks the purely local save that has
+  nothing to do with GitHub. Don't show them the raw git error, and don't ask them to run
+  `git config` themselves. Ask once, plainly, and say what it is for:
 
-Once I confirm: stage the files, commit with the agreed message, then check the
-remote (`git remote -v`) before pushing. **No remote is normal until the builder
-connects their own GitHub repo** (the Save your work step, later in the learning
-path) — in that case commit locally, skip the push without treating it as a
-failure, and say it in one line: "committed in your workspace; once you connect
-your own GitHub repo, wrap-up will back this up there too." **If the remote is
-BlueRock's template (`bluerock-io/my-workspace` in its URL), never push to it,
-even if the push would succeed** — that is the shared template every builder
-starts from, not their backup; earlier workspace images left it pointed there.
-Commit locally, skip the push, and say it in one line: "committed in your
-workspace — your project still points at BlueRock's template rather than a
-backup of your own; `/bluerock:check` can clean that up." If their own remote
-exists and the push fails (usually authentication), tell me plainly what
-happened and what to click. Don't retry silently.
+  > "What name and email should your saves be recorded under? This just labels your work
+  > in your own project — nothing is sent anywhere."
+
+  Then set it **scoped to this project** — `git config user.name` and
+  `git config user.email` inside the project, **never `--global`**; their workspace is
+  theirs and this skill has no business setting a machine-wide identity. If they'd rather
+  not answer, say plainly that saving needs a name to record the save under, that nothing
+  leaves their workspace either way, and that wrap-up will offer again next time. Then
+  skip the save and carry on with the rest of the wrap-up — the log and the dashboard
+  don't depend on it.
+- **No remote** → the save is local only. Do not mention pushing, backup, or GitHub.
+  There is nothing to push to, and raising it invents a problem the builder does not
+  have.
+- **The remote is BlueRock's template** (`bluerock-io/my-workspace` in its URL) → treat
+  it as no backup at all, because it is the shared template every builder starts from,
+  not theirs; earlier workspace images left it pointed there. Never offer to back up to
+  it, even if the push would succeed. The save is local only, and one line covers it:
+  "your project still points at BlueRock's template rather than a backup of your own;
+  `/bluerock:check` can clean that up."
+- **Remote, but not authenticated** → offer the local save now. Mention backup once, as
+  an optional thing they can set up later. Never propose a push you already know will
+  fail.
+- **Remote and authenticated** → offer the save and the backup together.
+
+Then show a plain summary: which files are new, which changed, and a proposed one-line
+description of what the session accomplished (not "updates").
+
+**If this is their first save in this project** (fewer than three commits, or none
+authored by them), lead with one sentence before the file list:
+
+> Saving takes a snapshot of your project as it is right now, with a note about what
+> changed. It stays in this workspace. You can look back at it later, or undo it.
+
+Do not use "stage," "commit," or "push" as bare verbs with a builder who has not seen
+them. Say "save a checkpoint" and "back up to GitHub." Use the git words only after you
+have said what they mean, or if the builder uses them first.
+
+**Wait for my go-ahead.** "Wrap up" starts the ritual; it is not permission to save.
+
+### 5. Save (only after I confirm)
+
+Stage and commit with the agreed message. Identity must already be configured by step 4
+— a commit that aborts with `Author identity unknown` in front of a builder is the exact
+failure the state check exists to prevent. Push only if the remote exists, is the
+builder's own, authentication is present, and they said yes to backup.
+
+If a push fails anyway, lead with what worked: the local save succeeded, the backup is
+the part that did not go through. One next step, not a diagnosis. A failed push must
+never be a builder's first experience of wrap-up.
 
 ### 6. Hand me the continuation prompt
 
-Last, print a short prompt I can paste into my next session:
+Then print a short prompt I can paste into my next session:
 
 ```
 I'm continuing work in my project.
@@ -191,9 +229,48 @@ Read session-log.md for context.
 That's the whole point of the ritual: the next session starts already knowing
 what this one knew — and my dashboard already shows the work.
 
+### 7. A quiet check on my setup
+
+Last, run the shared version-drift procedure in
+`${CLAUDE_PLUGIN_ROOT}/shared/version-drift.md`. **Silent when clean** — and silent when
+the lookup didn't happen. When it finds drift, say the one tripwire line that file gives
+you and nothing else: don't diagnose it, don't repair it, don't turn the end of my
+session into a support ticket. `/bluerock:check` is where that conversation belongs.
+
 ## Rules
 
 - Never commit without my explicit go-ahead in this conversation.
+- Never propose a git action you have already determined will fail. Nothing in the
+  curriculum teaches committing, pushing, or authenticating, so assume the builder is
+  meeting all three here for the first time.
 - Never push anything that looks like a credential or a private key; flag it.
 - If nothing changed this session, say so, still refresh the dashboard and log
   the session if I want the record, and skip the git steps.
+
+## Who depends on this skill's wording
+
+Not part of a run. Read this before rewording anything a builder sees.
+
+- **The identity repair is this skill's only write outside the builder's own files**, and
+  it is consented, scoped to their project, and asked in builder language. It is never
+  `--global`, and it is never inferred from something you happen to know about them. If
+  that ever needs to widen, it is a deliberate decision recorded here, at the prompt.
+- **Steps 4 and 5 decide what a builder is offered at the end of every session, and
+  nothing in the eight sessions teaches committing, pushing, or authenticating.** The
+  shape is deliberate: check first, then offer only what will succeed. A live tester who
+  ships this product still believed a local commit had sent her files somewhere, which is
+  why the vocabulary is "save a checkpoint" and "back up to GitHub" and why the first-save
+  sentence exists. Don't reintroduce the git words as bare verbs.
+- **Session 2's checkpoint 5 depends on this skill's *absence* of a save step being
+  normal.** `skills/learn-meet-your-first-agent-team/checkpoints.md` passes on the log and
+  the dashboard refresh alone, precisely because this skill may correctly never offer a
+  save. Change what step 4 offers and that checkpoint needs rereading.
+- **Session 1 routes builders here on day one**
+  (`skills/learn-get-started/SKILL.md`, close-the-loop step 5), when there is usually no
+  remote and no authentication. That is the first impression these two steps were written
+  for.
+- **The tripwire wording lives in `shared/version-drift.md`**, shared with
+  `/bluerock:check` and `/bluerock:learn`. Reword it there, not here.
+- **learn.bluerock.io's session pages describe what wrap-up does at the end of a
+  session.** Behavior-visible changes here need the page diff against the session's live
+  page and its `learn-s<N>-copy-v4.md` before finishing.

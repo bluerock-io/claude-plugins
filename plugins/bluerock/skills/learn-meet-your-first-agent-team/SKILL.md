@@ -50,11 +50,17 @@ saved in their project. **Time:** about 5 minutes. **Prerequisites:** Session 1
 4. **On failure, diagnose from the recovery notes,** explain plainly, retry.
 5. **Keep progress honest.** Update `learning/progress.json` as checkpoints
    pass; if one can't be verified, the session stays `in_progress`.
-6. **Role picks the lane; examples adapt inside it.** Read `role` and `surface`
+6. **Role picks the lane; examples adapt inside it.** Read `role`
    from `progress.json`. `marketing` runs the messaging-doc lane; everyone else
    runs the scorecard lane. `examples/roles.md` carries each lane's suggestions
-   and share moment. Surface only changes one phrase: the builder types in
-   **the Claude Code panel** (Cursor) or **their connected Claude Desktop
+   and share moment.
+   **Surface is detected, never asked.** Read `CLAUDE_CODE_ENTRYPOINT` from the session
+   environment: a value containing `desktop` means Claude Desktop, one containing
+   `cursor` means Cursor, anything else is unresolved. If unresolved, fall back to
+   `surface` in `progress.json`. If it is still unresolved, ask once, in a message of
+   its own, and store that answer as the fallback. A detected value always beats a
+   stored one and is never written back. Surface only changes one phrase: the builder
+   types in **the Claude Code panel** (Cursor) or **their connected Claude Desktop
    window** (Claude Desktop) — which is wherever this conversation already is.
 
 ## Before you start
@@ -62,10 +68,17 @@ saved in their project. **Time:** about 5 minutes. **Prerequisites:** Session 1
 - Anchor to the project (signature: `CLAUDE.md` and `design/` side by side,
   usually one level below the home folder; some older files call it a Hub —
   same repo). Read `learning/progress.json`.
-- **Check `role`.** If unset, ask once, plainly: "Is your work closest to
-  sales, marketing, or operations?" — the lane depends on it. Store the answer
-  in `progress.json` (the same single field `/bluerock:learn` uses; never a
-  second copy). If they'd rather not say, run the scorecard lane and note it.
+- **Check `role`** — the lane depends on it, and this is where it gets asked, at the
+  moment it decides something. If unset, ask once, plainly: "Is your work closest to
+  sales, marketing, or operations?" **Send that question by itself**, and send it before
+  you ask anything about their work: a stored-fact question bundled with "which website
+  should the doc be built from?" loses every time, because the work question is the one
+  they came for. That is what happened on the test run, and the bookkeeping question
+  simply never came back. Store the answer in `progress.json` (the same single field
+  `/bluerock:learn` uses; never a second copy). If they'd rather not say, run the
+  scorecard lane and note it.
+- **Resolve the surface** by the rule above — detected, not asked. Session 2 opens on
+  the work, not on a form.
 - If Session 1 isn't complete, warn in one honest line — "this session assumes
   your project is set up; Session 1 does that in about 20 minutes" — then
   respect their choice. Adults skip; warn, never block. (If there's no project
@@ -202,8 +215,8 @@ notice.
 ### 4. Open it, then send it
 
 The doc opens as a Claude Artifact: a clean one-pager — the positioning line,
-the voice attributes with quoted examples, the verbatim phrase bank, any gaps
-worth knowing about. The markdown source is saved at
+the voice attributes with quoted examples, the verbatim phrase bank, and the
+gaps the team found. The markdown source is saved at
 `my-work/messaging-doc/<brand>/`, theirs to keep and edit.
 
 Then the actual win: **share it.** Send it to the person named in their role's
@@ -236,7 +249,11 @@ When checkpoint 5 passes:
    `{ "status": "complete", "completed": "YYYY-MM-DD", "artifact": "..." }` —
    name the artifact concretely ("account scorecard on Ramp" / "core messaging
    doc for acme.com").
-2. **Debrief — what just happened.** They didn't write two prompts; they
+2. **Debrief — what just happened.** Messaging-doc lane: **open on the gaps.** Name the
+   sharpest one the doc found, in a sentence, before you say anything about the process —
+   the vocabulary their site never uses, the two pages that claim different things. That
+   is the part they could not have written from memory, and it is what makes the run feel
+   like the team saw something they didn't. Then: they didn't write two prompts; they
    pointed one team at one job and got a finished, sourced work product back.
    Each specialist is an **agent**: a worker with one job, its own
    instructions, and only the tools it needs. That's the idea the whole

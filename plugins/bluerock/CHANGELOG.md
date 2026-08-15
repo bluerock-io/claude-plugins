@@ -1,5 +1,97 @@
 # Changelog — `bluerock` plugin
 
+## 0.9.0 — the session stops asking what it can see, and wrap-up stops proposing what will fail
+
+Two live runs on 2026-08-15 produced the same class of finding: a skill asking a builder
+for something it could have detected, or offering a builder something it had not checked
+would work. A tester who ships this product hit a wall at wrap-up step 4 on a fresh
+workspace with no git identity, no usable remote, and no GitHub authentication, and after
+approving a purely local save still believed her files had left the workspace. Separately,
+the surface question ("Desktop or Cursor?") was sent in the same message as a question
+about her own work, and only the work question came back.
+
+- **Changed — every session skill + `learn`: the surface is detected, not asked.** One
+  resolution order, repeated identically in all eight places: read
+  `CLAUDE_CODE_ENTRYPOINT`, map `desktop` / `cursor`, fall back to `surface` in
+  `progress.json`, and only then ask, in a message of its own. A detected value always
+  beats a stored one and is **never written back** — writing it back is what made the
+  stored copy go stale for anyone who switched apps between sessions. `surface` survives
+  in `progress.json` demoted to a last-resort fallback, documented where the template is
+  defined so nobody restores its old authority. `curriculum/manifest.json` is unchanged;
+  `surfaces: ["desktop", "cursor"]` stays as the vocabulary.
+  **PROVISIONAL:** `CLAUDE_CODE_ENTRYPOINT=claude-desktop` was verified live; nobody has
+  observed what Cursor sets. The `cursor` mapping is an assumption, and the fallback chain
+  is what makes a wrong guess degrade to asking rather than to misrouting. Detection
+  cannot be claimed to work on Cursor until someone running it posts
+  `echo $CLAUDE_CODE_ENTRYPOINT`.
+- **Changed — `learn-meet-your-first-agent-team`: the role question is asked alone.**
+  **Role capture stays at first use in Session 2, asked alone — Linda, 2026-08-15.** The
+  finding-5 spec recommended moving it to Session 1; capture-at-first-use wins, and the
+  recommendation is overruled deliberately, not overlooked. Bundling was the actual defect:
+  on the test run the role question rode along with "confirm the website you want the doc
+  built from," and only the work question came back. Stored-fact questions now go in a
+  message of their own, before any question about the builder's work. Session 1 asks for no
+  role at all; its finding-5 change is surface detection only.
+- **Fixed — `wrap-up` steps 4 and 5: check first, offer only what will succeed.** The
+  skill now runs `git status`, `git remote -v`, `gh auth status`, and `git config
+  user.name` / `user.email` before it proposes anything, and branches on what it finds.
+  No remote means the save is local and pushing,
+  backup, and GitHub are not mentioned at all, because raising them invents a problem the
+  builder does not have. A remote without authentication gets the local save now and
+  backup named once, as optional. A first save leads with one sentence explaining what
+  saving is and where it stays. The vocabulary is **"save a checkpoint"** and **"back up
+  to GitHub"**; the git words are not used as bare verbs with a builder who has not been
+  taught them. A failed push, if one happens anyway, leads with what worked and must never
+  be a builder's first experience of wrap-up. 0.8.2's refusal to ever push to the shared
+  template is preserved inside the new branch list.
+- **Fixed — `wrap-up`: an unset git identity no longer breaks the local save.** The
+  fresh-init image configures no identity, so on a new workspace the very first save
+  aborted with `Author identity unknown` and handed a non-developer two `git config`
+  commands to run — a failure with no GitHub in it at all, at the worst possible moment.
+  The state check now detects it first and repairs it with consent, in builder language
+  ("What name and email should your saves be recorded under? This just labels your work in
+  your own project — nothing is sent anywhere"), scoped to the project and **never
+  `--global`**. Declining is fine, says plainly that saving needs a name to record it
+  under, and wrap-up offers again next time. The failed commit never happens first.
+- **Fixed — `learn-get-started` + `learn-meet-your-first-agent-team`: two lines that
+  promised or blamed.** Session 1's close-out no longer promises "the progress commit,"
+  which set up a step that would not complete; it suggests the save habit instead.
+  Session 2's checkpoint 5 no longer reads a missing save as a builder skipping something
+  — usually it is an authentication wall, or wrap-up correctly declining to offer what
+  would fail. The checkpoint was always the log and the dashboard refresh.
+- **Added — version-drift tripwires, detect-only.** `wrap-up` and `learn` each carry one
+  line, **silent when clean and silent when the lookup didn't happen**; `check` carries the
+  explanation and the steps out. A builder installed the plugin one day and was still on
+  the previous version the next, missing everything that had shipped in between, because
+  the in-app **Update** button compares against the app's *cached* copy of the marketplace:
+  a greyed-out Update button does not mean up to date. The published version is read from
+  the raw `plugin.json` URL (not `marketplace.json`, which carries no version field, and
+  not Releases, which the repo does not publish), cached to once per day in the workspace
+  folder, and **silent on any failure** — a check that goes red because GitHub was slow
+  teaches builders to ignore it. Builder-facing copy names what is missing, never a version
+  number. Procedure and wording live in one new file, `shared/version-drift.md`, so the
+  three skills cannot drift apart.
+  **PROVISIONAL:** the recovery steps (remove plugin → remove marketplace → re-add → install
+  → accept "Sync automatically" → fully quit and reopen) were verified once, on Claude
+  Desktop, on 2026-08-15. Order matters: reinstalling without removing the marketplace
+  reads the same stale cache and reproduces the old version.
+- **Added — `check`: two detect-only checks.** Unfilled profile files (`CLAUDE.md`,
+  `voice.md`, `objectives.md` still bracketed, `your-toolkit.md` still `placeholder`) are
+  reported as the thing that will make their output better, never as a failure, and route
+  to `/bluerock:onboard`. Neither new check offers a repair, because neither can be fixed
+  from inside the workspace, and `check` **never** fills a profile file in for a builder.
+- **Changed — `distiller` + `messaging-doc`: Gaps is a required section.** For the
+  first-win session it was the most valuable output and the one most likely to be omitted:
+  a builder knows roughly what their own site says, and cannot see the distance between the
+  language they use internally and the language the site carries. It now always renders,
+  with an explicit "nothing inconsistent turned up" state, and the run's report and Session
+  2's debrief both lead with it.
+- **Changed — `agents/`: em dashes stripped from all four agent specs.** They were written
+  in the style they then reproduce, and two strings in `distiller.md` are mandated
+  verbatim into every messaging doc every builder generates, bypassing the builder's own
+  `voice.md` entirely. Those two are now style-neutral. No behavior change beyond
+  punctuation.
+
 ## 0.8.2 — nothing ever pushes to the template
 
 Earlier workspace images shipped the builder's project still pointing its `origin` at

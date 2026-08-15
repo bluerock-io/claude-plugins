@@ -60,9 +60,14 @@ broken.
 4. **On failure, diagnose from the recovery notes.** The one to know cold:
    nothing arrived means the instruction didn't name the destination.
 5. **Keep progress honest.** Update `learning/progress.json` as checkpoints pass.
-6. **Role picks the examples, never the lesson.** Read `role` and `surface` from
+6. **Role picks the examples, never the lesson.** Read `role` from
    `progress.json`; `examples/roles.md` carries per-role cadences and jobs.
-   Surface changes one phrase only.
+   **Surface is detected, never asked.** Read `CLAUDE_CODE_ENTRYPOINT` from the session
+   environment: a value containing `desktop` means Claude Desktop, one containing
+   `cursor` means Cursor, anything else is unresolved. If unresolved, fall back to
+   `surface` in `progress.json`. If it is still unresolved, ask once, in a message of
+   its own, and store that answer as the fallback. A detected value always beats a
+   stored one and is never written back. Surface changes one phrase only.
 
 ## The idea, in one frame
 

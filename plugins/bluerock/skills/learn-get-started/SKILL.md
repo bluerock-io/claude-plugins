@@ -39,10 +39,19 @@ none — this is the start.
 5. **Keep progress honest.** Once the project exists, record progress in
    `learning/progress.json` at the project root (see "Progress and resuming").
    Never mark a checkpoint you didn't verify.
-6. **Adapt wording, not content.** Read `surface` from `progress.json` (or ask
-   once if unset — Claude Desktop or Cursor) and give only that surface's
-   instructions. Read `role` and use `examples/roles.md` for the motivational
-   framing. The lesson itself is the same for everyone.
+6. **Adapt wording, not content.** Give only the builder's surface's instructions, and
+   use `role` with `examples/roles.md` for the motivational framing. The lesson itself
+   is the same for everyone.
+   **Surface is detected, never asked.** Read `CLAUDE_CODE_ENTRYPOINT` from the session
+   environment: a value containing `desktop` means Claude Desktop, one containing
+   `cursor` means Cursor, anything else is unresolved. If unresolved, fall back to
+   `surface` in `progress.json`. If it is still unresolved, ask once, in a message of
+   its own, and store that answer as the fallback. A detected value always beats a
+   stored one and is never written back.
+   **Do not ask for their role here.** If `progress.json` or the project's `CLAUDE.md`
+   already carries one, use it for the framing; if it doesn't, use the generic framing
+   and move on. Session 2 asks for it at the point it decides something, which is where
+   a builder can see why the question is being asked at all.
 
 ## First — figure out where you both are
 
@@ -265,9 +274,11 @@ When checkpoint 8 passes:
 4. Point forward: Session 2, **Meet your first agent team** — about 5 minutes,
    and they walk out with a real work product. They can start it right now by
    saying "continue the course."
-5. Suggest `/bluerock:wrap-up` so the progress commit rides the save habit
-   they'll learn to love. (Session 2 teaches it properly; a one-line mention is
-   enough here.)
+5. Suggest `/bluerock:wrap-up` so the save habit starts on day one. (Session 2
+   teaches it properly; a one-line mention is enough here.) Don't promise what it
+   will do with their work beyond that — wrap-up checks what is actually possible in
+   their workspace and offers only that, and on day one that is usually a local save
+   and nothing else.
 
 If a checkpoint could not be verified, the session stays `in_progress` at that
 checkpoint — say so plainly, with what's left. Honest state beats a green

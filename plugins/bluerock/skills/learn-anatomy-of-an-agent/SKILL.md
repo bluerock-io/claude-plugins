@@ -43,9 +43,15 @@ step below is in service of that landing.
 4. **On failure, diagnose from the recovery notes,** explain plainly, retry.
 5. **Keep progress honest.** Update `learning/progress.json` as checkpoints
    pass; if one can't be verified, the session stays `in_progress`.
-6. **Role picks the examples, never the lesson.** Read `role` and `surface` from
+6. **Role picks the examples, never the lesson.** Read `role` from
    `progress.json`; `examples/roles.md` carries the per-role demo input and the
-   section each role should add in step 2. Surface changes one phrase only: the
+   section each role should add in step 2.
+   **Surface is detected, never asked.** Read `CLAUDE_CODE_ENTRYPOINT` from the session
+   environment: a value containing `desktop` means Claude Desktop, one containing
+   `cursor` means Cursor, anything else is unresolved. If unresolved, fall back to
+   `surface` in `progress.json`. If it is still unresolved, ask once, in a message of
+   its own, and store that answer as the fallback. A detected value always beats a
+   stored one and is never written back. Surface changes one phrase only: the
    builder types in **the Claude Code panel** (Cursor) or **their connected
    Claude Desktop window** (Claude Desktop) — which is wherever this
    conversation already is.

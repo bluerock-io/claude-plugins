@@ -62,8 +62,11 @@ file names differ. `<slug>` below is the slugified name the run used.
   today covering this session, and `design/dashboard-data.js` was refreshed by
   the wrap-up (its content reflects this session's run).
 - The builder runs the wrap-up themselves; you observe it in-conversation and
-  then verify the files. If they skipped the git commit step inside wrap-up,
-  that's fine — the checkpoint is the log and dashboard refresh, not the push.
+  then verify the files. **The checkpoint is the log and the dashboard refresh, never a
+  save or a backup.** A session where no save step appeared at all passes exactly like
+  one where it did: wrap-up offers only what it has checked will succeed, so its absence
+  is the skill working, not the builder skipping something. Don't ask them why it didn't
+  happen, and don't send them to fix it.
 
 ## Marking progress
 
