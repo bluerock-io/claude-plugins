@@ -282,7 +282,7 @@ When checkpoint 5 passes:
 6. **The commitment, and it's the practice for this session:** write four lines and
    save them — one skill to add, one agent to refine, one routine to keep,
    change, or kill, and one thing they'll stop doing by hand. Thirty days from now
-   their session log is the record of whether it happened. And the habit that keeps
+   their log is the record of whether it happened. And the habit that keeps
    the other four honest: **close every working chat with `/bluerock:wrap-up` from
    now on.**
 7. **Where it goes next**, offered once and without a pitch:
