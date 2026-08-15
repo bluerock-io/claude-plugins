@@ -107,6 +107,15 @@ good instruction."
 - Never promise how long a run takes beyond the manifest's `~time`. Where a wait needs
   managing, name the wait, not a number.
 
+### The concept ledger — no concept without a row (Linda, 2026-08-15)
+
+**A session may not put a concept in front of a builder without a ledger row.** Before a skill
+ships, every working concept it introduces has a row in
+`marketing-hub/09-product/beta-plan/learn-concept-ledger.md` naming where it is glossed in the
+same breath and where its depth lives. **The skill and its page share one row** — if the skill
+glosses a concept and the page does not, the row says so, and that disagreement travels on the
+page diff that behavior-visible changes already require.
+
 ### Encouragement — earned, specific, after the work (Linda, 2026-08-15)
 
 - **Affirm after a verified checkpoint, never before.** Same law as the green callout: praise
