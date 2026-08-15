@@ -23,7 +23,7 @@ quality of this context sets the ceiling on everything downstream, and
 everything downstream starts from it. Do not rush it to get to a checkpoint.
 
 **Outcome:** a project that knows them — `CLAUDE.md`, `voice.md`, and
-`objectives.md` filled with their real context and committed, proven by a draft
+`objectives.md` filled with their real context and saved, proven by a draft
 that sounds like them. **Time:** about 20 minutes. **Prerequisites:** Session 3
 (they have met an agent and edited one).
 
@@ -106,8 +106,12 @@ interview into a paste and a few corrections. Offer it once; never insist.
 They run it themselves: **"onboard me"** or `/bluerock:onboard`.
 
 - *What they'll see:* onboard asks a few questions (or takes a pasted profile),
-  asks for a couple of writing samples, drafts `CLAUDE.md`, `voice.md`, and
-  `objectives.md` in their project, and shows each one before saving.
+  asks for a couple of writing samples, then fills in `CLAUDE.md`, `voice.md`,
+  and `objectives.md` at the top of their project, showing each one before
+  saving. **Say "fills in," not "creates."** All three files are already there,
+  shipped with the starter kit and seeded with `[bracketed]` placeholders — a
+  builder who has opened their project has seen them, and telling them onboard
+  creates three new files contradicts what is on screen.
 - *Recovery:* if the drafts come back generic or still full of `[brackets]`,
   onboard didn't have enough to go on. That is an input problem, not a bug —
   have them paste a fuller profile, or two real emails and posts, and run it
@@ -190,21 +194,38 @@ the lesson, and it's the habit that makes every later session cheap.
 - *Checkpoint 3:* a draft came back from a context that had not read this
   conversation, and they can point at the line in `voice.md` that shaped it.
 
-### 4. Commit it, so every agent reads the real thing
+### 4. Save it, so every agent reads the real thing
 
-Uncommitted, this lives on one machine. Committed, it's theirs — versioned,
-backed up, and read by every agent from here on.
+Unsaved, this is three files they could lose. Saved, it is theirs, and every
+agent from here on reads it.
 
-They ask for it in plain language: **"commit and sync my three memory files."**
-In Cursor they can use the Source Control panel instead; either is fine, and
-asking works on both surfaces because it runs git either way.
+**The save runs through wrap-up. Do not ask for a separate one.** They close
+out the way they have since Session 2: **"wrap up my session"** or
+`/bluerock:wrap-up`. It checks what is actually possible, shows them what it is
+about to save with their three memory files named in the list, and waits for
+their go-ahead.
 
-- *Recovery:* if the commit fails on credentials or a missing remote, don't
-  teach git here. Say plainly that the files are safe either way, note it as
-  something to fix later, and pass checkpoint 4 on the local files. A blocked
-  push is not a failed lesson.
-- *Checkpoint 4:* the three files are committed (and pushed, if the remote
-  allows it).
+That is the whole of this step, and the reason it is not a second ask: wrap-up
+already checks git identity, the remote, and auth before it offers anything.
+**A fresh workspace has no git identity configured**, so a separate "commit my
+files" here would walk the builder straight into the one failure wrap-up exists
+to handle gracefully — and it would ask them to save twice.
+
+⚑ **Vocabulary, and it is not optional.** Say **"save a checkpoint"** and
+**"back up to GitHub."** Do not use *stage*, *commit*, or *push* as bare verbs
+with a builder who has not been shown them. This matches wrap-up's own rule and
+the glossary's `save a checkpoint` entry; a builder who has only ever heard
+"save" should not meet "commit" for the first time in your sentence.
+
+- *Recovery:* if there is no remote, the save is local and that is the normal,
+  finished state — **do not raise pushing, backup, or GitHub at all.** wrap-up
+  is deliberately silent about it, and mentioning it here invents a problem they
+  do not have.
+- *Recovery:* if wrap-up asks for a name and email, that is expected on a fresh
+  workspace, not an error. It is labelling their own saves, nothing is sent
+  anywhere, and wrap-up handles the whole exchange. Let it.
+- *Checkpoint 4:* the three files are saved (and backed up, if a remote of their
+  own is set up and authenticated).
 
 ## Close the loop
 
@@ -231,8 +252,10 @@ When checkpoint 4 passes:
    Name it from the manifest, and if it isn't available in-session yet, give its
    link from there.
 
-Suggest `/bluerock:wrap-up` so the progress commit rides the save habit they
-learned in Session 2.
+**Do not suggest `/bluerock:wrap-up` again here.** It already ran as step 4,
+and this is where the old version asked a second time. If they somehow reached
+the end without it, that is the one case to offer it — otherwise close on the
+debrief.
 
 ## Who depends on this skill's wording
 

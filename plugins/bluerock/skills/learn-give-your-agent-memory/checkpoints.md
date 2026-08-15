@@ -74,17 +74,29 @@ path.
   **before** they leave, so the session resumes cleanly if they don't come
   straight back.
 
-## Checkpoint 4 — committed
+## Checkpoint 4 — saved
+
+**The save runs through wrap-up** (step 4), not through a separate ask. Verify
+the result, never the mechanism — and keep the builder-facing words to "saved"
+and "backed up."
 
 - **Inspectable:** `git -C <project> log -1 --stat` shows a recent commit
   touching the three files, or `git -C <project> status --short` shows them no
-  longer modified. Either is fine.
-- **A blocked push still passes.** If the commit landed locally but the push
-  failed on credentials or a missing remote, pass the checkpoint on the local
-  commit, tell them plainly that the files are safe and the sync needs fixing
-  later, and don't teach git here.
-- If nothing was committed at all, that fails — but offer the one-line fix
-  ("commit and sync my three memory files") rather than sending them away.
+  longer modified. Either is fine. Run it quietly; the builder sees the
+  conclusion, not the plumbing.
+- **No remote is a full pass, and say nothing about it.** A local save is the
+  finished state on newer workspaces. Do not mention pushing, backup, or GitHub
+  — wrap-up is deliberately silent here, and raising it invents a problem the
+  builder does not have.
+- **A blocked push still passes.** If the save landed locally but the backup
+  failed on credentials, pass on the local save, say plainly that the files are
+  safe and the backup can be set up later, and don't teach git here.
+- **An identity prompt is not a failure.** A fresh workspace has no git identity
+  configured, so wrap-up asks for a name and email to label the save. That is
+  the expected first-save exchange. Let wrap-up run it; never pre-empt it with
+  `git config` of your own, and never let the save fail first to surface it.
+- If nothing was saved at all, that fails — but offer the one-line fix
+  ("wrap up my session") rather than sending them away.
 
 ## Marking progress
 
