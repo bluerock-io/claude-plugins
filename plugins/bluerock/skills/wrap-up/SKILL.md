@@ -68,6 +68,10 @@ this session.") Then:
   `window.__BR_DASH__ = { meta, productivity, cost, actions, guardrail, perf, brag, priorities, runs }`
   (write it to the starter kit's `design/dashboard-data.js`). The renderer just paints —
   roll the sections up here, don't make the browser re-aggregate.
+- **Never carry `sample: true` forward.** The seeded file ships with it, and it renders one
+  line telling the builder the numbers are a demo. The moment you write real rollups that
+  line is false, so drop the flag (or write `sample: false`). This is the one key you
+  remove rather than update.
 
 Provenance is a trust claim. Beta has **no BlueRock sensor pipeline**, so the label
 is **"From your sessions,"** never "sensor-sourced." Specifically:
