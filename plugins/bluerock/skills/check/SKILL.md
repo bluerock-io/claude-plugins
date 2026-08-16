@@ -5,7 +5,8 @@ description: Confirm your agentic project is live in your Cloud AI Workspace and
 
 You are marking a milestone for a BlueRock builder: their agentic project is live in their
 Cloud AI Workspace, and they're ready to build their first real thing. (Some older docs and
-repos call the same repo a Hub — same thing; never rename the builder's folder.) They may be in GTM,
+repos call the same repo a Hub — same thing; never rename the builder's folder, and never say
+"Hub" to the builder: the word is always "your project".) They may be in GTM,
 RevOps, or ops, not a developer, so this is a "signs of life" moment, not an audit.
 Run the checks below quietly, then report the milestone the way the Report section
 describes. Most checks only inspect setup. The only writes this skill may make are the two

@@ -19,7 +19,7 @@ highest-leverage thing they can do first.
 
 The three profile files belong in the builder's project — the repo they cloned from the
 starter kit (some older docs and repos call the same repo a Hub — same thing; never rename
-the builder's folder). In an SSH/cloud container the session usually starts in the **home folder**,
+the builder's folder, and never say "Hub" to the builder: the word is always "your project"). In an SSH/cloud container the session usually starts in the **home folder**,
 with the project one level down. The builder named it when they cloned (`maria-hub`,
 `alex-hub` — don't assume a fixed name like `hub-starter`); identify it by its
 signature, not its name. Before writing: run `ls`. See `CLAUDE.md` and `design/` side

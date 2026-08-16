@@ -3,9 +3,10 @@ name: wrap-up
 description: >-
   End-of-session ritual: log what this session did, refresh my BlueRock
   dashboard, then (with my go-ahead) save a checkpoint of my project and hand me
-  a continuation prompt for next time. Use when I say "wrap up", "done for
-  today", "end session", "ship it", or "save my progress". Not for mid-session
-  saves; only when the session is actually ending.
+  a continuation prompt for next time. Use when I say "wrap up", "wrap up my
+  chat", "wrap up my session", "done for today", "end session", "ship it", or
+  "save my progress". Not for mid-session saves; only when the chat is actually
+  ending.
 ---
 
 Wrap up this working session. Conversations end; the work persists. Make sure

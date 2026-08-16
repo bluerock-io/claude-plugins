@@ -67,7 +67,7 @@ saved in their project. **Time:** about 5 minutes. **Prerequisites:** Session 1
 
 - Anchor to the project (signature: `CLAUDE.md` and `design/` side by side,
   usually one level below the home folder; some older files call it a Hub —
-  same repo). Read `learning/progress.json`.
+  same repo; recognize the old name, never speak it: say "your project"). Read `learning/progress.json`.
 - **Check `role`** — the lane depends on it, and this is where it gets asked, at the
   moment it decides something. If unset, ask once, plainly: "Is your work closest to
   sales, marketing, or operations?" **Send that question by itself**, and send it before

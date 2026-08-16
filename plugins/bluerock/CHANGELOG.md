@@ -1,5 +1,38 @@
 # Changelog — `bluerock` plugin
 
+## 0.9.2 — five session skills reach the v4 standard, and the plugin stops saying "Hub" out loud
+
+The batch release carrying the S4–S8 skill quality passes from the learn v4 rollout, plus
+three mechanical fixes the concept-ledger audit routed here. Safe ahead of the page cutover:
+every pass kept live-page compatibility notes deliberately (e.g. Session 6's step-1 redirect
+stays for anyone on the live page until cutover retires both together).
+
+- **Changed — `learn-give-your-agent-memory` (S4), `learn-turn-a-task-into-a-skill` (S5),
+  `learn-assemble-a-team-of-agents` (S6), `learn-put-an-agent-on-a-schedule` (S7),
+  `learn-run-your-system` (S8): aligned to the S2 standard.** The teach loop, inspectable
+  checkpoints, honest-floor recoveries, the help ladder (recover once → `/bluerock:help` →
+  Discord with the ask pre-written), rationed encouragement, and the finding-1 vocabulary
+  sweep — "save a checkpoint" / "back up to GitHub"; bare git verbs never reach the builder,
+  with the teacher's own commands as named silent exceptions. On S8 the skill carried six
+  bare git verbs to the page's two — a page-only sweep would have looked complete. Standing
+  rules added per skill so the words cannot return.
+- **Changed — S7's `Before you start` does the missing GitHub step's whole job, honestly.**
+  The hard block (the path's only one, with 0.8.2's template-remote guard) now walks the fix
+  in builder vocabulary, creates the repo EMPTY (the master/main divergence trap — Eng,
+  2026-08-15), and carries the help ladder. Hands back to the standalone "Save your work"
+  step when that ships.
+- **Changed — the "Hub" bridge is recognize-only, in seven skills.** The bridging clause
+  ("some older docs call the same repo a Hub") stays for old folder names, but each now says:
+  recognize the old name, never speak it — to the builder this is always "your project."
+  Found live: a session said "The Hub is here at…" on a real builder's screen.
+- **Fixed — `curriculum/manifest.json`:** `meeting-recap` is used in Session 5 and its
+  `used_in_sessions` said so to nobody (`[]` → `[5]`); `wrap-up` closes every session, not
+  two (`[2, 8]` → `[2..8]`); wrap-up's library one-liner said "commits" to a builder's face —
+  now "saves a checkpoint."
+- **Changed — `wrap-up` answers "wrap up my chat".** The trigger list gains the chat-sense
+  alias alongside the verbatim "wrap up my session" (nothing removed — the two senses of
+  "session" collided on screen, and the skill now answers both).
+
 ## 0.9.1 — the next step happens in this chat, and the builder's own words get kept
 
 - **Changed — `check`'s closing:** the call to action is now the in-chat one ("Say **teach

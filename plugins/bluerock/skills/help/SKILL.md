@@ -22,7 +22,8 @@ Never open with "what seems to be the problem?" if you can see it yourself. Quie
 
 1. **Find the project.** Signature, not name: run `ls`; `CLAUDE.md` and `design/` side by side
    means you are in it. If not, `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`. (Some older docs and
-   repos call the same repo a Hub — same thing; never rename the builder's folder.)
+   repos call the same repo a Hub — same thing; never rename the builder's folder, and never
+   say "Hub" to the builder: the word is always "your project".)
 2. **If there is no project at all,** that is the whole diagnosis. Say so warmly and route to
    Session 1 — creating the project is what it teaches.
 3. **Read `learning/progress.json`** if it exists: their `role`, their `surface`, which sessions

@@ -154,7 +154,7 @@
       "category": "capture-notes",
       "roles": ["sales", "marketing", "operations"],
       "tier": "core",
-      "used_in_sessions": [],
+      "used_in_sessions": [5],
       "surfaces": ["desktop", "cursor"],
       "recommended_after": [],
       "one_liner": "Turn a call into a structured follow-up you can send."
@@ -187,10 +187,10 @@
       "category": "automation-scheduling",
       "roles": ["sales", "marketing", "operations"],
       "tier": "core",
-      "used_in_sessions": [2, 8],
+      "used_in_sessions": [2, 3, 4, 5, 6, 7, 8],
       "surfaces": ["desktop", "cursor"],
       "recommended_after": [],
-      "one_liner": "End the session: logs what happened, refreshes your dashboard, and (with your okay) commits."
+      "one_liner": "Close out the chat: logs what happened, refreshes your dashboard, and (with your okay) saves a checkpoint."
     },
     {
       "id": "onboard",

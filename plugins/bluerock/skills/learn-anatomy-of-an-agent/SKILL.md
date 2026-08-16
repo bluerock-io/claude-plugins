@@ -83,7 +83,7 @@ on their first day?*
 
 - Anchor to the project (signature: `CLAUDE.md` and `design/` side by side,
   usually one level below the home folder; some older files call it a Hub —
-  same repo). Capture its **absolute path** and read everything at that full
+  same repo; recognize the old name, never speak it: say "your project"). Capture its **absolute path** and read everything at that full
   path. Read `learning/progress.json`.
 - **Confirm `scribe` is actually there:** `.claude/agents/scribe.md` in the
   project. It ships with the starter kit, so it should be. If it isn't, don't

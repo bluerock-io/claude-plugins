@@ -72,7 +72,7 @@ and prove it worked. Do not re-implement the interview — dispatch the skill.
 
 - Anchor to the project (signature: `CLAUDE.md` and `design/` side by side,
   usually one level below the home folder; some older files call it a Hub —
-  same repo). Capture its **absolute path** and read and write everything at
+  same repo; recognize the old name, never speak it: say "your project"). Capture its **absolute path** and read and write everything at
   that full path. Read `learning/progress.json`.
 - If Session 3 isn't complete, warn in one honest line — "this session assumes
   you've met an agent and edited one; Session 3 does that in about 20 minutes"

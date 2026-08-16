@@ -27,7 +27,8 @@ have.
 
 Progress lives in the builder's **agentic project** — the repo they cloned from the
 starter kit ("your project" once introduced; some older files and skills call the
-same repo a Hub — same thing, don't rename anything). In an SSH/cloud container
+same repo a Hub — same thing, don't rename anything; recognize the old name,
+never speak it: to the builder this is always "your project"). In an SSH/cloud container
 the session usually starts in the **home folder**, with the project one level
 down, named by the builder (`maria-hub`, `alex-project` — don't assume a fixed
 name). Identify it by its signature, not its name: run `ls`. See `CLAUDE.md` and
