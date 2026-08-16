@@ -3,7 +3,7 @@ name: learn-save-your-work
 description: >-
   Save your work — the standalone backup step of the BlueRock for AI Builders
   learning path, between Sessions 6 and 7: put your project on GitHub, in a
-  private repo of your own, and watch the backup happen. About 15 minutes.
+  private repo of your own, and watch the backup happen. About 10 minutes.
   Use when I say "back up my project", "back up my work to GitHub", "put my
   project on GitHub", or "set up my backup". Not the end-of-chat save — that is
   /bluerock:wrap-up; this is the one-time setup that gives wrap-up somewhere to
