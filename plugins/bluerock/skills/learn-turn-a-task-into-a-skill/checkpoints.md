@@ -55,7 +55,9 @@ Run inspection commands quietly; the builder sees conclusions, not plumbing.
   fallback questions (what they did last Friday afternoon; what they'd hand a new
   hire first), stop the session here honestly at `in_progress` rather than
   inventing one. Say it's worth coming back to with a week of work in view. That
-  is a better outcome than a skill nobody wanted.
+  is a better outcome than a skill nobody wanted — and point them at the Discord
+  on the way out, where other builders name the workflows they turned into
+  skills. Watching someone else's list is often what makes their own visible.
 
 ## Checkpoint 4 — five questions asked and answered
 
@@ -87,7 +89,7 @@ Run inspection commands quietly; the builder sees conclusions, not plumbing.
 - Extra frontmatter fields: not a fail. Trim them and say why in one line — the
   two-field shape is what they read in step 2.
 
-## Checkpoint 6 — it fires both ways, got refined, and is committed
+## Checkpoint 6 — it fires both ways, got refined, and is saved
 
 Three parts, all required.
 
@@ -102,14 +104,38 @@ Three parts, all required.
     the new chat, so nothing is lost if they don't come straight back.
   - If it didn't fire, that's the session's most common failure and it is
     fixable: rewrite the `description` to name the exact words they'd say, and
-    try again. Do not pass this on the slash alone.
+    try again. Do not pass this on the slash alone. **If a second rewrite still
+    doesn't fire, stop retrying and climb the help ladder** (`/bluerock:help`,
+    then Discord with a post written for them). Leave the session
+    `in_progress` at checkpoint 5 and say plainly that the file is real, saved,
+    and runs by slash — the routing is the only open part.
 - **Refined at least once:** the file changed after they read the real output —
   `git -C <project> diff` or the log shows an edit to their `SKILL.md` after its
   creation. A first-try-perfect skill is rare; if they insist nothing needed
   changing, ask what they'd change if they had to name one thing, and let them
   decide whether to make the edit. Their call, but the loop is the lesson.
-- **Committed:** `git -C <project> log -1 --stat` shows the new skill file.
-  A blocked push still passes on the local commit — don't teach git here.
+- **Saved, and the save runs through wrap-up** (step 6), not through a separate
+  ask. Verify the result, never the mechanism: `git -C <project> log -1 --stat`
+  shows the new skill file. Run it quietly; the builder sees the conclusion, not
+  the plumbing. Keep the builder-facing word to **"saved."**
+  - **No remote is a full pass, and say nothing about it.** A local save is the
+    finished state on newer workspaces. wrap-up is deliberately silent about
+    pushing and backup; raising either invents a problem the builder doesn't have.
+  - **An identity prompt is not a failure.** A fresh workspace has no git identity
+    configured, so wrap-up asks for a name and email to label the save. Let
+    wrap-up run that exchange; never pre-empt it with `git config` of your own.
+  - **A blocked backup still passes** on the local save. Don't teach git here.
+  - If nothing was saved at all, that fails — offer the one-line fix ("wrap up my
+    session") rather than sending them away.
+
+## Encouragement, and where it goes
+
+Two checkpoints earn a beat, both after they verify. **Checkpoint 5** is the
+first thing this builder has built rather than run — name what they made, in
+their own words for it. **Checkpoint 6** is the routing working from a cold
+chat — name the evidence, not the achievement. Everywhere else, confirm and move
+on: six congratulations in one session trains skimming, and a checkpoint that
+didn't verify gets the recovery, never the warmth.
 
 ## Marking progress
 

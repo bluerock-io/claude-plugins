@@ -53,7 +53,7 @@ Protect the design conversation above all else here.
    `progress.json`; `examples/roles.md` carries per-role candidate workflows —
    which matters more here than in any earlier session, because a builder who
    can't think of a workflow stalls the whole session.
-   **Surface is detected, never asked.** Read `CLAUDE_CODE_ENTRYPOINT` from the session
+7. **Surface is detected, never asked.** Read `CLAUDE_CODE_ENTRYPOINT` from the
    environment: a value containing `desktop` means Claude Desktop, one containing
    `cursor` means Cursor, anything else is unresolved. If unresolved, fall back to
    `surface` in `progress.json`. If it is still unresolved, ask once, in a message of
@@ -61,6 +61,35 @@ Protect the design conversation above all else here.
    stored one and is never written back. Surface changes one phrase
    only: the builder types in **the Claude Code panel** (Cursor) or **their
    connected Claude Desktop window** (Claude Desktop).
+8. **Encouragement is earned, specific, and rare.** Six checkpoints in one
+   session is a lot of places to say "nice work," and a session that congratulates
+   every step teaches skimming. Two moments get a beat, both of them genuine
+   firsts and both **after** the checkpoint verifies:
+   - **Checkpoint 5** — the file exists. This is the first thing they have built
+     rather than run, and it is the milestone of the whole path so far. Name what
+     they made, in their words: "that's your playbook — the thing you used to
+     re-explain every Friday, written down once."
+   - **Checkpoint 6** — it fired from plain language in a chat that had never
+     heard of it. Name the specific evidence, not the achievement: "you said nine
+     words in a chat that knew nothing about this, and your own skill ran."
+
+   Everywhere else, confirm and move on. And never congratulate a checkpoint that
+   did not verify — when something fails, the warmth goes into the recovery ("this
+   is the normal snag here, and it is a two-minute fix"), never into pretending it
+   worked.
+9. **When a recovery doesn't hold, climb the ladder — never dead-end.** The
+   recoveries below cover the known failures. When one doesn't work:
+   1. Run the skill's own recovery **once**. Do not invite a third attempt
+      without a new reason it would go differently.
+   2. Route to **`/bluerock:help`** by name. It triages exactly this.
+   3. Offer the **BlueRock Builders Discord** (the never-expire invite in
+      `LINKS.md`, which lands in `#welcome-intros`) and **write their post for
+      them**, in their words, so asking costs nothing: "Session 5, step 6 — my
+      skill runs with the slash but saying my trigger phrase in a new chat does
+      nothing."
+
+   A builder who leaves with a good Discord post is a far better outcome than one
+   who quietly gives up on their own first skill.
 
 ## The idea, in one frame
 
@@ -95,14 +124,17 @@ be confused when it doesn't fire.
   choice. Adults skip; warn, never block.
 - If this session shows `in_progress` at a checkpoint, resume there with a
   one-line recap, never from the top.
-- **Warn them about the shape of this session up front**, in one line: about
-  half of it is a conversation, not typing. They're going to design something,
-  and the questions are the work. That framing stops a builder from feeling like
-  nothing is happening.
+- **Open with the picture in one breath, then give them something to do.** Two
+  sentences, no more: they run the skill their project came with, read how it is
+  built, then build one of their own for a job they do every week. Then step 1.
+- **Warn them about the shape of this session in the same breath**, in one line:
+  about half of it is a conversation, not typing. They are going to design
+  something, and the questions are the work. That framing stops a builder from
+  feeling like nothing is happening.
 
 ## Part one — run one, then read the playbook
 
-### 1. Run meeting-recap and watch a playbook work
+### 1. Run meeting-recap on your own notes
 
 They ask for it in plain language — that's the point of the step: **"draft a
 follow-up from my last meeting"**, or `/meeting-recap`.
@@ -179,9 +211,9 @@ repetition.
 
 ### 4. Sharpen it with the agent
 
-Here is the move worth learning for its own sake. They tell the agent what they
-want to build, and **make it ask before it drafts.** Its questions *are* the
-design.
+They tell the agent what they want to build, and **make it ask before it
+drafts.** Its questions *are* the design, and the move transfers to everything
+else they will ever ask for.
 
 ```
 I want to build a skill that [does X]. Before drafting the instructions, ask me
@@ -228,9 +260,10 @@ only, with my trigger phrases inside the description.
 - *Checkpoint 5:* `.claude/skills/<name>/SKILL.md` exists, frontmatter is name
   and description only, and the trigger phrases are inside the description.
 
-### 6. Run it on real work, both ways
+### 6. Run it on real work, both ways, then save it
 
-Two runs, and the second one is the real test of what they learned in step 2.
+Two runs and a save. The second run is the real test of the `description` they
+wrote, which is why it happens somewhere this conversation cannot reach.
 
 **By slash, here:** `/<their-skill-name>` with **a real input, not a toy.** Have
 them read the output like an editor — what would they change before using it?
@@ -247,10 +280,33 @@ tell them how to come back: say *continue the course*.
   narrow or too generic. Have them open the `SKILL.md` and rewrite the
   description to name **the exact words they'd actually say**, then try again.
   This is the single most common failure in the session, and fixing it teaches
-  the routing better than a first-try pass would.
-- Then: **"commit and sync my new skill."**
+  the routing better than a first-try pass would. If a second rewrite still
+  doesn't fire, climb the ladder rather than trying a third — the file is real
+  and saved either way, and the routing is fixable later.
+
+**Then save it, through wrap-up.** They close out the way they have since
+Session 2: **"wrap up my session"** or `/bluerock:wrap-up`. It shows them what it
+is about to save, with their new skill in the list, and waits for their
+go-ahead.
+
+**Do not ask for a separate save.** wrap-up already checks git identity, the
+remote, and auth before it offers anything, so a standalone "commit my new skill"
+here would ask the builder to save twice and would walk them into the one failure
+wrap-up exists to handle gracefully.
+
+⚑ **Vocabulary, and it is not optional.** Say **"save a checkpoint."** Do not use
+*stage*, *commit*, *sync*, or *push* as bare verbs with a builder who has not
+been shown them. This matches wrap-up's own rule and the glossary's
+`save a checkpoint` entry. And do not raise backing up to GitHub here: on a
+workspace with no remote, a local save is the finished state, wrap-up is
+deliberately silent about it, and mentioning it invents a problem they don't
+have.
+
+- *Recovery:* if wrap-up asks for a name and email, that is expected on a fresh
+  workspace, not an error. It is labelling their own saves, nothing is sent
+  anywhere, and wrap-up runs the whole exchange. Let it.
 - *Checkpoint 6:* it fired both ways, they refined it at least once based on what
-  the real output got wrong, and the file is committed.
+  the real output got wrong, and the file is saved.
 
 ## Close the loop
 
@@ -270,8 +326,12 @@ When checkpoint 6 passes:
    context** — their memory files, this open conversation — so it needs no
    Identity of its own; the identity in the room is theirs. A job they'd rather
    hand off and check back on is an **agent**, with the full five-part anatomy,
-   working alone in its own context window. That is exactly why skills come
-   before agent-building: same craft, fewer moving parts.
+   working alone in the kind of context window they met in Session 3. That is
+   exactly why skills come before agent-building: same craft, fewer moving parts.
+   ⚑ **Reinforce "context window"; do not re-teach it.** Session 3 glosses it in
+   the same breath ("its own context window, the model's working memory for one
+   conversation, so it never sees yours"). Point back to it; a second full
+   definition here reads as though the first one didn't count.
 4. **The two stop-and-check cases**, worth naming once: anything that makes an
    external commitment (a client email, a quote, a promise) gets read by them
    before it sends; anything that will run unattended gets tested on sample data
@@ -279,34 +339,47 @@ When checkpoint 6 passes:
 5. Ask "how would you describe what you built?" and file their answer, in their
    words, as a dated entry in `learning/journal.md`.
 6. **Practice worth naming:** use the skill on real work **three times**, fixing
-   one thing after each use and committing the refinement. Three uses is where a
+   one thing after each use and saving the refinement. Three uses is where a
    skill stops being a demo. And the pre-work for next session: **notice one job
    they'd rather hand off entirely than run in their chat, and write its one-line
    job description.** By the decision rule, that job is an agent — and it's what
    Session 6 builds.
-7. Point forward: Session 6, **Assemble a team of agents** — the longest session
-   in the path. Name it and its time from the manifest, and if it isn't available
-   in-session yet, give its link from there.
+7. Point forward: Session 6, **Assemble a team of agents**, 60–90 minutes — the
+   longest session in the path, so say the time honestly rather than softening
+   it, and take it from the manifest rather than from here. **The next step is
+   one they can take in this chat:** tell them to say **teach me Session 6**
+   right where they are. The learn page is a companion for whoever wants the
+   overview first, never the primary call to action.
 
-Suggest `/bluerock:wrap-up` so the progress commit rides the save habit.
+**Do not suggest `/bluerock:wrap-up` again here.** It already ran at the end of
+step 6, and this is where the old version asked a second time. The one exception
+is a builder who somehow reached the debrief without it; otherwise close on the
+debrief.
 
 ## Who depends on this skill's wording
 
 Not part of a run. Read this before rewording anything a builder sees.
 
-- **The site page is the canonical version of this session's content.** It lives
-  in `marketing-hub/workbench/app/learn/_data/session-turn-a-task-into-a-skill.tsx`
-  and gets edited weekly; this skill does not. When the two disagree, the site is
-  right and this file is stale — **with one exception, below.**
-- **This skill deliberately contradicts the site on the skills path, because
-  the site is wrong.** The page says `.claude/commands/meeting-recap/SKILL.md`
-  (step "Read the playbook") and tells builders to create their own skill at
+- **Two site pages exist, and they disagree.** The live page is
+  `marketing-hub/workbench/app/learn/_data/session-turn-a-task-into-a-skill.tsx`;
+  the v4 preview is
+  `marketing-hub/workbench/app/learn/v4/turn-a-task-into-a-skill/page.tsx`, with
+  its copy doc at `09-product/beta-plan/learn-s5-copy-v4.md`. The v4 page
+  replaces the live one at cutover. Until then the **live page is frozen** — it
+  keeps its errors on purpose — so where the two disagree, **the v4 page is the
+  one this skill is held to.**
+- **The skills path: the v4 page is now correct and the live page is still
+  wrong.** The live page says `.claude/commands/meeting-recap/SKILL.md` (step
+  "Read the playbook") and tells builders to create their own skill at
   `.claude/commands/<name>/SKILL.md`. `bluerock-io/hub-starter` `main` has **no
   `.claude/commands/` directory at all** — the seeded skills are at
   `.claude/skills/meeting-recap/`, `capture/`, and `research/`, and the starter
-  kit's own README documents `.claude/skills/`. Verified 2026-08-11. This skill
-  uses `.claude/skills/` throughout. **Fix the site page**; when it's fixed,
-  delete this note rather than the paths.
+  kit's own README documents `.claude/skills/`. **Re-verified against
+  `origin/main` on 2026-08-15** (first verified 2026-08-11): still true, three
+  seeded skills, zero paths matching `.claude/commands`. This skill and the v4
+  page both use `.claude/skills/`. **Keep this note until cutover retires the
+  live page** — deleting it early would strand the reason the two pages differ,
+  and step 2's recovery still has to catch a builder reading the live page.
 - **Step 2 quotes `meeting-recap/SKILL.md` line by line**, and every quote is
   verified against the shipped file: the two-field frontmatter, *"Do not invent
   a meeting"* in the inputs section, *"exactly one next step... One ask per
