@@ -1,5 +1,20 @@
 # Changelog — `bluerock` plugin
 
+## 0.9.5 — the stuck-builder message stops pointing at steps that no longer exist
+
+- **Fixed — `/bluerock:check`'s no-project message had the wrong diagnosis and the wrong
+  fix.** It told a builder whose project wasn't found that they most likely "haven't created
+  their project yet" and sent them to *Make your own copy of the starter kit* and *Clone your
+  project into your workspace*. Neither step exists: since 2026-08-13 the starter is cloned
+  into the container image and opened as the workspace root, so the project ships **with** the
+  workspace and nobody copies it. A builder hitting the one case the skill calls "genuinely
+  needs attention" was being sent after instructions that had been retired. The message now
+  names the real cause — this chat isn't running in their workspace, usually an unfinished
+  connection — routes to Get Started's connection steps by title for both tracks (the Desktop
+  and Cursor tracks title that step differently, not just number it differently), and sends
+  the connected-but-still-missing case to Discord instead of guessing, since that one cannot
+  be fixed from inside the workspace.
+
 ## 0.9.4 — updates start reaching builders on their own
 
 One problem, one release (product decision, 2026-08-17). Claude Code turns plugin auto-update **off**

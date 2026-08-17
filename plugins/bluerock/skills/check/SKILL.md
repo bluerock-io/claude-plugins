@@ -59,12 +59,19 @@ line items; they roll up into the four-line report.
      reopening the project). In the cloud workspace that reloads the window over the
      connection and drops the attach. There is no upside to offer and a real cost. If the
      project is found, say nothing about folders beyond naming where it is.
-   - **If nothing turns up, stop and conclude — don't keep hunting:** they most likely
-     **haven't created their project yet**. This is the one thing that genuinely needs attention.
-     Say so warmly and send them back to Session 1 — the **Make your own copy of the starter
-     kit** and **Clone your project into your workspace** steps. Name those steps, never their
-     numbers: the Claude Desktop and Cursor tracks number their steps differently, so a number
-     is wrong for one of them. This is a normal state right after setup, not an error.
+   - **If nothing turns up, stop and conclude — don't keep hunting:** their project ships
+     **inside** their BlueRock Cloud AI Workspace, already there — nobody copies or clones it.
+     So a missing project almost never means they failed to create one. It means **this chat
+     is not running in their workspace**: usually the connection was never finished, or Claude
+     Code is running locally instead of on the workspace. Say that warmly and send them back
+     to Get Started, to the connection steps — **Get your Enrollment URL**, then the step that
+     points their tool at the workspace (**Connect Claude to your workspace** on Claude
+     Desktop, **Install Claude Code in your workspace** on Cursor). Name steps, never their
+     numbers: the two tracks number *and* title differently, so a number is wrong for one of
+     them. This is a normal state before the connection completes, not an error.
+     **If they say they are already connected and the project still isn't here**, stop
+     guessing and route to the BlueRock Builders Discord — a connected workspace with no
+     project is not something they can fix from inside it.
 3. **The project's own skills and agents can load in new chats.** Use the project path found in
    step 2. Look for `.claude/agents/` and `.claude/skills/` inside that project.
    - **If either project folder is missing, create no links.** Stop after the plumbing checks
@@ -289,13 +296,16 @@ everything that could be wrong.
 **When the project doesn't exist yet (the one "needs attention" case):**
 
 ```
-**Your project isn't here yet** — that's normal right after setup, and it's a quick fix.
+**Your project isn't here yet** — and that almost always means this chat isn't
+running in your BlueRock workspace, not that anything is missing. Your project
+comes with the workspace, already set up.
 
-Head back to Session 1 and do two steps: **Make your own copy of the starter kit**, then
-**Clone your project into your workspace**.
+Head back to Get Started and finish connecting: get your Enrollment URL, then
+point your tool at your workspace.
 https://learn.bluerock.io/get-started
 
-Stuck on it? Ask in the Discord: https://discord.gg/5c2kQjxxwq
+Already connected and still seeing this? Ask in the Discord — that one's on us:
+https://discord.gg/5c2kQjxxwq
 ```
 
 Hold the checklist until the project is in place — a receipt for tools with nowhere to write
@@ -323,9 +333,17 @@ Not part of a run. Read this before rewording anything a builder sees.
   private), in the "See your project come alive" step; the reasoning is in
   the connect-consent handoff note (content repo, private). Change both together, or tell
   that workstream.
-- **The no-project message names Session 1's steps by title, never by number.** The Claude
-  Desktop and Cursor tracks number differently — eight steps against nine — so any number is
-  wrong for one of them.
+- **The no-project message names Get Started's steps by title, never by number.** The Claude
+  Desktop and Cursor tracks number differently — eight steps against nine — and they also
+  *title* the connection step differently ("Connect Claude to your workspace" against
+  "Install Claude Code in your workspace"), so a number is wrong for one of them and a single
+  title is wrong for the other.
+- **The no-project message assumes the project ships inside the workspace.** It does: the
+  starter is cloned into the container image and opened as the workspace root, so there is no
+  copy-or-clone step to send anyone back to. Until 0.9.5 this message routed to "Make your own
+  copy of the starter kit" and "Clone your project into your workspace" — steps retired with
+  the pre-baked image, which would have sent a stuck builder after instructions that no longer
+  exist. If the delivery model ever changes back, this message changes with it.
 - **The version-drift explanation and its steps live in
   `shared/version-drift.md`, not here.** `/bluerock:wrap-up` and `/bluerock:learn` carry
   the tripwire that sends builders to this skill, and all three read that one file so the
