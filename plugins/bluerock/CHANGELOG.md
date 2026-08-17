@@ -1,5 +1,49 @@
 # Changelog — `bluerock` plugin
 
+## 0.9.3 — the backup step ships, and the sign-in survives an agent driving it
+
+The release that lets BlueRock team testers follow the v4 pages with a matching plugin
+(Linda, 2026-08-16). Everything here is grounded in the same day's walkthroughs and
+captures — Linda's fresh-image forensics and GitHub walk, Harold's screen recording, and
+the five-findings doc.
+
+- **New — `learn-save-your-work`: the standalone backup step between Sessions 6 and 7**
+  (Harold + David's placement, 2026-08-14). Six beats: the GitHub account, the empty
+  private repo (the master/main divergence trap, with the walked create-form controls),
+  the device-flow sign-in, the first backup behind two guards (secrets scan,
+  shallow-history completion), the refresh-the-repo-page proof, and what changes at every
+  wrap-up from now on. Fires on "back up my project" or
+  `/bluerock:learn-save-your-work`. No manifest row on purpose — its completion is
+  inspectable (the remote and the sign-in ARE the record), and the row is Eng-cadence.
+- **Fixed — the sign-in can actually be driven.** `gh auth login` waits on an interactive
+  terminal a session doesn't have and hangs silently — three attempts documented,
+  including under a pseudo-terminal. The skill now drives GitHub's device endpoint
+  directly, shows the builder only the code and the address, and pipes the token straight
+  into `gh auth login --with-token` so it is never printed. One poller, one consumer: a
+  second status check consumes the one-time token issuance and strands the poller — this
+  cost a real failure on 2026-08-16 and is now written into the step.
+- **Changed — the identity ask explains itself before it fires.** After a successful
+  sign-in, "what name and email should your saves be recorded under?" reads as a failure
+  (a real builder hit exactly this). The separating sentence comes first — signing in
+  proves entry; the byline is written separately — and the privacy-preserving
+  `<id>+<login>@users.noreply.github.com` form is offered, with the `user/emails` 404
+  trap flagged (this sign-in's scope doesn't cover it).
+- **Changed — `learn-put-an-agent-on-a-schedule` (S7) hands the backup to the step that
+  owns it.** The interim first-backup teaching in Before-you-start becomes what its own
+  text promised: a check and a pointer at Save your work. This also retires "walk
+  whatever git asks for honestly" — the clause that sent an agent into the
+  `gh auth login` hang.
+- **Changed — `learn-get-started` (S1) catches up to the walked screens.** The Console's
+  new Connect page (the URL lives on it directly — no "Connect now", no detail page);
+  the Connector is a portable app downloaded from that same page (no installer — Mac
+  unzip → Applications, Windows the download IS the app); host values copy from the
+  Connect Claude dialog, copy-never-retype; and the plugin install goes chat-first
+  (read the seeded `bluerock-plugins.md`, hand the address with its copy button
+  in-conversation) then the walked Desktop path — + → Add plugins… → Add marketplace →
+  Add from a repository, with Anthropic's trust warning named before it surprises
+  anyone. Cursor/VS Code keeps its real `/plugins` panel route.
+
+
 ## 0.9.2 — five session skills reach the v4 standard, and the plugin stops saying "Hub" out loud
 
 The batch release carrying the S4–S8 skill quality passes from the learn v4 rollout, plus
