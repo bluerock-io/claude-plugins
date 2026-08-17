@@ -24,9 +24,12 @@ and brief.
 into a section that exists because they put it there. **Time:** about 20 minutes.
 **Prerequisites:** Session 2 (they've watched a team run).
 
-**The whole session rests on one idea:** an agent is a plain text file. Reading
-it and editing it is the entire skill; there is no hidden layer underneath. Every
-step below is in service of that landing.
+**The whole session rests on one idea:** an agent is configured by a plain text
+file. Reading that file and editing it is the entire skill — instructing an agent
+or changing how it behaves means changing its spec, and there is no hidden layer
+in between. Every step below is in service of that landing. (Say *configured by*,
+never *is*: the agent is the thing that runs; the markdown file is how you
+instruct it — product decision, 2026-08-17.)
 
 ## How to teach (this applies to every step)
 
