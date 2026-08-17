@@ -25,22 +25,7 @@ Run inspection commands quietly; the builder sees conclusions, not plumbing.
 - Do not move on while they are mid-verification on GitHub's side; the next
   checkpoint needs a signed-in account to exist.
 
-## Checkpoint 2 — the "Quick setup" page
-
-- **Reported, and the heading is the spec.** GitHub shows the **"Quick
-  setup"** page only for a repo created with no starting files. If the builder
-  reads that heading, the repo is empty and the divergence failure cannot
-  happen. If they describe a file listing (a README visible), the repo is not
-  empty — run the step's recovery (delete, recreate empty) before anything
-  else.
-- **Also confirm, conversationally: Private.** The page itself shows the
-  repo's visibility next to its name. Public is not a failure, but it is not
-  what the step promised — offer the one-click fix (Settings → change
-  visibility) or delete-and-recreate while the repo is still empty.
-- Have them keep this page open. Step 4 reads the repo address from it, and
-  step 5 refreshes it.
-
-## Checkpoint 3 — the workspace is signed in
+## Checkpoint 2 — the workspace is signed in
 
 - **Inspectable:** `gh auth status` reports logged in to github.com with
   their account. Report it in builder words ("your workspace is signed in to
@@ -51,6 +36,25 @@ Run inspection commands quietly; the builder sees conclusions, not plumbing.
   the setting again there rather than springing it.
 - The code itself is never evidence: a code typed is not a sign-in completed.
   Check the status, not the ritual.
+
+## Checkpoint 3 — the repo exists, and it is empty
+
+- **Inspectable.** `gh repo create` prints the new repo's address on success,
+  and `gh repo view <name> --json isPrivate,isEmpty` answers both halves
+  directly. Report it in builder words ("your backup home is ready, and only
+  you can see it"), never the command output.
+- **Made this way, empty is the default** — there is no starter-file checkbox
+  to mistake, which is the whole reason the step moved into the chat. The
+  divergence failure that this checkpoint used to guard against cannot happen
+  on this path.
+- **If they created it on github.com instead**, the spec is the old one and
+  the heading is the evidence: GitHub shows the **"Quick setup"** page only
+  for a repo with no starting files. A file listing (a README visible) means
+  the repo is not empty — run the step's recovery, delete and recreate, before
+  anything else.
+- **Confirm private either way.** Public is not a failure, but it is not what
+  the step promised — offer the fix (Settings → change visibility) or
+  delete-and-recreate while the repo is still empty.
 
 ## Checkpoint 4 — the backup went up
 
