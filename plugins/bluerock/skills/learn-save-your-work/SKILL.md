@@ -26,7 +26,7 @@ nothing in this step asks what their work is. Everyone runs the same six steps.
 
 **Outcome:** their project on GitHub, in a private repo under their own
 account, verified by them refreshing the repo page and seeing their own files —
-and from then on, every wrap-up can offer the backup. **Time:** about 15
+and from then on, every wrap-up can offer the backup. **Time:** about 10
 minutes when it goes well; the one first-time step in the path where snags are
 normal, so say so rather than promising smooth.
 
@@ -137,15 +137,19 @@ has a page of history their project has never seen — the first backup then
 fails with an error a non-developer cannot read. An empty repo accepts their
 project exactly as it is.
 
-Walk it:
+Walk it (control labels from the walked screens, 2026-08-16 — GitHub's current
+form has no "initialize this repository with" group; each starter file has its
+own control, and the defaults already match):
 
-1. On `github.com`, they open the menu to create a **new repository**.
+1. On `github.com`, they open the **+** menu in the top-right corner and
+   choose **New repository**.
 2. **Name:** `my-workspace` is fine, or any name they will recognize. The name
    labels the backup; it changes nothing else.
-3. **Private**, not public. Private means only they can see it.
-4. **No README, no .gitignore, no license.** Every "initialize this repository
-   with" option stays unticked.
-5. Create it.
+3. **Choose visibility** says **Private** — it should already. Private means
+   only they can see it.
+4. Starter files stay off: **Add README** off, **Add .gitignore** on
+   **No .gitignore**, **Add license** on **No license**.
+5. Click **Create repository**.
 
 - *Checkpoint 2:* **reported** — GitHub lands them on a mostly empty page
   headed **"Quick setup"**. That page is the pass state: it only appears for a
@@ -165,13 +169,38 @@ sign-in flow does this without a password ever touching the workspace: it
 shows a one-time code, and the builder proves it is them from their own
 browser.
 
-1. Run the sign-in quietly (`gh auth login`, GitHub.com, HTTPS, the device
-   flow). It prints a short code shaped like `XXXX-XXXX` and a web address.
-2. Relay both to the builder in plain words: "GitHub gave your workspace a
-   one-time code. Open `github.com/login/device` in your browser, type the
-   code in, and approve it." Remind them once: that code works only at that
-   address — never type it anywhere else that asks for it.
-3. Wait. The sign-in completes on their screen and confirms in this chat.
+**Do not run `gh auth login` — it cannot be driven from here.** It waits on an
+interactive terminal this session does not have, produces no output, and hangs
+until something kills it (verified three ways, 2026-08-16, including under a
+pseudo-terminal). Drive GitHub's device endpoint directly instead:
+
+1. Request the code quietly (`178c6fc778ccc68e1d6a` is the GitHub CLI's own
+   public client id):
+   ```
+   curl -s -X POST https://github.com/login/device/code \
+     -H "Accept: application/json" \
+     -d "client_id=178c6fc778ccc68e1d6a" \
+     -d "scope=repo read:org"
+   ```
+   The response carries a `user_code` shaped like `XXXX-XXXX`, a
+   `verification_uri`, a `device_code`, and a polling `interval`.
+2. Show the builder ONLY the `user_code` and the address, in plain words:
+   "GitHub gave your workspace a one-time code. Open `github.com/login/device`
+   in your browser, type the code in, and approve it." Remind them once: that
+   code works only at that address — never type it anywhere else that asks for
+   it. The `device_code` is never shown to anyone.
+3. Poll `https://github.com/login/oauth/access_token` in the background (same
+   client id, the `device_code`, and
+   `grant_type=urn:ietf:params:oauth:grant-type:device_code`, at the interval
+   GitHub returned). While it answers `authorization_pending`, keep polling.
+   When the token arrives, pipe it straight into `gh auth login --with-token`
+   so it is never printed to the screen or the transcript.
+   **One poller, one consumer — this cost a real failure on 2026-08-16:** the
+   token is issued exactly once, so never check progress by calling the
+   endpoint separately from the poller. A second caller consumes the issuance
+   and leaves the poller stuck on `authorization_pending` forever, with `gh`
+   still signed out and no error anywhere. A did-it-work check reads the
+   poller's own result, never re-polls GitHub.
 4. **Then the one setting, with consent before it runs.** Ask plainly: "One
    setting makes your workspace use this sign-in whenever it talks to GitHub —
    it applies to your whole workspace, not just this project. Okay to set it?"
@@ -186,7 +215,12 @@ browser.
   code is short and the dashes matter.
 - *Checkpoint 3:* **inspectable** — the sign-in status reports their account.
   Tell them in their words: "your workspace is signed in to GitHub as
-  \<their handle\>."
+  \<their handle\>." Say the breadth out loud, once, with the revoke path:
+  this sign-in covers their repositories, not just the backup repo, and they
+  can see or revoke it any time on github.com under **Settings → Applications
+  → Authorized OAuth Apps** — the entry is **GitHub CLI**, and its own menu is
+  where revoking lives (never "Revoke all", which would also revoke their
+  other apps)."
 
 ### 4. The first backup
 
@@ -216,10 +250,22 @@ guards run is part of what this step teaches.
    never push to it even if a push would succeed.
 3. **Make sure there is something to back up, saved.** A fresh-image project
    may have no checkpoints at all yet, and any project may have unsaved work
-   from today. If saves need a name first (no identity configured), ask once,
-   plainly: "What name and email should your saves be recorded under? This
-   just labels your work in your own project." Set it scoped to the project,
-   never workspace-wide. If this is their first checkpoint, give them the one
+   from today. If saves need a name first (no identity configured), say the
+   separating sentence BEFORE the ask, because the ask lands right after a
+   successful sign-in and reads as a failure without it (a real builder hit
+   exactly this, 2026-08-16): "Signing in proved to GitHub that you're allowed
+   in. The name on each save is written separately — it was never set by the
+   sign-in." Then ask once, plainly: "What name and email should your saves be
+   recorded under? This just labels your work in your own project." The email
+   is a real choice with one consequence worth naming: an address verified on
+   their GitHub account links every save to their profile; anything else shows
+   as a plain unlinked name. If they'd rather keep a personal address out of
+   the repo's history, GitHub's forwarding form always links:
+   `<id>+<login>@users.noreply.github.com` (get the id quietly with
+   `gh api user --jq .id` — but never call `gh api user/emails`: this sign-in's
+   scope doesn't cover it, it 404s, and gh prints a scope-refresh instruction
+   that reads as an error). Set the identity scoped to the project, never
+   workspace-wide. If this is their first checkpoint, give them the one
    sentence first: saving takes a snapshot of your project as it is right now;
    it stays in your workspace until you back it up. Then save a checkpoint
    covering what is there, with their go-ahead.
