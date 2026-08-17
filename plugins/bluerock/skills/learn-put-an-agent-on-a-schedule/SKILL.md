@@ -98,26 +98,16 @@ All three are native Claude Code commands and stay bare — no `/bluerock:` pref
   offers the cleanup. This is the one prerequisite that genuinely blocks: if
   it's missing, stop before scheduling anything, say why in one line ("a routine
   runs against your repo on GitHub, so first your project needs to live there"),
-  then help them back their project up to GitHub for the first time — a
-  **private** repo under their own GitHub account, connected to their project,
-  with everything they have built so far sent up to it. Say "back up to GitHub,"
-  not "push," until they have seen what it means; walk whatever git asks for
-  honestly rather than narrating it as a formality.
-  Never schedule a routine against a project that exists only in the workspace.
-  - ⚑ **Create the repo EMPTY — no README, no license, no .gitignore.** The
-    workspace image runs a fresh `git init`, whose default branch is `master`;
-    GitHub's default for a new repo is `main`. A repo created with any starting
-    file has a commit on `main` that their project has never seen, and their
-    first backup fails on a divergence error they cannot read. An empty repo
-    accepts `master` as it is. If the repo already exists with a starting file,
-    rename their branch to `main` before the first backup rather than merging
-    two unrelated histories in front of a builder.
-  - ⚑ **This whole beat is interim.** Backing a project up for the first time
-    has been given its own standalone step ahead of this session (Harold +
-    David, 2026-08-14). Until that step exists, this is the only place a builder
-    is taught it, so it stays here and stays complete. When the step ships, this
-    bullet becomes a check and a pointer, never a second teaching of the same
-    thing.
+  then hand them to the step that teaches it: **Save your work**, the standalone
+  backup step between Sessions 6 and 7 — run it right here by saying "back up my
+  project" (or `/bluerock:learn-save-your-work`), or read it first at
+  https://learn.bluerock.io/v4/save-your-work. It walks the account, the empty
+  repo, the sign-in, and the first backup, with the guards. When it finishes,
+  resume here; the remote check above will pass.
+  **Do not re-teach the backup in this session** — the step owns it now (the
+  interim teaching this beat carried until 2026-08-16 lives there, empty-repo
+  rule, master/main trap, and all). Never schedule a routine against a project
+  that exists only in the workspace, and never against BlueRock's template.
 - **Confirm the seeded agent is there:** `.claude/agents/daily-brew.md`. Most
   builders schedule this one, and step 3 reads its fallback.
 - If Session 6 isn't complete, warn in one honest line — "this session starts
