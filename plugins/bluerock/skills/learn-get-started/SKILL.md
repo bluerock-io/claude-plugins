@@ -99,29 +99,36 @@ and everything after today builds inside it.
 
 ### 1. Start your workspace
 
-Their workspace starts on its own in the BlueRock Console (browser). They wait
-for **"Workspace ready"** (2–3 minutes on first start; they can leave the
-page), click **Connect now**, then on the detail page click **Copy enrollment
-URL**. They'll paste it into the Connector in step 3.
+Their workspace starts on its own in the BlueRock Console (browser). In the
+Console they go to **Connect**, under **Workspaces** — a guided-setup page
+headed **"Connect your AI tool"** with their Enrollment URL on it. They click
+**Copy enrollment URL**. They'll paste it into the Connector in step 3.
+(The Console flow changed 2026-08-16: the URL now lives on the Connect page
+directly — there is no "Connect now" button or separate detail page anymore.)
 
-- *Recovery:* nothing here usually fails; it's a wait. If the page seems stuck
-  well past a few minutes, have them refresh the Console before worrying.
-- *Checkpoint 1:* workspace shows ready, Enrollment URL copied.
+- *Recovery:* if the workspace is still starting, the setup steps tick off in
+  turn; they can leave the page while it builds. Stuck well past a few
+  minutes — refresh the Console before worrying.
+- *Checkpoint 1:* the Connect page is open, Enrollment URL copied.
 
 ### 2. Get the BlueRock Connector
 
 The Connector holds the door open between their editor or app and their
 workspace.
 
-- **Claude Desktop:** download the **BlueRock Connector** desktop app using the
-  download link BlueRock provided with their beta invite, install it, and open
-  it. It's a small app that lives in the menu bar (Mac) or system tray
-  (Windows). They should see a **Set Up Connector** screen — leave it open.
-  If they can't find their download link, the BlueRock Builders Discord
-  (https://discord.gg/5c2kQjxxwq) is the fastest way to get it.
-  - *Recovery:* on Windows the installer may warn about an unknown publisher.
-    That's a known gap on our side, not a sign of a bad download — if they got
-    the app from BlueRock, it's safe to run anyway.
+- **Claude Desktop:** download the **BlueRock Connector** from the same
+  Console Connect page they just copied the URL from (**Download for macOS**
+  or **Download for Windows**). **There is no installer — it is a portable
+  app.** On Mac: unzip the download and move **BlueRock Connector** to the
+  **Applications** folder — that is where they'll open it from every time they
+  come back. On Windows: the download *is* the app; move it to the Desktop and
+  open it from there. It's a small app that lives in the menu bar (Mac) or
+  system tray (Windows). They should see a **Set Up Connector** screen —
+  leave it open.
+  - *Recovery:* the browser or computer may warn about the download — that is
+    the normal prompt for any newly downloaded app; the Connector is signed.
+    On Chrome, choose **Keep**. On Windows, SmartScreen may say the app is not
+    commonly downloaded; from the Console's own link, it is safe to run.
 - **Cursor:** in Cursor, open the **Extensions** panel (the squares icon in the
   left bar), search **BlueRock Connector**, click **Install**.
 - *Checkpoint 2:* the Connector is installed (Desktop: app open on Set Up
@@ -155,17 +162,22 @@ workspace.
 ### 4. Get Claude running in the workspace
 
 - **Claude Desktop:** in the Connector app, click **Connect Claude**, then
-  **Open Claude Desktop**. In Claude Desktop, open the **Code** menu, choose
-  **Local** → **Add SSH Host**, enter their workspace's host name exactly as
-  shown in the Connector, and click **Add SSH Connection**. Claude Desktop
-  opens a session connected to the workspace — from here on, everything they
-  ask Claude in that window happens *inside the workspace*, not on their
-  computer. One line of why: Claude runs on their computer; the work lives in
-  the workspace, so they can close the laptop and pick up where they left off.
-  The Connector's one-time job is done; it works in the background from here.
-  - *Recovery:* connection failed — the host name is the usual culprit; retype
-    it exactly as the Connector shows it, lowercase, no spaces. Still failing —
-    check the Connector's log still shows them signed in; if not, redo step 3.
+  **Open Claude Desktop**. In Claude Desktop, click **Code** at the top left
+  (beside **Home**) and start a new chat. Click the host button above the
+  message box — it says **Local** — and choose **Add SSH host**. Fill the
+  fields by **copying from the Connector's Connect Claude dialog with the
+  button beside each value — copy, never retype**: the host number is
+  per-builder and a typo here is the top reason the host won't add. Leave the
+  other fields empty, then click **Add SSH connection**. Claude Desktop opens
+  a chat connected to the workspace — from here on, everything they ask Claude
+  in that window happens *inside the workspace*, not on their computer. One
+  line of why: Claude runs on their computer; the work lives in the workspace,
+  so they can close the laptop and pick up where they left off. The
+  Connector's one-time job is done; it works in the background from here.
+  - *Recovery:* connection failed — a hand-typed host value is the usual
+    culprit; copy both fields again from the Connector's dialog. Still
+    failing — check the Connector's log still shows them signed in; if not,
+    redo step 3.
 - **Cursor:** in the workspace window, open the **Extensions** panel, search
   **Claude Code**, install the **Claude Code for VS Code** listing (the one
   with 36M+ downloads). When it asks how to log in, choose **Claude.ai
@@ -228,19 +240,36 @@ and because it's under *their* GitHub account, their work is always theirs.
 
 ### 7. Add BlueRock Plugins for Builders
 
-In the Claude panel or window, they type `/plugins`. On the **Marketplaces**
-tab, paste `https://github.com/bluerock-io/claude-plugins` and click **Add**.
-On the **Plugins** tab, click **Install** on **bluerock**, approve it, then
-open a new chat so the plugin loads. One line of why: the project is where the
-work lives; the plugin is what runs in it.
+**Chat-first, because the project teaches this itself:** the project ships
+with `bluerock-plugins.md` for exactly this moment. Read it and hand the
+builder the short version yourself — the two steps and the marketplace
+address, `https://github.com/bluerock-io/claude-plugins`, so they can copy it
+from this conversation instead of retyping it from a page. Then walk their
+surface:
+
+- **Claude Desktop:** in the message box, click **+** and choose **Add
+  plugins…** — the plugin directory opens. Click **Add → Add marketplace**,
+  then choose **Add from a repository**, paste the address, and add it. A red
+  note about trusting plugins is Anthropic's standard warning for any outside
+  marketplace — this address is the one from their own project's instructions.
+  Install **BlueRock Builder Toolkit**, then open a new chat so the plugin
+  loads. One line of why: the project is where the work lives; the plugin is
+  what runs in it.
+- **Cursor / VS Code:** type `/plugins` in the panel. On the **Marketplaces**
+  tab, paste the address and click **Add**; on the **Plugins** tab, click
+  **Install** on **bluerock**, approve it, then start a new chat.
 
 - If this skill is running, the plugin is already installed in this session —
   verify, say so, and skip the mechanics.
-- *Recovery:* command not found — they typed `/plugin`; it's `/plugins`.
-  Pasted into the Plugins tab instead of Marketplaces — won't work; use
-  Marketplaces. BlueRock commands don't appear when typing `/blue` — they're
-  still in the old chat; plugins only load when a session starts.
-- *Checkpoint 7:* the bluerock plugin is installed and its commands resolve.
+- *Recovery:* (Desktop) nothing installed — start again from **+ → Add
+  plugins…**; the address goes in the **Add from a repository** field, not
+  the plugins list. (Cursor) command not found — they typed `/plugin`; it's
+  `/plugins`; pasted into the Plugins tab instead of Marketplaces — won't
+  work; use Marketplaces. Either surface: BlueRock commands don't appear when
+  typing `/blue` — they're still in the old chat; plugins only load when a
+  new chat starts.
+- *Checkpoint 7:* **BlueRock Builder Toolkit** shows as installed and its
+  commands resolve in a new chat.
 
 ### 8. See your project come alive
 
