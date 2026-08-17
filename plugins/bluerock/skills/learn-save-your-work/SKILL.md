@@ -373,6 +373,20 @@ When checkpoint 5 passes:
 
 Not part of a run. Read this before rewording anything a builder sees.
 
+- **⚑ The step order changed on 2026-08-17 and the v4 page has NOT caught up.**
+  Sign-in now comes before repo creation, because the repo is created from the
+  chat with `gh repo create` and that needs a signed-in workspace. The page
+  still renders account → repo → sign in, and still sends builders to a browser
+  form this skill no longer walks. **Page and skill ship together**, or a
+  builder reads one order and runs another. Nothing here is released until they
+  agree.
+- **The sign-in path is PROVISIONAL on one live run** (walked 2026-08-17). It
+  reverses the finding that `gh auth login` hangs when driven from a session
+  — a finding earned over three attempts on 2026-08-16. The device-endpoint
+  procedure that finding produced is kept as step 2's recovery, not deleted.
+  Clear the PROVISIONAL marker after a second clean run; restore the old path
+  as primary if it hangs again.
+
 - **`/bluerock:wrap-up` (steps 4–5) is the downstream consumer of this step's
   outcome.** Its state check (identity, remote, sign-in) is exactly what this
   step establishes; after this step passes, wrap-up offers the save and the
