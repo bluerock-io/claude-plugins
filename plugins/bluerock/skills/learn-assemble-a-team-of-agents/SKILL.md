@@ -324,7 +324,7 @@ checkpoint, the same habit as every session since Session 2.
 Not part of a run. Read this before rewording anything a builder sees.
 
 - **The site page is the canonical version of this session's content.** It lives
-  in `marketing-hub/workbench/app/learn/_data/session-assemble-a-team-of-agents.tsx`
+  in the session's page data (content repo, private)
   and gets edited weekly; this skill does not. When the two disagree, the site is
   right and this file is stale — **with one exception, below.**
 - **This skill deliberately contradicts the site on how the research team is
@@ -339,7 +339,7 @@ Not part of a run. Read this before rewording anything a builder sees.
   contradict each other. Verified 2026-08-11. **Fix the site page**; when it's
   fixed, delete this note rather than the bare form.
   **Status, 2026-08-15:** the fix is written and is waiting on cutover, not on a
-  decision. The **v4 preview page** (`workbench/app/learn/v4/assemble-a-team-of-agents/`)
+  decision. The **v4 preview page** (content repo, private)
   says `/research`, bare. The **live** page still says `/bluerock:research` and
   stays that way — `learn-session-page-drafts.md` freezes live session pages until
   the v4 set ships. So step 1's one-line redirect stays earned until the v4 page

@@ -2,12 +2,12 @@
 
 ## 0.9.4 — updates start reaching builders on their own
 
-One problem, one release (Linda, 2026-08-17). Claude Code turns plugin auto-update **off**
+One problem, one release (product decision, 2026-08-17). Claude Code turns plugin auto-update **off**
 by default for third-party marketplaces, so every builder has been silently opted out of
 updates since their install — the root cause behind a real 0.6.4 → 0.9.2 stall, verified
 2026-08-16. Official-marketplace listing can't fix it (invitation-only; and community
 listing doesn't change the default), so the plugin now fixes it for its own builders.
-Spec: `marketing-hub/09-product/beta-plan/bfb-plugin-auto-update-spec.md`.
+Spec: the auto-update spec (content repo, private).
 
 - **New — `/bluerock:check` 7b: turns plugin auto-update on, with consent.** A third
   consented repair alongside the load-path links and the template-remote cleanup: one
@@ -15,7 +15,7 @@ Spec: `marketing-hub/09-product/beta-plan/bfb-plugin-auto-update-spec.md`.
   nothing else in that file, ever. Asks first with the recommendation and the reason,
   preserves the whole file, refuses to touch a file that doesn't parse, silent when
   already on. This is the skill's first write outside the project, under a narrow
-  carve-out written into the repo `CLAUDE.md` §6 the same day (Linda's §4.1 decision).
+  carve-out written into the repo `CLAUDE.md` §6 the same day (the §4.1 decision).
 - **Changed — `shared/version-drift.md` gets the verified way out.** The primary path is
   now two terminal commands (`/plugin marketplace update bluerock`, then
   `/plugin update bluerock@bluerock` — VERIFIED 2026-08-16, v2.1.233, no teardown, no
@@ -26,12 +26,12 @@ Spec: `marketing-hub/09-product/beta-plan/bfb-plugin-auto-update-spec.md`.
 ## 0.9.3 — the backup step ships, and the sign-in survives an agent driving it
 
 The release that lets BlueRock team testers follow the v4 pages with a matching plugin
-(Linda, 2026-08-16). Everything here is grounded in the same day's walkthroughs and
-captures — Linda's fresh-image forensics and GitHub walk, Harold's screen recording, and
+(product decision, 2026-08-16). Everything here is grounded in the same day's walkthroughs and
+captures — the team's fresh-image forensics and GitHub walk, a screen recording, and
 the five-findings doc.
 
 - **New — `learn-save-your-work`: the standalone backup step between Sessions 6 and 7**
-  (Harold + David's placement, 2026-08-14). Six beats: the GitHub account, the empty
+  (product decision, 2026-08-14). Six beats: the GitHub account, the empty
   private repo (the master/main divergence trap, with the walked create-form controls),
   the device-flow sign-in, the first backup behind two guards (secrets scan,
   shallow-history completion), the refresh-the-repo-page proof, and what changes at every
@@ -141,7 +141,7 @@ about her own work, and only the work question came back.
   cannot be claimed to work on Cursor until someone running it posts
   `echo $CLAUDE_CODE_ENTRYPOINT`.
 - **Changed — `learn-meet-your-first-agent-team`: the role question is asked alone.**
-  **Role capture stays at first use in Session 2, asked alone — Linda, 2026-08-15.** The
+  **Role capture stays at first use in Session 2, asked alone — product decision, 2026-08-15.** The
   finding-5 spec recommended moving it to Session 1; capture-at-first-use wins, and the
   recommendation is overruled deliberately, not overlooked. Bundling was the actual defect:
   on the test run the role question rode along with "confirm the website you want the doc
@@ -273,7 +273,7 @@ one. Three skills assumed the old flow; each now checks state instead of assumin
 Phase 1 of `bluerock-in-session-curriculum-build-spec.md` is complete. 0.6.0 shipped
 the router, `progress.json`, `learn-status`, and Sessions 1–2; this adds the
 remaining six, built against the site's session specs in
-`marketing-hub/workbench/app/learn/_data/`.
+the learning site's page data (content repo, private).
 
 - **Added — six session skills**, each with `checkpoints.md` and
   `examples/roles.md`, following the Session 2 template and its "How to teach"
@@ -443,7 +443,7 @@ it does rather than only what it says.
 
 - **Fixed (`check`):** the skill description and its opening line said the project is live in
   "your secure workspace." That name was superseded on 2026-08-01 by **your Cloud AI
-  Workspace**, David's term, and the description is marketplace-visible — it is the last
+  Workspace**, the agreed term, and the description is marketplace-visible — it is the last
   thing a builder reads before installing. Shipped in 0.6.0 because the sweep that release
   carried was scoped to the project noun and "the curriculum", and this is a different slot.
   Found by auditing all three surfaces (learn, plugin, starter) against the vocabulary tokens
@@ -491,7 +491,7 @@ Discord.
   telling the model that older docs call the same repo a Hub and never to rename a builder's
   folder, so nobody with a `my-hub` directory gets churned.
 - **Changed:** two more retired nouns swept out of builder-facing copy: **"the curriculum" →
-  "the learning path"** (Linda, 2026-08-01) and **"the Starter" → "the starter kit"**, which
+  "the learning path"** (product decision, 2026-08-01) and **"the Starter" → "the starter kit"**, which
   is what Session 1 actually titles the step. The repo-root `README.md`, which sits outside
   `plugins/bluerock/` and had been missed by the earlier sweep, is included.
 - **Changed:** the listing takes the **"BlueRock for AI Builders"** rename, deferred on
@@ -566,7 +566,7 @@ Copy-only. No skill, agent, or behavior changes.
   highest-momentum moment in setup. It now carries the Session 2 link as the call to action and
   a quieter BlueRock Builders Discord line beneath it. The no-Hub path likewise links back to
   Session 1 instead of naming a step that no longer exists by that name.
-- **Changed (naming, Linda 2026-07-27):** plugin skills are always written with the full
+- **Changed (naming, product decision 2026-07-27):** plugin skills are always written with the full
   `/bluerock:` prefix; skills and agents seeded in the builder's Hub stay bare (`/capture`,
   `daily-brew`). Written into `check` as a standing rule and applied across the plugin README,
   which still taught builders to drop the prefix.
@@ -579,7 +579,7 @@ Copy-only. No skill, agent, or behavior changes.
   taught builders to drop the `/bluerock:` prefix. Both rewritten: Scorecard first, the
   run-as-is vs. make-it-yours split made explicit, and a note that custom marketplaces don't
   auto-update. The root README had drifted because nothing synced it — it now has a source of
-  truth in `marketing-hub` alongside the rest of the plugin.
+  truth in the content repo alongside the rest of the plugin.
 - **Fixed:** the plugin README said Claude Code runs "inside Cursor." The workspace serves
   **Cursor or VS Code**.
 
@@ -598,7 +598,7 @@ Copy-only. No skill, agent, or behavior changes.
   the scored date.
 
 ## 0.5.0 — plugin = run-as-is core; editable agents + skills move to the Hub
-- **Changed (delivery model, Linda 2026-07-22):** the plugin is now the **run-as-is core**,
+- **Changed (delivery model, product decision 2026-07-22):** the plugin is now the **run-as-is core**,
   and everything meant to be **edited and owned** ships seeded in the builder's Hub (`.claude/`)
   instead of the plugin. Rationale: the lesson is "edit agents and create more," and a plugin's
   agents live read-only in a cache (you must fork to edit). Project-scope `.claude/agents/` and

@@ -361,10 +361,10 @@ debrief.
 Not part of a run. Read this before rewording anything a builder sees.
 
 - **Two site pages exist, and they disagree.** The live page is
-  `marketing-hub/workbench/app/learn/_data/session-turn-a-task-into-a-skill.tsx`;
+  the session's page data (content repo, private);
   the v4 preview is
-  `marketing-hub/workbench/app/learn/v4/turn-a-task-into-a-skill/page.tsx`, with
-  its copy doc at `09-product/beta-plan/learn-s5-copy-v4.md`. The v4 page
+  its v4 page (content repo, private), with
+  its copy doc at its copy doc (content repo, private). The v4 page
   replaces the live one at cutover. Until then the **live page is frozen** — it
   keeps its errors on purpose — so where the two disagree, **the v4 page is the
   one this skill is held to.**

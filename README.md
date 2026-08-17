@@ -58,4 +58,6 @@ The **BlueRock for AI Builders** starter kit and Learning Paths →
 
 ---
 
-© BlueRock
+© 2026 BlueRock Security, Inc. All rights reserved. Licensed under the Apache License 2.0 —
+see [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE). "BlueRock" and "BlueRock for AI Builders"
+are trademarks of BlueRock Security, Inc.; the license grants no rights to the marks.

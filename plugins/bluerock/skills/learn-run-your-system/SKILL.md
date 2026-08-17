@@ -310,7 +310,7 @@ When checkpoint 5 passes:
 Not part of a run. Read this before rewording anything a builder sees.
 
 - **The site page is the canonical version of this session's content.** It lives
-  in `marketing-hub/workbench/app/learn/_data/session-run-your-system.tsx` and gets
+  in the session's page data (content repo, private) and gets
   edited weekly; this skill does not. When the two disagree, the site is right.
 - **This skill is deliberately shaped differently from its site page, and the
   decision is recorded rather than implied.** The page's capstone is *present one
@@ -355,7 +355,7 @@ Not part of a run. Read this before rewording anything a builder sees.
   product believed a local save had sent her files somewhere. A vocabulary sweep
   that reaches only the site page leaves this session saying *commit* and *push*
   out loud, which is worse than either surface being wrong alone.
-- **Concept-ledger rows this session owns** (`marketing-hub/09-product/beta-plan/learn-concept-ledger.md`,
+- **Concept-ledger rows this session owns** (the concept ledger (content repo, private),
   § Session 8): **system** — the ledger's finding is that a loose word gets a
   load-bearing meaning here without the shift being marked, and "The frame" above
   now marks it explicitly; skill and page share that row. **The dashboard** — the
@@ -378,8 +378,8 @@ Not part of a run. Read this before rewording anything a builder sees.
   the standing recommendation says the opposite.** The E2E run
   (`E2E-testing-Claude_Desktop.pdf`, p.39) argued Session 8 was backup's home —
   *"a system that runs part of your real job is a system worth backing up"* — and
-  left it to Linda as a curriculum decision rather than a skill edit. **It was
-  decided the other way** (Harold + David, 2026-08-14): backup gets its own
+  left it as a curriculum decision rather than a skill edit. **It was
+  decided the other way** (product decision, 2026-08-14): backup gets its own
   standalone "Save your work" step ahead of Session 7, where a routine makes it a
   hard prerequisite. This session teaches the close-out ritual and mentions backup
   only as one branch of what wrap-up may offer. Do not fold a backup lesson in

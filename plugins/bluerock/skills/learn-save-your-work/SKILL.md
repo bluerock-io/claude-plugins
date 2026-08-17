@@ -361,7 +361,7 @@ Not part of a run. Read this before rewording anything a builder sees.
   a batched follow-on, not a silent edit.
 - **The empty-repo rule and the shortened-history guard are load-bearing
   engineering facts, not style** (`learn-skills-review.md` § Engineering,
-  2026-08-15/16, verified in Linda's walkthrough on a real workspace): fresh
+  2026-08-15/16, verified in a walkthrough on a real workspace): fresh
   workspaces are on branch `master` against GitHub's default `main`, so a
   repo born with a README fails the first backup on a divergence error; and
   seeded shallow history cannot push to an empty repo. Do not simplify either
@@ -382,5 +382,5 @@ Not part of a run. Read this before rewording anything a builder sees.
   the rollout doc.
 - **learn.bluerock.io's Save-your-work page describes what this skill does.**
   Behavior-visible changes here need the page diff against
-  `workbench/app/learn/v4/save-your-work/` and `learn-syw-copy-v4.md` before
+  its v4 page (content repo, private) and its copy doc before
   finishing.

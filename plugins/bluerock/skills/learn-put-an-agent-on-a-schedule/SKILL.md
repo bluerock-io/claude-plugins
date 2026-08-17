@@ -101,7 +101,8 @@ All three are native Claude Code commands and stay bare — no `/bluerock:` pref
   then hand them to the step that teaches it: **Save your work**, the standalone
   backup step between Sessions 6 and 7 — run it right here by saying "back up my
   project" (or `/bluerock:learn-save-your-work`), or read it first at
-  https://learn.bluerock.io/v4/save-your-work. It walks the account, the empty
+  https://learn.bluerock.io/v4/save-your-work (preview path — moves to
+  /session/save-your-work at cutover). It walks the account, the empty
   repo, the sign-in, and the first backup, with the guards. When it finishes,
   resume here; the remote check above will pass.
   **Do not re-teach the backup in this session** — the step owns it now (the
@@ -314,7 +315,7 @@ Suggest `/bluerock:wrap-up` so the progress commit rides the save habit.
 Not part of a run. Read this before rewording anything a builder sees.
 
 - **The site page is the canonical version of this session's content.** It lives
-  in `marketing-hub/workbench/app/learn/_data/session-put-an-agent-on-a-schedule.tsx`
+  in the session's page data (content repo, private)
   and gets edited weekly; this skill does not. When the two disagree, the site is
   right and this file is stale.
 - **This session teaches a surface BlueRock does not own**, and that is recorded
@@ -327,7 +328,7 @@ Not part of a run. Read this before rewording anything a builder sees.
   hedging. Keep it.
 - **Do not turn "runs while your laptop is closed" into a BlueRock claim.** It
   is architecturally true and it is *Anthropic's* feature. That phrasing was
-  struck from marketing copy for exactly this reason (Linda, 2026-08-10); inside
+  struck from marketing copy for exactly this reason (product decision, 2026-08-10); inside
   the session it is fine as a plain description of how Routines work, attributed.
   Watch that distinction if this copy ever gets lifted into a landing page.
 - **Step 3 quotes `daily-brew.md`'s scheduled-dispatch fallback**, verified

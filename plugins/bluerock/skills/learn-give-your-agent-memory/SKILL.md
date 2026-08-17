@@ -262,7 +262,7 @@ debrief.
 Not part of a run. Read this before rewording anything a builder sees.
 
 - **The site page is the canonical version of this session's content.** It lives
-  in `marketing-hub/workbench/app/learn/_data/session-give-your-agent-memory.tsx`
+  in the session's page data (content repo, private)
   and gets edited weekly; this skill does not. When the two disagree, the site
   is right and this file is stale — say so plainly to a builder who notices,
   rather than defending this copy.

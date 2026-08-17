@@ -238,7 +238,7 @@ starts." **The in-chat action is the call to action** — the builder is already
 the one place where the next step can begin, and every session runs in-session, so sending
 them to a browser at the ready moment breaks the momentum the milestone just created. The
 session-page link stays as the companion for whoever wants the picture first; the Discord
-line is a quieter third, never given equal weight (Linda, 2026-08-15).
+line is a quieter third, never given equal weight (product decision, 2026-08-15).
 
 **When checks 7 or 8 found something** (they never fail the checklist — everything works,
 it just works less well), add one short block **after the checklist and before the Next
@@ -319,9 +319,9 @@ Not part of a run. Read this before rewording anything a builder sees.
   builders *"say yes — it explains itself when it asks"*, and that claim is only true
   because this prompt explains itself. The page copy was written against the 0.6.2 / 0.6.3
   wording. Reword here and the page goes stale silently, because nothing links them at
-  build time. The page lives in `marketing-hub/workbench/app/learn/_data/setup-desktop.tsx`
-  and `setup-cursor.tsx`, in the "See your project come alive" step; the reasoning is in
-  `08-sops/mimi/handoffs/2026-08-10-s1-connect-consent.md`. Change both together, or tell
+  build time. The page lives in the Session 1 setup page data (content repo,
+  private), in the "See your project come alive" step; the reasoning is in
+  the connect-consent handoff note (content repo, private). Change both together, or tell
   that workstream.
 - **The no-project message names Session 1's steps by title, never by number.** The Claude
   Desktop and Cursor tracks number differently — eight steps against nine — so any number is

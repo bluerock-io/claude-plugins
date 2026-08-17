@@ -310,4 +310,4 @@ Not part of a run. Read this before rewording anything a builder sees.
   `/bluerock:check` and `/bluerock:learn`. Reword it there, not here.
 - **learn.bluerock.io's session pages describe what wrap-up does at the end of a
   session.** Behavior-visible changes here need the page diff against the session's live
-  page and its `learn-s<N>-copy-v4.md` before finishing.
+  page and the session's copy doc before finishing.

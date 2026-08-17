@@ -1,14 +1,14 @@
 # BlueRock plugin — skill authoring guide
 
 > **Scope:** every skill, agent, and curriculum file in `plugins/bluerock/`. This file is the
-> facilitation standard the session skills are held to — the sister guide to marketing-hub's
-> `.claude/rules/learn.md`, which governs the **pages**. The split: **the page carries what's
+> facilitation standard the session skills are held to — the sister guide to the pages guide
+> in the content repo (private), which governs the **pages**. The split: **the page carries what's
 > true for everyone; the skill carries what's true for this builder.**
 > **Exemplar:** `plugins/bluerock/skills/learn-meet-your-first-agent-team/` (Session 2) is the
 > standard the rest are aligned to. When this guide and that skill disagree, flag it — one of
 > the two needs the edit, and it is a decision, not a drafting choice.
-> **Created:** 2026-08-14 (Linda). Distilled from the S2 skill's working rules and the input
-> map (`marketing-hub/09-product/beta-plan/learn-skills-input-map.md`).
+> **Created:** 2026-08-14. Distilled from the S2 skill's working rules and the input
+> map (content repo, private).
 
 The builder is a marketer, seller, or ops person. Not a developer. They are in a live
 conversation with you, in Claude Code, usually beside the session's web page.
@@ -66,7 +66,7 @@ all (the work has nowhere to save; offer Session 1), and Session 7's missing Git
 
 ## 4. Voice
 
-### The teaching register — instruction, not narration (Linda, 2026-08-15)
+### The teaching register — instruction, not narration (product decision, 2026-08-15)
 
 The pages' register test applies in conversation too: **a builder must be able to act on a
 sentence without interpreting it.** Warmth is allowed; narration is not. The failure that named
@@ -107,16 +107,16 @@ good instruction."
 - Never promise how long a run takes beyond the manifest's `~time`. Where a wait needs
   managing, name the wait, not a number.
 
-### The concept ledger — no concept without a row (Linda, 2026-08-15)
+### The concept ledger — no concept without a row (product decision, 2026-08-15)
 
 **A session may not put a concept in front of a builder without a ledger row.** Before a skill
 ships, every working concept it introduces has a row in
-`marketing-hub/09-product/beta-plan/learn-concept-ledger.md` naming where it is glossed in the
+the concept ledger (content repo, private) naming where it is glossed in the
 same breath and where its depth lives. **The skill and its page share one row** — if the skill
 glosses a concept and the page does not, the row says so, and that disagreement travels on the
 page diff that behavior-visible changes already require.
 
-### Encouragement — earned, specific, after the work (Linda, 2026-08-15)
+### Encouragement — earned, specific, after the work (product decision, 2026-08-15)
 
 - **Affirm after a verified checkpoint, never before.** Same law as the green callout: praise
   is a reward, and it attaches to something that verifiably just happened.
@@ -130,7 +130,7 @@ page diff that behavior-visible changes already require.
   into the recovery ("this is a normal snag — here's the fix"), never into pretending it
   worked. An honest "not yet" from a teacher a builder trusts is itself encouraging.
 
-### When the skill can't fix it — the help ladder (Linda, 2026-08-15)
+### When the skill can't fix it — the help ladder (product decision, 2026-08-15)
 
 Recovery lines handle known failures. When they don't, the ladder is fixed and it never dead-ends:
 
@@ -166,27 +166,27 @@ Never leave a builder holding an error with no named next move.
   runs in-session, so when an in-chat equivalent exists, the in-chat action is the primary
   call to action ("Say **teach me Session 2** in this chat…"); links to learn pages are
   companions for whoever wants the overview first, never the primary step, and Discord is a
-  quieter third. (Linda, 2026-08-15 — check's closing was the outlier: it linked out at the
+  quieter third. (product decision, 2026-08-15 — check's closing was the outlier: it linked out at the
   exact moment the builder was ready to act.)
 
 - **Plugin skills take the full prefix in anything the builder reads:** `/bluerock:check`,
   `/bluerock:onboard`, `/bluerock:wrap-up`. The builder's own skills fire bare (`/research`,
   `/meeting-recap`).
-- **Nouns are locked** in `marketing-hub/09-product/beta-plan/bfb-beta-locked-vocab.md`: the
+- **Nouns are locked** in the locked-vocab doc (content repo, private): the
   builder's repo is **their project / their agentic project** (some older files say Hub — same
   repo, never rename their folder); the cloud environment is **their BlueRock Cloud AI
-  Workspace / their workspace**; the toolkit is **the BlueRock plugin**. "Aurora" never
-  appears anywhere a builder can see.
+  Workspace / their workspace**; the toolkit is **the BlueRock plugin**. Internal codenames never
+  appear anywhere a builder can see.
 - **Behavior-visible changes require a page diff.** If a skill edit changes what's on screen
   (prompts, waits, artifacts, paths, permission asks), list the changes against the session's
-  live page and its `learn-s<N>-copy-v4.md` before finishing — the pages quote this repo's
+  live page and the session's copy doc before finishing — the pages quote this repo's
   behavior, and drift between them lands on a real builder mid-session.
 - **Releases are deliberate.** Edits merge to a branch; a release is a `plugin.json` version
-  bump plus a CHANGELOG entry, batched, on Linda + Eng's cadence. The plugin is public and
+  bump plus a CHANGELOG entry, batched, on the product owner's and Eng's cadence. The plugin is public and
   live — main reaches real builders.
 - **Never write a builder's file outside their project.** Anchor first, capture the absolute
   path, write to it. Never delete or replace a real file without consent.
-  - **One carve-out (Linda, 2026-08-17): the builder's Claude configuration, one field.**
+  - **One carve-out (product decision, 2026-08-17): the builder's Claude configuration, one field.**
     `/bluerock:check` may create or update the `bluerock` entry under `extraKnownMarketplaces`
     in `~/.claude/settings.json` to set `"autoUpdate": true` — nothing else in that file, no
     other file outside the project. The rule protects the builder's own documents; this is the
@@ -194,7 +194,7 @@ Never leave a builder holding an error with no named next move.
     plugin updates (third-party marketplaces default auto-update off). The write must be
     idempotent, silent when already true, must preserve the rest of the file, and rides the
     normal permission prompt — worded so the builder understands what they are approving.
-    Spec: `marketing-hub/09-product/beta-plan/bfb-plugin-auto-update-spec.md` §4.
+    Spec: the auto-update spec (content repo, private) §4.
 
 ## 7. Where the rest lives
 
@@ -202,10 +202,10 @@ Never leave a builder holding an error with no named next move.
 |---|---|
 | `plugins/bluerock/skills/learn-meet-your-first-agent-team/` | The exemplar session skill, with `checkpoints.md` and `examples/roles.md` |
 | `plugins/bluerock/curriculum/manifest.json` | Machine-readable session index: numbers, titles, outcomes, times, prerequisites |
-| `marketing-hub/.claude/rules/learn.md` | The **pages** guide (nine-slot template, register, step shape) |
-| `marketing-hub/09-product/beta-plan/learn-skills-input-map.md` | Where every input is captured, who reads it, what happens when skipped |
-| `marketing-hub/09-product/beta-plan/learn-v4-rollout.md` | The rollout program: unit stages, coordination rules, cutover gate |
-| `marketing-hub/09-product/beta-plan/bfb-beta-locked-vocab.md` | Every locked noun, dated |
+| The pages guide *(content repo, private)* | The **pages** standard: nine-slot template, register, step shape |
+| The input map *(content repo, private)* | Where every input is captured, who reads it, what happens when skipped |
+| The rollout program doc *(content repo, private)* | Unit stages, coordination rules, cutover gate |
+| The locked-vocab doc *(content repo, private)* | Every locked noun, dated |
 
 ⚑ **Why this file exists:** the S2 skill carried these rules implicitly, and every other skill
 was written by imitation. Imitation drifts. If you receive the same facilitation note twice in
