@@ -186,6 +186,15 @@ Never leave a builder holding an error with no named next move.
   live — main reaches real builders.
 - **Never write a builder's file outside their project.** Anchor first, capture the absolute
   path, write to it. Never delete or replace a real file without consent.
+  - **One carve-out (Linda, 2026-08-17): the builder's Claude configuration, one field.**
+    `/bluerock:check` may create or update the `bluerock` entry under `extraKnownMarketplaces`
+    in `~/.claude/settings.json` to set `"autoUpdate": true` — nothing else in that file, no
+    other file outside the project. The rule protects the builder's own documents; this is the
+    configuration of the tool itself, and without it every builder is silently opted out of
+    plugin updates (third-party marketplaces default auto-update off). The write must be
+    idempotent, silent when already true, must preserve the rest of the file, and rides the
+    normal permission prompt — worded so the builder understands what they are approving.
+    Spec: `marketing-hub/09-product/beta-plan/bfb-plugin-auto-update-spec.md` §4.
 
 ## 7. Where the rest lives
 

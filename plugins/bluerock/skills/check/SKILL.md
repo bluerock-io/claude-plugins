@@ -9,9 +9,11 @@ repos call the same repo a Hub — same thing; never rename the builder's folder
 "Hub" to the builder: the word is always "your project".) They may be in GTM,
 RevOps, or ops, not a developer, so this is a "signs of life" moment, not an audit.
 Run the checks below quietly, then report the milestone the way the Report section
-describes. Most checks only inspect setup. The only writes this skill may make are the two
-consented repairs: the project load-path links (check 3) and removing the inherited template
-remote (check 5). Checks 7 and 8 are **detect-only** — nothing inside the workspace can fix
+describes. Most checks only inspect setup. The only writes this skill may make are the three
+consented repairs: the project load-path links (check 3), removing the inherited template
+remote (check 5), and turning on plugin auto-update (check 7b — the one write outside the
+project this skill is allowed, under the narrow carve-out in this repo's `CLAUDE.md` §6).
+Checks 7 and 8 are **detect-only** — nothing inside the workspace can fix
 either one, so there is nothing to consent to. (Check 7 keeps a dated cache at
 `~/.bluerock/plugin-version-check.json` so it asks the network at most once a day; that
 file is in the workspace folder, never in the builder's project, and it is the one write
@@ -136,6 +138,52 @@ line items; they roll up into the four-line report.
    improvise the menus. You cannot fix this from here — the plugin lives in the builder's
    Claude account and is mirrored into the workspace when they connect — so offer no repair
    and ask for no consent. Never say a version number.
+
+7b. **Their BlueRock tools keep themselves current.** The plugin ships from a third-party
+   marketplace, and Claude Code turns auto-update **off** by default for those — so every
+   builder is silently opted out of updates unless this switch is flipped. This is the one
+   write outside the project this skill may make, under the carve-out in this repo's
+   `CLAUDE.md` §6: one field, `"autoUpdate": true`, in the `bluerock` entry under
+   `extraKnownMarketplaces` in `~/.claude/settings.json`. Nothing else in that file, ever.
+   - **Inspect first, quietly.** Read `~/.claude/settings.json`. If
+     `extraKnownMarketplaces.bluerock.autoUpdate` is already `true`, this is a PASS — say
+     nothing; this is the steady state.
+   - **If the file exists but does not parse as JSON, do not write.** Report that Claude
+     Code's settings file couldn't be read safely and route to the BlueRock Builders
+     Discord. Never guess at repairing a config file.
+   - **Otherwise, ask before writing — and recommend yes, with the reason**, in the same
+     spirit as checks 3 and 5. Say it roughly this way, in your own words: "One more thing
+     to turn on. The BlueRock plugin can keep itself up to date, but the switch for that
+     ships **off** — so new skills and fixes sit waiting until someone updates by hand. I
+     can turn it on in your Claude Code settings: one line, nothing else in the file
+     changes, and your project isn't touched. **I'd say yes:** from then on updates arrive
+     on their own when you start. Want me to?"
+   - **On yes:** update the file preserving everything already in it — read, modify the one
+     entry, write back. If the `bluerock` entry exists, set only its `autoUpdate` field and
+     leave its `source` exactly as found. If the entry (or the `extraKnownMarketplaces`
+     block, or the whole file) doesn't exist, create only what's missing, with the entry
+     shaped:
+
+     ```json
+     "extraKnownMarketplaces": {
+       "bluerock": {
+         "source": { "source": "github", "repo": "bluerock-io/claude-plugins" },
+         "autoUpdate": true
+       }
+     }
+     ```
+
+     Expect the permission prompt on a write outside the project — that prompt is a
+     teaching moment, so if the builder hesitates, say plainly what they're approving: one
+     setting in their Claude configuration, nothing in their project. Then confirm in one
+     line: "Your BlueRock tools will now keep themselves current. Nothing to do next time;
+     they update in the background when you start."
+   - **On no, say plainly what it costs** — their tools stay on the version they have until
+     someone updates by hand, and new sessions and fixes will exist without reaching them —
+     and that rerunning `/bluerock:check` offers again. Never write without a yes.
+   - When this repair ran, the report carries one plain sentence about it, same as check
+     5's. It is never a ❌ on the checklist — everything works without it, it just goes
+     stale quietly.
 8. **Their profile files are filled in** (detect-only, **and not yet at setup**). Read
    `learning/progress.json` first: **if Session 4 isn't complete, skip this check
    entirely and say nothing.** Unfilled profile files are the expected state until the

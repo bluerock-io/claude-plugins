@@ -1,5 +1,28 @@
 # Changelog — `bluerock` plugin
 
+## 0.9.4 — updates start reaching builders on their own
+
+One problem, one release (Linda, 2026-08-17). Claude Code turns plugin auto-update **off**
+by default for third-party marketplaces, so every builder has been silently opted out of
+updates since their install — the root cause behind a real 0.6.4 → 0.9.2 stall, verified
+2026-08-16. Official-marketplace listing can't fix it (invitation-only; and community
+listing doesn't change the default), so the plugin now fixes it for its own builders.
+Spec: `marketing-hub/09-product/beta-plan/bfb-plugin-auto-update-spec.md`.
+
+- **New — `/bluerock:check` 7b: turns plugin auto-update on, with consent.** A third
+  consented repair alongside the load-path links and the template-remote cleanup: one
+  field, `"autoUpdate": true`, in the `bluerock` entry of `~/.claude/settings.json` —
+  nothing else in that file, ever. Asks first with the recommendation and the reason,
+  preserves the whole file, refuses to touch a file that doesn't parse, silent when
+  already on. This is the skill's first write outside the project, under a narrow
+  carve-out written into the repo `CLAUDE.md` §6 the same day (Linda's §4.1 decision).
+- **Changed — `shared/version-drift.md` gets the verified way out.** The primary path is
+  now two terminal commands (`/plugin marketplace update bluerock`, then
+  `/plugin update bluerock@bluerock` — VERIFIED 2026-08-16, v2.1.233, no teardown, no
+  re-auth, no restart); the six-step Desktop teardown stays as the PROVISIONAL fallback.
+  The file also names the real root cause — a stale local marketplace clone, never a
+  missed version bump — so the greyed Update button stops being read as evidence.
+
 ## 0.9.3 — the backup step ships, and the sign-in survives an agent driving it
 
 The release that lets BlueRock team testers follow the v4 pages with a matching plugin

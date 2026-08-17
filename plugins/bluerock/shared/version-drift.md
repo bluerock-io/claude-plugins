@@ -9,6 +9,15 @@ from the day before, missing sessions that had shipped in between. Nothing told 
 in-app **Update** button compares against the app's *cached* copy of the marketplace, so
 a stale cache disables the button: a greyed-out Update button does not mean up to date.
 
+**The real root cause** (verified 2026-08-16, against a genuine 0.6.4 → 0.9.2 stall): the
+plugin comes from a third-party marketplace, and Claude Code turns auto-refresh of the
+local marketplace clone **off** by default for those. The clone stays pinned; every
+reinstall faithfully re-resolves the old version from it. It was never a missed version
+bump. This is also why a greyed Update button proves nothing either way — it can mean
+genuinely current or a stale clone, and only the fetch in this file's procedure can tell
+them apart. `check` 7b exists to end the recurrence: with `autoUpdate` flipped on, the
+clone refreshes itself and the steps below become the fallback, not the main path.
+
 ## The procedure
 
 Run it quietly. The builder sees nothing unless there is something to say.
@@ -54,15 +63,24 @@ skipped or failed, the version is simply not part of this run's report.
   Never name which sessions, or how many. That is the manifest's job, and the manifest
   you can read is the installed one.
 
-- **`check` — the explanation and the steps out.** Detect-only: nothing inside the
-  workspace can update the plugin, because it lives in the builder's Claude account and
-  is mirrored in at connect time. Detect-but-cannot-fix is still worth reporting, as long
-  as the steps are exact.
+- **`check` — the explanation and the steps out.** Detect-but-cannot-fix: nothing inside
+  the workspace can update the plugin, because it lives in the builder's Claude account and
+  is mirrored in at connect time — so the steps must be exact. What `check` *can* do is
+  stop the next stall: its 7b repair flips auto-update on (with consent), which is why the
+  steps out are worth walking exactly once.
 
-## The steps out (PROVISIONAL)
+## The steps out — split by surface
 
-⚠️ **These are menu steps and they ship PROVISIONAL** until walked on a current build.
-They were verified once, on 2026-08-15, on Claude Desktop. **Order matters:** reinstalling
+**In a Claude Code terminal chat (VERIFIED 2026-08-16, v2.1.233):** two commands, no
+teardown, no re-auth, no restart. This is the primary path whenever the builder can type
+into the chat they're already in:
+
+1. `/plugin marketplace update bluerock` — refreshes the stale local catalog to current.
+2. `/plugin update bluerock@bluerock` — applies the newest version from it.
+
+**Through the Desktop menus (PROVISIONAL)** — the fallback when the terminal panel isn't
+reachable. ⚠️ These are menu steps and they ship PROVISIONAL until walked on a current
+build; verified once, 2026-08-15, on Claude Desktop. **Order matters:** reinstalling
 without removing the marketplace reads the same stale cache and reproduces the old version.
 
 1. Remove the **BlueRock Builder Toolkit** plugin.
@@ -74,8 +92,8 @@ without removing the marketplace reads the same stale cache and reproduces the o
    thing from signing in to BlueRock.
 6. Quit the app fully and reopen it.
 
-The ⋮ menu offers only Cursor / Show in folder / Remove. There is no refresh, and the
-**Update** button is not a reliable signal.
+The ⋮ menu offers only Cursor / Show in folder / Remove. The Desktop settings panel has no
+refresh control, and the **Update** button is not a reliable signal.
 
 ## Who depends on this file's wording
 
