@@ -332,7 +332,7 @@ Not part of a run. Read this before rewording anything a builder sees.
   the session it is fine as a plain description of how Routines work, attributed.
   Watch that distinction if this copy ever gets lifted into a landing page.
 - **Step 3 quotes `daily-brew.md`'s scheduled-dispatch fallback**, verified
-  against `bluerock-io/hub-starter` `main`: it instructs the agent not to ask a
+  against `bluerock-io/my-workspace` `main`: it instructs the agent not to ask a
   question and to produce a stub brief from `CLAUDE.md` alone when no human is
   present. **The whole session's safety argument rests on that branch existing.**
   Remove it from the spec and step 3 has nothing to find, here and on the site

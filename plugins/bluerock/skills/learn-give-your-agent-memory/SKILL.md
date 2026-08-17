@@ -278,7 +278,7 @@ Not part of a run. Read this before rewording anything a builder sees.
   onboard's outputs or its consent behavior and step 1 goes stale silently.
   The portability prompt lives in `onboard/SKILL.md` — this skill points at it
   rather than restating it, deliberately. Keep it that way.
-- **The three files ship pre-seeded in `hub-starter`** with `[bracketed]`
+- **The three files ship pre-seeded in `my-workspace`** with `[bracketed]`
   placeholders (`voice.md`, `objectives.md`) and a filled skeleton
   (`CLAUDE.md`, including a session-start greeting block onboard must not
   clobber). Every checkpoint in this session is written against that fact. If

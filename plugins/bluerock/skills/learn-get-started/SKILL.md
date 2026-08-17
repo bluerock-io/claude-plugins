@@ -201,7 +201,7 @@ steps 5 and 6 entirely, create `learning/` and write `progress.json` if missing
 (checkpoint 6's close), and continue at step 7.
 
 In the browser, on GitHub: open the starter kit's template at
-https://github.com/bluerock-io/hub-starter, click **"Use this template"**,
+https://github.com/bluerock-io/my-workspace, click **"Use this template"**,
 create a new repository, name it, set it to **Private**, create it, and copy
 the new repo's URL. One line of why: the starter kit becomes their agentic
 project — the repo that holds their context, skills, agents, and dashboard —

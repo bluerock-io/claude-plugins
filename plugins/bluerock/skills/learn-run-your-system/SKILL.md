@@ -326,7 +326,7 @@ Not part of a run. Read this before rewording anything a builder sees.
   product decision, not a copy fix** — it changes what "complete" means for the
   whole path.
 - **Step 1's inventory reads real paths, and not all of them ship.** Checked
-  against `bluerock-io/hub-starter` `main` on 2026-08-15. **Shipped:**
+  against `bluerock-io/my-workspace` `main` on 2026-08-15. **Shipped:**
   `.claude/skills/` (not `.claude/commands/`) holding `meeting-recap`, `capture`,
   and `research`; `.claude/agents/` holding `scribe`, `daily-brew`, `researcher`,
   `signal-scanner`, `composer`, and `meeting-prep`; `notes/`; and `CLAUDE.md`,
@@ -334,7 +334,7 @@ Not part of a run. Read this before rewording anything a builder sees.
   `my-work/` is created the first time a team runs (Session 2), and `briefs/`
   exists only if their Session 7 instruction named it. An earlier version of this
   note called all of them shipped, which would have had the inventory report a
-  missing folder as an anomaly rather than as the finding it is. If `hub-starter`
+  missing folder as an anomaly rather than as the finding it is. If `my-workspace`
   changes what it seeds, this inventory mislabels the builder's own work as
   seeded — the one error in this session that would actually sting.
 - **`/bluerock:wrap-up`'s behavior is quoted in step 5**, verified against the

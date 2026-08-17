@@ -48,7 +48,7 @@ plumbing.
 
 - **Reported:** they created the repo and copied its URL. The URL they paste in
   step 6 is the evidence — it should be `github.com/<their-account>/<their-name>`,
-  not `bluerock-io/hub-starter`. If they paste the template's own URL, they
+  not `bluerock-io/my-workspace`. If they paste the template's own URL, they
   skipped the copy: back to step 5.
 - **Inspectable consequence:** after the clone, `git -C <project> remote -v`
   shows their repo, not the template.

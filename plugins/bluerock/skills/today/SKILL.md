@@ -15,7 +15,7 @@ it current and show it back clearly.
 `today.md` lives in the builder's project — the repo they cloned from the starter kit. In an
 SSH/cloud container the session usually starts in the **home folder**, with the project one
 level down. The builder named it when they cloned (`maria-hub`, `alex-hub` — don't
-assume a fixed name like `hub-starter`); identify it by its signature, not its name.
+assume a fixed name like `my-workspace`); identify it by its signature, not its name.
 Before reading or writing: run `ls`. See `CLAUDE.md` and `design/` side by side? You're
 in the project. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`, else
 `find ~ -maxdepth 3 -path '*/design/dashboard.html'`. `cd` into that folder, capture its

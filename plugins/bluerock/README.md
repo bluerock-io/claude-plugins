@@ -56,7 +56,7 @@ and becomes the baseline every later draft leans on.
 
 ## Your project comes with more — and they're yours
 
-Your project (from [the starter kit](https://github.com/bluerock-io/hub-starter)) ships seeded
+Your project (from [the starter kit](https://github.com/bluerock-io/my-workspace)) ships seeded
 agents and skills in `.claude/` that you can open, run, **edit**, and build on:
 
 - **Agents** (`.claude/agents/`) — `daily-brew` (a morning brief that closes yesterday's
@@ -77,7 +77,7 @@ In the Claude Code panel, type `/plugins` (plural) to open the plugin manager. O
 you"** and trust it. Click **Restart** when prompted.
 
 Then say *"check my workspace"* (or run `/bluerock:check`) to confirm you're set. You'll want a project to
-run it in — [the starter kit](https://github.com/bluerock-io/hub-starter) gives you one in a click.
+run it in — [the starter kit](https://github.com/bluerock-io/my-workspace) gives you one in a click.
 
 ## Run as-is vs. make it yours
 

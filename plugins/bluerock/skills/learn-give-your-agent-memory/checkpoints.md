@@ -4,7 +4,7 @@ Everything in this session lands in files, so every checkpoint is inspectable.
 Run inspection commands quietly; the builder sees conclusions, not plumbing.
 
 **The trap in this session: all three files already exist.** A fresh
-`hub-starter` clone ships `CLAUDE.md`, `voice.md`, and `objectives.md`. The last
+`my-workspace` ships `CLAUDE.md`, `voice.md`, and `objectives.md`. The last
 two are seeded with `[bracketed]` placeholders; `CLAUDE.md` ships as a filled
 skeleton with named empty sections. So **file existence proves nothing here** —
 every checkpoint below reads content. `<project>` is the project's absolute

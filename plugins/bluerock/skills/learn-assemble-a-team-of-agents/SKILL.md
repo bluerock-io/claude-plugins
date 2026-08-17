@@ -329,7 +329,7 @@ Not part of a run. Read this before rewording anything a builder sees.
   right and this file is stale — **with one exception, below.**
 - **This skill deliberately contradicts the site on how the research team is
   dispatched, because the site is wrong.** The page says `/bluerock:research`.
-  `research` is a **builder-owned** skill, shipped in `hub-starter` at
+  `research` is a **builder-owned** skill, shipped in `my-workspace` at
   `.claude/skills/research/SKILL.md` — there is no `research` skill in the
   BlueRock plugin, so `/bluerock:research` resolves to nothing. It fires bare:
   `/research`. The page's own provenance comment records the cause: the
@@ -345,7 +345,7 @@ Not part of a run. Read this before rewording anything a builder sees.
   the v4 set ships. So step 1's one-line redirect stays earned until the v4 page
   is promoted; **delete this note and that redirect at cutover, together.**
 - **Part one quotes all three seeded agent specs, and every quote is verified
-  against `bluerock-io/hub-starter` `main`:** `researcher` and `signal-scanner`
+  against `bluerock-io/my-workspace` `main`:** `researcher` and `signal-scanner`
   carry `Read, Write, WebSearch, WebFetch, Glob`; `composer` carries
   `Read, Write, Glob` and no web; signal-scanner's Job opens with *read
   `profile.md` first*; researcher's floor marks `[unverified]` / `[not found]`;

@@ -371,7 +371,7 @@ Not part of a run. Read this before rewording anything a builder sees.
 - **The skills path: the v4 page is now correct and the live page is still
   wrong.** The live page says `.claude/commands/meeting-recap/SKILL.md` (step
   "Read the playbook") and tells builders to create their own skill at
-  `.claude/commands/<name>/SKILL.md`. `bluerock-io/hub-starter` `main` has **no
+  `.claude/commands/<name>/SKILL.md`. `bluerock-io/my-workspace` `main` has **no
   `.claude/commands/` directory at all** — the seeded skills are at
   `.claude/skills/meeting-recap/`, `capture/`, and `research/`, and the starter
   kit's own README documents `.claude/skills/`. **Re-verified against

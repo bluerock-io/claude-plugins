@@ -39,7 +39,7 @@ In the Claude Code panel, type `/plugins` (plural) to open the plugin manager. O
 **bluerock** ("Install for you"), trust it, and **Restart**.
 
 Then say *"check my workspace"* (or run `/bluerock:check`) to confirm you're set. You'll want
-a project to run it in — [the starter kit](https://github.com/bluerock-io/hub-starter) gives you one
+a project to run it in — [the starter kit](https://github.com/bluerock-io/my-workspace) gives you one
 in a click.
 
 Already installed? Custom marketplaces don't auto-update — run `/plugins`, open

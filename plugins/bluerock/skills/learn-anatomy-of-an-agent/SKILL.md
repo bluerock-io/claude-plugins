@@ -254,7 +254,7 @@ Not part of a run. Read this before rewording anything a builder sees.
   to `notes/_TEMPLATE.md`, the `Write` tool and the absence of web access, and
   the append-only / today-only Output rules. Step 2's edit targets **step 3 of
   the Job** specifically, because that is where the section list lives. All of
-  it is verified against `bluerock-io/hub-starter` `main`. **Rewrite `scribe.md`
+  it is verified against `bluerock-io/my-workspace` `main`. **Rewrite `scribe.md`
   and this session teaches a file that no longer exists** — and the site page's
   "Why that worked" reflection breaks in the same way, from the same cause.
   Change them together.
