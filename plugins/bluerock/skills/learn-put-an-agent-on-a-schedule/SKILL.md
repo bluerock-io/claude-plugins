@@ -221,7 +221,7 @@ It happens in their browser. Explain it, then ask what they saw.
   project or send the result back, so it runs into a transcript that goes
   nowhere. **Once, not twice:** if the second run produces no window either,
   stop offering the same retry and go to `/bluerock:help`, then the BlueRock
-  Builders Discord — and write their post for them ("Session 7, step 4 — no
+  Builders Slack — and write their post for them ("Session 7, step 4 — no
   browser authorization window on either try, Claude Desktop on Mac"), so asking
   costs them nothing.
 - *Checkpoint 4:* **reported** — the routine is listed on their Routines page with
@@ -254,7 +254,7 @@ run, and this is the only checkpoint in the session you can actually inspect.
   **If a tightened path still lands nothing, the destination is not the problem
   and a third fire won't tell you anything new** — go back to the grant
   (checkpoint 4), and if that was given, route to `/bluerock:help` and then the
-  Discord with their state written out for them.
+  Slack with their state written out for them.
 - *Recovery:* if the file is there but the content is thin, check whether the
   fallback fired — no notes filed yesterday produces a short honest brief, which
   is the system working correctly. Read the brief's own line about it.

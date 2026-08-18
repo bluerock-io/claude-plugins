@@ -70,7 +70,7 @@ line items; they roll up into the four-line report.
      numbers: the two tracks number *and* title differently, so a number is wrong for one of
      them. This is a normal state before the connection completes, not an error.
      **If they say they are already connected and the project still isn't here**, stop
-     guessing and route to the BlueRock Builders Discord — a connected workspace with no
+     guessing and route to the BlueRock Builders Slack — a connected workspace with no
      project is not something they can fix from inside it.
 3. **The project's own skills and agents can load in new chats.** Use the project path found in
    step 2. Look for `.claude/agents/` and `.claude/skills/` inside that project.
@@ -110,7 +110,7 @@ line items; they roll up into the four-line report.
      project's tools they will get.
    - **If a path is a real directory (empty or not) or any other non-symlink file, do not
      clobber it.** Report that Claude Code already has a real folder or file at that path
-     and ask them to bring it to the BlueRock Builders Discord. Do not move, rename, copy,
+     and ask them to bring it to the BlueRock Builders Slack. Do not move, rename, copy,
      merge, or delete it.
    - **After creating or repointing links, tell the builder to open a new Claude Code
      chat.** Plugins, skills, and agents only load when a session starts, so this chat
@@ -157,7 +157,7 @@ line items; they roll up into the four-line report.
      nothing; this is the steady state.
    - **If the file exists but does not parse as JSON, do not write.** Report that Claude
      Code's settings file couldn't be read safely and route to the BlueRock Builders
-     Discord. Never guess at repairing a config file.
+     Slack. Never guess at repairing a config file.
    - **Otherwise, ask before writing — and recommend yes, with the reason**, in the same
      spirit as checks 3 and 5. Say it roughly this way, in your own words: "One more thing
      to turn on. The BlueRock plugin can keep itself up to date, but the switch for that
@@ -234,8 +234,8 @@ minutes, and you finish with a one-page work product you'd actually send someone
 Prefer to see it first? The session page has the overview and a short video:
 https://learn.bluerock.io/session/meet-your-first-agent-team
 
-Questions as you go? The BlueRock Builders Discord is the fastest way to get unstuck:
-https://discord.gg/5c2kQjxxwq
+Questions as you go? The BlueRock Builders Slack is the fastest way to get unstuck:
+https://join.slack.com/t/bluerockcommunity/shared_invite/zt-471t3a1pj-4kCBiEaS2ulhW7BaKfCGSg
 ```
 
 Substitute the project's real folder name on the project line. If the links were created or
@@ -244,7 +244,7 @@ chat before using your project's own skills and agents; plugins only load when a
 starts." **The in-chat action is the call to action** — the builder is already sitting in
 the one place where the next step can begin, and every session runs in-session, so sending
 them to a browser at the ready moment breaks the momentum the milestone just created. The
-session-page link stays as the companion for whoever wants the picture first; the Discord
+session-page link stays as the companion for whoever wants the picture first; the Slack
 line is a quieter third, never given equal weight (product decision, 2026-08-15).
 
 **When checks 7 or 8 found something** (they never fail the checklist — everything works,
@@ -273,8 +273,8 @@ report that speaks every session is a report builders learn to skim.
 **Your project is here, but it is missing its starter skills and agents.**
 
 I did not create links because those folders are not in your project yet. Ask in the
-BlueRock Builders Discord and share your project folder name:
-https://discord.gg/5c2kQjxxwq
+BlueRock Builders Slack and share your project folder name:
+https://join.slack.com/t/bluerockcommunity/shared_invite/zt-471t3a1pj-4kCBiEaS2ulhW7BaKfCGSg
 ```
 
 **When `~/.claude/agents` or `~/.claude/skills` is a real directory or another
@@ -283,9 +283,9 @@ non-symlink file:**
 ```
 **Your project is here, but Claude Code already has files where the project links would go.**
 
-I did not change or replace them. Ask in the BlueRock Builders Discord and share what
+I did not change or replace them. Ask in the BlueRock Builders Slack and share what
 `~/.claude/agents` and `~/.claude/skills` contain:
-https://discord.gg/5c2kQjxxwq
+https://join.slack.com/t/bluerockcommunity/shared_invite/zt-471t3a1pj-4kCBiEaS2ulhW7BaKfCGSg
 ```
 
 **If exactly one thing fails** (say Python is missing): mark that line ❌ instead of ✅, keep
@@ -304,8 +304,8 @@ Head back to Get Started and finish connecting: get your Enrollment URL, then
 point your tool at your workspace.
 https://learn.bluerock.io/get-started
 
-Already connected and still seeing this? Ask in the Discord — that one's on us:
-https://discord.gg/5c2kQjxxwq
+Already connected and still seeing this? Ask in the Slack — that one's on us:
+https://join.slack.com/t/bluerockcommunity/shared_invite/zt-471t3a1pj-4kCBiEaS2ulhW7BaKfCGSg
 ```
 
 Hold the checklist until the project is in place — a receipt for tools with nowhere to write

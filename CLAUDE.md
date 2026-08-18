@@ -137,10 +137,12 @@ Recovery lines handle known failures. When they don't, the ladder is fixed and i
 1. **The skill's own recovery, once.** Never invite a third retry without a new reason it
    would go differently.
 2. **`/bluerock:help`** — the triage skill exists for exactly this; route there by name.
-3. **The BlueRock Builders Discord**, by its canonical never-expire invite (LINKS.md — lands
-   in #welcome-intros), offered warmly and with a ready-to-paste description of where they
+3. **The BlueRock Builders Slack**, by its canonical invite (the marketing-hub LINKS.md
+   row is the source of truth; note that a Slack invite is capped by joins, not by a date,
+   so a refreshed link means a new URL here), offered warmly and with a ready-to-paste
+   description of where they
    are: "Session 3, step 1 — scribe wrote to the home folder instead of my project." A stuck
-   builder who leaves with a good Discord post is a far better outcome than one who churns
+   builder who leaves with a good Slack post is a far better outcome than one who churns
    silently — write the post for them, in their words, so asking costs nothing.
 
 Never leave a builder holding an error with no named next move.
@@ -165,7 +167,7 @@ Never leave a builder holding an error with no named next move.
 - **The next action a skill offers is one the builder can take in this chat.** Every session
   runs in-session, so when an in-chat equivalent exists, the in-chat action is the primary
   call to action ("Say **teach me Session 2** in this chat…"); links to learn pages are
-  companions for whoever wants the overview first, never the primary step, and Discord is a
+  companions for whoever wants the overview first, never the primary step, and Slack is a
   quieter third. (product decision, 2026-08-15 — check's closing was the outlier: it linked out at the
   exact moment the builder was ready to act.)
 

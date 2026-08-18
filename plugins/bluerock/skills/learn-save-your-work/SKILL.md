@@ -73,7 +73,7 @@ normal, so say so rather than promising smooth.
    only after you have said what it means, or if the builder uses it first.
 5. **On failure, diagnose from the recovery notes, explain plainly, retry
    once.** Then the ladder: `/bluerock:help`, then the BlueRock Builders
-   Discord — with their post written for them, in their words ("Save your
+   Slack — with their post written for them, in their words ("Save your
    work, step 4 — first backup fails with an error about the remote"), so
    asking costs nothing. Never leave them holding an error with no named next
    move.

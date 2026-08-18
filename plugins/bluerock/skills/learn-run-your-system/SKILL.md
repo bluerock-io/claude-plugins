@@ -75,7 +75,7 @@ mostly reads what's already there.** Two consequences that change how you run it
    never into pretending it worked.
 8. **When a recovery doesn't take, climb the ladder** rather than retrying: your
    own recovery once, then `/bluerock:help` by name, then the BlueRock Builders
-   Discord — and write their post for them, in their words ("Session 8 — wrap-up
+   Slack — and write their post for them, in their words ("Session 8 — wrap-up
    saved locally but the backup to GitHub was refused"). This is the last session
    in the path, so a builder who gets stuck here has nowhere further to be routed
    and no next session to recover in. Never leave them holding an error with no

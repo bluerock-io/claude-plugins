@@ -50,7 +50,7 @@ wrong. One honest sentence prevents that.
    of picking up the handoff is missing the "read `<file>` first" line.
    **When the recovery doesn't hold, take the ladder and never dead-end:** the
    recovery once, then `/bluerock:help` by name, then the BlueRock Builders
-   Discord — and write their post for them, in their words ("Session 6, step 5 —
+   Slack — and write their post for them, in their words ("Session 6, step 5 —
    my second agent re-gathers instead of reading the first one's file"). This
    session is long enough that a builder who gets stuck at minute fifty will
    otherwise just close the window.

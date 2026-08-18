@@ -55,7 +55,7 @@ Run inspection commands quietly; the builder sees conclusions, not plumbing.
   fallback questions (what they did last Friday afternoon; what they'd hand a new
   hire first), stop the session here honestly at `in_progress` rather than
   inventing one. Say it's worth coming back to with a week of work in view. That
-  is a better outcome than a skill nobody wanted — and point them at the Discord
+  is a better outcome than a skill nobody wanted — and point them at the Slack
   on the way out, where other builders name the workflows they turned into
   skills. Watching someone else's list is often what makes their own visible.
 
@@ -106,7 +106,7 @@ Three parts, all required.
     fixable: rewrite the `description` to name the exact words they'd say, and
     try again. Do not pass this on the slash alone. **If a second rewrite still
     doesn't fire, stop retrying and climb the help ladder** (`/bluerock:help`,
-    then Discord with a post written for them). Leave the session
+    then Slack with a post written for them). Leave the session
     `in_progress` at checkpoint 5 and say plainly that the file is real, saved,
     and runs by slash — the routing is the only open part.
 - **Refined at least once:** the file changed after they read the real output —

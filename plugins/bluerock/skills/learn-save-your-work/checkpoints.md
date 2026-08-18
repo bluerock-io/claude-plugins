@@ -76,7 +76,7 @@ Run inspection commands quietly; the builder sees conclusions, not plumbing.
      2's recovery, then push again.
   3. Asked for credentials → the sign-in setting was declined or did not
      take. Offer `gh auth setup-git` again, with the same consent.
-  Once each, then the ladder: `/bluerock:help`, then Discord with their post
+  Once each, then the ladder: `/bluerock:help`, then Slack with their post
   written for them.
 
 ## Checkpoint 5 — their own files on the repo page

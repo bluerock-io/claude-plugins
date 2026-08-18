@@ -82,13 +82,13 @@ Protect the design conversation above all else here.
    1. Run the skill's own recovery **once**. Do not invite a third attempt
       without a new reason it would go differently.
    2. Route to **`/bluerock:help`** by name. It triages exactly this.
-   3. Offer the **BlueRock Builders Discord** (the never-expire invite in
-      `LINKS.md`, which lands in `#welcome-intros`) and **write their post for
+   3. Offer the **BlueRock Builders Slack** (the canonical invite in
+      `LINKS.md`) and **write their post for
       them**, in their words, so asking costs nothing: "Session 5, step 6 — my
       skill runs with the slash but saying my trigger phrase in a new chat does
       nothing."
 
-   A builder who leaves with a good Discord post is a far better outcome than one
+   A builder who leaves with a good Slack post is a far better outcome than one
    who quietly gives up on their own first skill.
 
 ## The idea, in one frame
