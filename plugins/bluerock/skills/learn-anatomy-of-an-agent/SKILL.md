@@ -100,7 +100,9 @@ on their first day?*
 - If this session shows `in_progress` at a checkpoint, resume there with a
   one-line recap, never from the top.
 - **Ask for one real thing that happened today** — a call, a decision, a loose
-  end. They'll need it in step 3, and asking now gives them time to think of one.
+  end. Since 2026-08-17 this is load-bearing rather than a nicety: step 1 runs on
+  their day, not on a demo input, so this ask is what makes step 1 possible.
+  Asking here also gives them time to think of one before it is needed.
 - Open with the picture, in one breath: a chatbot answers a question; an agent
   does a job. They're about to watch one do a job, then open the file that made
   it behave that way.
@@ -115,14 +117,27 @@ material. It does the rest — no follow-up prompts.
 Tell them to watch what scribe *does* rather than reading the whole reply. That
 instruction matters; the behavior is the lesson, not the text.
 
-They run it themselves, with the demo input from `examples/roles.md` or something
-that actually happened to them:
+**They run it on their own day, not on ours** (Linda, 2026-08-17). The old
+version offered a demo input about a call with Maria, and a builder pasting our
+fiction learns nothing about their own work — the whole session turns on
+recognising their material come back sorted. Ask for it plainly, once:
+
+> Tell me one real thing from today — a call, a decision you made, something
+> still open. A sentence or two is enough.
+
+Then have them hand it to scribe in their own words, in this shape:
 
 ```
-Use scribe to file my notes for today: I had a call with Maria about the Q3
-renewal — she wants pricing options by Friday. Still waiting on legal to review
-the MSA.
+Use scribe to file my notes for today: <what they just told you>
 ```
+
+They type it themselves; you never paste their day back at them as a block to
+copy. **If they genuinely have nothing** — a builder doing this at 9am, or on a
+quiet day — take the smallest real thing they have (an email they owe, a meeting
+later) rather than reaching for an invented one. Something true and thin beats
+something rich and fake, because the payoff is seeing *their* words sorted.
+The demo input in `examples/roles.md` stays as your reference for the SHAPE of a
+good input, not as text to hand over.
 
 - *What they'll see:* scribe works out today's date and the filename
   (`notes/<today>.md`); creates that file from `notes/_TEMPLATE.md` if it
@@ -141,8 +156,8 @@ the MSA.
 Two beats in one step, in this order. Don't skip the first.
 
 **First, take it apart.** Have them open `.claude/agents/scribe.md`. It is about
-a hundred lines of plain English, and everything they just watched is in it. Walk
-the five parts against what they saw:
+a hundred lines of plain text they can read top to bottom, and everything they
+just watched is in it. Walk the five parts against what they saw:
 
 - **Identity** — it stayed terse and didn't chat back, because its Identity says
   *"a fast, quiet archivist."*

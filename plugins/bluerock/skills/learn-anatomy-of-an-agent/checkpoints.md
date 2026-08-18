@@ -11,9 +11,11 @@ is a git diff. Use it rather than reading the file and forming an impression.
 ## Checkpoint 1 — scribe filed today's notes
 
 - **Inspectable:** `notes/<today>.md` exists in the project and holds what they
-  told scribe, sorted under the template's headings. With the demo input, the
-  Maria call lands under **Meetings**, the Friday pricing commitment under
-  **Decisions / commitments**, and the legal review under **Open threads**.
+  told scribe, sorted under the template's headings. Since 2026-08-17 the input
+  is **their own day**, so there is no fixed expected content — check the SHAPE
+  instead: whatever they said happened lands under **Meetings**, anything they
+  committed to under **Decisions / commitments**, and anything unresolved under
+  **Open threads**. A one-line day sorts into one section and still passes.
 - **Also confirm the sorting, not just the file.** Everything dumped under
   Brain dump means scribe filed but didn't parse — worth a re-run with clearer
   input, because step 3 depends on parsing working.
@@ -57,11 +59,12 @@ is a git diff. Use it rather than reading the file and forming an impression.
 
 ## Checkpoint 3 — their real day, with Wins populated
 
-- **Inspectable:** `notes/<today>.md` contains their own content (not the Maria
-  demo) **and** a Wins section with something in it.
-- **Both halves are required.** Real content with an empty Wins section means
-  they didn't give it a win — re-run asking for one explicitly. A populated Wins
-  section from the demo input only means step 3 hasn't really happened yet.
+- **Inspectable:** `notes/<today>.md` has a **Wins** section with something in
+  it. Step 1 already established that the content is theirs, so this checkpoint
+  is now about the section they added in step 2 doing its job.
+- **An empty Wins section is the failure to catch.** It means they didn't give
+  it a win — re-run asking for one explicitly, rather than assuming the edit
+  is broken.
 - **If Wins stayed empty after they did give a win,** the cause is step 2's edit,
   not this step: check the Wins entry sits inside the Job's step 3 list. Fix
   there and re-run; don't keep re-prompting.

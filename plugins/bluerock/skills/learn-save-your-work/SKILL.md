@@ -61,7 +61,7 @@ normal, so say so rather than promising smooth.
    The GitHub account and the repo are theirs to create; you could not do it
    for them if they asked. What you run, you run with their go-ahead.
 3. **Two consent moments, and they belong to the builder:** the one
-   workspace-wide sign-in setting in step 3, and the go-ahead before anything
+   workspace-wide sign-in setting in step 2, and the go-ahead before anything
    leaves the machine in step 4. Ask each one plainly, once, and say what it is
    for. The once-per-session do-it-for-them escape valve does not apply to
    either.
@@ -133,101 +133,127 @@ Their workspace has to be able to talk to their GitHub account. GitHub's own
 sign-in does this without a password ever touching the workspace: it shows a
 one-time code, and the builder proves it is them from their own browser.
 
-**One thing to clear before it runs.** One of the questions the sign-in asks
-sets git up for their whole workspace, not just this project, so get their okay
-first — you will be answering that question on their behalf: "One of the
-questions sets your workspace up to use this sign-in whenever it talks to
-GitHub. It applies to the whole workspace, not just this project. Okay to say
-yes to it?" If they decline, say honestly what it costs — the backup in step 4
-will stop and ask for credentials it has no good way to take — and offer it
-again there. (This is the skill's one workspace-wide write, deliberate and
+**The builder just asks.** Any of "sign me in to GitHub", "back up my project",
+or `gh auth login` starts this — and a builder who has seen a terminal before
+will often type that last one. Take it as the request, not as the command:
+**you run the device-code procedure below, not `gh auth login` itself.**
+
+**Do not run `gh auth login` interactively.** It waits on a terminal this
+session does not have, produces no output, and hangs until something kills it
+(verified three ways, 2026-08-16, including under a pseudo-terminal). Say what
+you are doing instead, in one line, because it reads as a nicer answer than the
+command they typed: "I'll run the device-code flow so you just enter a short
+code in your browser instead of creating a token."
+
+**One thing to clear first.** Signing in this way also sets git up to use that
+account for pushes across their whole workspace, not just this project. Get
+their okay before it runs: "This also sets your workspace up to use this
+sign-in whenever it talks to GitHub — the whole workspace, not just this
+project. Okay?" If they decline, say honestly what it costs — the backup in
+step 4 will stop and ask for credentials it has no good way to take — and offer
+it again there. (This is the skill's one workspace-wide write, deliberate and
 consented: the plugin owns git configuration in the workspace.)
 
-Then have them paste this line — their hands, not yours:
+**The procedure:**
 
-```
-gh auth login
-```
+1. Request the code quietly (`178c6fc778ccc68e1d6a` is the GitHub CLI's own
+   public client id):
+   ```
+   curl -s -X POST https://github.com/login/device/code \
+     -H "Accept: application/json" \
+     -d "client_id=178c6fc778ccc68e1d6a" \
+     -d "scope=repo read:org"
+   ```
+   The response carries a `user_code` shaped like `XXXX-XXXX`, a
+   `verification_uri`, a `device_code`, and a polling `interval`.
+2. Show the builder ONLY the `user_code` and the address, as two things to do:
+   "Open `github.com/login/device`. Enter this code: `XXXX-XXXX`." Then say the
+   three things that stop them wondering: the code is good for about fifteen
+   minutes, there are two confirm screens to click through, and the token comes
+   straight back to you without being printed here, so nothing sensitive lands
+   in the chat. Remind them once that the code works only at that address —
+   never type it anywhere else that asks for it. The `device_code` is never
+   shown to anyone.
+3. Poll `https://github.com/login/oauth/access_token` in the background (same
+   client id, the `device_code`, and
+   `grant_type=urn:ietf:params:oauth:grant-type:device_code`, at the interval
+   GitHub returned). Tell them you are watching for the approval, so the wait
+   is not silent. While it answers `authorization_pending`, keep polling. When
+   the token arrives, pipe it straight into `gh auth login --with-token` so it
+   is never printed to the screen or the transcript.
+   **One poller, one consumer — this cost a real failure on 2026-08-16:** the
+   token is issued exactly once, so never check progress by calling the
+   endpoint separately from the poller. A second caller consumes the issuance
+   and leaves the poller stuck on `authorization_pending` forever, with `gh`
+   still signed out and no error anywhere. A did-it-work check reads the
+   poller's own result, never re-polls GitHub.
 
-Answer the prompts on their behalf; every answer is fixed. **GitHub.com**,
-**HTTPS**, yes to authenticating git (the one they just approved), and the
-**browser** sign-in. In a workspace with no browser, "browser" resolves to a
-one-time code, which is exactly what you want. If the plain form ever stalls
-with nothing on screen, re-run it with every answer supplied so it has nothing
-left to ask:
-
-```
-gh auth login --hostname github.com --git-protocol https --web --skip-ssh-key
-```
-
-GitHub prints a code shaped `XXXX-XXXX` and the address
-`github.com/login/device`. Show them **both**, in plain words: "GitHub gave
-your workspace a one-time code. Open `github.com/login/device` in your browser,
-type the code in, and approve it." Remind them once: that code works only at
-that address, so never type it anywhere else that asks for it. Never print the
-token, and never read it back to them.
-
-⚑ **PROVISIONAL (2026-08-17).** This path was walked live once and ran smoothly.
-It replaces a procedure that shipped because `gh auth login` was documented to
-hang when driven from a session (three attempts, 2026-08-16, including under a
-pseudo-terminal). Clear this marker after one more clean run in a real
-workspace; if it ever hangs again, the fallback below is the proven path.
-
-- *Recovery (the sign-in hangs with no output):* do not wait it out. Drive
-  GitHub's device endpoint directly — the procedure that shipped in 0.9.3, kept
-  here because it is verified. Request the code with `curl -s -X POST
-  https://github.com/login/device/code -H "Accept: application/json" -d
-  "client_id=178c6fc778ccc68e1d6a" -d "scope=repo read:org"`, show the builder
-  only the `user_code` and the address, then poll
-  `https://github.com/login/oauth/access_token` (same client id, the
-  `device_code`, `grant_type=urn:ietf:params:oauth:grant-type:device_code`, at
-  GitHub's stated interval) and pipe the token straight into
-  `gh auth login --with-token` so it is never printed. **One poller, one
-  consumer — this cost a real failure on 2026-08-16:** the token is issued
-  exactly once, so never check progress by calling the endpoint separately from
-  the poller; a second caller consumes the issuance and leaves the poller stuck
-  on `authorization_pending` forever, with `gh` still signed out and no error
-  anywhere. A did-it-work check reads the poller's own result, never re-polls.
 - *Recovery:* code expired before they typed it → run the sign-in again; a
-  fresh code costs nothing. Code rejected → the usual cause is a typo; the code
-  is short and the dashes matter.
+  fresh code costs nothing. Code rejected → the usual cause is a typo; the
+  code is short and the dashes matter.
 
 - *Checkpoint 2:* **inspectable** — the sign-in status reports their account.
   Tell them in their words: "your workspace is signed in to GitHub as
-  \<their handle\>." Say the breadth out loud, once, with the revoke path:
-  this sign-in covers their repositories, not just the backup repo, and they
-  can see or revoke it any time on github.com under **Settings → Applications
-  → Authorized OAuth Apps** — the entry is **GitHub CLI**, and its own menu is
-  where revoking lives (never "Revoke all", which would also revoke their
-  other apps).
+  \<their handle\>", and add that git is now set up to use that account for
+  pushes, so pushes will not prompt. Say the breadth out loud, once, with the
+  revoke path: this sign-in covers their repositories, not just the backup
+  repo, and they can see or revoke it any time on github.com under
+  **Settings → Applications → Authorized OAuth Apps** — the entry is
+  **GitHub CLI**, and its own menu is where revoking lives (never "Revoke all",
+  which would also revoke their other apps).
+
+**Then, without being asked, notice what is missing.** A signed-in workspace
+whose project has no repo attached is one step from being backed up, and the
+builder may not know that. Say it plainly and offer: "This project has no
+GitHub repo attached yet, so there is nowhere for it to back up to. Now that
+you're signed in, that's a one-step fix — I can create a private repo on your
+account and point this project at it. Want me to?" That offer is step 3.
 
 ### 3. Create your private repo — from right here
 
 Now that the workspace is signed in, the repo gets made from this chat. No
 browser form, and no checkbox to get wrong.
 
-Have them paste this, with a name they will recognize:
+**The one decision is theirs, and it is only the name.** Ask for it, and
+recommend one so a builder with no preference is not left choosing: "What
+should I name the private repo on your GitHub account? `my-workspace` is the
+obvious pick." Any name works — it labels the backup and changes nothing else.
 
-```
-gh repo create my-workspace --private
-```
+Then run it yourself and narrate the result. This is plumbing, not a lesson:
+create the private repo on their account and point the project at it in the
+same move, then say what exists in one line — the repo's address, that it is
+private, that it is on their account, and that the project now points at it.
 
 One line of why, in their terms: this is the backup home their project will
 send its saves to, and private means only they can see it.
 
-**Why this is the safer route, worth knowing but not worth explaining to them:**
-made this way the repo is born **empty**, which is what the backup needs. The
-web form offers to start a repo with a README and other starter files, and a
-repo born with one has a page of history their project has never seen — the
-first backup then fails with an error a non-developer cannot read. Creating it
-from here removes that failure instead of warning about it.
+**Why this route is the safe one, worth knowing but not worth explaining to
+them:** made this way the repo is born **empty**, which is what the backup
+needs. The web form offers to start a repo with a README and other starter
+files, and a repo born with one has a page of history their project has never
+seen — the first backup then fails with an error a non-developer cannot read.
+Creating it from here removes that failure instead of warning about it.
 
-- *Checkpoint 3:* **inspectable** — `gh` prints the new repo's address on
-  success. Read it back to them once; step 4 sends their work to it, and step 5
-  is where they open it. If they would rather see it now, that address opens in
-  any browser.
+**Then report the state, including the part that has NOT happened.** Four short
+lines, in builder words and no version numbers:
+
+- **Sign-in** — signed in as their handle, over HTTPS, with credentials handled
+  for them so pushes will not prompt.
+- **Identity** — the name and email their saves are recorded under.
+- **In your workspace** — how many checkpoints exist and whether the project
+  has unsaved changes right now.
+- **On GitHub** — still empty, *because nothing has been sent up yet*.
+
+That last line is the one that earns the report. It names the gap step 4
+closes, and it stops the repo's blank page from reading as something gone
+wrong. Say the count out loud too: work that exists only in the workspace is
+the reason this step matters, and a number makes it real.
+
+- *Checkpoint 3:* **inspectable** — the repo exists, is private, and is wired
+  as the project's backup address. Read the address back to them once; step 4
+  sends their work to it, and step 5 is where they open it.
 - *Recovery (the name is taken):* they already have a repo by that name. Any
-  name works — have them run it again with a different one.
+  name works — ask for another and run it again.
 - *Recovery (they made it on github.com instead):* fine, as long as it is
   **empty**. An empty repo lands them on a mostly blank page headed **"Quick
   setup"**; that page only appears for a truly empty repo. If they see a file
@@ -282,15 +308,12 @@ guards run is part of what this step teaches.
    scope doesn't cover it, it 404s, and gh prints a scope-refresh instruction
    that reads as an error). Set the identity scoped to the project, never
    workspace-wide.
-   **The email is the one that can stop the backup, so get it right here rather
-   than at the push** (walked 2026-08-17): GitHub refuses commits that would
-   expose an address its owner keeps private, and the refusal arrives at the
-   sync in step 4, not here. The forwarding form above never trips it, which is
-   why it is the one to offer first. If they would rather use their real
-   address, it has to be one GitHub will let them share — that is a setting on
-   their account (**Settings → Emails**), and the honest trade is one line:
-   the forwarding form keeps their address out of every saved change, while a
-   real address is visible to anyone who can see the repo. If this is their first checkpoint, give them the one
+   **Check before you ask** (walked 2026-08-17): the identity is often already
+   set, and asking for something they have already got reads as the tool not
+   looking. Inspect it first; if a name and email are configured, say so and
+   move on in one line — "your saves are already set to be recorded as
+   \<name\> \<email\>, so nothing to change there" — and keep the ask for
+   when it is genuinely unset. If this is their first checkpoint, give them the one
    sentence first: saving takes a snapshot of your project as it is right now;
    it stays in your workspace until you back it up. Then save a checkpoint
    covering what is there, with their go-ahead.
@@ -308,9 +331,13 @@ guards run is part of what this step teaches.
    everything saved in the project goes up to their new private repo, and
    from then on backups send only what changed. On their go-ahead, push the
    current branch quietly (as it is named — never rename it; their empty repo
-   accepts it exactly as it is) and set it to track. Report the result in
-   builder words: "everything saved in your project just went up to your
-   repo."
+   accepts it exactly as it is) and set it to track. **Wait for an actual
+   go-ahead** — nothing goes up on an assumption, and the phrase they use
+   ("ship it", "yes", "go") is the gate. Then report the result in builder
+   words, with the address and the three things that make it checkable:
+   everything saved in the project is now on GitHub, the workspace and GitHub
+   are in sync with nothing waiting on either side, and the repo is private and
+   visible only to them.
 
 - *Recovery (the one to know cold):* the backup fails with an error mentioning
   the remote or unpacking → the shortened-history guard was skipped or did not

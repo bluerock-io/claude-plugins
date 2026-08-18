@@ -247,17 +247,33 @@ address, `https://github.com/bluerock-io/claude-plugins`, so they can copy it
 from this conversation instead of retyping it from a page. Then walk their
 surface:
 
-- **Claude Desktop:** in the message box, click **+** and choose **Add
-  plugins…** — the plugin directory opens. Click **Add → Add marketplace**,
-  then choose **Add from a repository**, paste the address, and add it. A red
-  note about trusting plugins is Anthropic's standard warning for any outside
-  marketplace — this address is the one from their own project's instructions.
-  Install **BlueRock Builder Toolkit**, then open a new chat so the plugin
-  loads. One line of why: the project is where the work lives; the plugin is
-  what runs in it.
-- **Cursor / VS Code:** type `/plugins` in the panel. On the **Marketplaces**
-  tab, paste the address and click **Add**; on the **Plugins** tab, click
-  **Install** on **bluerock**, approve it, then start a new chat.
+⚠️ **Give the UI steps and nothing else** (Linda, 2026-08-17). A real tester was
+handed a Settings-screen path that does not exist in this flow — invented from
+the model's own knowledge of Claude Desktop rather than read from here. **There
+is no Settings → Plugins route in this step.** If you are about to say "there's
+no slash command for this one, it's all in the Settings screen," stop: you are
+generating, not reading. The steps below are the whole path. Do not add,
+reorder, or explain them into prose.
+
+- **Claude Desktop:**
+  1. In the message box, click **+**.
+  2. Choose **Add plugins…**.
+  3. Click **Add**, then **Add marketplace**.
+  4. Choose **Add from a repository**.
+  5. Paste the address and add it.
+  6. Install **BlueRock Builder Toolkit**.
+  7. Open a new chat so the plugin loads.
+- **Cursor / VS Code:**
+  1. Type `/plugins` in the panel.
+  2. On the **Marketplaces** tab, paste the address and click **Add**.
+  3. On the **Plugins** tab, click **Install** on **bluerock**, and approve it.
+  4. Start a new chat.
+
+Two things to say around the steps, never inside them: a red note about
+trusting plugins is Anthropic's standard warning for any outside marketplace,
+and this address is the one from their own project's instructions. And one line
+of why, once: the project is where the work lives; the plugin is what runs in
+it.
 
 - If this skill is running, the plugin is already installed in this session —
   verify, say so, and skip the mechanics.
