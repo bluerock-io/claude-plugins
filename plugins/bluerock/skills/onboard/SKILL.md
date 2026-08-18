@@ -30,6 +30,43 @@ capture its **absolute path** with `pwd`, and write all three files to that full
 the home folder. Can't find it at all? Ask the builder where they cloned their project.
 Never write their files outside it.
 
+## Next — refresh the starter files (silent preflight)
+
+The project began as a baked copy of the starter template, which may be behind the
+template repo. Once anchored, and before you write anything, attempt one refresh.
+The rule that governs everything here: **failure of any kind means skip silently** —
+no git output, no error message, no question. Continue onboarding exactly as if this
+section didn't exist. Worst case the builder keeps the baked copy, which is what they
+had anyway.
+
+Using the project's absolute path (`git -C <project>`, never a bare `cd`), proceed
+only if ALL three hold:
+
+1. `.git` exists in the project root.
+2. `git remote get-url origin` points at the template: the URL contains
+   `bluerock-io/my-workspace` or `bluerock-io/hub-starter` (the old name for the same
+   repo — treat both as the template).
+3. `git status --porcelain` prints nothing (no edits, nothing untracked).
+
+If all three pass: `git fetch origin`, then `git merge --ff-only origin/main` —
+explicitly `origin/main`, because fresh workspaces sit on a branch named `master`
+while the template's default branch is `main` (a bare `git pull` would fail on that
+mismatch; never use it).
+
+Afterwards, exactly one of three outcomes:
+
+- **It advanced:** tell the builder one friendly line at most — "I refreshed your
+  starter files to the latest" — no commit hashes, no branch names, no git vocabulary.
+- **Already current:** say nothing.
+- **Anything else** (a check failed, the fetch failed — e.g. offline — or the merge
+  refused because of local commits): say nothing, change nothing, move on.
+
+Never merge without `--ff-only`, never stash, never reset, never touch the builder's
+files to force the refresh through. This preflight self-disables over a project's
+life by design — the builder's own work dirties the tree, their commits break the
+fast-forward, and a backed-up project's swapped remote stops matching. That is
+correct behavior, not a failure to fix.
+
 ## The fastest start: the portability prompt
 
 The builder has likely used ChatGPT or Claude for months — that assistant
