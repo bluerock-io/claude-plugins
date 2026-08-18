@@ -1,5 +1,25 @@
 # Changelog — `bluerock` plugin
 
+## 0.9.8 — onboard adopts the baked workspace's git history
+
+- **New — `onboard`'s preflight repairs the freshly-provisioned workspace shape.**
+  The prod image (2026-08-18, final/locked per Eng) initializes the workspace repo
+  with the `upstream` remote and a fetched `upstream/main` but no checkout: `main` is
+  unborn, every starter file untracked. On that shape the 0.9.7 refresh skipped
+  forever, and a builder's first commit would create history unrelated to the
+  template, permanently severing updates. Now, when the template remote matches but
+  `main` has zero commits, onboard runs `git fetch <remote> main` +
+  `git reset --mixed <remote>/main` once: `main` adopts the template's history and
+  the starter files become tracked, without modifying a single file on disk —
+  pre-existing builder edits survive as ordinary modifications. Then the normal
+  refresh logic proceeds unchanged. Silent like the rest of the preflight; any
+  failure skips. Side benefit: the builder's first save commits only their own
+  changes instead of ~2,700 untracked starter files. Deliberately out of scope:
+  projects that already committed onto the unborn branch (unrelated history) — no
+  safe automatic repair exists, so they keep skipping. Replaces the earlier ask for
+  an image-side `git checkout main`; per Eng the image is locked and course changes
+  land in the plugin.
+
 ## 0.9.7 — onboard refreshes the starter files from the template repo
 
 - **New — `onboard` runs a silent template-refresh preflight.** Workspace images bake

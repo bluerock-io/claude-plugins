@@ -50,6 +50,18 @@ only if ALL three hold:
    whichever remote matched in the commands below (call it the template remote).
 3. `git status --porcelain` prints nothing (no edits, nothing untracked).
 
+**Between checks 2 and 3, one one-time repair.** Freshly provisioned workspaces ship
+with `main` unborn — the repo exists but has zero commits, so every starter file shows
+as untracked and check 3 would fail forever. If checks 1 and 2 pass but
+`git rev-parse HEAD` fails (no commits yet), attach the project to the template's
+history first: `git fetch <template-remote> main`, then
+`git reset --mixed <template-remote>/main`. This changes no file on disk — it only
+points `main` at the template's history and marks the starter files as tracked, so
+check 3 can pass and the builder's first commit later carries only their own changes.
+Say nothing about it. If either command fails, skip it silently like everything else
+here. Never run it when `main` already has commits: a project with real history that
+cannot fast-forward has no safe automatic repair.
+
 If all three pass: `git fetch <template-remote>`, then
 `git merge --ff-only <template-remote>/main` — explicitly `/main`, because some
 workspaces sit on a branch named `master` while the template's default branch is
