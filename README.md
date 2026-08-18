@@ -36,7 +36,8 @@ your project named after a seeded one takes over from it.
 
 In the Claude Code panel, type `/plugins` (plural) to open the plugin manager. On the
 **Marketplaces** tab, add `bluerock-io/claude-plugins`. On the **Plugins** tab, install
-**bluerock** ("Install for you"), trust it, and **Restart**.
+**bluerock** ("Install for you") and trust it. Then start a new chat — that is what loads
+the plugin. Skip the banner's **Restart** button; it does not reliably load it.
 
 Then say *"check my workspace"* (or run `/bluerock:check`) to confirm you're set. You'll want
 a project to run it in — [the starter kit](https://github.com/bluerock-io/my-workspace) gives you one

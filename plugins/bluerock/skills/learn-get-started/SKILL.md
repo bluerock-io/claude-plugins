@@ -266,8 +266,10 @@ reorder, or explain them into prose.
 - **Cursor / VS Code:**
   1. Type `/plugins` in the panel.
   2. On the **Marketplaces** tab, paste the address and click **Add**.
-  3. On the **Plugins** tab, click **Install** on **bluerock**, and approve it.
-  4. Start a new chat.
+  3. On the **Plugins** tab, click **Install** on **bluerock**, then choose
+     **Install for you**.
+  4. Start a new chat — that is what loads the plugin. Skip the **Restart**
+     button on the banner; it does not reliably load it.
 
 Two things to say around the steps, never inside them: a red note about
 trusting plugins is Anthropic's standard warning for any outside marketplace,
@@ -281,11 +283,14 @@ it.
   plugins…**; the address goes in the **Add from a repository** field, not
   the plugins list. (Cursor) command not found — they typed `/plugin`; it's
   `/plugins`; pasted into the Plugins tab instead of Marketplaces — won't
-  work; use Marketplaces. Either surface: BlueRock commands don't appear when
+  work; use Marketplaces. (Cursor) clicked **Restart** on the banner and
+  nothing loaded — expected, that button does not reliably load the plugin;
+  a new chat does. Either surface: BlueRock commands don't appear when
   typing `/blue` — they're still in the old chat; plugins only load when a
   new chat starts.
-- *Checkpoint 7:* **BlueRock Builder Toolkit** shows as installed and its
-  commands resolve in a new chat.
+- *Checkpoint 7:* the plugin shows as installed — **BlueRock Builder
+  Toolkit** on Desktop, **bluerock@bluerock** on Cursor — and its commands
+  resolve in a new chat.
 
 ### 8. See your project come alive
 
