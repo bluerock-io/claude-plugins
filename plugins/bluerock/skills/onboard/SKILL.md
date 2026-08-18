@@ -43,15 +43,17 @@ Using the project's absolute path (`git -C <project>`, never a bare `cd`), proce
 only if ALL three hold:
 
 1. `.git` exists in the project root.
-2. `git remote get-url origin` points at the template: the URL contains
-   `bluerock-io/my-workspace` or `bluerock-io/hub-starter` (the old name for the same
-   repo — treat both as the template).
+2. One of the project's remotes points at the template: in `git remote -v`, a remote
+   whose URL contains `bluerock-io/my-workspace` or `bluerock-io/hub-starter` (the old
+   name for the same repo — treat both as the template). Baked workspaces name it
+   `upstream`; older or hand-cloned projects name it `origin` — accept either, and use
+   whichever remote matched in the commands below (call it the template remote).
 3. `git status --porcelain` prints nothing (no edits, nothing untracked).
 
-If all three pass: `git fetch origin`, then `git merge --ff-only origin/main` —
-explicitly `origin/main`, because fresh workspaces sit on a branch named `master`
-while the template's default branch is `main` (a bare `git pull` would fail on that
-mismatch; never use it).
+If all three pass: `git fetch <template-remote>`, then
+`git merge --ff-only <template-remote>/main` — explicitly `/main`, because some
+workspaces sit on a branch named `master` while the template's default branch is
+`main` (a bare `git pull` would fail on that mismatch; never use it).
 
 Afterwards, exactly one of three outcomes:
 
@@ -62,9 +64,9 @@ Afterwards, exactly one of three outcomes:
   refused because of local commits): say nothing, change nothing, move on.
 
 Never merge without `--ff-only`, never stash, never reset, never touch the builder's
-files to force the refresh through. This preflight self-disables over a project's
-life by design — the builder's own work dirties the tree, their commits break the
-fast-forward, and a backed-up project's swapped remote stops matching. That is
+files to force the refresh through. This preflight goes quiet over a project's life
+by design — the builder's own work dirties the tree, their commits break the
+fast-forward, and on older projects a swapped `origin` stops matching. That is
 correct behavior, not a failure to fix.
 
 ## The fastest start: the portability prompt

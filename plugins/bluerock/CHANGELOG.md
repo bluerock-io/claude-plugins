@@ -5,20 +5,21 @@
 - **New — `onboard` runs a silent template-refresh preflight.** Workspace images bake
   the starter project at build time, so a builder's first session can start behind the
   template repo. Onboard now attempts one refresh after anchoring and before writing
-  anything: only if the project still has the template as its remote
-  (`bluerock-io/my-workspace`, or the old `hub-starter` slug) AND the working tree is
-  completely clean, it fetches and fast-forwards to the template's `main` — explicitly
-  `main`, since fresh workspaces sit on `master`. Any other state — edits, local
-  commits, a swapped remote, no network — skips silently and onboarding continues on
-  the baked copy; the builder never sees git output and is never asked. On success the
-  builder hears at most one line ("I refreshed your starter files to the latest").
-  Self-disabling by construction: onboard's own writes dirty the tree, wrap-up's
-  commits break the fast-forward, and Save-your-work's remote swap stops the match —
-  no marker file. This decouples workspace-image rebuilds from template content
-  updates (agreed with Eng, 2026-08-17/18) and closes image-drift risk R3 in the
-  prebake ticket. Verified against the eight-case local matrix (behind/current/dirty/
-  diverged/swapped/old-slug/offline/shallow); the shallow-clone case fetches and
-  fast-forwards cleanly and stays shallow.
+  anything: only if the project still has the template as a remote — `upstream` on
+  baked workspaces, `origin` on older or hand-cloned projects, matched by URL
+  (`bluerock-io/my-workspace`, or the old `hub-starter` slug) — AND the working tree
+  is completely clean, it fetches and fast-forwards to the template's `main` —
+  explicitly `main`, since some workspaces sit on `master`. Any other state — edits,
+  local commits, no matching remote, no network — skips silently and onboarding
+  continues on the baked copy; the builder never sees git output and is never asked.
+  On success the builder hears at most one line ("I refreshed your starter files to
+  the latest"). Goes quiet by construction: onboard's own writes dirty the tree and
+  wrap-up's commits break the fast-forward — no marker file. This decouples
+  workspace-image rebuilds from template content updates (agreed with Eng,
+  2026-08-17/18) and closes image-drift risk R3 in the prebake ticket. Verified
+  against the local matrix (behind/current/dirty/diverged/swapped/old-slug/offline/
+  shallow, on both the `origin`-clone and `upstream`-init image shapes); the
+  shallow-clone case fetches and fast-forwards cleanly and stays shallow.
 
 ## 0.9.6 — the backup step gets simpler, and Session 3 runs on your own day
 
