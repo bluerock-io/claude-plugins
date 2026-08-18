@@ -1,5 +1,30 @@
 # Changelog — `bluerock` plugin
 
+## 0.9.6 — the backup step gets simpler, and Session 3 runs on your own day
+
+- **Changed — `learn-save-your-work`: sign in first, then make the repo from the
+  chat.** Walked live 2026-08-17. Signing in moved ahead of repo creation
+  because `gh repo create` needs a signed-in workspace, and the browser
+  create-form walk is gone from the path — a repo made this way is born empty,
+  so the master/main divergence failure is designed out instead of warned about.
+  The form survives as the recovery for anyone who makes the repo on github.com.
+  **Finding 1 still stands:** `gh auth login` is not driven interactively; the
+  device-code procedure is what runs, and the skill says so explicitly. Marked
+  PROVISIONAL on one live run, with the 0.9.3 procedure kept as step 2's
+  recovery. The v4 page shipped in lockstep.
+- **Changed — `learn-anatomy-of-an-agent` (S3) runs on the builder's own day.**
+  Step 1 offered a demo input about a call with Maria; a builder pasting our
+  fiction cannot recognise anything in what comes back, and recognising their
+  own words sorted is the whole payoff. The session now asks for one real thing
+  and has them hand it over in their own words, with an honest floor for a
+  genuinely empty day. Checkpoints moved with it. Also: the session's premise
+  now says an agent is *configured by* a markdown file rather than *is* one, in
+  lockstep with the page.
+- **Fixed — the retired `hub-starter` slug gives way to `my-workspace`** in 17
+  places across skills, checkpoints, and both READMEs, including four links a
+  builder can click. The old slug still redirects, so nothing was broken;
+  CHANGELOG history is deliberately left alone.
+
 ## 0.9.5 — the stuck-builder message stops pointing at steps that no longer exist
 
 - **Fixed — `/bluerock:check`'s no-project message had the wrong diagnosis and the wrong
