@@ -18,20 +18,20 @@ back up.
 
 ### 0. Anchor to the project
 
-Everything below reads and writes inside the builder's project — the repo they cloned from
-the starter kit: `today.md`, `session-log.md`, the project's `.bluerock/runs.json`, and
-`design/dashboard-data.js` — and `git` runs from the project root. In an SSH/cloud
-container the session usually starts in the **home folder**, with
-the project one level down. The builder named it when they cloned (`maria-hub`, `alex-hub` —
-don't assume a fixed name like `my-workspace`); identify it by its signature, not its
-name. Confirm first: run `ls`. See `CLAUDE.md` and `design/` side by side? You're in the
+Everything below reads and writes inside the builder's project: `today.md`,
+`session-log.md`, the project's `.bluerock/runs.json`, and `design/dashboard-data.js` —
+and `git` runs from the project root. Two generations exist: the project ships inside the workspace image (usually the folder
+`my-workspace`); projects made before 2026-08 were cloned and carry whatever
+name the builder chose. **Assume neither — identify it by its signature.** In an
+SSH/cloud container the chat may start in the project itself or in the **home folder**
+with the project one level down — both are normal. Confirm first: run `ls`. See `CLAUDE.md` and `design/` side by side? You're in the
 project. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`, else
 `find ~ -maxdepth 3 -path '*/design/dashboard.html'`. **`cd` into that folder and stay
 there for the rest of the wrap-up**, and capture its absolute path with `pwd` so every
 write below targets the full path (e.g. `/home/you/maria-hub/design/dashboard-data.js`).
 Skipping this writes the dashboard and log to the home folder and runs `git` against the
-wrong repo (or none). Can't find it? Ask the builder where they cloned their project before
-wrapping up. (`session-metrics.py` below is the one exception — it's read via
+wrong repo (or none). Can't find it? Ask the builder which folder their project is in
+before wrapping up. (`session-metrics.py` below is the one exception — it's read via
 `${CLAUDE_PLUGIN_ROOT}`, so it runs correctly from anywhere.)
 
 ### 1. Review the session

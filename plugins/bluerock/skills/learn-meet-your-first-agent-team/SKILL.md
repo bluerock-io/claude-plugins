@@ -80,7 +80,7 @@ saved in their project. **Time:** about 5 minutes. **Prerequisites:** Session 1
 - **Resolve the surface** by the rule above — detected, not asked. Session 2 opens on
   the work, not on a form.
 - If Session 1 isn't complete, warn in one honest line — "this session assumes
-  your project is set up; Session 1 does that in about 20 minutes" — then
+  your project is set up; Session 1 does that in about ten minutes" — then
   respect their choice. Adults skip; warn, never block. (If there's no project
   at all, the first win has nowhere to save: say so and offer Session 1.)
 - If this session shows `in_progress` at a checkpoint, resume there with a

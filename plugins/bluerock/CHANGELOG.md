@@ -1,5 +1,104 @@
 # Changelog — `bluerock` plugin
 
+## 0.10.0 — Session 1 is realigned to the live page, and `help` stops hiding six sessions
+
+- **Change — `learn-get-started` teaches the setup that exists.** The live Get Started
+  page is two steps on Claude Desktop and three on Cursor; this skill still taught eight,
+  including three that were deleted from the product. Gone, with the reason each went:
+  "Start your workspace" (the Console hands over the Enrollment URL; there is nothing
+  here to start), "Make your own copy of the starter kit" and "Clone your project into
+  your workspace" (the project ships in the workspace image — GitHub now arrives at
+  **Save your work**, before Session 7), and "Add BlueRock Plugins for Builders"
+  (Eng/DevOps enabled plugin pre-install on both tracks, 2026-08-18). Step 1 also sent
+  builders to **Connect, under Workspaces** for the Enrollment URL, which the Console
+  moved. Eight checkpoints become three, matched to the page's own success lines and
+  shared by both tracks. `manifest.json` follows: `~20 min` becomes `~10 min`, and the
+  outcome names the connection rather than a clone.
+- **Change — the skill leads with the fact that it usually has nothing to teach.** The
+  plugin lives in the workspace, so this skill can only run inside a session that is
+  already connected. A builder talking to it has, by definition, finished the setup. The
+  run is now: confirm what worked, run the check with them, hand to Session 2. The full
+  step list stays for the builder standing in front of the setup with the plugin on their
+  own machine, and it says plainly that the page owns those steps.
+- **Fix — `help` told builders that Sessions 3 to 8 were unavailable in the chat.** Its
+  orientation block hardcoded "Sessions 1 and 2 run right here; Sessions 3 to 8 live on
+  learn.bluerock.io today." All eight carry `delivery: "in-session"` in the manifest and
+  have for some time. This is the same regression `learn` recorded against itself and
+  fixed; `help` is the copy that survived it, which meant the one skill a stuck builder is
+  routed to was turning them away from six sessions it could have taught. It now reads
+  `delivery` from the manifest, and the note says why never to hardcode it again.
+- **Fix — `learn-put-an-agent-on-a-schedule` linked a noindexed internal preview.** Its
+  blocking-prerequisite handoff pointed at `learn.bluerock.io/v4/save-your-work`, which
+  serves a reviewer banner reading "Not part of the live site." The live page is
+  `learn.bluerock.io/save-your-work`.
+- **Fix — `learn-anatomy-of-an-agent` step 3 contradicted step 1.** Step 1 was rewritten
+  on 2026-08-17 to run on the builder's own day; step 3 still opened "The demo in step 1
+  was someone else's call. This one is theirs," telling a builder who had just filed their
+  real day that they had filed ours. Step 3 is now the test of the edit they made, which
+  is what it was always for.
+- **Fix — Session 1's checkpoint spec no longer uses `/blue` as proof.** A partial slash
+  command returns `Unknown command` in Claude Desktop, and it told a real builder three
+  times that she had failed. Both the skill and its checkpoint file now name the
+  prohibition explicitly so it cannot come back.
+- **Fix — the Connector is described, not metaphored.** "The Connector holds the door open
+  between their editor or app and their workspace" was the one banned metaphor left in the
+  set, and "editor or app" is not the locked noun. It now carries the page's sentence: the
+  BlueRock Connector connects Claude Desktop (or Cursor) on their computer to their
+  BlueRock Cloud AI Workspace.
+- **Change — "the repo they cloned from the starter kit" is retired across the toolkit.**
+  Two workspace generations exist now, so `learn`, `learn-status`, `wrap-up`, `today`,
+  `onboard`, `scorecard`, `messaging-doc`, and `help` all say so and fall back to what
+  they were already doing correctly: find the project by its signature, never by its name.
+  Nothing asks a builder where they cloned anything any more.
+- **Housekeeping — four dependency notes describing a pre-cutover site are now resolved.**
+  The 2026-08-17 cutover repointed the live routes at the v4 bodies, so the frozen live
+  page, its `.claude/commands/` path error (S5), its `/bluerock:research` prefix (S6), its
+  false "daily-brew stays read-only" claim (S7), and its stale Save-your-work step order
+  are all gone. Each note now records the verified state instead of asking the next editor
+  to go fix something already fixed. S6's step 1 loses the `/bluerock:research` redirect
+  its own note said to retire at cutover; the bare-versus-prefixed rule it taught stays.
+- **Fix — `save-your-work` says 10 to 15 minutes**, matching its page. It said 10.
+- **New — the dashboard stops being a thing nobody looks at.** `/bluerock:wrap-up`
+  has published it as an artifact at every close-out since Session 2 and rolled its
+  numbers up from the builder's own runs, and no session ever told a builder what
+  they were looking at — so the capstone was hand-counting files the product had
+  already counted. Three beats now, across the whole path, and deliberately not one
+  per session: Session 2 introduces the noun (unchanged), **Session 5 step 6 stops
+  at it for one beat** at the first close-out with the builder's own skill on it
+  beside the seeded agents, and **Session 8 step 1 now opens with it** — reading
+  back `productivity.weekly` (the curve step 4's compounding argument was making by
+  hand), `actions.byAgent`, `priorities`, `perf`, `brag`, and `runs`, then filling
+  in only what no rollup holds. `cost` and `guardrail` are explicitly not read back:
+  both are honest empty states in beta, and voicing either would pitch an unshipped
+  capability inside the one session that earned the right not to pitch.
+- **New — the community stops being only a failure destination.** Almost every time
+  the toolkit named the BlueRock Builders Slack, the builder was stuck: it was the
+  escalation ladder's third rung and nothing else, so anyone who had only ever been
+  sent there mid-failure learned the room was where you go when something breaks.
+  Three invitations now, and only three, each riding a beat the session had already
+  earned rather than adding one: **Session 5** shares the first thing they built
+  (their own skill, firing by phrase), **Session 7** shares the first work that ran
+  without them, and **Session 8 step 4** asks — the gap they have just named in one
+  sentence is the most useful thing a builder can tell us, and it used to die in the
+  chat. All three ride the journal or gap ask, so the builder has already written the
+  sentence and posting costs nothing. All three offer once and drop it if the builder
+  passes. The escalation ladder is untouched and stays help-framed: blurring "I am
+  stuck" with "look what I made" would cost the ladder its meaning.
+- **Change — `help` says the room takes requests, not just problems.** It is
+  reachable from everywhere and framed Slack purely as escalation, so it now names
+  the other two jobs — showing what you built, and asking for the skill or agent you
+  want next — with the timing rule attached: only when it fits what the builder is
+  doing, never as a sign-off, and never at all if they are stuck right now. Session
+  8's page card has carried this voice since 2026-08-09 ("the topics we add come
+  from what builders ask for"); the skills now match it.
+- **Fix — `sample: true` is now a hard branch in both sessions that read the
+  dashboard.** The starter kit seeds `design/dashboard-data.js` with a stranger's
+  full week behind that flag, which `/bluerock:wrap-up` clears on its first real
+  write. Reading it back as the builder's own is the worst failure available in the
+  capstone — flattering, specific, false, and uncatchable by the person hearing it —
+  so both Session 8's step and its checkpoint spec branch on the flag before any
+  figure is spoken, and Session 5 carries the same recovery.
+
 ## 0.9.10 — the help ladder moves from Discord to Slack
 
 - **Change — every "ask a human" rung now lands in the BlueRock Builders Slack, not

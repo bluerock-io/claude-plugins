@@ -25,21 +25,24 @@ have.
 
 ## First — anchor to their project
 
-Progress lives in the builder's **agentic project** — the repo they cloned from the
-starter kit ("your project" once introduced; some older files and skills call the
-same repo a Hub — same thing, don't rename anything; recognize the old name,
-never speak it: to the builder this is always "your project"). In an SSH/cloud container
-the session usually starts in the **home folder**, with the project one level
-down, named by the builder (`maria-hub`, `alex-project` — don't assume a fixed
-name). Identify it by its signature, not its name: run `ls`. See `CLAUDE.md` and
-`design/` side by side? You're in it. If not, find it: `ls */CLAUDE.md`, then
+Progress lives in the builder's **agentic project** ("your project" once
+introduced; some older files and skills call the same repo a Hub — same thing,
+don't rename anything; recognize the old name, never speak it: to the builder
+this is always "your project"). **Two generations exist:** the project ships inside the workspace image (usually the folder
+`my-workspace`); projects made before 2026-08 were cloned and carry whatever
+name the builder chose. **Assume neither — identify it by its signature.** In an
+SSH/cloud container the chat may start in the project itself or in the **home
+folder** with the project one level down — both are normal. Run `ls`. See
+`CLAUDE.md` and `design/` side by side? You're in it. If not, find it: `ls */CLAUDE.md`, then
 `ls ~/*/CLAUDE.md`, else `find ~ -maxdepth 3 -path '*/design/dashboard.html'`.
 Capture its **absolute path** and read/write everything below at that full path.
 
-**If no project exists yet, that is not an error — it's Session 1.** Creating the
-project is what Session 1 teaches. Welcome them, start Session 1, and create the
-`learning/` folder as soon as the project exists (the session skill handles this).
-Don't hunt beyond the bounded checks above.
+**If no project exists at all, that is Session 1's territory, not a failure
+here.** The project ships in the workspace, so no project usually means the
+builder is not inside their workspace yet — which is exactly what Session 1
+connects. Welcome them, start Session 1, and create the `learning/` folder as
+soon as you are in the project (the session skill handles this). Don't hunt
+beyond the bounded checks above.
 
 ## Read the state
 

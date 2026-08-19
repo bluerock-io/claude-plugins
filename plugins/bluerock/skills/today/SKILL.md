@@ -12,17 +12,18 @@ it current and show it back clearly.
 
 ## First — anchor to the project
 
-`today.md` lives in the builder's project — the repo they cloned from the starter kit. In an
-SSH/cloud container the session usually starts in the **home folder**, with the project one
-level down. The builder named it when they cloned (`maria-hub`, `alex-hub` — don't
-assume a fixed name like `my-workspace`); identify it by its signature, not its name.
+`today.md` lives in the builder's project. Two generations exist: the project ships inside the workspace image (usually the folder
+`my-workspace`); projects made before 2026-08 were cloned and carry whatever
+name the builder chose. **Assume neither — identify it by its signature.** In an
+SSH/cloud container the chat may start in the project itself or in the **home folder**
+with the project one level down — both are normal.
 Before reading or writing: run `ls`. See `CLAUDE.md` and `design/` side by side? You're
 in the project. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`, else
 `find ~ -maxdepth 3 -path '*/design/dashboard.html'`. `cd` into that folder, capture its
 **absolute path** with `pwd`, and read/write `today.md` at that full path
 (e.g. `/home/you/maria-hub/today.md`) — never a bare `today.md`, so you don't create a
-stray one in the home folder. Can't find it at all? Ask the builder where they cloned
-their project.
+stray one in the home folder. Can't find it at all? Ask the builder which folder their
+project is in.
 
 ## The file
 

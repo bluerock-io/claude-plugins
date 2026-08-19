@@ -13,9 +13,10 @@ resuming, point at `/bluerock:learn` — don't do it here.
 
 ## Find the state
 
-Progress lives in the builder's agentic project (the repo cloned from the
-starter kit), at `learning/progress.json`. Find the project by its signature,
-not its name: run `ls` and look for `CLAUDE.md` and `design/` side by side; if
+Progress lives in the builder's agentic project, at `learning/progress.json`.
+Two generations exist: the project ships inside the workspace image (usually the folder
+`my-workspace`); projects made before 2026-08 were cloned and carry whatever
+name the builder chose. **Assume neither — identify it by its signature.** Find it by its signature, not its name: run `ls` and look for `CLAUDE.md` and `design/` side by side; if
 not here, `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`, else
 `find ~ -maxdepth 3 -path '*/design/dashboard.html'`. Use the absolute path.
 

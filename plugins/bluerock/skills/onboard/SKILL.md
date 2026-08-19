@@ -17,17 +17,18 @@ highest-leverage thing they can do first.
 
 ## First — anchor to the project
 
-The three profile files belong in the builder's project — the repo they cloned from the
-starter kit (some older docs and repos call the same repo a Hub — same thing; never rename
-the builder's folder, and never say "Hub" to the builder: the word is always "your project"). In an SSH/cloud container the session usually starts in the **home folder**,
-with the project one level down. The builder named it when they cloned (`maria-hub`,
-`alex-hub` — don't assume a fixed name like `my-workspace`); identify it by its
-signature, not its name. Before writing: run `ls`. See `CLAUDE.md` and `design/` side
+The three profile files belong in the builder's project (some older docs and repos call the
+same repo a Hub — same thing; never rename the builder's folder, and never say "Hub" to the
+builder: the word is always "your project"). Two generations exist: the project ships inside the workspace image (usually the folder
+`my-workspace`); projects made before 2026-08 were cloned and carry whatever
+name the builder chose. **Assume neither — identify it by its signature.** In an
+SSH/cloud container the chat may start in the project itself or in the **home folder** with
+the project one level down — both are normal. Before writing: run `ls`. See `CLAUDE.md` and `design/` side
 by side? You're in the project. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`,
 else `find ~ -maxdepth 3 -path '*/design/dashboard.html'`. `cd` into that folder,
 capture its **absolute path** with `pwd`, and write all three files to that full path
 (e.g. `/home/you/maria-hub/CLAUDE.md`) — never a bare `CLAUDE.md`, so nothing lands in
-the home folder. Can't find it at all? Ask the builder where they cloned their project.
+the home folder. Can't find it at all? Ask the builder which folder their project is in.
 Never write their files outside it.
 
 ## Next — refresh the starter files (silent preflight)

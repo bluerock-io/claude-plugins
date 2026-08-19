@@ -3,7 +3,7 @@ name: learn-save-your-work
 description: >-
   Save your work — the standalone backup step of the BlueRock for AI Builders
   learning path, between Sessions 6 and 7: put your project on GitHub, in a
-  private repo of your own, and watch the backup happen. About 10 minutes.
+  private repo of your own, and watch the backup happen. About 10 to 15 minutes.
   Use when I say "back up my project", "back up my work to GitHub", "put my
   project on GitHub", or "set up my backup". Not the end-of-chat save — that is
   /bluerock:wrap-up; this is the one-time setup that gives wrap-up somewhere to
@@ -26,9 +26,9 @@ nothing in this step asks what their work is. Everyone runs the same six steps.
 
 **Outcome:** their project on GitHub, in a private repo under their own
 account, verified by them refreshing the repo page and seeing their own files —
-and from then on, every wrap-up can offer the backup. **Time:** about 10
-minutes when it goes well; the one first-time step in the path where snags are
-normal, so say so rather than promising smooth.
+and from then on, every wrap-up can offer the backup. **Time:** about 10 to 15
+minutes; the one first-time step in the path where snags are normal, so say so
+rather than promising smooth.
 
 ## Three things to hold before you teach anything
 
@@ -400,13 +400,12 @@ When checkpoint 5 passes:
 
 Not part of a run. Read this before rewording anything a builder sees.
 
-- **⚑ The step order changed on 2026-08-17 and the v4 page has NOT caught up.**
-  Sign-in now comes before repo creation, because the repo is created from the
-  chat with `gh repo create` and that needs a signed-in workspace. The page
-  still renders account → repo → sign in, and still sends builders to a browser
-  form this skill no longer walks. **Page and skill ship together**, or a
-  builder reads one order and runs another. Nothing here is released until they
-  agree.
+- **RESOLVED 2026-08-18 — the page carries the 2026-08-17 step order.** Sign-in
+  comes before repo creation, because the repo is created from the chat with
+  `gh repo create` and that needs a signed-in workspace. Verified against the
+  live page: account → sign the workspace in → create the repo from here → send
+  everything up → see your files on GitHub. **Page and skill ship together** on
+  this step, and a reordering on either side is a change to both.
 - **The sign-in path is PROVISIONAL on one live run** (walked 2026-08-17). It
   reverses the finding that `gh auth login` hangs when driven from a session
   — a finding earned over three attempts on 2026-08-16. The device-endpoint
