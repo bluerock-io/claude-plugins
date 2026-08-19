@@ -289,6 +289,16 @@ Session 2: **"wrap up my session"** or `/bluerock:wrap-up`. It shows them what i
 is about to save, with their new skill in the list, and waits for their
 go-ahead.
 
+**When the dashboard opens, stop and let them look at it.** It has opened at
+every wrap-up since Session 2 and it has been scrolled past every time, because
+nothing has told them what it is. This is the first close-out where it has enough
+on it to be worth a beat: **their own skill is now on it**, beside the agents
+they have been running, and the runs list is the last few things they shipped.
+Name three things on it and move on — which specialists did the work this week,
+what got shipped, and the fact that none of it was typed by them into a report.
+One beat, not a tour: they see it again at every wrap-up, and Session 8 reads the
+whole thing back.
+
 **Do not ask for a separate save.** wrap-up already checks git identity, the
 remote, and auth before it offers anything, so a standalone "commit my new skill"
 here would ask the builder to save twice and would walk them into the one failure
@@ -305,6 +315,11 @@ have.
 - *Recovery:* if wrap-up asks for a name and email, that is expected on a fresh
   workspace, not an error. It is labelling their own saves, nothing is sent
   anywhere, and wrap-up runs the whole exchange. Let it.
+- *Recovery:* if the dashboard still shows a stranger's week — a full set of
+  numbers that are obviously not theirs — that is the seeded sample and the flag
+  that marks it has not been cleared yet, which means no wrap-up has completed
+  before this one. Say so plainly rather than reading someone else's numbers to
+  them, and let this wrap-up be the one that replaces it.
 - *Checkpoint 6:* it fired both ways, they refined it at least once based on what
   the real output got wrong, and the file is saved.
 
@@ -338,6 +353,15 @@ When checkpoint 6 passes:
    first. The skill does the drafting; they keep the judgment.
 5. Ask "how would you describe what you built?" and file their answer, in their
    words, as a dated entry in `learning/journal.md`.
+   **Then offer them the room, once, using the sentence they just wrote.** They
+   have described their own skill in their own words, so posting it costs them
+   nothing: "That sentence is worth putting in the BlueRock Builders Slack —
+   https://builders.bluerock.io/community. It's where builders show what they've
+   shipped, and where you can say what you'd want a skill for next; what gets
+   added to the toolkit comes from what people ask for." **Offer, never insist,
+   and never repeat it if they pass.** This is the first thing they have built
+   rather than run, which is why the invitation belongs here and not earlier —
+   before this session they had nothing of their own to show.
 6. **Practice worth naming:** use the skill on real work **three times**, fixing
    one thing after each use and saving the refinement. Three uses is where a
    skill stops being a demo. And the pre-work for next session: **notice one job
@@ -360,26 +384,17 @@ debrief.
 
 Not part of a run. Read this before rewording anything a builder sees.
 
-- **Two site pages exist, and they disagree.** The live page is
-  the session's page data (content repo, private);
-  the v4 preview is
-  its v4 page (content repo, private), with
-  its copy doc at its copy doc (content repo, private). The v4 page
-  replaces the live one at cutover. Until then the **live page is frozen** — it
-  keeps its errors on purpose — so where the two disagree, **the v4 page is the
-  one this skill is held to.**
-- **The skills path: the v4 page is now correct and the live page is still
-  wrong.** The live page says `.claude/commands/meeting-recap/SKILL.md` (step
-  "Read the playbook") and tells builders to create their own skill at
-  `.claude/commands/<name>/SKILL.md`. `bluerock-io/my-workspace` `main` has **no
-  `.claude/commands/` directory at all** — the seeded skills are at
-  `.claude/skills/meeting-recap/`, `capture/`, and `research/`, and the starter
-  kit's own README documents `.claude/skills/`. **Re-verified against
-  `origin/main` on 2026-08-15** (first verified 2026-08-11): still true, three
-  seeded skills, zero paths matching `.claude/commands`. This skill and the v4
-  page both use `.claude/skills/`. **Keep this note until cutover retires the
-  live page** — deleting it early would strand the reason the two pages differ,
-  and step 2's recovery still has to catch a builder reading the live page.
+- **The site page is the canonical version of this session's content**, and
+  there is only one of it now. The 2026-08-17 cutover repointed the live session
+  route at the v4 body, so the frozen live page and its `.claude/commands/`
+  error are both gone. When page and skill disagree, the page is right.
+- **The skills path is `.claude/skills/`, and page and skill now agree on it.**
+  `bluerock-io/my-workspace` `main` has **no `.claude/commands/` directory at
+  all** — the seeded skills are at `.claude/skills/meeting-recap/`, `capture/`,
+  and `research/`, and the starter kit's own README documents `.claude/skills/`.
+  Verified 2026-08-11, re-verified 2026-08-15, and confirmed against the live
+  page on 2026-08-18. Step 5's path recovery stays: a builder can still land a
+  file in the wrong folder on their own.
 - **Step 2 quotes `meeting-recap/SKILL.md` line by line**, and every quote is
   verified against the shipped file: the two-field frontmatter, *"Do not invent
   a meeting"* in the inputs section, *"exactly one next step... One ask per
@@ -396,6 +411,24 @@ Not part of a run. Read this before rewording anything a builder sees.
   language). The builder's own skills are bare; the BlueRock core carries
   `/bluerock:`. Session 6 restates it. If the convention changes, both sessions
   and the site page change together.
+- **Step 6 is where the dashboard gets named properly** (added 2026-08-18), and
+  the placement is deliberate. It has been published as an artifact at every
+  wrap-up since Session 2, so the builder has already seen it three times without
+  being told what it is; Session 2 introduces the noun, this session is the first
+  close-out with enough on it to be worth looking at (their own skill, beside the
+  seeded agents), and Session 8 reads the whole thing back. **Three beats across
+  the path, not one per session** — if a fourth appears, one of them is wrong.
+  The field names and the `sample: true` seed flag are pinned in the starter kit's
+  `design/dashboard-data-contract.md`.
+- **The Slack invitation in the close-out is one of three in the whole path**
+  (added 2026-08-18), and the three are a set: **share** here (their first built
+  thing), **share** at Session 7 (their first unattended run), and **ask** at
+  Session 8 step 4 (the gap they name is the use-case signal). Every other mention
+  of the community in this toolkit is the escalation ladder's third rung and must
+  stay that way — blurring "I am stuck" with "look what I made" costs the ladder
+  its meaning. **Each rides a beat the session already earned**, so none of them
+  adds a new one; the anti-cheerleading rule in "How to teach" governs these too.
+  A fourth invitation is one too many.
 - **Session 6 depends on this session's close-out.** Its pre-work — "write the
   one-line job description of a job you'd hand off" — is the input Session 6
   opens with. Drop it here and Session 6 starts cold.

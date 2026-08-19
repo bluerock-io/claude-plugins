@@ -101,8 +101,7 @@ All three are native Claude Code commands and stay bare — no `/bluerock:` pref
   then hand them to the step that teaches it: **Save your work**, the standalone
   backup step between Sessions 6 and 7 — run it right here by saying "back up my
   project" (or `/bluerock:learn-save-your-work`), or read it first at
-  https://learn.bluerock.io/v4/save-your-work (preview path — moves to
-  /session/save-your-work at cutover). It walks the account, the empty
+  https://learn.bluerock.io/save-your-work. It walks the account, the empty
   repo, the sign-in, and the first backup, with the guards. When it finishes,
   resume here; the remote check above will pass.
   **Do not re-teach the backup in this session** — the step owns it now (the
@@ -295,6 +294,12 @@ generic "nice work," and never before the file was found. Then:
    the trigger changed.** That's the habit that keeps a bench safe as it grows.
 6. Ask "how would you describe what you built?" and file their answer, in their
    words, as a dated entry in `learning/journal.md`.
+   **Then offer the room once, and let the artifact do the talking.** A routine
+   that files a real brief while they sleep is the most showable thing in the
+   path: "Worth posting in the BlueRock Builders Slack —
+   https://builders.bluerock.io/community. Other builders are running these, and
+   seeing what someone else scheduled is the fastest way to think of your next
+   one." Offer, don't insist, and drop it if they pass.
 7. **Practice worth naming**, and it's the tuning rule async work needs: let it
    run, wake up to the brief **at least twice**, and then — **if you stop reading
    an output, kill the routine or change it.** Too long, trim the spec. Wrong
@@ -344,13 +349,21 @@ Not part of a run. Read this before rewording anything a builder sees.
   only gate that matters has been checked. Until the manifest carries a
   machine-readable requirement, **this skill's Before-you-start is the entire
   gate** — do not soften it into a warning to match the other sessions.
-- **One site claim is not ported, because it is wrong.** The page's "What you
-  are actually authorizing" note says *"daily-brew stays read-only even on a
-  schedule."* `daily-brew`'s tools line is `Read, Write, Edit, Grep, Glob` and it
-  seeds `today.md`, so it is not read-only. The **principle** the note is making
-  — you don't loosen a specialist's tools line because the trigger changed — is
-  correct and is ported in the close-out. Fix the site's phrasing; keep the
-  principle.
+- **RESOLVED 2026-08-18 — the false read-only claim never reached the live page.**
+  The pre-cutover page's "What you are actually authorizing" note said
+  *"daily-brew stays read-only even on a schedule."* `daily-brew`'s tools line is
+  `Read, Write, Edit, Grep, Glob` and it seeds `today.md`, so it is not read-only.
+  The v4 body deliberately did not carry the claim, and the 2026-08-17 cutover made
+  that body the live page. The **principle** the note was reaching for — you don't
+  loosen a specialist's tools line because the trigger changed — is correct and is
+  ported in the close-out. Keep the principle; do not restore the claim.
+- **The close-out's Slack line is the second of the path's three community
+  invitations** (added 2026-08-18): Session 5 shares the first thing they built,
+  this session shares the first thing that ran without them, Session 8 step 4 asks
+  what they want next. Everything else that names the community is the escalation
+  ladder and stays help-framed. It rides the journal ask because the builder has
+  just written the sentence in their own words — the offer costs them nothing,
+  which is the only reason it earns a place in a close-out this dense.
 - **Session 6's practice is this session's input** ("watch for the dispatch you
   repeat at the same time every day or week"). Session 8's is this session's
   output (the three-sentence workflow statement). Both are named in the

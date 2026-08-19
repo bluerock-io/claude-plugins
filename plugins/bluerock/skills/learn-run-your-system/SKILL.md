@@ -117,10 +117,39 @@ they work in it. That difference is the whole return on the eight sessions.
 
 ## The steps
 
-### 1. Read their system back to them
+### 1. Read their system back to them — the dashboard first
 
-**Run this before you say anything about what they built.** Inventory the project
-at its absolute path:
+**Run this before you say anything about what they built.** Their dashboard has
+been keeping this inventory since Session 2 and nobody has ever told them to look
+at it. Start there, then fill what it doesn't hold.
+
+**First, read `design/dashboard-data.js`** at the project's absolute path.
+
+⚑ **Check `sample` before you read a single number.** The starter kit seeds that
+file with a stranger's week and a top-level `sample: true`. If it is still set,
+**every figure in it is a demo and none of it is theirs** — say so plainly, skip
+to the by-hand inventory below, and carry it to step 4 as a real finding: they
+have been closing chats without wrapping up, so nothing has been keeping score.
+`/bluerock:wrap-up` clears the flag the first time it writes real rollups.
+
+When it is their own data, read these back — they are rolled up from their runs,
+not estimated:
+
+- **`productivity.weekly`** — agent actions per week. This is the curve, and it
+  is the one number set they have never seen. Name the first week and the latest.
+- **`actions.byAgent`** — which specialists did the work, how many actions each,
+  and the wall-clock time. Teams expand into their members.
+- **`priorities`** — `set` / `closed` / `carried` for the week.
+- **`perf`** — `successRate` over `runs`, `outputsShipped`, `avgSessionMin`.
+- **`brag`** — sessions, tools called, files read, tokens, model.
+- **`runs`** — the last things they shipped, each attributed to the agent or team
+  that shipped it.
+
+**Do not read `cost` or `guardrail` back to them.** Both are in honest empty
+states in beta and neither is theirs to see yet; the dependency notes say why.
+
+**Then fill the gaps by hand** — the things no rollup holds, and they are the
+ones that separate what they built from what shipped with the kit:
 
 - **Memory** — `CLAUDE.md`, `voice.md`, `objectives.md`. Not just that they exist:
   how many avoid-rules are in `voice.md`, whether `objectives.md` is ranked.
@@ -129,18 +158,19 @@ at its absolute path:
   theirs.
 - **Agents** — `.claude/agents/`. Same split: seeded versus the team they built in
   Session 6. Name theirs, and name their tools lines.
-- **Output** — `notes/`, `my-work/`, and whatever folder their routine writes to
-  (`briefs/` in the shipped example). **Count the files.** This is the number
-  that lands hardest, because it's the one they haven't been watching. Only
-  `notes/` ships with the starter kit: `my-work/` appears the first time a team
-  runs, and the routine's folder exists only if Session 7's instruction named
-  one. **A folder that isn't there is a finding, not an error** — say which and
-  carry it to step 4.
+- **Output folders** — `notes/`, `my-work/`, and whatever folder their routine
+  writes to (`briefs/` in the shipped example). Only `notes/` ships with the
+  starter kit: `my-work/` appears the first time a team runs, and the routine's
+  folder exists only if Session 7's instruction named one. **A folder that isn't
+  there is a finding, not an error** — say which and carry it to step 4.
 - **History** — `git -C <project> log --oneline | wc -l` and the date of the first
   commit. How long they've been at it, and how many times they saved.
 
 Then say it back as a short inventory, warmly and specifically. Read one line
-from their own `learning/journal.md` back to them if there's a good one.
+from their own `learning/journal.md` back to them if there's a good one. And tell
+them where the numbers came from, in one line: their dashboard has been keeping
+this the whole time, and step 5 publishes the refreshed version — with today on
+it — so they leave looking at it rather than hearing about it.
 
 - *If the inventory is thinner than they expected*, say so kindly and without
   softening it into a lie. A builder with three seeded agents and no team of their
@@ -219,8 +249,18 @@ colleague would, using the inventory from step 1:
 Land it on **one thing** they'll build next, specific enough to start. "Improve my
 skills" is not it; "add a check for whether the follow-up already went out" is.
 
+**Then send that sentence somewhere it can do a second job.** They have just
+written the most useful thing a builder can tell us — the next capability they
+actually want — and right now it dies in this chat. Offer it once, plainly:
+"Post that in the BlueRock Builders Slack —
+https://builders.bluerock.io/community. That one line is exactly what the
+toolkit gets built from, and someone in there may already have solved it."
+Offer, never insist. **Do not turn this into a survey**: one sentence, their
+sentence, no follow-up questions.
+
 - *Checkpoint 4:* they can name the next thing their project needs, in one
-  sentence, and say why.
+  sentence, and say why. Whether they post it is theirs to decide and is not part
+  of the checkpoint.
 
 ### 5. Close for real with `/bluerock:wrap-up`
 
@@ -271,12 +311,15 @@ When checkpoint 5 passes:
    chat, the chat distills itself into a few lines of file-ready text. Their next
    one — maybe weeks from now, maybe on a different machine — picks up the thread
    because **the thread was never in the conversation. It was in their project.**
-4. **Name the slope, using the real numbers from step 1.** None of these artifacts
-   is impressive alone: a markdown file, a sixty-line spec, a two-sentence
-   schedule. What's impressive is that each one made the next one cheaper. The
-   first skill took an evening; the second took a third of that. The agent reused
-   the anatomy; the routine reused the agent. **They weren't collecting artifacts;
-   they were compounding them.**
+4. **Name the slope, and point at the curve.** `productivity.weekly` from step 1
+   is that argument already drawn — first week to latest, in their own actions.
+   None of these artifacts is impressive alone: a markdown file, a sixty-line
+   spec, a two-sentence schedule. What's impressive is that each one made the next
+   one cheaper. The first skill took an evening; the second took a third of that.
+   The agent reused the anatomy; the routine reused the agent. **They weren't
+   collecting artifacts; they were compounding them.** (If step 1 found
+   `sample: true`, there is no curve — say that honestly and make the slope from
+   the by-hand inventory instead. Never narrate the seeded numbers as theirs.)
 5. Ask "how would you describe what you built?" one last time and file their
    answer in `learning/journal.md`. This entry is the one they'll want later.
 6. **The commitment, and it's the practice for this session:** write four lines and
@@ -325,6 +368,26 @@ Not part of a run. Read this before rewording anything a builder sees.
   **If someone later decides the capstone must be presentation-gated, that's a
   product decision, not a copy fix** — it changes what "complete" means for the
   whole path.
+- **Step 1 leads with the dashboard, and that is the point of the step** (added
+  2026-08-18). `/bluerock:wrap-up` has been rolling these numbers up since Session
+  2 and no session ever told the builder to look at them — the capstone was
+  hand-counting files the product had already counted. The dashboard now supplies
+  the curve (`productivity.weekly`), the per-agent split, the priorities loop, and
+  the brag stat; the by-hand pass supplies only what no rollup holds, which is the
+  seeded-versus-theirs split and the contents of the memory files.
+  ⚑ **`cost` and `guardrail` are deliberately NOT read back.** In beta the cost
+  card is `available: false` ("Coming soon" — no pricing basis exists in a beta
+  workspace, so tokens cannot honestly become dollars) and the guardrail card is
+  dropped from the layout entirely (`wired: false`, no sensor pipeline). Voicing
+  either would pitch an unshipped capability inside the one session that has
+  earned the right not to pitch. When those pipelines wire up, where they land in
+  the path is a curriculum decision, not an edit to this step.
+  ⚑ **`sample: true` is a hard branch, not a caveat.** The seeded
+  `dashboard-data.js` carries a stranger's full week. Narrating it as the
+  builder's own is the worst available failure in this session — worse than a thin
+  inventory — because it is flattering, specific, and false, and they have no way
+  to catch it. `design/dashboard-data-contract.md` in the starter kit is the
+  authority on the flag and on every field named above.
 - **Step 1's inventory reads real paths, and not all of them ship.** Checked
   against `bluerock-io/my-workspace` `main` on 2026-08-15. **Shipped:**
   `.claude/skills/` (not `.claude/commands/`) holding `meeting-recap`, `capture`,
@@ -364,6 +427,14 @@ Not part of a run. Read this before rewording anything a builder sees.
   are healthy and glossed in the steps that introduce them.
 - **Session 7's practice is this session's input** (the three-sentence workflow
   statement). If it moves, step 2 needs its own way to source one.
+- **Step 4's Slack line is the third and last of the path's community
+  invitations** (added 2026-08-18), and it is the only one that ASKS rather than
+  shares. The gap sentence is already elicited and already written; posting it is
+  a second use for work the builder has done. It matches the Session 8 page's
+  community card, which has said "tell us what you want covered next — the topics
+  we add come from what builders ask for" since 2026-08-09, so skill and page now
+  agree. ⚑ **Not a survey.** One sentence, theirs, no follow-up questions, and
+  posting is never part of checkpoint 4.
 - **The closing BlueRock beat is deliberately one paragraph, once, at the very
   end**, after the builder has finished. It is the site's "Beyond your project"
   Learn-more, ported at the same register. **Do not move it earlier or repeat

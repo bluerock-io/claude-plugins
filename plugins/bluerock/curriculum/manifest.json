@@ -10,11 +10,11 @@
       "title": "Get Started",
       "skill": "learn-get-started",
       "delivery": "in-session",
-      "outcome": "Your agentic project standing in your Cloud AI Workspace, confirmed live when you run /bluerock:check.",
-      "time": "~20 min",
+      "outcome": "Your AI tool connected to your BlueRock Cloud AI Workspace, with your agentic project confirmed live when you run /bluerock:check.",
+      "time": "~10 min",
       "phase": "setup",
       "prerequisites": [],
-      "checkpoints": 8,
+      "checkpoints": 3,
       "web": "https://learn.bluerock.io/get-started"
     },
     {

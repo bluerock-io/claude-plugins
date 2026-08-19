@@ -196,19 +196,20 @@ and it's the one that keeps them safe in every session after this.
 - *Checkpoint 2:* the diff on `scribe.md` shows a **Wins** line added to the
   Job's step 3, the change is saved, and nothing else moved.
 
-### 3. Run it on your actual day
+### 3. Run it again, now that you've changed it
 
-Now the real test: their day, in their file, including one thing that went well.
-The demo in step 1 was someone else's call. This one is theirs.
+Now the real test of the edit: the same real day, filed by an agent they just
+changed, including one thing that went well. Step 1 proved scribe works. This
+run proves *their* line works.
 
 ```
 scribe, file my notes for today: [what actually happened — a call, a decision, a
 loose end — and one thing that went well].
 ```
 
-- *What they'll see:* their real day filed into `notes/<today>.md`, sorted into
-  the sections — and their win under the new **Wins** section, because they
-  added it.
+- *What they'll see:* their day filed into `notes/<today>.md`, sorted into the
+  sections — and their win under the new **Wins** section, which exists only
+  because they put it there.
 - *Recovery:* nothing under Wins usually means they didn't give it one. Re-run
   with an explicit win ("shipped the deck," "unblocked the Acme deal") and watch
   the section fill. If they gave a win and it still didn't land, check step 2's

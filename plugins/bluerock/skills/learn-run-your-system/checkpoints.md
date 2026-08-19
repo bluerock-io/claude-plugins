@@ -15,6 +15,13 @@ Run inspection commands quietly. `<project>` is the project's absolute path.
 
 - **Inspectable, and it's the work of the step.** Actually run the inventory
   before saying anything about what they built:
+  - **`design/dashboard-data.js` FIRST.** Read `sample` before any figure: while
+    it is `true` the file is still the seeded stranger's week and **no number in
+    it is theirs** — report that, fall back to the by-hand reading below, and
+    carry it to step 4 (they have been closing chats without wrapping up). When
+    it is their own: `productivity.weekly` (the curve), `actions.byAgent`,
+    `priorities`, `perf`, `brag`, `runs`. **Never read `cost` or `guardrail`
+    back** — both are honest empty states in beta.
   - `ls <project>` and read `CLAUDE.md`, `voice.md`, `objectives.md` — filled or
     still seeded? How many avoid-rules? Is `objectives.md` ranked?
   - `ls <project>/.claude/skills/` — split shipped (`meeting-recap`, `capture`,
@@ -31,7 +38,10 @@ Run inspection commands quietly. `<project>` is the project's absolute path.
   - `learning/journal.md` — read it; their own words are the best material here.
 - **Pass spec:** you have named back, **specifically**, what is actually there.
   Generic summary of the curriculum is a fail — "you built memory, skills, agents,
-  and routines" is the sentence this checkpoint exists to prevent.
+  and routines" is the sentence this checkpoint exists to prevent. **Reading the
+  seeded sample back as though it were their week is a harder fail than a thin
+  inventory**, because it is the one reading that cannot be corrected later: they
+  will believe it.
 - **Get the seeded-versus-theirs split right.** Crediting a builder with
   `scribe` or `meeting-recap` as their own work is the one error in this session
   that actually stings, and it undermines everything the inventory is for. When in

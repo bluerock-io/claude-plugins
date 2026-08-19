@@ -16,14 +16,15 @@ read: keep it tight, aim for a couple of minutes, not a deep research run.
 ## First — anchor to the project
 
 The scorecard, its working folder, and the `voice.md` / `objectives.md` the run reads
-all live in the builder's project (the repo they cloned from the starter kit). In an SSH/cloud
-container the session usually starts in the **home folder**, with the project one level
-down, named by the builder (`maria-hub`, `alex-hub` — don't assume a fixed name).
-Identify it by signature, not name: run `ls`; see `CLAUDE.md` and `design/` side by
+all live in the builder's project. Two generations exist: the project ships inside the workspace image (usually the folder
+`my-workspace`); projects made before 2026-08 were cloned and carry whatever
+name the builder chose. **Assume neither — identify it by its signature.** In an SSH/cloud
+container the chat may start in the project itself or in the **home folder** with the
+project one level down — both are normal. Identify it by signature, not name: run `ls`; see `CLAUDE.md` and `design/` side by
 side? You're in the project. If not, find it: `ls */CLAUDE.md`, then `ls ~/*/CLAUDE.md`,
 else `find ~ -maxdepth 3 -path '*/design/dashboard.html'`. `cd` in, capture the
-**absolute path** with `pwd`, and use that full path throughout. Can't find it? Ask
-where they cloned their project.
+**absolute path** with `pwd`, and use that full path throughout. Can't find it? Ask the
+builder which folder their project is in.
 
 ## Setup
 

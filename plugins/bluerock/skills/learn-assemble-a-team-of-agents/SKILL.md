@@ -135,9 +135,8 @@ swapped in), or `/research Acme Corp`.
 
 **On the slash:** `research` is a skill in *their* project, so it fires **bare**,
 like `meeting-recap` in Session 5. Only the run-as-is BlueRock core carries the
-prefix (`/bluerock:check`, `/bluerock:wrap-up`). If they type
-`/bluerock:research` and nothing happens, that's why — say it in one line and
-move on.
+prefix (`/bluerock:check`, `/bluerock:wrap-up`). One line as it comes up, not a
+lecture — it is the rule they'll use for every skill they build.
 
 Tell them to watch the **handoffs** rather than reading every line: researcher
 finishes and files, then signal-scanner picks up, then composer.
@@ -326,24 +325,17 @@ Not part of a run. Read this before rewording anything a builder sees.
 - **The site page is the canonical version of this session's content.** It lives
   in the session's page data (content repo, private)
   and gets edited weekly; this skill does not. When the two disagree, the site is
-  right and this file is stale — **with one exception, below.**
-- **This skill deliberately contradicts the site on how the research team is
-  dispatched, because the site is wrong.** The page says `/bluerock:research`.
-  `research` is a **builder-owned** skill, shipped in `my-workspace` at
-  `.claude/skills/research/SKILL.md` — there is no `research` skill in the
-  BlueRock plugin, so `/bluerock:research` resolves to nothing. It fires bare:
-  `/research`. The page's own provenance comment records the cause: the
-  2026-07-22 `/bluerock:` convention was applied to it, but that convention
-  covers **plugin** skills only, which is exactly what the Session 5 page says
-  ("only the run-as-is plugin core carries the prefix"). The two pages
-  contradict each other. Verified 2026-08-11. **Fix the site page**; when it's
-  fixed, delete this note rather than the bare form.
-  **Status, 2026-08-15:** the fix is written and is waiting on cutover, not on a
-  decision. The **v4 preview page** (content repo, private)
-  says `/research`, bare. The **live** page still says `/bluerock:research` and
-  stays that way — `learn-session-page-drafts.md` freezes live session pages until
-  the v4 set ships. So step 1's one-line redirect stays earned until the v4 page
-  is promoted; **delete this note and that redirect at cutover, together.**
+  right and this file is stale.
+- **RESOLVED 2026-08-18 — the page and this skill now agree that `research` fires
+  bare.** The live page said `/bluerock:research` for months, which resolves to
+  nothing: `research` is a **builder-owned** skill shipped in `my-workspace` at
+  `.claude/skills/research/SKILL.md`, and there is no `research` skill in the
+  BlueRock plugin. The 2026-08-17 cutover carried the fix onto the live route.
+  Step 1's one-line redirect ("if you typed `/bluerock:research`, that's why")
+  retired with it, as its own note instructed — the page no longer sends anyone
+  down that path. **The rule it taught stays**, because it transfers: the
+  builder's own skills are bare, the run-as-is BlueRock core carries
+  `/bluerock:` (the 2026-07-22 convention, restated in Session 5).
 - **Part one quotes all three seeded agent specs, and every quote is verified
   against `bluerock-io/my-workspace` `main`:** `researcher` and `signal-scanner`
   carry `Read, Write, WebSearch, WebFetch, Glob`; `composer` carries
