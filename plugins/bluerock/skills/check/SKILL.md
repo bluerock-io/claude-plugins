@@ -235,7 +235,7 @@ Prefer to see it first? The session page has the overview and a short video:
 https://learn.bluerock.io/session/meet-your-first-agent-team
 
 Questions as you go? The BlueRock Builders Slack is the fastest way to get unstuck:
-https://join.slack.com/t/bluerockcommunity/shared_invite/zt-471t3a1pj-4kCBiEaS2ulhW7BaKfCGSg
+https://builders.bluerock.io/community
 ```
 
 Substitute the project's real folder name on the project line. If the links were created or
@@ -274,7 +274,7 @@ report that speaks every session is a report builders learn to skim.
 
 I did not create links because those folders are not in your project yet. Ask in the
 BlueRock Builders Slack and share your project folder name:
-https://join.slack.com/t/bluerockcommunity/shared_invite/zt-471t3a1pj-4kCBiEaS2ulhW7BaKfCGSg
+https://builders.bluerock.io/community
 ```
 
 **When `~/.claude/agents` or `~/.claude/skills` is a real directory or another
@@ -285,7 +285,7 @@ non-symlink file:**
 
 I did not change or replace them. Ask in the BlueRock Builders Slack and share what
 `~/.claude/agents` and `~/.claude/skills` contain:
-https://join.slack.com/t/bluerockcommunity/shared_invite/zt-471t3a1pj-4kCBiEaS2ulhW7BaKfCGSg
+https://builders.bluerock.io/community
 ```
 
 **If exactly one thing fails** (say Python is missing): mark that line ❌ instead of ✅, keep
@@ -305,7 +305,7 @@ point your tool at your workspace.
 https://learn.bluerock.io/get-started
 
 Already connected and still seeing this? Ask in the Slack — that one's on us:
-https://join.slack.com/t/bluerockcommunity/shared_invite/zt-471t3a1pj-4kCBiEaS2ulhW7BaKfCGSg
+https://builders.bluerock.io/community
 ```
 
 Hold the checklist until the project is in place — a receipt for tools with nowhere to write

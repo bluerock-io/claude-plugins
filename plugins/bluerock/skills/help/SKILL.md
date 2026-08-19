@@ -102,7 +102,7 @@ In this order, and only as far as needed:
 
 1. **Ask here first** — most things resolve in this conversation.
 2. **The builder FAQ:** https://builders.bluerock.io/faq
-3. **Slack** (community, support, and feedback): https://join.slack.com/t/bluerockcommunity/shared_invite/zt-471t3a1pj-4kCBiEaS2ulhW7BaKfCGSg — the right
+3. **Slack** (community, support, and feedback): https://builders.bluerock.io/community — the right
    place for "is anyone else seeing this?"
 4. **customer-support@bluerock.io** — for anything private or account-related, per the Slack
    rules.

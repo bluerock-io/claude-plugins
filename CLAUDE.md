@@ -137,10 +137,11 @@ Recovery lines handle known failures. When they don't, the ladder is fixed and i
 1. **The skill's own recovery, once.** Never invite a third retry without a new reason it
    would go differently.
 2. **`/bluerock:help`** — the triage skill exists for exactly this; route there by name.
-3. **The BlueRock Builders Slack**, by its canonical invite (the marketing-hub LINKS.md
-   row is the source of truth; note that a Slack invite is capped by joins, not by a date,
-   so a refreshed link means a new URL here), offered warmly and with a ready-to-paste
-   description of where they
+3. **The BlueRock Builders Slack**, at `https://builders.bluerock.io/community` — a
+   redirect BlueRock owns, never the Slack invite itself, because a Slack invite is
+   capped by joins and a refreshed one is a different URL, which these files cannot
+   follow between releases. The marketing-hub LINKS.md row is the source of truth.
+   Offered warmly and with a ready-to-paste description of where they
    are: "Session 3, step 1 — scribe wrote to the home folder instead of my project." A stuck
    builder who leaves with a good Slack post is a far better outcome than one who churns
    silently — write the post for them, in their words, so asking costs nothing.

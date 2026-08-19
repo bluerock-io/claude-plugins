@@ -336,6 +336,6 @@ dashboard.
 
 ## If they're stuck beyond the step recoveries
 
-The Slack is the human backstop: https://join.slack.com/t/bluerockcommunity/shared_invite/zt-471t3a1pj-4kCBiEaS2ulhW7BaKfCGSg — post where
+The Slack is the human backstop: https://builders.bluerock.io/community — post where
 they got stuck and a screenshot. Offer it after a second failed attempt at any
 step, not as a first resort.
