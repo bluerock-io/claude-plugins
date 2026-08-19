@@ -1,5 +1,24 @@
 # Changelog — `bluerock` plugin
 
+## 0.9.10 — the help ladder moves from Discord to Slack
+
+- **Change — every "ask a human" rung now lands in the BlueRock Builders Slack, not
+  Discord.** The community moved platforms, so the fixed help ladder (a skill's own
+  recovery once, then `/bluerock:help` by name, then the community) moves with it.
+  Eleven files: the repo `CLAUDE.md` that defines the ladder, `help`, `check`, and the
+  eight `learn-*` skills and checkpoint files that hand a stuck builder a
+  ready-to-paste post.
+- **Fix — skill files quote a durable redirect, never the invite URL directly.** A
+  Slack invite is capped by joins rather than by a date, so a refreshed one is a
+  different URL — and a URL quoted in a skill file only reaches an installed builder
+  on the next plugin release. Every reference now points at
+  `https://builders.bluerock.io/community`, a redirect BlueRock owns, so a future
+  invite refresh never breaks an already-installed builder's escape hatch. `CLAUDE.md`
+  documents this plainly so a future author doesn't "simplify" the redirect back out.
+- No skill names a specific channel any longer — the Discord landing channel is gone
+  and its Slack counterpart isn't settled, so copy points at the community rather than
+  a room.
+
 ## 0.9.9 — the adoption repair drops `git reset`, which Claude Code auto-blocks
 
 - **Fix — 0.9.8's one-time adoption repair never actually ran.** Confirmed on a fresh
