@@ -1,5 +1,21 @@
 # Changelog — `bluerock` plugin
 
+## 0.10.1 — `wrap-up` says what the next chat is for
+
+- **Change — `wrap-up` now closes on the working habit: one task per chat.** The habit was
+  already written and already taught, in `learn-meet-your-first-agent-team` step 5 ("a fresh
+  chat per task, do the work, wrap up before moving on") and compressed in `help`. The one
+  skill that runs at the exact moment it applies never said it, so a builder who reached the
+  end of a chat was told what had been logged and nothing about what to do next. One line at
+  the end of step 6, after the continuation prompt that already carries the why.
+  It is the only skill here that keeps running after the eight sessions end, which is where
+  the habit has to survive.
+- **Note — the line is now said in three places and is recorded as one habit.** `wrap-up`'s
+  "who depends on this skill's wording" names the other two plus Session 2's live page, whose
+  Learn more carries the matching learner-facing version. Reword one, check the rest.
+  Deliberately not justified by the context window: Session 3 owns that concept, and this
+  line reaches builders before Session 3 and long after it.
+
 ## 0.10.0 — Session 1 is realigned to the live page, and `help` stops hiding six sessions
 
 - **Change — `learn-get-started` teaches the setup that exists.** The live Get Started

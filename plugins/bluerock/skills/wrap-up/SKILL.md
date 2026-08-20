@@ -262,6 +262,9 @@ Read session-log.md for context.
 That's the whole point of the ritual: the next session starts already knowing
 what this one knew — and my dashboard already shows the work.
 
+Then, in one line, the habit this closes: one task per chat. Start a fresh chat
+for the next thing, and wrap up again when it's done.
+
 ### 7. A quiet check on my setup
 
 Last, run the shared version-drift procedure in
@@ -311,3 +314,12 @@ Not part of a run. Read this before rewording anything a builder sees.
 - **learn.bluerock.io's session pages describe what wrap-up does at the end of a
   session.** Behavior-visible changes here need the page diff against the session's live
   page and the session's copy doc before finishing.
+- **The one-task-per-chat line in step 6 is said in three places and must stay one
+  habit** (Linda, 2026-08-19). Here, at the moment it applies; in
+  `skills/learn-meet-your-first-agent-team/SKILL.md` step 5, which is where a builder
+  first hears it ("a fresh chat per task, do the work, wrap up before moving on"); and in
+  `skills/help/SKILL.md`'s wrap-up bullet. Session 2's live page carries the matching
+  learner-facing version in its Learn more, under "Should I keep one chat going, or start
+  a new one?". Reword one and the other three are the diff to check. It is deliberately
+  NOT justified by the context window: Session 3 owns that concept, and this line reaches
+  builders who have not reached Session 3, plus builders long past the path.
