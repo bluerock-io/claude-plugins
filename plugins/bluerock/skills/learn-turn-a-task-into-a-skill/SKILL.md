@@ -358,7 +358,7 @@ When checkpoint 6 passes:
    nothing: "That sentence is worth putting in the BlueRock Builders Slack —
    https://builders.bluerock.io/community. It's where builders show what they've
    shipped, and where you can say what you'd want a skill for next; what gets
-   added to the toolkit comes from what people ask for." **Offer, never insist,
+   added to the BlueRock toolkit comes from what people ask for." **Offer, never insist,
    and never repeat it if they pass.** This is the first thing they have built
    rather than run, which is why the invitation belongs here and not earlier —
    before this session they had nothing of their own to show.

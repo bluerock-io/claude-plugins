@@ -136,7 +136,7 @@ line items; they roll up into the four-line report.
      say plainly what it costs — wrap-up will skip backing up, and a save could still target
      the template — and that rerunning `/bluerock:check` offers again. **Never remove
      without a yes.** When this repair ran, the report carries one plain sentence about it.
-6. **The BlueRock plugin is installed.** This check running confirms the plugin is active.
+6. **The BlueRock toolkit is installed.** This check running confirms it is active.
 7. **The BlueRock tools are current** (detect-only). Run the shared procedure in
    `${CLAUDE_PLUGIN_ROOT}/shared/version-drift.md`. If the fetch is skipped or fails, this
    check simply isn't part of this run — say nothing about it either way, and never imply
@@ -160,7 +160,7 @@ line items; they roll up into the four-line report.
      Slack. Never guess at repairing a config file.
    - **Otherwise, ask before writing — and recommend yes, with the reason**, in the same
      spirit as checks 3 and 5. Say it roughly this way, in your own words: "One more thing
-     to turn on. The BlueRock plugin can keep itself up to date, but the switch for that
+     to turn on. The BlueRock toolkit can keep itself up to date, but the switch for that
      ships **off** — so new skills and fixes sit waiting until someone updates by hand. I
      can turn it on in your Claude Code settings: one line, nothing else in the file
      changes, and your project isn't touched. **I'd say yes:** from then on updates arrive
@@ -222,7 +222,7 @@ builder language — no bare command names, no version numbers.
 
 ✅ **Claude Code** — running
 ✅ **Your project** — `my-ai-work-hub`
-✅ **The BlueRock plugin** — ready
+✅ **The BlueRock toolkit** — ready
 ✅ **Under the hood** — Python and Git ready
 
 Your project runs in your workspace, and every BlueRock skill writes there. Your project's own
