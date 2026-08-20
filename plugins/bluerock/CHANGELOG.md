@@ -1,5 +1,25 @@
 # Changelog — `bluerock` plugin
 
+## 0.10.1 — the builder-facing noun is the toolkit, not the plugin
+
+- **Change — "the BlueRock plugin" becomes "the BlueRock Builder Toolkit" on first mention
+  and "the BlueRock toolkit" after**, on every surface a builder reads. The old noun was not
+  wrong, it expired: "plugin" was unavoidable while a builder had to add a marketplace, find
+  the Plugins tab, and click Install, and plugin pre-install on both tracks (2026-08-18)
+  removed the only thing forcing the word onto a learner surface. The shipped `displayName`
+  has been `BlueRock Builder Toolkit` all along, which is what a builder actually reads on the
+  install screen, and *toolkit* names what they get where *plugin* named how it arrived.
+  Decided by the product owner, 2026-08-19, alongside the same sweep on learn.bluerock.io.
+  Swept here: `check`'s report line (`✅ The BlueRock toolkit — ready`) and its
+  installed/auto-update sentences, `help`'s community block, and Session 5's Slack beat.
+- **"Plugin" is CORRECT in three places and stays**, which is why this was a sweep rather than
+  a replace: UI labels in install or update steps, literal commands
+  (`claude plugin update bluerock@bluerock`), and any explanation of why commands take the
+  `/bluerock:` prefix — that prefix is `plugin.json`'s `name` field, so the mechanism cannot be
+  described without the word. `check`'s prefix rule and Session 1's runtime note both keep it
+  on those grounds. Code identifiers never move. The repo `CLAUDE.md` now records the split so
+  a later pass does not "align" the two.
+
 ## 0.10.1 — `wrap-up` says what the next chat is for
 
 - **Change — `wrap-up` now closes on the working habit: one task per chat.** The habit was

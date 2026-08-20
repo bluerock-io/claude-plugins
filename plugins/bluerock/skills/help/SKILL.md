@@ -112,7 +112,7 @@ In this order, and only as far as needed:
    rules.
 
 **The Slack is not only for when something breaks, and this is the place that says so.**
-Almost every time the toolkit names it, someone is stuck — the escalation ladder is its main
+Almost every time the BlueRock toolkit names it, someone is stuck — the escalation ladder is its main
 job and that is correct — so a builder who has only ever been sent there mid-failure learns the
 room is where you go when you have a problem. It has two other jobs, and either is worth naming
 in one line **when it actually fits what they are doing** — never as a sign-off, never twice in
@@ -121,7 +121,7 @@ a conversation:
 - **Showing what they built.** The right moment is right after something worked, not after you
   fixed something.
 - **Asking for what they want next.** A builder who just said "I wish it could also…" has handed
-  you the most useful sentence a builder can write. Tell them that is what the toolkit gets built
+  you the most useful sentence a builder can write. Tell them that is what the BlueRock toolkit gets built
   from, and that posting it takes one line.
 
 If they are stuck right now, none of this applies: give them the one next step and stop.

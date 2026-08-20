@@ -178,8 +178,15 @@ Never leave a builder holding an error with no named next move.
 - **Nouns are locked** in the locked-vocab doc (content repo, private): the
   builder's repo is **their project / their agentic project** (some older files say Hub — same
   repo, never rename their folder); the cloud environment is **their BlueRock Cloud AI
-  Workspace / their workspace**; the toolkit is **the BlueRock plugin**. Internal codenames never
-  appear anywhere a builder can see.
+  Workspace / their workspace**; the toolkit is **the BlueRock Builder Toolkit** on first
+  mention and **the BlueRock toolkit** after (RENAMED 2026-08-19, superseding "the BlueRock
+  plugin" — the shipped `displayName` is what a builder reads on the install screen, and
+  *toolkit* names what they get where *plugin* named how it arrived). ⚑ **"Plugin" is still
+  correct in three places** and this repo carries all three: UI labels in install or update
+  steps, literal commands (`claude plugin update bluerock@bluerock`), and explaining why
+  commands take the `/bluerock:` prefix — that prefix is `plugin.json`'s `name` field, so the
+  mechanism cannot be described without the word. Code identifiers never move. Internal
+  codenames never appear anywhere a builder can see.
 - **Behavior-visible changes require a page diff.** If a skill edit changes what's on screen
   (prompts, waits, artifacts, paths, permission asks), list the changes against the session's
   live page and the session's copy doc before finishing — the pages quote this repo's
