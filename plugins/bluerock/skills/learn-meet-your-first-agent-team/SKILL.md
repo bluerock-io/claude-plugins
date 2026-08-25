@@ -27,7 +27,7 @@ share it, wrap up):
 
 | Role | First win | Team | Saved at |
 |---|---|---|---|
-| `sales`, `operations` (or unset) | **Account scorecard** — Fit, Timing, Reachability, and a recommended next action | `scout` → `scorer` | `my-work/account-scorecard/<company>/` |
+| `sales`, `operations` (or unset) | **Account scorecard** — who the company is, then Fit, Timing, Reachability, and a recommended next action | `scout` → `scorer` | `my-work/account-scorecard/<company>/` |
 | `marketing` | **Core messaging doc** — positioning, voice, and the phrases their brand actually uses | `site-reader` → `distiller` | `my-work/messaging-doc/<brand>/` |
 
 **Outcome:** the lane's one-page work product, opened as a Claude Artifact and
@@ -87,7 +87,8 @@ saved in their project. **Time:** about 5 minutes. **Prerequisites:** Session 1
   one-line recap, never from the top.
 - Open with the picture, in one breath, for their lane. Scorecard lane: you say
   "score Ramp" → a two-agent team (scout does a fast, sourced web scan; scorer
-  grades Fit, Timing, Reachability) → you get a one-page scorecard.
+  grades Fit, Timing, Reachability) → you get a one-page scorecard: who the
+  company is, and whether to go after them.
   Messaging-doc lane: you say "build my messaging doc" → a two-agent team
   (site-reader reads your website and captures exactly what it says;
   distiller turns it into your core messaging doc) → you get the one-pager
@@ -115,10 +116,17 @@ any real company works.
 They ask for the scorecard in plain language, right here: **"score Ramp"**
 (their company swapped in), or `/bluerock:scorecard Ramp`. Before they send it,
 set expectations in three beats: scout scans the live web — what the company
-does, size and stage, a recent signal or two; scorer grades **Fit**,
-**Timing**, and **Reachability** with a one-line "why now" and a next action;
-the finished scorecard opens as a **Claude Artifact** and the source saves in
-their project at `my-work/account-scorecard/<company>/`.
+does and sells, where it's headquartered, how many people work there, roughly
+what it earns, and a recent signal or two; scorer grades **Fit**, **Timing**,
+and **Reachability** with a one-line "why now" and a next action; the finished
+scorecard opens as a **Claude Artifact** and the source saves in their project
+at `my-work/account-scorecard/<company>/`.
+
+Say one thing about the numbers before they see them: most private companies
+never publish revenue, so where scout can only find an outside estimate it
+marks it `est.`, and where it finds nothing it writes "Not disclosed" instead of
+guessing. A blank they can see is what makes the rest of the page safe to
+forward.
 
 Claude will ask permission before reaching the web or writing to their
 project. That's not a hurdle — it's them deciding what their agents are
@@ -146,8 +154,10 @@ hand-off is the thing to notice.
 
 ### 4. Open it, then send it
 
-The scorecard opens as a Claude Artifact: a clean one-pager — Fit / Timing /
-Reachability rated, the "why now," the next action. The markdown source is
+The scorecard opens as a Claude Artifact: a clean one-pager — headquarters,
+headcount and estimated revenue across the top, what the company does and the
+lines of business it sells, then Fit / Timing / Reachability rated, the "why
+now," the next action. The markdown source is
 saved at `my-work/account-scorecard/<company>/`, theirs to keep and edit.
 
 Then the actual win: **share it.** Send it to the person named in their role's
@@ -261,7 +271,12 @@ When checkpoint 5 passes:
 3. **One thing to notice for later.** Scorecard lane: right now Fit is judged
    against a sensible default, not against what *they* sell to. In Session 4
    they teach their project their objectives; then the exact same "score"
-   command grades against their real priorities. Messaging-doc lane: right now
+   command grades against their real priorities. Point at the facts row when
+   you say it, using their company's own numbers: today the headcount and
+   revenue up top are context they read for themselves. Once their objectives
+   name a company size or a revenue band, those same two numbers become the
+   reason Fit lands where it does. Nothing about the command changes; the
+   scorecard just starts knowing what they sell. Messaging-doc lane: right now
    the doc is a saved file. In Session 4 they wire it into their project's
    memory; then every skill they build drafts against it without being told —
    and in Session 6, the same team pointed at a competitor's site gives a

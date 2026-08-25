@@ -39,13 +39,19 @@ file names differ. `<slug>` below is the slugified name the run used.
 
 - **Inspectable:** the lane's working folder contains the first file and the
   final file, both non-empty, and the final file carries its required parts —
-  scorecard lane: the three graded dimensions (Fit, Timing, Reachability) plus
-  a recommended next action; messaging-doc lane: positioning, voice, and the
-  verbatim phrase bank (a Gaps section is optional and only present when
-  earned).
+  scorecard lane: the company snapshot (what they do and its lines of business,
+  plus headquarters, employees, and estimated revenue), the three graded
+  dimensions (Fit, Timing, Reachability), and a recommended next action;
+  messaging-doc lane: positioning, voice, and the verbatim phrase bank (a Gaps
+  section is optional and only present when earned).
 - A thin-but-honest result passes (a small web footprint, or a site that says
   little, is a fact, not a failure). A missing file fails: diagnose which
   specialist stopped and why before rerunning.
+- **`Not disclosed` and `[estimated]` in the snapshot are passes, not gaps.**
+  Most private companies never publish revenue. A scorecard that says so is the
+  honesty rule working; do not send the builder back to "fill in" a field, and
+  do not rerun to chase a number. The field to check is presence, never
+  completeness.
 
 ## Checkpoint 4 — the work product opened and saved
 

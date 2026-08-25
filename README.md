@@ -3,8 +3,9 @@
 The BlueRock plugin marketplace for Claude Code. One plugin, `bluerock`: the run-as-is core
 for your **agentic project**.
 
-Say *"score Acme Corp"* and a two-agent team hands you a one-page account scorecard — Fit,
-Timing, Reachability, why now, and the recommended next step. Say *"wrap up my session"* and
+Say *"score Acme Corp"* and a two-agent team hands you a one-page account scorecard — what
+the company does and sells, where it's headquartered, how big it is, then Fit, Timing,
+Reachability, why now, and the recommended next step. Say *"wrap up my session"* and
 it logs what you did and refreshes your dashboard. Everything it produces is plain markdown
 in your own repo.
 
