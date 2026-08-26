@@ -1,5 +1,54 @@
 # Changelog — `bluerock` plugin
 
+## 0.11.0 — both first-win work products say who the subject is, and stop hedging
+
+Two agent teams, one change of posture: say what you found, and say plainly what you could
+not find. The Account Scorecard opened on an opinion; the Messaging Doc buried its sharpest
+finding under a disclaimer. Both are fixed here.
+
+### Account Scorecard — a company snapshot, not just three ratings
+
+- **Change — the scorecard now opens with who the company is.** A builder read "Fit: Medium"
+  before they read anything about the account, and the only company facts on the page were a
+  one-line descriptor. `scout` gathers what they do and their lines of business, plus
+  headquarters, employees, estimated revenue and stage, in a fixed `scan.md` shape so a field
+  it found cannot silently fail to reach the scorer. Its fetch budget goes 3-5 to 4-6: one
+  extra look settles headcount and stage, and the run still lands inside Session 2's ~5 minutes.
+- **The honesty rule is the load-bearing part.** Revenue and headcount are the two fields that
+  invite a confident number nobody can defend, since a private company rarely publishes revenue
+  and third-party figures are estimates rather than filings. Three outcomes and only three:
+  stated with its source, `[estimated]` with its source, or `Not disclosed`. Never inferred
+  from headcount, funding, or category averages. `scorer` carries the blanks forward rather
+  than reasoning its way to a number, and firmographics move a Fit rating only when
+  `objectives.md` names a size or revenue band.
+- **The artifact gained a three-up facts row and a "What they do" block.** All three fact
+  columns always render; an unknown reads `Not disclosed` in muted ink rather than dropping the
+  column. Session 2 teaches the fields and pre-frames `est.` / `Not disclosed` before a builder
+  meets a blank, so an empty revenue field reads as the product working.
+
+### Messaging Doc — verify the odd one out, and keep Gaps about the brand
+
+Both changes come from two real runs of the shipped team (bluerock.io and a Substack
+publication), not from review of the instructions.
+
+- **Change — `site-reader` now verifies an off-pattern term instead of downgrading it.** On
+  the real run it found "YOLObox" on `/try-bluerock`, could not confirm it through
+  model-mediated fetch output, marked it low-confidence, and `distiller` correctly dropped it
+  from the phrase bank. A raw fetch showed the term is live, visible body copy, four times, on
+  a name retired in June. The most actionable finding on the site was found and then discarded
+  for want of one more fetch. An anomaly is now resolved with a raw fetch (many site builders,
+  Framer included, serve agents plain Markdown via content negotiation): confirmed present is
+  reported as live copy with page and count, absent is dropped as extraction noise, unresolved
+  keeps the marker. The same run's "AgenticOps" turned out to be bundle payload and not
+  rendered copy, which is exactly why the check has to distinguish them rather than hedge on both.
+- **Change — Gaps is about the brand, never about the read.** Across the two runs, three of six
+  gap slots went to tool-reliability notes instead of findings, and on a sharply positioned
+  brand the section produced a suspected extraction error, the founder's childhood nickname,
+  and inconsistent emoji. Read-quality notes now travel as a single **Read quality** line in
+  the header's provenance subline, omitted entirely when every page read cleanly. Verified
+  stale copy is a Gap and usually the sharpest one, stated plainly with page and count. Three
+  gaps is a ceiling, not a quota: if only one is real, write one.
+
 ## 0.10.2 — Slack at the end of every session
 
 - **Change — every session close-out and every wrap-up now ends by naming the BlueRock
@@ -10,6 +59,7 @@
   beats are unchanged and remain each session's single mention; the new line is uniform,
   quiet, and help-framed. The closing rule now lives in this repo's CLAUDE.md § Hard rules
   so new session skills carry it from their first draft.
+
 
 ## 0.10.1 — the builder-facing noun is the toolkit, not the plugin
 

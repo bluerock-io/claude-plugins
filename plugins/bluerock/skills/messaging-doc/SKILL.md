@@ -50,8 +50,9 @@ agent-teams tooling; this runs identically in every client.
 
 5. **Dispatch `site-reader`** with the URL and the working folder. It reads the homepage
    plus the two or three pages that carry the messaging and writes `signals.md` — the
-   positioning lines, voice notes, and exact recurring phrases, quoted and sourced. It's
-   bounded to a handful of fetches — let it be fast. Wait for it.
+   positioning lines, voice notes, and exact recurring phrases, quoted and sourced, plus a
+   read-quality note. It's bounded to a handful of fetches, and may spend one more to
+   verify a term that looks off-pattern rather than hedge on it — let it be fast. Wait for it.
 6. **Dispatch `distiller`** with the same folder. It reads `signals.md` (plus
    `references.md` if present, and `voice.md` / `objectives.md` from the project root)
    and writes `messaging-doc.md`. Wait for it.
@@ -73,7 +74,10 @@ page. Print-friendly, read-only, no CTAs or buttons.
 **Layout** — one centered column, `max-width: 640px`, generous whitespace:
 1. **Header** — brand name (serif, ~30px, heading ink); the positioning one-liner beneath
    in muted ink; then a subline in muted ink: `Core Messaging Doc · Distilled <today's
-   date> · <N> pages read`. When Positioning carries the "assembled from fragments"
+   date> · <N> pages read`. When the doc carries a **Read quality** line, append it to that
+   subline after a `·`, in the same muted ink ("3 of 4 pages read cleanly; the homepage
+   returned nav only"). It belongs with the provenance, not in the body, and it is omitted
+   entirely when every page read cleanly. When Positioning carries the "assembled from fragments"
    caveat, the one-liner slot uses the doc's **first positioning sentence** as written,
    with the caveat rendered beneath in muted ink — never invent a cleaner line than the
    doc has.
@@ -89,7 +93,9 @@ page. Print-friendly, read-only, no CTAs or buttons.
 5. **Gaps** — always present, because the doc always has the section: a highlighted
    callout per note — cream tint background, a 3px accent-blue left border, the note in
    heading ink. When the distiller found nothing inconsistent, render its one line the
-   same way; an empty-handed Gaps section is a real result and reads as one.
+   same way; an empty-handed Gaps section is a real result and reads as one. Render only
+   what the distiller put in Gaps: notes about how the pages read live in the header's
+   Read quality line, never as a Gaps callout.
 6. **Sources** — a small "Sources" label, then the pages read (and "pasted references"
    if used) as small mono chips, same treatment as the phrase chips.
 7. **Footer** — small muted text: `Built with BlueRock · Messaging Doc · site-reader +

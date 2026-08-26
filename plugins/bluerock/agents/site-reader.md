@@ -50,6 +50,21 @@ Capture these, quoting verbatim and noting the page URL on each item:
   presenting a sparse read as the site's actual state. And never present `WebSearch`
   snippets as verbatim site copy. If `WebFetch` fails and search is all you have, mark
   those lines as sourced from search results, not the site.
+- **Verify the odd one out, don't just downgrade it.** When a term looks off-pattern
+  against everything else you captured (an old product name beside a new one, a headline
+  in a different register, a title that doesn't belong on this site), that anomaly is
+  usually the most valuable thing on the page: either it is stale copy the brand has not
+  swept, which is a real finding, or it is extraction noise, which should not reach the
+  doc at all. **Resolve it with one raw fetch** rather than hedging. Fetch the page again
+  asking for its source text (many site builders, Framer included, serve agents plain
+  Markdown via content negotiation) and search it for the term.
+  - **Confirmed present** in the raw text: report it as live copy, quoted, with the page
+    URL and roughly how many times it appears. State it plainly; do not soften it.
+  - **Absent** from the raw text: it was extraction noise. Drop it and say so in one line.
+  - **Can't resolve** in one fetch: keep the low-confidence marker and say what you tried.
+  This check is worth one fetch beyond your budget when a term is genuinely anomalous.
+  A hedge helps nobody: "this may not be live copy" is the one sentence a builder can act
+  on least.
 - Do **not** boil the ocean. When the five sections are filled or honestly marked
   thin ("the site never names its audience"), you are done. Hand off.
 
@@ -57,5 +72,12 @@ Capture these, quoting verbatim and noting the page URL on each item:
 
 Write `signals.md` in the working folder you were given (or the project's
 `my-work/messaging-doc/<slug>/` if you must create it). Keep it tight: the five
-sections above, quoted and sourced, plus a one-line list of the pages you read. The
-distiller reads this next.
+sections above, quoted and sourced, plus a one-line list of the pages you read.
+
+Put anything about **how well the pages read** under its own `## Read quality` heading:
+which pages came back thin, what you verified with a raw fetch and what it showed, and
+anything you could not resolve. Keep it out of the five capture sections. It is a note
+about your read, not about the brand, and the distiller routes it separately for exactly
+that reason. If every page read cleanly and nothing needed verifying, say so in one line.
+
+The distiller reads this next.
