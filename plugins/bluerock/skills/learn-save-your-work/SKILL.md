@@ -395,6 +395,9 @@ When checkpoint 5 passes:
 4. Point forward: Session 7, **Put an agent on a schedule** — about 20
    minutes, where a routine runs on a clock against the repo they just
    created. Say **teach me Session 7** here, or take it up next time.
+5. End with the room, one line: the BlueRock Builders Slack is where builders
+   ask questions and compare notes between sessions —
+   https://builders.bluerock.io/community. One sentence, no pitch.
 
 ## Who depends on this skill's wording
 

@@ -172,6 +172,16 @@ Never leave a builder holding an error with no named next move.
   quieter third. (product decision, 2026-08-15 — check's closing was the outlier: it linked out at the
   exact moment the builder was ready to act.)
 
+- **Every session close-out and every wrap-up names the BlueRock Builders Slack exactly once**
+  (product decision 2026-08-30, TRYBR-35 — supersedes the "three invitations in the whole
+  path" rationing). Where the close-out has no share/ask beat, it ends with the uniform line:
+  "the BlueRock Builders Slack is where builders ask questions and compare notes between
+  sessions — https://builders.bluerock.io/community." One sentence, help-framed, no pitch,
+  after the primary next action, never instead of it. Sessions 5, 7, and 8 already carry a
+  share/ask beat in the close-out and do not get a second mention. Always the redirect, never
+  the raw invite (§ help ladder above). A new session skill carries this closing line from
+  its first draft.
+
 - **Plugin skills take the full prefix in anything the builder reads:** `/bluerock:check`,
   `/bluerock:onboard`, `/bluerock:wrap-up`. The builder's own skills fire bare (`/research`,
   `/meeting-recap`).

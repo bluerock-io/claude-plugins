@@ -420,15 +420,17 @@ Not part of a run. Read this before rewording anything a builder sees.
   the path, not one per session** — if a fourth appears, one of them is wrong.
   The field names and the `sample: true` seed flag are pinned in the starter kit's
   `design/dashboard-data-contract.md`.
-- **The Slack invitation in the close-out is one of three in the whole path**
-  (added 2026-08-18), and the three are a set: **share** here (their first built
-  thing), **share** at Session 7 (their first unattended run), and **ask** at
-  Session 8 step 4 (the gap they name is the use-case signal). Every other mention
-  of the community in this toolkit is the escalation ladder's third rung and must
-  stay that way — blurring "I am stuck" with "look what I made" costs the ladder
-  its meaning. **Each rides a beat the session already earned**, so none of them
-  adds a new one; the anti-cheerleading rule in "How to teach" governs these too.
-  A fourth invitation is one too many.
+- **The Slack invitation in the close-out is one of the path's three share/ask
+  beats** (added 2026-08-18), and the three are a set: **share** here (their first
+  built thing), **share** at Session 7 (their first unattended run), and **ask** at
+  Session 8 step 4 (the gap they name is the use-case signal). **Each rides a beat
+  the session already earned**, so none of them adds a new one; the
+  anti-cheerleading rule in "How to teach" governs these too. A fourth share/ask
+  beat is one too many. Separately, since 2026-08-30 (TRYBR-35, Harold) **every
+  session close-out names the Slack once** — sessions without a share/ask beat
+  end on a uniform help-framed line; the rule lives in the repo CLAUDE.md. That
+  line and the escalation ladder stay help-framed; these beats stay share-framed. Blurring "I am stuck" with "look
+  what I made" costs the ladder its meaning.
 - **Session 6 depends on this session's close-out.** Its pre-work — "write the
   one-line job description of a job you'd hand off" — is the input Session 6
   opens with. Drop it here and Session 6 starts cold.

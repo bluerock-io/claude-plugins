@@ -257,6 +257,10 @@ and this is where the old version asked a second time. If they somehow reached
 the end without it, that is the one case to offer it — otherwise close on the
 debrief.
 
+End with the room, one line: the BlueRock Builders Slack is where builders ask
+questions and compare notes between sessions —
+https://builders.bluerock.io/community. One sentence, no pitch.
+
 ## Who depends on this skill's wording
 
 Not part of a run. Read this before rewording anything a builder sees.

@@ -357,13 +357,16 @@ Not part of a run. Read this before rewording anything a builder sees.
   that body the live page. The **principle** the note was reaching for — you don't
   loosen a specialist's tools line because the trigger changed — is correct and is
   ported in the close-out. Keep the principle; do not restore the claim.
-- **The close-out's Slack line is the second of the path's three community
-  invitations** (added 2026-08-18): Session 5 shares the first thing they built,
+- **The close-out's Slack line is the second of the path's three share/ask
+  beats** (added 2026-08-18): Session 5 shares the first thing they built,
   this session shares the first thing that ran without them, Session 8 step 4 asks
   what they want next. Everything else that names the community is the escalation
-  ladder and stays help-framed. It rides the journal ask because the builder has
-  just written the sentence in their own words — the offer costs them nothing,
-  which is the only reason it earns a place in a close-out this dense.
+  ladder or the uniform one-line close that sessions without a share/ask beat
+  carry (since 2026-08-30 — rule in the repo CLAUDE.md), and both of those stay
+  help-framed. This beat rides the
+  journal ask because the builder has just written the sentence in their own
+  words — the offer costs them nothing, which is the only reason it earns a place
+  in a close-out this dense.
 - **Session 6's practice is this session's input** ("watch for the dispatch you
   repeat at the same time every day or week"). Session 8's is this session's
   output (the three-sentence workflow statement). Both are named in the

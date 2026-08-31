@@ -427,8 +427,10 @@ Not part of a run. Read this before rewording anything a builder sees.
   are healthy and glossed in the steps that introduce them.
 - **Session 7's practice is this session's input** (the three-sentence workflow
   statement). If it moves, step 2 needs its own way to source one.
-- **Step 4's Slack line is the third and last of the path's community
-  invitations** (added 2026-08-18), and it is the only one that ASKS rather than
+- **Step 4's Slack line is the third and last of the path's share/ask beats**
+  (added 2026-08-18; sessions without a share/ask beat close on a uniform
+  help-framed Slack line since 2026-08-30 — a separate register, rule in the
+  repo CLAUDE.md), and it is the only one that ASKS rather than
   shares. The gap sentence is already elicited and already written; posting it is
   a second use for work the builder has done. It matches the Session 8 page's
   community card, which has said "tell us what you want covered next — the topics
