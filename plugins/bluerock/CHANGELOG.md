@@ -27,6 +27,12 @@ skill) is present.**
   honestly without them (the silver-bullets section says so instead of inventing).
 - **Wording contracts** added to `scorecard` and `messaging-doc` (the two shipped use-case
   skills carried none), and `competitive-intel` ships with one from its first draft.
+- **The artifact is a tool, not a report** (product decision, 2026-08-31): the design
+  contract now specifies tabbed per-competitor panels, semantic color lanes (kill points,
+  silver bullets, don't-take-the-fight-here, attack-and-answer), a 30-second read, THEM/US
+  volleys, and full light + dark theming in the Builders design language. Read-only stays
+  absolute: no CTAs, no dead controls. The rule is now repo-wide in CLAUDE.md § Hard rules,
+  and this skill's contract is the reference other use cases copy.
 
 ## 0.11.0 — both first-win work products say who the subject is, and stop hedging
 

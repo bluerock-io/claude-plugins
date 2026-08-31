@@ -108,47 +108,88 @@ agent-teams tooling; this runs identically in every client.
 
 ### The artifact — design contract (follow it exactly)
 
-A single self-contained HTML page. **CSP-safe: inline ALL CSS in one `<style>` block, no
-external requests — no CDN, no web fonts, no remote images, no scripts.** It is a static
-page. Print-friendly, read-only, no CTAs or buttons.
+**The artifact is a tool the builder operates in the room, not a report they scroll**
+(product decision, 2026-08-31). One competitor on screen at a time, reachable in one
+click; sections scannable by color before they are read. Still read-only and honest:
+no CTAs, no dead controls, nothing that pretends to fetch or save — a dead button in a
+sandboxed artifact is worse than no button. Interactivity is navigation, never chrome.
 
-**Layout** — one centered column, `max-width: 720px`, generous whitespace:
+A single self-contained HTML page. **CSP rules: exactly one external request, the Google
+Fonts stylesheet below. All CSS in one `<style>` block, all JS inline (one small tab
+script), no CDN scripts, no remote images.** Print-friendly: under `@media print` the tab
+strip hides, `.panel[hidden] { display: block }` renders every competitor in sequence,
+with a page break between competitors.
 
-1. **Header** — the industry (serif, ~30px, heading ink); beneath it in muted ink:
-   `Competitive Intel · Battlecards · <today's date> · <N> competitors · <M> sources`;
-   then a `For:` line naming the personas. Hairline rule below.
-2. **A competitor strip** — the competitor names as a wrapped row of small chips (cream
-   fill, hairline border), doubling as a table of contents for the stacked cards.
-3. **"Since your last run" strip** — only when a previous run existed: a cream-tint
-   callout with a 3px accent-blue left border, dated, listing the analyst's "Since" items
-   (or its "no material change" line). Omit the block entirely on a first run.
-4. **One card per competitor**, stacked, each a white card (hairline border, radius 14px)
-   carrying the analyst's sections in order: **The 30-second read** (with the scope note
-   in muted ink) · **Kill points** (each with its small source chip; section subtitle in
-   muted ink: `Sourced. Use in the room.`) · **Silver bullets** (subtitle: `Your
-   differentiators, aimed.` — or the honest one-liner when differentiators were missing)
-   · **Where they're genuinely better** (subtitle: `Don't take the fight here.`) ·
-   **Their attack on us** (each attack line followed by its answer in body ink) ·
-   **Head to head** (a two-column them/ours table, hairline row rules) · **One question
-   to ask** (cream-tint callout, the question in heading ink). Section labels small,
-   uppercase, muted, letter-spaced. Carry every `[their claim]` / `[unverified]` marker
-   as a small muted superscript tag — never silently drop one.
-5. **Sources** — a small "Sources" label, then the scans' source domains as a wrapped row
-   of small mono chips. Keep to the domains the scanners actually used.
-6. **Footer** — small muted text: `Built with BlueRock · Competitive Intel ·
-   competitor-scanner + analyst`.
+**Fonts** — one Google Fonts link, every face with a real fallback: `DM Sans` (display +
+body; fallback `system-ui, -apple-system, sans-serif`), `Source Serif 4` (the 30-second
+read, "say it" lines, the closing question; fallback `Georgia, serif`), `JetBrains Mono`
+(labels, meta, chips; fallback `ui-monospace, Menlo, monospace`).
 
-**Palette** (Builders "cool-paper", light-only — use these hex values directly since the
-Artifact can't read the app's CSS variables):
-- Page background `#F5F1EA`; card surface `#FFFFFF`; card border `#E7E0D6`, radius `14px`.
-- Cream (the "cream tint" / "cream fill" above): `#F5F1EA` — the page-background value
-  reused as a tint on the white card.
-- Ink: heading `#1B2130`, body `#3D4658`, muted `#7B8494`.
-- Accent (BlueRock blue) `#1559C4`.
+**Theme — ship both, token-structured.** Bare `:root` carries the complete light palette;
+`@media (prefers-color-scheme: dark)` guarded as `:root:not([data-theme="light"])`
+redefines only the tokens; `:root[data-theme="dark"]` duplicates them. Every component
+rule uses `var()` — no literal color outside the three token blocks. `body` background is
+`var(--paper)`.
 
-**Type** (CSP-safe fallbacks, no web fonts): headings `Georgia, 'Times New Roman', serif`;
-body + labels `system-ui, -apple-system, sans-serif`. Labels small and uppercase with
-slight letter-spacing.
+**Tokens** (light / dark):
+
+| Token | Light | Dark |
+|---|---|---|
+| paper / card / card-2 | `#F5F1EA` / `#FFFFFF` / `#FAF7F1` | `#14171E` / `#1C212B` / `#222835` |
+| line / line-2 | `#E7E0D6` / `#D6CDBE` | `#2E3542` / `#3D4658` |
+| ink / ink-2 / ink-3 / ink-4 | `#1B2130` / `#3D4658` / `#6B7486` / `#8B93A3` | `#EDEEF2` / `#C3C9D4` / `#97A0B0` / `#7B8494` |
+| accent (BlueRock blue) + soft + line | `#1559C4` / `#E8EFFB` / `#B9CDEF` | `#6E9BE8` / `#1D2A45` / `#34528C` |
+| kill + soft + line | `#B4432E` / `#F9ECE8` / `#E8C7BE` | `#E0715A` / `#372220` / `#6B392F` |
+| bullet + soft + line | `#206E5B` / `#E7F2EE` / `#BFDCD3` | `#55B092` / `#1B2E29` / `#2F5A4B` |
+| mine + soft + line | `#94660F` / `#F7EFDD` / `#E5D3AC` | `#D3A24C` / `#322A19` / `#66542B` |
+| neutral + soft + line | `#5A6272` / `#EEEDE9` / `#D9D3C8` | `#9AA3B2` / `#262C37` / `#414A5A` |
+| chip text (on lane-colored chips) | `#FFFFFF` | `#14171E` |
+
+**Structure** (max width 1000px):
+
+1. **Sticky masthead** — uppercase display title (`AI <industry> · Battlecards` shape),
+   mono meta line (`<date> · FOR: <personas> · <first run or run N> · <N> source
+   domains`), then the **tab strip**: one `role="tab"` button per competitor,
+   `aria-selected` on the active one, 3px accent underline; panels are
+   `<section role="tabpanel">` toggled via the `hidden` attribute by the inline script
+   (first panel visible on load, others carry `hidden` in markup).
+2. **Legend row** naming the four lanes with color dots: kill points (sourced, use in the
+   room) · silver bullets (our claims, aimed) · don't take the fight here · their attack,
+   our answer.
+3. **"Since your last run" strip** — only when a previous run existed: an accent-soft
+   callout, dated, listing the analyst's "Since" items (or its "no material change"
+   line). Omit the block entirely on a first run.
+4. **One panel per competitor**, sections in this order:
+   - **Name** (display, 28–40px, weight 800) + mono scope subline carried from the scan.
+   - **The 30-second read** — bordered block with a dark bar header (`background:
+     var(--ink)`, `color: var(--paper)`), labeled grid rows (`128px + 1fr`; mono
+     uppercase labels, serif values): what they are, the tell or how they move, and a
+     highlighted **THE FIGHT** row on accent-soft.
+   - **Kill points** — kill-colored chip + note `Sourced. Use in the room.`; numbered
+     item-cards (mono number, kill-colored 4px left stripe), bold claim lead, body, and
+     a mono source chip `scan-<slug>.md · <section>` on every point. Carry every
+     `[their claim]` / `[unverified]` marker as a small mine-colored mono tag — never
+     silently drop one.
+   - **Silver bullets** — bullet-colored chip + note `Your differentiators, aimed.`;
+     numbered cards with the "say it" line in serif italic behind a bullet-colored left
+     rule. When differentiators were missing, this section carries the honest one-liner
+     instead.
+   - **Where they're genuinely better** — mine-colored chip + note `Don't take the fight
+     here.`; one card, hairline-separated list. Never empty when the scans found
+     strengths.
+   - **Their attack on us** — neutral chip + note `What they'll open with, and the
+     answer.`; THEM/US volley rows (mono uppercase speaker labels, their line italic,
+     our answer in ink) with the persona target as an accent mono tag (`→ CISO`).
+   - **Head to head** — ink-colored chip; a them/ours table inside a bordered
+     `overflow-x: auto` container (`min-width: 560px` on the table), their column headed
+     `(sourced)`, ours `(ours)` in bullet color. Only rows where both sides are known.
+   - **One question to ask** — accent chip + note `Worded so the prospect asks them.`;
+     the question in serif italic inside an accent-soft callout with a 3px accent left
+     border.
+   - **Panel sources** — mono chips of the domains that competitor's scan actually used.
+5. **Footer** — the separation-rule note (sourced lines carry a scan citation; silver
+   bullets are ours to say, never dressed up as findings) and the line
+   `Built with BlueRock · Competitive Intel · competitor-scanner + analyst`.
 
 ## Finish
 

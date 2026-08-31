@@ -216,6 +216,16 @@ Never leave a builder holding an error with no named next move.
     normal permission prompt — worded so the builder understands what they are approving.
     Spec: the auto-update spec (content repo, private) §4.
 
+- **A use-case work product is a tool, not a report** (product decision, 2026-08-31). The
+  artifact a use-case skill publishes is something the builder operates in the moment of
+  use — navigable (one entity on screen at a time), scannable by semantic color before it
+  is read, themed for light and dark, printable — never a single long scroll. The form
+  still matches the job: a deliberately single-entity quick read (the Account Scorecard's
+  one-pager) is the right tool for "the fast read" and stays a one-pager. Read-only stays
+  absolute either way: no CTAs, no dead controls, nothing that pretends to fetch or save.
+  The reference contract is `skills/competitive-intel/SKILL.md` § the artifact — copy it
+  rather than re-deriving.
+
 ## 7. Where the rest lives
 
 | Source | What it holds |
