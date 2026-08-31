@@ -259,6 +259,10 @@ When checkpoint 3 passes:
 
 Suggest `/bluerock:wrap-up` so the progress update rides the checkpoint habit.
 
+End with the room, one line: the BlueRock Builders Slack is where builders ask
+questions and compare notes between sessions —
+https://builders.bluerock.io/community. One sentence, no pitch.
+
 ## Who depends on this skill's wording
 
 Not part of a run. Read this before rewording anything a builder sees.

@@ -318,6 +318,10 @@ When checkpoint 5 passes:
 Suggest `/bluerock:wrap-up` to close out — it updates their dashboard and saves a
 checkpoint, the same habit as every session since Session 2.
 
+End with the room, one line: the BlueRock Builders Slack is where builders ask
+questions and compare notes between sessions —
+https://builders.bluerock.io/community. One sentence, no pitch.
+
 ## Who depends on this skill's wording
 
 Not part of a run. Read this before rewording anything a builder sees.

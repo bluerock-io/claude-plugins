@@ -275,3 +275,7 @@ When checkpoint 5 passes:
 
 If the wrap-up already ran as checkpoint 5, the progress commit rides it;
 otherwise suggest `/bluerock:wrap-up` so nothing is lost.
+
+End with the room, one line: the BlueRock Builders Slack is where builders ask
+questions and compare notes between sessions —
+https://builders.bluerock.io/community. One sentence, no pitch.

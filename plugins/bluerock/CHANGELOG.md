@@ -1,5 +1,16 @@
 # Changelog — `bluerock` plugin
 
+## 0.10.2 — Slack at the end of every session
+
+- **Change — every session close-out and every wrap-up now ends by naming the BlueRock
+  Builders Slack** (https://builders.bluerock.io/community). Until now the path carried
+  exactly three community invitations (Sessions 5, 7, and 8) and everything else was
+  escalation-ladder only, so Sessions 1–4 and 6, Save your work, and every wrap-up ended
+  with no community reference at all (TRYBR-35, Harold, 2026-08-30). The three share/ask
+  beats are unchanged and remain each session's single mention; the new line is uniform,
+  quiet, and help-framed. The closing rule now lives in this repo's CLAUDE.md § Hard rules
+  so new session skills carry it from their first draft.
+
 ## 0.10.1 — the builder-facing noun is the toolkit, not the plugin
 
 - **Change — "the BlueRock plugin" becomes "the BlueRock Builder Toolkit" on first mention

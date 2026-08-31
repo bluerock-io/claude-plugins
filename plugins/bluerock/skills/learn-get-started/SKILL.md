@@ -293,6 +293,10 @@ When checkpoint 3 passes:
    it will do with their work beyond that — wrap-up checks what is actually
    possible in their workspace and offers only that, and on day one that is
    usually a local save and nothing else.
+6. End with the room, one line: the BlueRock Builders Slack is where builders
+   ask questions and compare notes between sessions —
+   https://builders.bluerock.io/community. Day one is the right day to know
+   where the humans are. One sentence, no pitch.
 
 If a checkpoint could not be verified, the session stays `in_progress` at that
 checkpoint — say so plainly, with what's left. Honest state beats a green
