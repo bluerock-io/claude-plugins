@@ -135,3 +135,20 @@ writes from here. Later sessions wire it into the project's memory, drafting ski
 its phrase bank, and the same two-agent run pointed at a competitor's site gives a
 side-by-side messaging comparison with this doc as the baseline. The better this doc,
 the more the whole project sounds like the brand.
+
+## Who depends on this skill's wording
+
+Not part of a run. Read this before rewording anything a builder sees.
+
+- **This skill matches on `agents/distiller.md`'s exact phrase "assembled from
+  fragments"** to decide how the artifact renders its header and Positioning block.
+  Rewording the phrase in either file silently changes the artifact. The distiller's own
+  dependency notes name this coupling in return.
+- **`skills/learn-meet-your-first-agent-team/SKILL.md` narrates this skill as its
+  marketing lane**: its lane table and steps name the agents (`site-reader` →
+  `distiller`) and the folder (`my-work/messaging-doc/<brand>/`).
+- **`curriculum/manifest.json`** carries this skill's `one_liner` and **README.md
+  § Messaging Doc** quotes the flow; the menu and the site read both.
+- **`/bluerock:competitive-intel` reads the latest doc under `my-work/messaging-doc/`**
+  to pre-fill a builder's differentiators — the folder shape is load-bearing beyond this
+  skill.

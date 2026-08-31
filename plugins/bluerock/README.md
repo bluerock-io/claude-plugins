@@ -28,6 +28,7 @@ The **run-as-is core** — you drive these; you don't edit them:
 | **Your daily rhythm** | Today's priorities and the end-of-session wrap: `/bluerock:today`, `/bluerock:wrap-up` |
 | **Account Scorecard** | Point a fast team at a company for a one-page scorecard: `/bluerock:scorecard` (agents `scout` + `scorer`) |
 | **Messaging Doc** | Point a fast team at your website for your core messaging doc: `/bluerock:messaging-doc` (agents `site-reader` + `distiller`) |
+| **Competitive Intel** | Battlecards for the competitors you face: `/bluerock:competitive-intel` (agents `competitor-scanner` + `analyst`) |
 
 ## Account Scorecard — the fast first win
 
@@ -60,6 +61,25 @@ you your **core messaging doc** — positioning, voice, and the phrases your bra
 One website address plus whatever you paste — no exports, no logins. The doc saves in your project
 and becomes the baseline every later draft leans on.
 
+## Competitive Intel — the deal-room win
+
+`/bluerock:competitive-intel` (or *"battlecard for Acme"*, *"who are we up against"*) asks
+you five short questions — category, competitors (up to 4), what you win on, who the cards
+are for, anything shaping the deal — confirms, then runs two agents:
+
+- **`competitor-scanner`** — one docs-deep, sourced scan per competitor: what the product
+  actually does (from their docs, not their homepage), pricing posture, traction, their own
+  pitch, and where they're genuinely strong. Their unverified claims stay marked.
+- **`analyst`** — one battlecard per competitor: sourced kill points, your differentiators
+  aimed, the fights not to pick, their likely attack with the answer, a head-to-head, and
+  one question to ask.
+
+Two kinds of statement never blur on the card: claims about the competitor carry sources;
+your own differentiators are aimed but labeled yours. Runs save to dated folders in
+`my-work/competitive-intel/`, so a rerun before the next meeting tells you what changed.
+This is the deep read of the pair — minutes, not seconds; the Account Scorecard stays the
+fast one.
+
 ## Your project comes with more — and they're yours
 
 Your project (from [the starter kit](https://github.com/bluerock-io/my-workspace)) ships seeded
@@ -89,7 +109,8 @@ run it in — [the starter kit](https://github.com/bluerock-io/my-workspace) giv
 ## Run as-is vs. make it yours
 
 - The plugin's core (`/bluerock:onboard`, `/bluerock:today`, `/bluerock:wrap-up`,
-  `/bluerock:check`, `/bluerock:scorecard`) you run as-is.
+  `/bluerock:check`, `/bluerock:scorecard`, `/bluerock:messaging-doc`,
+  `/bluerock:competitive-intel`) you run as-is.
   `/bluerock:wrap-up` and `/bluerock:check` especially stay plugin-owned so they keep your
   dashboard correct.
 - Everything in your project's `.claude/` is yours: edit it in place, or build your own

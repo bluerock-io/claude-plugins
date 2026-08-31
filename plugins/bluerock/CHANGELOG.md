@@ -1,5 +1,33 @@
 # Changelog — `bluerock` plugin
 
+## Unreleased — Competitive Intel: battlecards, the third agent team in the plugin
+
+**⚠ Release gate: `/bluerock:competitive-intel` opens with a time-saved line that is a
+placeholder until the timed manual baseline lands. Do not cut a release while the
+placeholder string (`TODO-E6-26` in the manifest, `[PLACEHOLDER — DO NOT MERGE...]` in the
+skill) is present.**
+
+- **New use case: `/bluerock:competitive-intel`** (agents `competitor-scanner` + `analyst`).
+  Five short intake questions — category, competitors (up to 4), your differentiators,
+  personas, deal notes — then a confirm, then one docs-deep sourced scan per competitor and
+  one battlecard per competitor: kill points (sourced), silver bullets (your
+  differentiators, aimed), where they're genuinely better, their attack with the answer, a
+  head-to-head, and one question to ask.
+- **The separation rule is the card's spine:** claims about a competitor carry the
+  scanner's sources and its `[their claim]` / `[unverified]` markers; the builder's own
+  differentiators are aimed but labeled theirs. Neither is allowed to dress up as the other.
+- **Scans go below the homepage on purpose:** docs, pricing, release notes, and reviews
+  before news — a battlecard built from marketing pages falls apart the first time a
+  prospect quotes the competitor's docs back.
+- **Runs accumulate:** each run writes a dated folder under `my-work/competitive-intel/`
+  plus an `inputs.md` seed; a rerun reports what changed since the previous battlecard,
+  and only from dated evidence in the fresh scans.
+- **Positioning inputs sharpen, never gate:** the skill reads `objectives.md`, `voice.md`,
+  and the latest messaging doc when they're real, pre-fills the intake from them, and runs
+  honestly without them (the silver-bullets section says so instead of inventing).
+- **Wording contracts** added to `scorecard` and `messaging-doc` (the two shipped use-case
+  skills carried none), and `competitive-intel` ships with one from its first draft.
+
 ## 0.11.0 — both first-win work products say who the subject is, and stop hedging
 
 Two agent teams, one change of posture: say what you found, and say plainly what you could

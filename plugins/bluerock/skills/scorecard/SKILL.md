@@ -121,3 +121,18 @@ The Account Scorecard is deliberately lighter than a full dossier: two agents, a
 scan, a one-page output. It's the "is this worth my time, and what do I do next" read.
 For the deep, multi-section dossier, that's the Account Research team (`researcher →
 signal-scanner → composer`) the builder has in their own project.
+
+## Who depends on this skill's wording
+
+Not part of a run. Read this before rewording anything a builder sees.
+
+- **`skills/learn-meet-your-first-agent-team/SKILL.md` narrates this skill as its sales
+  and operations lane**: its lane table and steps name the agents (`scout` → `scorer`),
+  the folder (`my-work/account-scorecard/<company>/`), and the three dimensions (Fit,
+  Timing, Reachability). Renaming any of them here strands that session's narration.
+- **`agents/scout.md` owns `scan.md`'s fixed section shape** and `agents/scorer.md` reads
+  it by section; this skill's artifact contract renders `scorecard.md`'s order. The
+  three-outcome honesty rule on revenue and headcount (stated / `[estimated]` / `Not
+  disclosed`) is stated in all three places — keep the wording in step.
+- **`curriculum/manifest.json`** carries this skill's `one_liner` and **README.md
+  § Account Scorecard** quotes the flow; the menu and the site read both.
