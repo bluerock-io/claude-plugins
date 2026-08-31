@@ -39,8 +39,9 @@ Dispatch these as ordinary subagents, one at a time, waiting for each. Do not us
 agent-teams tooling; this runs identically in every client.
 
 3. **Dispatch `scout`** with the company (+ hint) and the working folder. It writes a
-   quick, sourced `scan.md` (what they do, size/stage, recent signal). It's bounded to a
-   handful of fetches — let it be fast. Wait for it.
+   quick, sourced `scan.md` (what they do and what they sell, headquarters, employees,
+   estimated revenue, stage, recent signal). It's bounded to a handful of fetches — let it
+   be fast. Wait for it.
 4. **Dispatch `scorer`** with the same folder. It reads `scan.md` (plus `voice.md` /
    `objectives.md` from the project root if present) and writes `scorecard.md`. Wait
    for it.
@@ -64,18 +65,32 @@ page. Print-friendly, read-only, no CTAs or buttons.
    muted ink (stage + what they do, e.g. `Series B · B2B analytics SaaS for GTM teams`, from
    the scan); then a subline in muted ink: `Account Scorecard · Scored <today's date> · <N>
    sources`.
-2. **Three dimension rows**, stacked. Each row: a small rating-colored dot + the label
+2. **Facts row** — three equal columns directly beneath the header's hairline rule:
+   `HQ`, `Employees`, `Est. revenue`. Label on top in small uppercase muted ink with
+   letter-spacing; value below in body ink at the base size. **All three columns always
+   render**, including when the scan found nothing: an unknown value reads `Not disclosed`
+   in muted ink. Never drop a column — the row's shape is what makes it scannable, and a
+   visible blank is the honest answer. Where the scan marked a figure `[estimated]`, append
+   a small muted `est.` after the value rather than carrying the brackets through. CSS:
+   `display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;` plus
+   `@media (max-width: 460px) { grid-template-columns: 1fr; }` so it stacks on a phone.
+   Hairline border below.
+3. **What they do** — a labeled block (`WHAT THEY DO`, the same small uppercase muted
+   label): the two-or-three-sentence summary in body ink, then a `Lines of business:` line
+   beneath it with the entries separated by ` · `. If the scan named one line of business,
+   print the one; don't pad it out. Hairline border below.
+4. **Three dimension rows**, stacked. Each row: a small rating-colored dot + the label
    (`Fit` / `Timing` / `Reachability`, small uppercase, letter-spacing), a **rating pill**
    (`High` / `Medium` / `Low`, color-coded per the palette), and the one-line rationale
    beneath in body ink. (When Fit uses the no-objectives default, render its one-line caveat
    here in muted ink.)
-3. **Why now** — a highlighted callout: cream tint background, a 3px accent-blue left
+5. **Why now** — a highlighted callout: cream tint background, a 3px accent-blue left
    border, the one sentence in heading ink.
-4. **Recommended next step** — its own block, labeled, the concrete step in body ink.
-5. **Sources** — a small "Sources" label, then the scan's source domains as a wrapped row
+6. **Recommended next step** — its own block, labeled, the concrete step in body ink.
+7. **Sources** — a small "Sources" label, then the scan's source domains as a wrapped row
    of small mono chips (cream fill, hairline border), so the `<N> sources` count is visible
    and clickable-looking. Keep to the domains the scout actually used.
-6. **Footer** — small muted text: `Built with BlueRock · Account Scorecard · scout + scorer`.
+8. **Footer** — small muted text: `Built with BlueRock · Account Scorecard · scout + scorer`.
 
 **Palette** (Builders "cool-paper", light-only — use these hex values directly since the
 Artifact can't read the app's CSS variables):
@@ -93,9 +108,9 @@ slight letter-spacing.
 
 ## Finish
 
-6. The **scorecard artifact** is the payoff — a clean, one-page view (company header,
-   Fit / Timing / Reachability rated High/Med/Low with rationales, the "why now" line,
-   and the recommended next action). The `scorecard.md` is the source of record the
+6. The **scorecard artifact** is the payoff — a clean, one-page view (company header, the
+   facts row and what they do, Fit / Timing / Reachability rated High/Med/Low with
+   rationales, the "why now" line, and the recommended next action). The `scorecard.md` is the source of record the
    builder keeps and can push to their repo.
 7. **Report:** the scorecard path, the headline verdict (the strongest dimension and the
    why-now line), and the artifact (or the fallback note). Don't reprint the whole thing.

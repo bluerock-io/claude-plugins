@@ -21,6 +21,8 @@ so, because a gap named honestly is more useful than a gap papered over.
 ## Read first
 
 - `signals.md` in the working folder (the site reader's capture, your primary source).
+  Its `## Read quality` section, if present, is **not** brand material: see the routing
+  rule under Gaps below.
 - `references.md` in the same folder, if present (material the builder pasted in:
   recent posts, campaign copy, an email). Weight it equally with the site. It is often
   closer to how the brand actually sounds today.
@@ -52,6 +54,24 @@ between the language they use in the room and the language the site actually car
 and that distance is what makes the doc worth five minutes. Look for it deliberately
 rather than reporting it only when it falls out of the read.
 
+**Gaps is about the brand, never about the read.** How well the pages fetched, what read
+thin, what the site reader verified or could not verify: none of that goes in Gaps. It is
+a note about the tool's own confidence, and in Gaps it competes for space with real
+findings and dilutes the section a builder is told to read first. Carry it instead as a
+single **Read quality** line at the top of the doc, under the header, in the site reader's
+own terms ("3 of 4 pages read cleanly; the homepage returned nav only"). One line. If
+everything read cleanly, write nothing at all.
+
+**Stale copy the site reader verified is a Gap, and usually the sharpest one.** When the
+capture confirms a term is live on the site but reads as older naming (an old product
+name still in body copy, a tagline the brand has moved on from), say so plainly with the
+page and the count: *"/try-bluerock still calls it YOLObox four times."* That is precisely
+the distance between what the brand says now and what the site carries, which is the
+section's whole purpose. Do not soften a verified finding into "may be outdated."
+
+**Three gaps is a ceiling, not a quota.** Two real ones beat three padded with a nickname
+or an inconsistent emoji. If only one is real, write one.
+
 If you genuinely find nothing, say so in the section rather than dropping it: *"Nothing
 inconsistent turned up across the pages read."* Never pad it, and never manufacture a
 gap to fill the space. Both of those cost the section the credibility that makes it useful.
@@ -65,7 +85,8 @@ failure.
 ## Output
 
 Write `messaging-doc.md` in the working folder: the sections above, with a one-line
-header naming the brand, the site, the date, and the sources read. Close with one
+header naming the brand, the site, the date, and the sources read, followed by the
+**Read quality** line when there is one to write. Close with one
 line: *"This doc is the baseline your project drafts against. Keep it current and every
 draft gets sharper."* Never invent facts beyond the sources.
 

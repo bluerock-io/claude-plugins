@@ -34,9 +34,15 @@ The **run-as-is core** — you drive these; you don't edit them:
 `/bluerock:scorecard <company>` (or *"score Acme Corp"*) runs two agents and hands you a one-page
 scorecard:
 
-- **`scout`** — a quick, sourced scan: what they do, size and stage, one or two recent signals.
-- **`scorer`** — grades **Fit / Timing / Reachability**, calls the "why now," and recommends a
-  concrete next action, in your voice and against your objectives.
+- **`scout`** — a quick, sourced scan: what they do and sell, headquarters, headcount,
+  estimated revenue and stage, one or two recent signals.
+- **`scorer`** — carries that snapshot onto the page, grades **Fit / Timing / Reachability**,
+  calls the "why now," and recommends a concrete next action, in your voice and against your
+  objectives.
+
+Revenue and headcount follow one rule: a stated figure with its source, an outside estimate
+marked `est.`, or `Not disclosed`. Nothing is inferred — a blank you can see is what makes the
+rest of the page safe to forward.
 
 Seconds, not a deep dig — the "is this worth my time, and what do I do next" read. For the
 deep, multi-section dossier, that's the **Account Research team** seeded in your project (below).
