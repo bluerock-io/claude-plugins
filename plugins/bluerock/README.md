@@ -29,6 +29,7 @@ The **run-as-is core** — you drive these; you don't edit them:
 | **Account Scorecard** | Point a fast team at a company for a one-page scorecard: `/bluerock:scorecard` (agents `scout` + `scorer`) |
 | **Messaging Doc** | Point a fast team at your website for your core messaging doc: `/bluerock:messaging-doc` (agents `site-reader` + `distiller`) |
 | **Competitive Intel** | Battlecards for the competitors you face: `/bluerock:competitive-intel` (agents `competitor-scanner` + `analyst`) |
+| **AEO Visibility** | Whether you show up when buyers ask an AI: `/bluerock:aeo-visibility` (agents `answer-sampler` + `visibility-auditor`) |
 
 ## Account Scorecard — the fast first win
 
@@ -80,6 +81,36 @@ your own differentiators are aimed but labeled yours. Runs save to dated folders
 This is the deep read of the pair — minutes, not seconds; the Account Scorecard stays the
 fast one.
 
+## AEO Visibility — do you show up when a buyer asks an AI?
+
+`/bluerock:aeo-visibility` (or *"do we show up in ChatGPT"*, *"why does Perplexity
+recommend our competitor"*) answers the question behind all of those: buyers ask an AI
+which product to use, and you have no idea whether you're in the answer.
+
+Give it your brand and your website. It reads your site and **proposes the 5 to 10
+questions your buyers actually ask** — category, problem, and comparison — for you to edit
+until they're right. Then two agents run:
+
+- **`answer-sampler`** — one per question, concurrently: asks it, and writes down what
+  actually came back. The sources, every brand named, whether you're among them, and the
+  verbatim passages currently answering the question.
+- **`visibility-auditor`** — reads the samples, looks at your own pages against the
+  answer-engine method, and writes the **AEO Scorecard**: the verdict on each question
+  (you're cited / a competitor is and you aren't / nobody is), a dated count, and a **fix
+  queue ordered by impact and effort** with an owner on every line.
+
+That owner line is the honest part. Some fixes are yours today, some belong to whoever
+owns your site's templates, some need a page that doesn't exist yet — and some are on
+**someone else's site**, because a listicle or a review profile owns that answer and no
+amount of work on your own pages will win it.
+
+**Two things this tool will not do.** It can't log into ChatGPT or Perplexity, so by
+default it samples what a search actually returns — the pool those engines draw on — and
+labels it as exactly that. Paste a real answer in and it reads that verbatim instead. And
+it is **a dated sample, never a rank tracker**: AI answers are generated fresh each time
+and vary between runs, so two runs are two samples, not a before and after. Every verdict
+on the card carries the day it was taken.
+
 ## Your project comes with more — and they're yours
 
 Your project (from [the starter kit](https://github.com/bluerock-io/my-workspace)) ships seeded
@@ -110,7 +141,7 @@ run it in — [the starter kit](https://github.com/bluerock-io/my-workspace) giv
 
 - The plugin's core (`/bluerock:onboard`, `/bluerock:today`, `/bluerock:wrap-up`,
   `/bluerock:check`, `/bluerock:scorecard`, `/bluerock:messaging-doc`,
-  `/bluerock:competitive-intel`) you run as-is.
+  `/bluerock:competitive-intel`, `/bluerock:aeo-visibility`) you run as-is.
   `/bluerock:wrap-up` and `/bluerock:check` especially stay plugin-owned so they keep your
   dashboard correct.
 - Everything in your project's `.claude/` is yours: edit it in place, or build your own

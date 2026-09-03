@@ -1,5 +1,73 @@
 # Changelog — `bluerock` plugin
 
+## Unreleased — AEO Visibility: do you show up when a buyer asks an AI?
+
+**⚠ Release gate: `/bluerock:aeo-visibility` opens with a time-saved line that is a
+placeholder until the timed manual baseline lands. Do not cut a release while the
+placeholder string (`TODO-E6-26` in the manifest, `[PLACEHOLDER — DO NOT MERGE...]` in the
+skill) is present.**
+
+**⚠ Naming: the artifact noun is "AEO Scorecard" (Linda, 2026-09-03).** The build card
+left it open; the alternatives considered were "visibility read + fix queue" and
+"visibility report card". "Scorecard" is deliberate and sits alongside the Account
+Scorecard in the same menu. One guardrail rides with it: the "score" is a **sampled
+presence count** ("cited in 3 of 7 questions, sampled <date>") and never a composite grade
+out of 100 — a count is a fact about one sample, a grade invites trending, and trending is
+what the honesty rule forbids.
+
+- **New use case: `/bluerock:aeo-visibility`** (agents `answer-sampler` +
+  `visibility-auditor`). Brand and domain in; the skill reads the site and **proposes the
+  5 to 10 questions the builder's buyers actually ask** across three intents — category,
+  problem-aware, and comparison/buying — for the builder to edit verbatim. Then one sampler
+  per question, concurrently, and one auditor that writes the **AEO Scorecard**: the
+  verdict per question, a dated presence count, who owns those answers today, and a fix
+  queue.
+- **The honesty rule is the spine of this one, and it is structural rather than
+  footnoted.** AI answers are generated fresh each time and vary between runs, so every
+  verdict carries its sampled-on date — in `inputs.md`, in every sample, in the scorecard,
+  and in a **sticky caveat strip under the artifact's masthead that cannot be scrolled
+  away from**. No ranks, no positions, no share, no trends, no arrows between two runs. The
+  auditor is explicitly barred from the words improved, declined, up, and down about a
+  previous run: two runs are two samples.
+- **We say plainly what we cannot reach.** The team can't log into ChatGPT, Perplexity, or
+  AI Overviews, so by default it samples **the retrieval layer** — what a real search
+  returns for each buyer question, which is the pool those engines draw on — labeled
+  `[retrieval sample]`. The builder can paste a real answer at intake; that is read
+  verbatim and labeled `[pasted answer · <engine> · <date>]`. The sampler is forbidden from
+  writing "ChatGPT says…" about anything it did not read. Inventing a transcript is the one
+  failure this use case cannot survive.
+- **The fix queue names an owner-type on every line**, on a closed set of four: `you,
+  today` · `your web person` · `a writer` · **`someone else's site`**. The fourth is the
+  one most audits omit — when a listicle or a review profile owns the answer, on-page work
+  will not win it, and the queue says so instead of padding itself with things the builder
+  can technically do. Impact (`high`/`medium`/`low`, judged by how many sampled questions a
+  fix moves) and effort (`minutes`/`hours`/`a project`) are fixed scales.
+- **The in-house eight-step answer-engine method, transplanted and de-branded**: context,
+  scope, intent coverage, on-page, answer-engine readiness (answer-first in the first 40–60
+  words, entity definition, question-shaped headings, comparison tables, sourced and dated
+  claims, structured data), being a source worth citing (the **recognized-term bridge**,
+  consistent naming, first-party data, topical depth, and the **citation hierarchy** that
+  makes owned content necessary but not sufficient), the queue, and validation.
+- **The verification discipline came with it, because it prevents false findings**: the
+  auditor reads page heads via raw HTML rather than a fetch tool (which markdown-strips
+  `<script type="application/ld+json">` and `<meta>` and reports confident false
+  negatives), recognizes script-injected structured data and says so rather than calling it
+  missing, and refuses to score a page that may still be serving from a fresh-publish
+  cache. Its web access is scoped to the builder's own domain: who is cited is settled by
+  the samples and nothing else.
+- **The artifact is a tool, not a report** (product decision, 2026-08-31): tabbed panels —
+  Verdict, Fix queue, then one per question — with a **verdict dot in the tab strip itself**
+  so four red and two green is read before a word of it is, semantic lanes (cited /
+  absent-competitor-present / nobody cited / couldn't check), verbatim "passages worth
+  owning" showing the shape of the answer that is winning, and full light + dark theming on
+  the shared token set carried from the Competitive Intel contract. Read-only stays
+  absolute: no CTAs, no dead controls.
+- **Runs accumulate:** a dated folder under `my-work/aeo-visibility/` per run, with
+  `inputs.md` carrying the questions verbatim — which is what makes a later sample worth
+  putting beside this one at all.
+- **Wording contract** ships with the skill from its first draft, and `messaging-doc`'s
+  contract now names this skill as a second consumer of `my-work/messaging-doc/`.
+
 ## Unreleased — Competitive Intel: battlecards, the third agent team in the plugin
 
 **⚠ Time saved is an estimate, not a measurement.** `/bluerock:competitive-intel` opens with a
