@@ -150,6 +150,6 @@ Not part of a run. Read this before rewording anything a builder sees.
 - **`curriculum/manifest.json`** carries this skill's `one_liner` and **README.md
   § Messaging Doc** quotes the flow; the menu and the site read both.
 - **`/bluerock:competitive-intel` reads the latest doc under `my-work/messaging-doc/`**
-  to pre-fill a builder's differentiators, and **`/bluerock:aeo-visibility` reads it** to
-  build the buyer questions it proposes — the folder shape is load-bearing beyond this
-  skill.
+  to pre-fill a builder's differentiators, **`/bluerock:aeo-visibility` reads it** to
+  build the buyer questions it proposes, and **`/bluerock:outreach-prep` reads it** to
+  pre-fill what the builder sells — the folder shape is load-bearing beyond this skill.

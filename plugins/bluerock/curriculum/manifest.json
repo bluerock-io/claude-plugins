@@ -220,6 +220,28 @@
       ]
     },
     {
+      "id": "outreach-prep",
+      "type": "skill",
+      "category": "research-intelligence",
+      "roles": [
+        "sales"
+      ],
+      "tier": "core",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "recommended_after": [],
+      "one_liner": "Point an agent team at the people you want to reach (up to 4) and get an outreach kit: who they are and why now, sourced, the angle, and a draft in your voice. Nothing is sent.",
+      "artifact": "outreach kit",
+      "time_saved": "about 1 hour by hand, estimated and not yet timed",
+      "team": [
+        "prospect-scanner",
+        "outreach-writer"
+      ]
+    },
+    {
       "id": "research",
       "type": "skill",
       "category": "research-intelligence",

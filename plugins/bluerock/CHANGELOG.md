@@ -68,12 +68,12 @@ what the honesty rule forbids.
 - **Wording contract** ships with the skill from its first draft, and `messaging-doc`'s
   contract now names this skill as a second consumer of `my-work/messaging-doc/`.
 
-## Unreleased — Competitive Intel: battlecards, the third agent team in the plugin
+## Unreleased — two use-case agent teams: Competitive Intel and Personalized Outreach
 
-**⚠ Time saved is an estimate, not a measurement.** `/bluerock:competitive-intel` opens with a
-time-saved figure supplied by the product owner (Linda, 2026-09-03) and labeled on its
-face as an estimate. The timed manual baseline (E6-26) has not been run. Replace the
-figure and this note when it lands; until then no surface may present it as measured.
+**⚠ Time saved is an estimate, not a measurement.** `/bluerock:competitive-intel` and `/bluerock:outreach-prep` each open
+with a time-saved figure supplied by the product owner (Linda, 2026-09-03) and labeled on
+its face as an estimate. The timed manual baselines (E6-26) have not been run. Replace the
+figures and this note when they land; until then no surface may present them as measured.
 
 - **New use case: `/bluerock:competitive-intel`** (agents `competitor-scanner` + `analyst`).
   Five short intake questions — category, competitors (up to 4), your differentiators,
@@ -114,6 +114,58 @@ figure and this note when it lands; until then no surface may present it as meas
   volleys, and full light + dark theming in the Builders design language. Read-only stays
   absolute: no CTAs, no dead controls. The rule is now repo-wide in CLAUDE.md § Hard rules,
   and this skill's contract is the reference other use cases copy.
+
+### Personalized Outreach — `/bluerock:outreach-prep`
+
+- **New use case: `/bluerock:outreach-prep`** (agents `prospect-scanner` +
+  `outreach-writer`). Four short intake questions — who you're writing to (up to 4), what
+  you're selling, the channel, anything shaping it — then a confirm, then one bounded
+  sourced scan per person and one panel per person: who they are and why now (dated,
+  sourced), the angle, a draft in the builder's voice, follow-up beats, and the gap turned
+  into a first question. The artifact is the **outreach kit**.
+- **The separation rule gains a third lane.** The battlecard's two — sourced about them,
+  supplied by us — become three here, because a draft is a different kind of statement:
+  facts carry the scan's sources and markers, the angle is the builder's own claim aimed
+  at one person, and **every draft is labeled a draft**. The legend row makes the three
+  visible before a word is read.
+- **Nothing is ever sent.** No send step, no sequences, no CRM write, and the design
+  contract explicitly forbids a copy-to-clipboard or send-shaped control on the drafts —
+  on a kit whose promise is "nothing is sent," a send-shaped button is the worst control
+  to ship. The builder edits and sends from their own account.
+- **The honesty guardrail is the design, not a fallback.** A prospect with a thin public
+  footprint gets a short honest panel and the gap becomes the builder's first discovery
+  question, rendered full-width and high on the panel rather than as an apology. The
+  scanner rates every footprint `substantial` / `moderate` / `thin` and the panel carries
+  the rating.
+- **Public professional footprint only.** The scanner never collects or infers contact
+  details — no emails found, guessed, or pattern-derived, no phone numbers, nothing behind
+  a login, nothing personal. Finding the address is not this team's job and does not
+  become it.
+- **Drafting rules that protect a reply rate:** every factual sentence traces to a sourced
+  line in the panel above it; a quote is only used when the scan actually captured it; no
+  manufactured warmth, no manufactured urgency, one small ask; and length is set by the
+  channel, not by how much the scan found. Four channel shapes ship (email, LinkedIn
+  message, LinkedIn connection note, call opener) and one run writes one channel.
+- **The research approach is `prospecting-brief`'s, productized.** The second stage moved
+  off a workbench page — which a self-serve builder does not have — onto an in-session
+  writing agent mirroring `analyst`.
+- **Runs accumulate:** each run writes a dated folder under `my-work/outreach-prep/` plus
+  an `inputs.md` seed; a rerun reports what changed and will not reuse an opener already
+  used on the same person. Staleness is marked at a month here, not a quarter — a funding
+  round is news for about that long.
+- **Positioning inputs sharpen, never gate:** the skill reads `voice.md`, `writing-samples/`,
+  `objectives.md`, and the latest messaging doc when they're real, pre-fills the intake
+  from them, and runs honestly without them. `voice.md` matters more here than on any
+  other use case, so its absence is said once, plainly, with `/bluerock:onboard` named as
+  the fix.
+- **The artifact follows the Competitive Intel contract** (product decision, 2026-08-31),
+  with this use case's four lanes substituted onto the same palette and type system:
+  sourced-and-dated, the angle, drafts, and what-we-couldn't-find. Tabbed per-prospect
+  panels, a 30-second read block, light and dark themes, and a print path that renders
+  every prospect in sequence as a call-prep sheet.
+- **Wording contracts** ship with both new files from the first draft, and a reverse
+  contract was added to `onboard` — it owns `voice.md` and `writing-samples/`, which four
+  agents now read and none of them named back.
 
 ## 0.11.0 — both first-win work products say who the subject is, and stop hedging
 
