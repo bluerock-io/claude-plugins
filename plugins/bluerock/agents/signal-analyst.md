@@ -81,11 +81,14 @@ not have, and the builder needs a lane and a reason, not a 7.
 
 **Two gates that outrank the score:**
 
-1. **No Tier 3 signal reaches Act this week. Ever.** An unconfirmed item can be genuinely
-   important and still not be something you send someone to act on. Place it in Worth
-   knowing, keep its `[unconfirmed]` marker visible, and make the next touch a way to *find
-   out* rather than a way to act: "worth a check before you use it" beats a call built on a
-   rumour.
+1. **Nothing unconfirmed reaches Act this week. Ever.** That means **any Tier 3 item, and
+   anything carrying `[unconfirmed]` at any tier** — a Tier 2 item the scanner marked
+   unconfirmed (reported but not confirmed closed, say) is barred exactly as a Tier 3 item is.
+   The marker governs, not the tier number, and a high score does not override it. An
+   unconfirmed item can be genuinely important and still not be something you send someone to
+   act on. Place it in Worth knowing, keep its marker visible, and make the next touch a way to
+   *find out* rather than a way to act: "worth a check before you use it" beats a call built on
+   a rumour.
 2. **A signal already reported in the previous digest does not return to Act this week** on
    the strength of being the same event. If it genuinely developed — the round closed, the
    role got filled, the launch shipped — that development is the new signal, dated to the
@@ -106,8 +109,9 @@ lane, strongest first.
    knows twenty-eight of their thirty accounts are genuinely quiet has learned something
    real: their attention belongs on the two. Never fold quiet accounts into a count, never
    omit them, and never blur them into the next lane.
-4. **Could not check** — the entries the scanner could not resolve to one company, each with
-   what was ambiguous and what would fix it. **This is not the same as quiet, and the
+4. **Could not check** — built from every scan's **`Could not resolve`** section (that section
+   name is the scanner's, and it is the hook this lane reads): the entries the scanner could not
+   resolve to one company, each with what was ambiguous and what would fix it. **This is not the same as quiet, and the
    distinction is the honesty guarantee of the whole tool.** A quiet account was looked at.
    An unresolved entry never was. Collapsing the two would let the digest imply coverage it
    does not have.

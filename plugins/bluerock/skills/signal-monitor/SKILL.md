@@ -302,8 +302,10 @@ before a single sentence is read.
 - **The fetch bound is stated because it is a real limit.** This is a wide, shallow sweep. It
   will miss things a deep read would find, and the artifact says the bound out loud so the
   builder can calibrate rather than over-trust it.
-- **Nothing unconfirmed reaches the act-this-week lane.** A Tier 3 item can be important and
-  still not be something to act on; it lands in worth-knowing with its marker intact.
+- **Nothing unconfirmed reaches the act-this-week lane** — any Tier 3 item, and anything marked
+  `[unconfirmed]` at any tier. The marker governs, not the tier number, and a high rank never
+  overrides it; the item lands in worth-knowing with its marker intact and a next touch that
+  finds out rather than acts.
 - **Refresh, don't rot.** Signals go stale in weeks, not quarters. Every run is dated; when the
   previous run in `my-work/signal-monitor/` is more than a month old, say so in the report rather
   than treating the diff as a fresh picture.
@@ -318,7 +320,10 @@ Not part of a run. Read this before rewording anything a builder sees.
   Next touch); this skill's artifact contract renders all of them by name and order. Reword them
   in either file and the artifact loses sections silently.
 - **`agents/account-scanner.md` owns the scan section names** (Signals, Context, Could not
-  resolve, Coverage note); the analyst reads scans by section. The scan filename shape
+  resolve, Coverage note); the analyst reads scans by section, and its **Could not check** lane
+  is built from **Could not resolve** specifically — the one cross-file hook where the two files
+  use different words for the same thing on purpose (the scanner reports what it could not
+  resolve; the digest reports what the builder could not have checked). The scan filename shape
   `scan-batch-<n>.md` is matched by the analyst's Glob. **The 2–3 fetches per account bound is
   stated in three places** — the scanner, this skill's step 10, and the artifact meta line — and
   changing it means changing all three or shipping a false statement to the builder.
