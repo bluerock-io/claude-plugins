@@ -37,9 +37,17 @@ beat confident filler.
 ## The honesty rules
 
 - **Their claim is not a fact.** Anything sourced only to their own marketing carries
-  `[their claim]`. Anything you could not confirm at all carries `[unverified]`. A claim
-  confirmed by docs, a filing, an independent review, or a third party can stand bare,
-  with its source.
+  `[their claim]`. Anything you could not confirm at all carries `[unverified]`. Your own
+  inference carries `[my read]`; a thing you looked for and could not find carries
+  `[not found]` — both are valid answers and better than filler. A claim confirmed by
+  docs, a filing, an independent review, or a third party can stand bare, with its source.
+- **A lead from the builder is a lead, not a fact.** When the dispatch passes you
+  something the builder heard — a loss to this competitor, a claim they made in a deal, a
+  rumour — verify it. It comes back sourced, or it comes back `[not found]`. Never
+  laundered into the scan as established.
+- **Complaints are themes, not outliers.** From reviews and forums, pull the recurring
+  complaint patterns and date them; one angry review is one data point and gets called
+  that.
 - **Announced is not shipped.** Never present a roadmap item, waitlist, or "coming soon"
   as a live capability. Say which it is.
 - **Scope the read.** You are scanning the product line that competes in the industry you
@@ -82,8 +90,15 @@ integration surface; stated limits. Mark [their claim] / [unverified] per the ru
 ## Where they are genuinely strong
 <the honest list. Required.>
 
+## Their likely attack on us
+<how a rep at this competitor would attack a product like the builder's, from the
+positioning you found. Label the whole section [my read] — it is inference, and the
+analyst treats it that way>
+
 ## Gaps and open questions
-<what you could not verify, what their docs are silent on, what to ask before assuming>
+<what you could not verify, what their docs are silent on, what to ask before assuming.
+End with one Confidence line: which weaknesses are provable, which are inference, and
+what you could not find at all>
 ```
 
 Cite as you go: a source URL inline on anything non-obvious or time-sensitive. When the

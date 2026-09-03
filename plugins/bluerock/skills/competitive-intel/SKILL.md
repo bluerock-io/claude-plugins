@@ -5,10 +5,11 @@ description: >-
   battlecard per competitor: sourced kill points, your differentiators aimed, where
   they're genuinely better, their likely attack and the answer, and one question to
   ask. Use when I say "battlecard for <competitor>", "competitive intel on <A> and
-  <B>", "who are we up against", "prep me for a competitive deal", or name
-  competitors before a meeting. Runs competitor-scanner (once per competitor, up to
-  4) → analyst, and writes to my-work/competitive-intel/. Research-grade on purpose
-  — minutes, not seconds.
+  <B>", "who are we up against", "how do I beat <competitor>", "kill points against
+  <competitor>", "compare us to <X> and <Y>", "prep me for a competitive deal", or
+  name competitors before a meeting. Runs competitor-scanner (once per competitor,
+  up to 4, concurrently) → analyst, and writes to my-work/competitive-intel/.
+  Research-grade on purpose — minutes, not seconds.
 ---
 
 Run the Competitive Intel team and produce **battlecards** — one card per competitor,
@@ -57,17 +58,53 @@ required for it.
 Ask these one at a time. Keep each ask to a line or two; don't stack questions or explain
 the whole flow up front.
 
+**Skip what they already gave you.** If the opening request named the industry or the
+competitors, don't re-ask — say what you're taking as given (`Industry: AI runtime
+security · Competitors: Straiker, Zenity`) so a wrong reading gets corrected early, then
+pick up at the first step that's actually missing. A returning builder never re-answers a
+question they already answered; a prior run's `inputs.md` pre-fills the same way (propose,
+confirm, don't re-ask cold).
+
+**Which prompt shape for which step:** use the question picker (`AskUserQuestion`) only
+where the answer is genuinely a choice between a few options — steps 3a and 4. Everywhere
+else the answer is free text in the builder's own words, and a four-option picker is the
+wrong shape for it: ask in the message and let them type. Where the picker isn't available
+in this client, ask in the message.
+
 1. **Industry / market context.** "What category are we competing in?"
 2. **Competitors.** "Who are we up against? Names are enough — add a domain for anything
    with a common name (cap is 4 per run)."
-3. **Your differentiators.** "What do you win on? Two or three bullets in your own words."
-   (Pre-fill from the messaging doc or objectives when they exist and confirm instead.)
-4. **Personas.** "Who are these cards for — who's in the room or in the deal?"
+3. **Your differentiators.** "What do you win on? Two or three real bullets in your own
+   words beat ten aspirational ones." (Pre-fill from the messaging doc or objectives when
+   they exist and confirm instead.) Kill points come from the scans; **silver bullets come
+   only from here** — never fabricate a differentiator.
+   - **3a — if they have nothing written down**, offer the route rather than leaving them
+     stuck: *"Want me to pull them out with three questions?"* (options: yes, ask me the
+     three · I'll write them myself · skip it — the cards will say the silver-bullets
+     section was built without them). If they take the three, ask **one at a time**:
+     1. What do you win on when you win?
+     2. What do you hear in a won deal that you never hear anywhere else?
+     3. What can you do on day one that a competitor needs a services project for?
+     Then read their answers back as a differentiator list and let them correct it before
+     moving on.
+4. **Personas.** Offer it explicitly — it changes the cards materially — but **never block
+   the run on it**: *"Tailor these to the person in the room?"* (yes — give me title, what
+   they own, seniority · no — keep it general). More than one person is normal and fine: a
+   card carries a lane each (a CISO and a CIO want different openings). Take them all.
 5. **Other notes.** "Anything else that should shape these? A deal that's stuck, pricing
    pressure, a loss you want to understand, a compliance constraint, a claim we're not
    allowed to make, a phrase to avoid. Optional — say 'nothing' if there isn't anything."
 6. **Confirm before we run.** Play back industry, competitors, differentiators, personas,
-   and notes as a short bullet list, then: "Good to go, or anything to edit?"
+   and notes as a short bullet list, then: "Good to go, or anything to edit?" **Carry all
+   five inputs forward verbatim from here** — notes and differentiators are the builder's
+   own words, and paraphrasing either is how a card ends up asserting something they never
+   said.
+
+**The moment the builder approves**, set the expectation for the wait in one message of
+its own, then go quiet until the report: the scans run concurrently and take several
+minutes, so say so plainly — this is a good moment to grab a coffee or switch tasks, and
+the battlecards will be ready when they check back. No further chatter between this and
+the report.
 
 ## Set up the run
 
@@ -83,20 +120,28 @@ the whole flow up front.
    enough to read. This is the record of what shaped the cards, and the seed the next
    run pre-fills from.
 
-## Run the agents, in order
+## Run the agents
 
-Dispatch these as ordinary subagents, one at a time, waiting for each. Do not use
-agent-teams tooling; this runs identically in every client.
+Dispatch these as ordinary subagents. Do not use agent-teams tooling; this runs
+identically in every client.
 
-10. **Dispatch `competitor-scanner` once per competitor**, each with: the competitor
-    (name + domain if given), the industry, and the working folder's absolute path. Each
+10. **Dispatch one `competitor-scanner` per competitor — all in a single message so they
+    run concurrently.** Each gets: its one competitor (name + domain if given), the
+    industry, and the working folder's **absolute path** in the dispatch prompt itself (a
+    subagent starts wherever the session started; the path you pass is the handoff). Each
     writes a sourced `scan-<competitor-slug>.md`, docs-deep and bounded to 6 to 8 fetches.
-    Wait for each before dispatching the next, and tell the builder which competitor is
-    being scanned as you go — four scans take a few minutes and silence reads as a hang.
+    Wait for all of them.
+    - **If the builder's notes mention a specific competitor** — a loss to them, a claim
+      they made in a deal, a rumour worth checking — pass it to *that* competitor's scanner
+      as an **unverified lead from the builder**, to come back sourced or come back
+      `[not found]`. Never as a fact.
 11. **Dispatch `analyst`** with the working folder path and, when step 8 found one, the
     previous `battlecard.md` path. It reads `inputs.md` and every scan — **no web tools,
-    no new research** — and writes `battlecard.md`: one card per competitor, plus what
-    changed since the previous run.
+    no new research** — and writes `battlecard.md`: one card per competitor; on a
+    multi-competitor run, the two field-level syntheses (**The field** and the
+    **Capability chart**); and what changed since the previous run. The builder's
+    differentiators, personas, and notes reach it through `inputs.md` **verbatim** — that
+    file carries their words, never a paraphrase.
 
 ## Publish the artifact — you, not the agents
 
@@ -159,17 +204,24 @@ rule uses `var()` — no literal color outside the three token blocks. `body` ba
 3. **"Since your last run" strip** — only when a previous run existed: an accent-soft
    callout, dated, listing the analyst's "Since" items (or its "no material change"
    line). Omit the block entirely on a first run.
-4. **One panel per competitor**, sections in this order:
+4. **On a multi-competitor run, two field-level views** reachable from the tab strip
+   alongside the competitors: **The field** (the analyst's cross-competitor table plus its
+   "who's actually the threat" read) and the **Capability chart** — render the Harvey-ball
+   grid as an actual grid of the five symbols (never a bar chart or a numeric score), each
+   cell's one-line rationale directly beneath its row. The symbols are the point.
+5. **One panel per competitor**, sections in this order:
    - **Name** (display, 28–40px, weight 800) + mono scope subline carried from the scan.
    - **The 30-second read** — bordered block with a dark bar header (`background:
      var(--ink)`, `color: var(--paper)`), labeled grid rows (`128px + 1fr`; mono
      uppercase labels, serif values): what they are, the tell or how they move, and a
      highlighted **THE FIGHT** row on accent-soft.
    - **Kill points** — kill-colored chip + note `Sourced. Use in the room.`; numbered
-     item-cards (mono number, kill-colored 4px left stripe), bold claim lead, body, and
-     a mono source chip `scan-<slug>.md · <section>` on every point. Carry every
-     `[their claim]` / `[unverified]` marker as a small mine-colored mono tag — never
-     silently drop one.
+     item-cards (mono number, kill-colored 4px left stripe) each carrying the four lines:
+     the **point** as the bold lead, the **proof** with its mono source chip
+     `scan-<slug>.md · <section>`, the **ask** (labeled `ASK`, the question that lets the
+     buyer discover it), and **they'll say** (labeled, their rebuttal and the one-line
+     counter). Carry every `[their claim]` / `[unverified]` marker as a small mine-colored
+     mono tag — never silently drop one.
    - **Silver bullets** — bullet-colored chip + note `Your differentiators, aimed.`;
      numbered cards with the "say it" line in serif italic behind a bullet-colored left
      rule. When differentiators were missing, this section carries the honest one-liner
@@ -186,10 +238,19 @@ rule uses `var()` — no literal color outside the three token blocks. `body` ba
    - **One question to ask** — accent chip + note `Worded so the prospect asks them.`;
      the question in serif italic inside an accent-soft callout with a 3px accent left
      border.
+   - **Persona lane — for <title>** (only when a persona was given; one lane per person):
+     accent-topped card with what they're measured on, the lead-with silver bullet in
+     their vocabulary, the kill points re-ranked for them, the don't-say line, and their
+     three discovery questions. `[my read]` markers stay visible.
    - **Panel sources** — mono chips of the domains that competitor's scan actually used.
-5. **Footer** — the separation-rule note (sourced lines carry a scan citation; silver
-   bullets are ours to say, never dressed up as findings) and the line
+6. **Footer** — the separation-rule note (sourced lines carry a scan citation; silver
+   bullets are ours to say, never dressed up as findings), the line **`Internal
+   competitive material — not for circulation to customers or prospects`**, and
    `Built with BlueRock · Competitive Intel · competitor-scanner + analyst`.
+
+**The scan test:** someone reading this on a phone in a lobby has about eight seconds —
+the lane colors, the 30-second read, and the numbered points must carry the card before a
+single sentence is read.
 
 ## Finish
 
@@ -212,16 +273,26 @@ rule uses `var()` — no literal color outside the three token blocks. `body` ba
   silver bullets are the builder's own claims, aimed but labeled ours. The analyst
   enforces it; the artifact preserves it.
 - **A thin competitor gets an honest short card**, not a padded one.
+- **No FUD, no disparagement.** Attack the capability gap, never the company or its
+  people. These cards should read like they would survive being forwarded to the wrong
+  person.
+- **Refresh, don't rot.** Competitive intel goes stale in about a quarter. Every run is
+  dated; when the previous run in `my-work/competitive-intel/` is more than a quarter old,
+  say so in the report rather than treating the diff as a refresh.
 - **The time-saved line above ships only with a timed figure and its provenance.**
 
 ## Who depends on this skill's wording
 
 Not part of a run. Read this before rewording anything a builder sees.
 
-- **`agents/analyst.md` owns the seven card section names** (The 30-second read, Kill
-  points, Silver bullets, Where they're genuinely better, Their attack on us, Head to
-  head, One question to ask) and this skill's artifact contract renders them by name and
-  order. Reword them in either file and the artifact loses sections silently.
+- **`agents/analyst.md` owns the card section names** (The 30-second read, Kill points,
+  Silver bullets, Where they're genuinely better, Their attack on us, Head to head, One
+  question to ask, and the conditional Persona lane) **and the two field-level synthesis
+  names on multi-competitor runs (The field, Capability chart)**; this skill's artifact
+  contract renders all of them by name and order. Reword them in either file and the
+  artifact loses sections silently. The kill-point four-line shape (point, proof, ask,
+  they'll say) is likewise shared between the analyst's card spec and the artifact's
+  kill-point rendering.
 - **`agents/competitor-scanner.md` owns the scan section names**; the analyst reads
   scans by section. The scan filename shape `scan-<competitor-slug>.md` is matched by the
   analyst's Glob.

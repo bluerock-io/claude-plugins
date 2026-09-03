@@ -27,6 +27,19 @@ skill) is present.**
   honestly without them (the silver-bullets section says so instead of inventing).
 - **Wording contracts** added to `scorecard` and `messaging-doc` (the two shipped use-case
   skills carried none), and `competitive-intel` ships with one from its first draft.
+- **Converged with the internal prototype** (2026-09-03) — the prototype's intake and
+  field-craft, adopted: the three-question differentiator interview for builders with
+  nothing written down, skip-what-you-already-told-me with a "taking as given" read-back,
+  concurrent scanner dispatch with a set-the-wait expectation message, builder notes as
+  hard constraints ("we can't claim X" means X appears nowhere), unverified builder leads
+  passed to the right scanner to come back sourced or `[not found]`, the four-line kill
+  point (point / proof / **ask** / they'll say), per-person persona lanes, the no-FUD rule,
+  refresh-don't-rot staleness marking, and on multi-competitor runs two field-level
+  syntheses: **The field** and a Harvey-ball **Capability chart** (fixed five-symbol scale,
+  rationale per cell, Us always `●` because differentiators are asserted, not verified).
+  Kept from the toolkit side: the tool design contract with exact tokens, manifest
+  registration, dated run history with "since your last run", the wording contract, and
+  the timed-provenance gate on every time-saved claim.
 - **The artifact is a tool, not a report** (product decision, 2026-08-31): the design
   contract now specifies tabbed per-competitor panels, semantic color lanes (kill points,
   silver bullets, don't-take-the-fight-here, attack-and-answer), a 30-second read, THEM/US
