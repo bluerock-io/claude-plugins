@@ -154,6 +154,10 @@ is quiet.
 ## Two rules that outrank everything above
 
 - **A quiet account is a result, not a gap.** Never apologise for it, never pad around it.
+- **"Accounts checked" never counts an entry you could not check.** An entry in Could not check
+  was never scanned, so it is not part of the checked count — write `4 of 5`, never `5`. This is
+  the same rule as the lanes, applied to the one number a builder reads first, and getting it
+  wrong there undoes the honesty the four lanes exist to protect.
 - **Say it out loud first.** If a next touch cannot be said to a real person without sounding
   like a template, rewrite it.
 
@@ -165,7 +169,7 @@ load-bearing — the skill renders the artifact from them.
 ````markdown
 # Signal digest — <list name> · <YYYY-MM-DD>
 
-**Accounts checked:** <n> · **Window:** <the lookback> · **Run:** <first run | run N>
+**Accounts checked:** <checked> of <total on the list> · **Window:** <the lookback> · **Run:** <first run | run N>
 **Signals:** <n> to act on · <n> worth knowing · <n> accounts quiet · <n> could not be checked
 **Scan bound:** 2–3 fetches per account
 

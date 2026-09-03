@@ -222,8 +222,10 @@ battlecard — sourced facts and our own judgment never share a color:
 **Structure** (max width 1000px):
 
 1. **Sticky masthead** — uppercase display title (`SIGNAL DIGEST · <LIST NAME>` shape), mono
-   meta line (`<date> · <N> accounts checked · <window> · 2–3 fetches per account · <first run
-   or run N>`), then the **filter chip row**: an `All accounts` chip plus **one chip per checked
+   meta line (`<date> · <N> of <M> accounts checked · <window> · 2–3 fetches per account ·
+   <first run or run N>`). **That count carries the analyst's checked-of-total, never the list
+   size** — an entry in Could not check was never checked, and claiming it in the first line a
+   builder reads undoes the lane structure underneath. Then the **filter chip row**: an `All accounts` chip plus **one chip per checked
    account**, each carrying a small lane-colored dot for its state (act / worth / quiet).
    Buttons with `aria-pressed`, exactly one active at a time, `All accounts` active on load; the
    inline script toggles the `hidden` attribute on cards and lane sections. The chip row **is**
@@ -260,16 +262,29 @@ battlecard — sourced facts and our own judgment never share a color:
 **The card**, in the two signal lanes:
 
 - **Account name** (display, 20–26px, weight 800) + the builder's own signal category as a mono
-  tag, + a lane-colored 4px left stripe on the card.
-- **WHAT HAPPENED** — mono uppercase label; the dated finding in ink, with the date as a mono
-  chip, the source as a mono chip (`<domain>`), and the tier as a small mine-colored mono tag.
-  Carry every `[unconfirmed]` marker through — **never silently drop one.**
-- **WHY IT MATTERS** — mono uppercase label; serif, in ink-2. Carries `[my read]` markers where
+  tag, + a lane-colored 4px left stripe on the card. **An `[unconfirmed]` card also carries its
+  marker up here beside the category**, so a builder scanning the worth-knowing lane can see why
+  a card is in it without reading down.
+- **WHAT HAPPENED** — mono uppercase label; the dated finding **in `ink` at full strength**, with
+  the date as a mono chip, the source as a mono chip (`<domain>`), and the tier as a small
+  mine-colored mono tag. Carry every `[unconfirmed]` marker through — **never silently drop one.**
+- **WHY IT MATTERS** — mono uppercase label; serif, **in `ink-2`, deliberately one step back from
+  the row above it.** That contrast is the separation rule made visual: the sourced fact reads
+  more assertively than the read derived from it, and flattening the two to one color is a
+  regression even though nothing is factually wrong. Carries `[my read]` markers where
   the analyst set them. When the builder gave no positioning, this row carries the analyst's
   honest one-liner instead, and it is not styled to look like a finding.
-- **NEXT TOUCH** — mono uppercase label; behind a bullet-colored left rule, the opening line in
-  serif italic. Visually distinct from the two rows above it, because it is the one part of the
-  card that is a suggestion rather than a fact.
+- **NEXT TOUCH** — mono uppercase label; behind a bullet-colored left rule. The who and the
+  angle in body text, then **the line to actually say in serif italic** on its own. Visually
+  distinct from the two rows above it, because it is the one part of the card that is a
+  suggestion rather than a fact.
+
+**Accessibility, and it is not optional on a tool built for scanning:** each lane's header is a
+real heading (`<h2>`), not a styled `<span>`, and each `<section class="lane">` is labelled by
+it. Heading navigation is how a screen-reader user scans a board, so a board whose four lanes
+are invisible to it is not scannable at all. Every mono label must clear WCAG AA against the
+surface behind it — **`ink-4` is too light for 10px label text and fails; use `ink-3` or
+darker** for anything a builder has to read rather than merely notice.
 
 **The scan test:** someone opening this on a phone with coffee in the other hand has about eight
 seconds — the lane colors, the act-this-week count, and the account names must carry the board
