@@ -32,6 +32,7 @@ The **run-as-is core** — you drive these; you don't edit them:
 | **AEO Visibility** | Whether you show up when buyers ask an AI: `/bluerock:aeo-visibility` (agents `answer-sampler` + `visibility-auditor`) |
 | **Personalized Outreach** | Prep and drafts for the people you want to reach: `/bluerock:outreach-prep` (agents `prospect-scanner` + `outreach-writer`) |
 | **Process to Skill** | Turn a process that lives in your head into a skill you can run and a runbook you can hand over: `/bluerock:process-to-skill` (agent `understudy`) |
+| **Signal Monitor** | A signal digest across your account list: `/bluerock:signal-monitor` (agents `account-scanner` + `signal-analyst`) |
 
 ## Account Scorecard — the fast first win
 
@@ -161,6 +162,30 @@ Anything that goes outward gets your eyes first.
 Then you run it, on something real. That's the point of the whole thing: a tool that didn't
 exist an hour ago, that you now own.
 
+## Signal Monitor — the Monday morning sweep
+
+`/bluerock:signal-monitor` (or *"what's happening with my accounts"*, *"any signals this
+week"*) takes your account list as a dropped file — names or domains, dozens is fine, up to
+40 a run — asks what counts as a signal **in your words** and how far back to look, then runs
+two agents:
+
+- **`account-scanner`** — sweeps the accounts in batches, **2 to 3 fetches each**, for recent,
+  dated, sourced signals. Wide and shallow on purpose: the question is which accounts moved,
+  not everything about one account. An entry it can't pin to one company is named and skipped,
+  never guessed.
+- **`signal-analyst`** — ranks what came back into a board: **act this week** first, then
+  **worth knowing**, then the accounts that were **checked and are genuinely quiet**. Each
+  signal card says what happened (dated, sourced), why it matters against what you sell, and a
+  suggested next touch.
+
+A quiet account is a finding, not an omission — knowing twenty-eight of your thirty accounts
+had nothing this month is what tells you where the other two deserve your week. Accounts that
+couldn't be checked at all stay in their own lane, so the digest never implies coverage it
+doesn't have. Runs save to dated folders in `my-work/signal-monitor/`, so next week's run
+tells you what moved.
+
+When one account turns out to matter, `/bluerock:scorecard` is the deep read on it.
+
 ## Your project comes with more — and they're yours
 
 Your project (from [the starter kit](https://github.com/bluerock-io/my-workspace)) ships seeded
@@ -192,9 +217,9 @@ run it in — [the starter kit](https://github.com/bluerock-io/my-workspace) giv
 - The plugin's core (`/bluerock:onboard`, `/bluerock:today`, `/bluerock:wrap-up`,
   `/bluerock:check`, `/bluerock:scorecard`, `/bluerock:messaging-doc`,
   `/bluerock:competitive-intel`, `/bluerock:aeo-visibility`, `/bluerock:outreach-prep`,
-  `/bluerock:process-to-skill`) you run as-is — though `/bluerock:process-to-skill` is the
-  one whose *output* is yours to edit: the skill it writes lands in your project alongside
-  your own.
+  `/bluerock:process-to-skill`, `/bluerock:signal-monitor`) you run as-is — though
+  `/bluerock:process-to-skill` is the one whose *output* is yours to edit: the skill it
+  writes lands in your project alongside your own.
   `/bluerock:wrap-up` and `/bluerock:check` especially stay plugin-owned so they keep your
   dashboard correct.
 - Everything in your project's `.claude/` is yours: edit it in place, or build your own
