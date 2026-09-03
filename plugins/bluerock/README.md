@@ -31,6 +31,7 @@ The **run-as-is core** — you drive these; you don't edit them:
 | **Competitive Intel** | Battlecards for the competitors you face: `/bluerock:competitive-intel` (agents `competitor-scanner` + `analyst`) |
 | **AEO Visibility** | Whether you show up when buyers ask an AI: `/bluerock:aeo-visibility` (agents `answer-sampler` + `visibility-auditor`) |
 | **Personalized Outreach** | Prep and drafts for the people you want to reach: `/bluerock:outreach-prep` (agents `prospect-scanner` + `outreach-writer`) |
+| **Process to Skill** | Turn a process that lives in your head into a skill you can run and a runbook you can hand over: `/bluerock:process-to-skill` (agent `understudy`) |
 
 ## Account Scorecard — the fast first win
 
@@ -132,6 +133,34 @@ with a thin public record gets a short honest panel rather than a padded one, be
 opening with a real question beats opening with a press release. Runs save to dated folders
 in `my-work/outreach-prep/`, so the next kit won't reuse an opener you already sent.
 
+## Process to Skill — the one that points at you
+
+The other three point agents at the outside world. This one points at you, because the thing
+it needs isn't on the internet: it's the process you run every week that nobody wrote down.
+
+`/bluerock:process-to-skill` (or *"turn my Monday pipeline review into a skill"*, *"nobody
+else can do this when I'm out"*) interviews you one question at a time — what starts it, the
+steps, where you have to decide something, what done looks like, what goes wrong — and asks
+you to paste one or two real examples. Then it writes two things:
+
+- **A skill in your own project**, at `.claude/skills/<your-name>/SKILL.md`, that runs the
+  process. It's yours: it fires bare (`/weekly-pipeline-review`), you can open it, and when
+  the process changes you edit the file.
+- **A runbook** in `my-work/process-to-skill/` — the printable half, with the steps, the
+  inputs, your decision rules, the edge cases, and who covers when you're out.
+
+In between, one agent earns its place: **`understudy`** reads your new skill file cold, with
+no memory of the conversation that produced it, tries to follow it against your real example,
+and reports every place it had to guess. That's the actual test of "could someone else run
+this" — and the gaps it finds get closed before you ever run it.
+
+**What the generated skill will not do:** send, post, submit, update a system of record, or
+write anywhere outside your project. It drafts and stops, and the runbook says so out loud.
+Anything that goes outward gets your eyes first.
+
+Then you run it, on something real. That's the point of the whole thing: a tool that didn't
+exist an hour ago, that you now own.
+
 ## Your project comes with more — and they're yours
 
 Your project (from [the starter kit](https://github.com/bluerock-io/my-workspace)) ships seeded
@@ -162,7 +191,10 @@ run it in — [the starter kit](https://github.com/bluerock-io/my-workspace) giv
 
 - The plugin's core (`/bluerock:onboard`, `/bluerock:today`, `/bluerock:wrap-up`,
   `/bluerock:check`, `/bluerock:scorecard`, `/bluerock:messaging-doc`,
-  `/bluerock:competitive-intel`, `/bluerock:aeo-visibility`, `/bluerock:outreach-prep`) you run as-is.
+  `/bluerock:competitive-intel`, `/bluerock:aeo-visibility`, `/bluerock:outreach-prep`,
+  `/bluerock:process-to-skill`) you run as-is — though `/bluerock:process-to-skill` is the
+  one whose *output* is yours to edit: the skill it writes lands in your project alongside
+  your own.
   `/bluerock:wrap-up` and `/bluerock:check` especially stay plugin-owned so they keep your
   dashboard correct.
 - Everything in your project's `.claude/` is yours: edit it in place, or build your own
