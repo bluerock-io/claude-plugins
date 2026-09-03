@@ -304,3 +304,6 @@ Not part of a run. Read this before rewording anything a builder sees.
   run history findable; `/bluerock:wrap-up` logs runs against the agent-team label
   **Competitive Intel** with members `competitor-scanner` + `analyst` (the Account
   Research roll-up shape).
+- **The flow doc mirrors this skill** (content repo, private:
+  `09-product/use-case-flows/competitive-intel-flow.md`) — any change to the intake,
+  dispatch, artifact, or close updates it in the same pass.
