@@ -178,6 +178,9 @@ A single self-contained HTML page. **CSP rules: exactly one external request, th
 stylesheet below. All CSS in one `<style>` block, all JS inline (one small filter script), no
 CDN scripts, no remote images.** Print-friendly: under `@media print` the chip row hides, every
 card and every lane renders regardless of filter state, and a page break falls between lanes.
+**Unhide with `[hidden] { display: block !important }`, never `display: revert`** — `revert`
+rolls back to the user agent's own `[hidden] { display: none }` and the filtered content stays
+hidden on paper, silently. (Same shape as the battlecard's `.panel[hidden] { display: block }`.)
 
 **Fonts** — one Google Fonts link, every face with a real fallback: `DM Sans` (display + body;
 fallback `system-ui, -apple-system, sans-serif`), `Source Serif 4` (the "why it matters" and
