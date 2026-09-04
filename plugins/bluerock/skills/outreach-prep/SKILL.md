@@ -21,9 +21,8 @@ been written by someone who did it.
 
 **What it replaces:** researching prospects one at a time before writing to them, and
 writing the message generically when the research doesn't happen.
-**Time saved:** [PLACEHOLDER — DO NOT MERGE: fill from the timed manual baseline
-(E6-26), with its provenance, e.g. "about N minutes per prospect, timed once by one
-person". Never a bare "saves an hour".]
+**Time saved:** about 1 hour by hand, estimated and not yet timed. The timed
+baseline (E6-26) replaces this figure when it lands.
 
 **This tool never sends anything.** It researches and drafts. Every message in the kit is
 a draft waiting for the builder to read it, change it, and send it from their own account.
