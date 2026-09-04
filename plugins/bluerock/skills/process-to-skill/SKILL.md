@@ -21,11 +21,9 @@ is in their head, which is exactly the problem it solves.
 **What it replaces:** the process being undocumented and unshareable — re-derived from
 memory every run, explained again to whoever covers, and unavailable the week they're out.
 
-**Time saved:** [PLACEHOLDER — DO NOT MERGE: this card's baseline is one timed manual run
-of the builder's *process*, not of skill authoring (decision 2026-09-03, E6-26). Fill with
-a named example and its provenance, e.g. "one builder's weekly pipeline hygiene pass: 40
-minutes by hand, timed once; the skill runs it in 4." Never a bare "saves an hour", and
-never a cross-builder average — this figure is per-process by construction.]
+**Time saved:** varies by process. About 2 hours by hand for a typical pass,
+estimated and not yet timed. This figure is per-process by construction, so the timed
+baseline (E6-26) will ship as a named example, never a cross-builder average.
 
 ## First — anchor to the project
 
