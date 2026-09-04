@@ -23,9 +23,8 @@ deep reads waiting for it.
 
 **What it replaces:** checking each account by hand, one search at a time, and finding out
 about the ones you missed from someone else.
-**Time saved:** [PLACEHOLDER — DO NOT MERGE: fill from the timed manual baseline
-(E6-26), with its provenance, e.g. "about N minutes, timed once by one person". Never a
-bare "saves an hour".]
+**Time saved:** about 1.5 hours by hand, estimated and not yet timed. The timed
+baseline (E6-26) replaces this figure when it lands.
 
 ## First — anchor to the project
 
