@@ -213,7 +213,7 @@
       "recommended_after": [],
       "one_liner": "Find out whether you show up when buyers ask an AI which product to use — the verdict on each of your buyer questions, and a fix queue ordered by impact and effort with an owner on every line.",
       "artifact": "AEO Scorecard",
-      "time_saved": "TODO-E6-26: do not release with this placeholder — fill from the timed manual baseline, with provenance",
+      "time_saved": "about 1.5 hours by hand, estimated and not yet timed",
       "team": [
         "answer-sampler",
         "visibility-auditor"

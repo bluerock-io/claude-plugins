@@ -22,9 +22,8 @@ the answer instead, and what to fix first.
 **What it replaces:** asking an AI a dozen buyer questions by hand, writing down who it
 named, then trying to work out which of twenty possible site changes would actually move
 any of it.
-**Time saved:** [PLACEHOLDER — DO NOT MERGE: fill from the timed manual baseline
-(E6-26), with its provenance, e.g. "about N minutes, timed once by one person". Never a
-bare "saves an hour".]
+**Time saved:** about 1.5 hours by hand, estimated and not yet timed. The timed
+baseline (E6-26) replaces this figure when it lands.
 
 ## The honesty rule this whole skill is built around — read it first
 

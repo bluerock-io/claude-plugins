@@ -2,10 +2,10 @@
 
 ## Unreleased — AEO Visibility: do you show up when a buyer asks an AI?
 
-**⚠ Release gate: `/bluerock:aeo-visibility` opens with a time-saved line that is a
-placeholder until the timed manual baseline lands. Do not cut a release while the
-placeholder string (`TODO-E6-26` in the manifest, `[PLACEHOLDER — DO NOT MERGE...]` in the
-skill) is present.**
+**⚠ Time saved is an estimate, not a measurement.** `/bluerock:aeo-visibility` opens with a
+time-saved figure supplied by the product owner (Linda, 2026-09-03) and labeled on its
+face as an estimate. The timed manual baseline (E6-26) has not been run. Replace the
+figure and this note when it lands; until then no surface may present it as measured.
 
 **⚠ Naming: the artifact noun is "AEO Scorecard" (Linda, 2026-09-03).** The build card
 left it open; the alternatives considered were "visibility read + fix queue" and
