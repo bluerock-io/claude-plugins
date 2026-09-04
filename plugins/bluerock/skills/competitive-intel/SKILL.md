@@ -20,9 +20,8 @@ pages, not homepages.
 
 **What it replaces:** building or refreshing battlecards by hand — the research, the
 comparison, and the meeting prep.
-**Time saved:** [PLACEHOLDER — DO NOT MERGE: fill from the timed manual baseline
-(E6-26), with its provenance, e.g. "about N minutes, timed once by one person". Never a
-bare "saves an hour".]
+**Time saved:** about 1 hour by hand, estimated and not yet timed. The timed
+baseline (E6-26) replaces this figure when it lands.
 
 ## First — anchor to the project
 

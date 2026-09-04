@@ -190,7 +190,7 @@
       "recommended_after": [],
       "one_liner": "Point an agent team at the competitors you face (up to 4) and get a battlecard per competitor: sourced kill points, your differentiators aimed, where they're genuinely better, and one question to ask.",
       "artifact": "battlecard",
-      "time_saved": "TODO-E6-26: do not release with this placeholder — fill from the timed manual baseline, with provenance",
+      "time_saved": "about 1 hour by hand, estimated and not yet timed",
       "team": [
         "competitor-scanner",
         "analyst"

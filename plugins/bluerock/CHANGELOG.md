@@ -2,10 +2,10 @@
 
 ## Unreleased — Competitive Intel: battlecards, the third agent team in the plugin
 
-**⚠ Release gate: `/bluerock:competitive-intel` opens with a time-saved line that is a
-placeholder until the timed manual baseline lands. Do not cut a release while the
-placeholder string (`TODO-E6-26` in the manifest, `[PLACEHOLDER — DO NOT MERGE...]` in the
-skill) is present.**
+**⚠ Time saved is an estimate, not a measurement.** `/bluerock:competitive-intel` opens with a
+time-saved figure supplied by the product owner (Linda, 2026-09-03) and labeled on its
+face as an estimate. The timed manual baseline (E6-26) has not been run. Replace the
+figure and this note when it lands; until then no surface may present it as measured.
 
 - **New use case: `/bluerock:competitive-intel`** (agents `competitor-scanner` + `analyst`).
   Five short intake questions — category, competitors (up to 4), your differentiators,
