@@ -26,12 +26,63 @@ else `find ~ -maxdepth 3 -path '*/design/dashboard.html'`. `cd` in, capture the
 **absolute path** with `pwd`, and use that full path throughout. Can't find it? Ask the
 builder which folder their project is in.
 
+## Before the questions — read what the builder already has
+
+Check, without asking: `objectives.md` and `voice.md` at the project root, the latest doc
+under `my-work/messaging-doc/`, and `inputs.md` from the most recent run under
+`my-work/account-scorecard/`.
+
+- **If they're real**, use them to pre-fill the intake below — propose and confirm, don't
+  re-ask cold. A returning builder never re-answers a question they already answered.
+- **If they're placeholder templates or absent**, say so once and keep moving. Never make
+  setup homework the price of the first scorecard.
+
+## Intake — one question per step, short, then confirm
+
+**This card rates Fit, Timing, and Reachability. Every question below exists to make one
+of those three mean something.** Rating fit without knowing what the builder sells is
+guessing confidently, and a builder who knows their own market spots it in one read. If a
+question would not change a rating, it does not belong here.
+
+Ask one at a time. Keep each to a line or two; don't stack them or explain the flow up
+front. **Skip anything the opening request already gave you** — say what you're taking as
+given (`Target: OnTrac · Fit criteria from objectives.md`) so a wrong reading gets
+corrected early, then pick up at the first step actually missing.
+
+**Which prompt shape:** use the question picker (`AskUserQuestion`) only at step 4, where
+the answer is genuinely a choice among a few. Everywhere else the answer is free text in
+the builder's own words — ask in the message and let them type.
+
+1. **The target.** A company name, plus any hint (sector, region, domain) if the name is
+   ambiguous. If it's genuinely ambiguous, resolve it before spending the run.
+2. **What you sell.** Pre-fill from `objectives.md` or the messaging doc and confirm.
+   Ask only if both are absent: *"One line — what do you sell, and to whom?"* → **Fit**
+3. **What a good account looks like for you.** *"Two or three real criteria beat a profile
+   document — size, sector, who signs."* → **Fit**
+   - **3a — if they have nothing written down**, offer the route rather than leaving them
+     stuck: *"Want me to pull that out with three questions?"* If they take it, ask **one
+     at a time**: (1) Who was your best customer last year? (2) What did they have in
+     common with the one before? (3) Who is never a fit, however interested they seem?
+     Read the criteria back as a list and let them correct it before moving on.
+4. **What makes timing good for you.** Offer the common signals and let them add their
+   own: new leadership · funding · a renewal window · hiring in the function · a public
+   change in their business. → **Timing**
+5. **Who you'd need to reach.** *"The function or title that would own this."* Optional,
+   and say plainly what skipping costs: *"without it, Reachability is a general read
+   rather than a read on your way in."* → **Reachability**
+6. **Confirm before we run.** Play back target, what they sell, fit criteria, timing
+   signals, and the target function as a short bullet list, then: *"Good to go, or
+   anything to edit?"* **Carry all of it forward verbatim** — these are the builder's own
+   words, and paraphrasing is how a card ends up asserting something they never said.
+
 ## Setup
 
-1. **Get the target.** A company name (plus any hint — sector, region, domain — to
-   disambiguate). If it's genuinely ambiguous, ask one question before spending the run.
-2. **Make the working folder.** Slugify the name → `my-work/account-scorecard/<slug>/`.
+1. **Make the working folder.** Slugify the name → `my-work/account-scorecard/<slug>/`.
    Create it. `my-work/` is builder-owned and never overwritten.
+2. **Write `inputs.md` before dispatching.** The confirmed intake, verbatim, in the
+   working folder. Two reasons: the agents read files rather than this conversation, so an
+   unsaved answer is invisible to them; and the next run pre-fills from it instead of
+   starting cold.
 
 ## Run the agents, in order
 
@@ -86,6 +137,26 @@ page. Print-friendly, read-only, no CTAs or buttons.
    here in muted ink.)
 5. **Why now** — a highlighted callout: cream tint background, a 3px accent-blue left
    border, the one sentence in heading ink.
+
+**A confidence mark on the research itself, when the scan warrants one.** The three
+ratings say how good the *account* looks. They say nothing about how much to trust what
+was found, and those are different axes. Where the scan came back thin or contested, carry
+a small uppercase chip beside the company name in the header: `THIN PUBLIC FOOTPRINT`,
+`RECENT ACTIVITY — UNVERIFIED`, or `VERIFY BEFORE OUTREACH`. **No chip when the scan was
+clean** — a badge on every card is decoration and stops being read.
+
+**Absence gets a reason and a remedy, never a shrug.** When something could not be found,
+say what was looked for, why it is missing, and what would close it. *"No named contact in
+the function that would own this"* is a fact. *"...no public profile matched the function
+in this region; the fastest close is an existing contact or your CRM rather than more
+public search"* is the same fact made useful. **State plainly when an absence is a gap in
+the research rather than a fact about the company** — the two read identically on the page
+and mean opposite things.
+
+**Show what was ruled out when the name was ambiguous.** If disambiguation cost real work,
+name it: *"three unrelated companies share this name; this is the one in <region> with
+<signal>."* Naming what was excluded is what makes the rest of the card trustworthy, and a
+reader who spots an unflagged collision stops believing everything above it.
 6. **Recommended next step** — its own block, labeled, the concrete step in body ink.
 7. **Sources** — a small "Sources" label, then the scan's source domains as a wrapped row
    of small mono chips (cream fill, hairline border), so the `<N> sources` count is visible
@@ -119,6 +190,14 @@ slight letter-spacing.
 
 The Account Scorecard is deliberately lighter than a full dossier: two agents, a bounded
 scan, a one-page output. It's the "is this worth my time, and what do I do next" read.
+
+**The intake does not make it slow, and it is worth being precise about why.** The scan is
+what costs time and it is unchanged. The criteria questions are asked once, saved to
+`inputs.md`, and pre-filled from `objectives.md` or the previous run after that — so the
+second target and every one after is a name and a confirm. **What the intake buys is the
+difference between three ratings scored against criteria the builder gave and three
+ratings scored against criteria the agent invented**, which is the difference between a
+card they trust and a card they check.
 For the deep, multi-section dossier, that's the Account Research team (`researcher →
 signal-scanner → composer`) the builder has in their own project.
 

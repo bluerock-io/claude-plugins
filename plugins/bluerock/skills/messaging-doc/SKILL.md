@@ -6,8 +6,8 @@ description: >-
   actually uses. Use when I say "build my messaging doc", "distill my messaging",
   "messaging doc for <site>", "what does our site actually say", or paste a
   website URL and ask for the brand's messaging. Runs site-reader → distiller and
-  writes the doc to my-work/messaging-doc/. One URL plus anything I paste — no
-  exports, no logins, no integrations.
+  writes the doc to my-work/messaging-doc/. A short guided intake, one URL, and
+  anything I paste — no exports, no logins, no integrations.
 ---
 
 Run the Messaging Doc team on a brand's website and produce the core messaging doc — a
@@ -28,20 +28,67 @@ else `find ~ -maxdepth 3 -path '*/design/dashboard.html'`. `cd` in, capture the
 **absolute path** with `pwd`, and use that full path throughout. Can't find it? Ask the
 builder which folder their project is in.
 
-## Setup
+## Before the questions — read what the builder already has
 
-1. **Get the site.** One website URL — usually the builder's own brand. (It runs on any
+Check, without asking: `objectives.md` and `voice.md` at the project root, and `inputs.md`
+from the most recent run under `my-work/messaging-doc/`.
+
+- **If they're real**, pre-fill the intake below — propose and confirm, don't re-ask cold.
+- **If they're placeholder templates or absent**, say so once and keep moving. Never make
+  setup homework the price of the first doc.
+
+## Intake — one question per step, short, then confirm
+
+**A URL alone can only produce a summary of the site.** Everything the agents can see is
+already on the page, so without the builder's own view the doc is a well-organised mirror
+of the homepage — which is the difference between a source of truth and a restatement.
+**The questions below exist to make it a comparison rather than a summary:** what the site
+says, what the builder says, and where those two have come apart.
+
+Ask one at a time, a line or two each. **Skip anything the opening request already gave.**
+
+1. **The site.** One website URL — usually the builder's own brand. (It runs on any
    brand's site; pointing it at a competitor for a comparison is a trick for later.) If
    they give only a company name, confirm the domain before spending the run.
-2. **Offer the paste — once, lightly.** Recent material sharpens the doc: a post or two,
-   campaign copy, an email they're proud of. Optional; if they have nothing at hand,
+2. **Who you sell to.** Pre-fill from `objectives.md` and confirm; ask only if absent.
+   The voice section is judged against a reader, and without this it is judged against
+   nobody.
+3. **What you want people to understand about you.** *"Two or three lines, your words —
+   the thing you'd want them to walk away with."*
+   - **3a — if they have nothing written down**, offer the route: *"Want me to pull it out
+     with three questions?"* If they take it, ask **one at a time**: (1) What do people
+     most often misunderstand about what you do? (2) What do you say in a first call that
+     the site doesn't say? (3) If they remember one thing, what should it be? Read the
+     answers back and let them correct before moving on.
+4. **Where the site is out of date, or wrong.** *"Anything on there you wouldn't say any
+   more? A product that moved on, a claim you've retired, an audience you no longer
+   chase?"* **This is the question the agents can never answer for themselves**, and it is
+   what turns the output from *here is what your site says* into *here is what your site
+   says, here is what you say, and here is the gap.* Optional, and worth asking properly.
+5. **The paste — once, lightly.** Recent material that sounds like you *now*: a post or
+   two, campaign copy, an email you were proud of. Optional; if they have nothing at hand,
    move on without ceremony.
-3. **Make the working folder.** Slugify the brand name → `my-work/messaging-doc/<slug>/`.
+6. **Confirm before we run.** Play back the site, the audience, the intended message, and
+   anything they flagged as stale, then: *"Good to go, or anything to edit?"* **Carry it
+   forward verbatim** — the builder's own words are the half of this doc the site cannot
+   supply, and paraphrasing them collapses the comparison back into a summary.
+
+## Setup
+
+1. **Make the working folder.** Slugify the brand name → `my-work/messaging-doc/<slug>/`.
    Create it. `my-work/` is builder-owned and never overwritten.
-4. **Save the paste before dispatching.** If they pasted anything, write it as
+2. **Save the paste before dispatching.** If they pasted anything, write it as
    `references.md` in the working folder, labeled by what each piece is ("LinkedIn post,
    July", "campaign email"). The agents read files, not this conversation — an unsaved
    paste is invisible to them.
+3. **Write `inputs.md` before dispatching.** The confirmed intake, verbatim. The agents
+   read files rather than this conversation, and the next run pre-fills from it rather
+   than starting cold.
+
+**One rule the intake creates downstream, and it is the same separation rule the
+battlecard runs on:** what the site claims and what the builder claims are both carried,
+neither is dressed up as the other, and **the difference between them is the finding.**
+Where they disagree, say so plainly rather than smoothing it into one voice.
 
 ## Run the agents, in order
 
