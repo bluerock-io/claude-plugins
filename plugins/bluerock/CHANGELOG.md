@@ -1,5 +1,29 @@
 # Changelog — `bluerock` plugin
 
+## 0.11.1 — drift is something that catches up, not a procedure
+
+Auto-update ships **on** now: the workspace image sets it and `check` 7b sets it for anyone
+the image missed. A provisioned workspace was observed reaching the current published version
+on its own (2026-09-08). The shared drift copy had not caught up with that and was telling
+builders to go and fix something that fixes itself.
+
+- **`check` leads with "it catches up," then offers one action.** The old copy opened
+  detect-but-cannot-fix, on the reasoning that nothing inside the workspace can update the
+  plugin. That reasoning is wrong, and the workspace reaching 0.11.0 unaided is the proof.
+  The new line says the tools update themselves in the background and usually sort themselves
+  out next session, with `/plugin` → **Marketplaces** → **bluerock** → **Update marketplace**
+  for anyone who would rather not wait. Still no version number.
+- **The six-step Desktop teardown is deleted.** Remove the plugin, remove the marketplace,
+  re-add it, reinstall, accept a separate GitHub authorization, quit and reopen. It existed
+  because `/plugin` was unreachable from Claude Desktop. Desktop now ships a terminal where
+  `/plugin` opens, so the teardown is a dead end that re-authorizes GitHub for no reason. It
+  was only ever verified once, on an older build, and shipped PROVISIONAL the whole time.
+- **Two surfaces become one step.** The panel path is primary and verified 2026-09-08; the
+  two commands remain for builders who would rather type. Where neither is reachable, the
+  honest instruction is to wait, which is better copy than a procedure.
+- All three skills that read `shared/version-drift.md` move together: `check`, `wrap-up`, and
+  `learn`. No skill carried its own copy, which is what this file exists for.
+
 ## 0.11.0 — both first-win work products say who the subject is, and stop hedging
 
 Two agent teams, one change of posture: say what you found, and say plainly what you could
