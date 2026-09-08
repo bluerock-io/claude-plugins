@@ -71,21 +71,27 @@ skipped or failed, the version is simply not part of this run's report.
   Never name which sessions, or how many. That is the manifest's job, and the manifest
   you can read is the installed one.
 
-- **`check` — the explanation, and nothing for the builder to do.** Auto-update ships on,
-  so say it catches up and stop. Something close to:
+- **`check` — name what is missing, offer to walk it, promise nothing.**
 
   > Your BlueRock tools are behind the published ones, so some newer skills have not
-  > reached you yet. They update themselves in the background, so this usually sorts itself
-  > out the next time you start a fresh session. Nothing for you to do.
+  > reached you yet. Ask me to update them and I will walk you through it, it takes a
+  > minute.
 
-  **Do not put `/plugin` in this line.** `check` runs in the chat panel, and **`/plugin`
-  does not work there**: it answers *"/plugin isn't available in this environment."* Naming
-  a command that fails in the surface the builder is reading it in is worse than naming
-  nothing. The manual route exists below and is for a builder who **asks** how to force it,
-  not for the standing report.
+  **This line is deliberately written so it is true either way**, because whether a
+  workspace catches up on its own is **unresolved** (see below). Two rules make it that way:
 
-  Never a version number. And `check` 7b still matters: it flips auto-update on for a
-  builder whose switch was never set, which is what makes "nothing for you to do" true.
+  - **Do not promise it resolves itself.** Auto-update ships on and a terminal session was
+    seen reaching the current version, but the workspace's own marketplace clone sat frozen
+    for three weeks with the flag true the whole time. Until one surface is watched going
+    from behind to current unaided, "it will sort itself out" is a guess.
+  - **Do not put `/plugin` in this line.** `check` speaks in the chat panel and **`/plugin`
+    does not run there**: it answers *"/plugin isn't available in this environment."* Naming
+    a command that fails in the surface the builder is reading it in is worse than naming
+    nothing. Offer to walk them, then use the route below.
+
+  Never a version number. `check` 7b is also **near-inert on the current image**: the flag
+  already ships true, so 7b passes and never asks. Keep it for builders whose switch was
+  never set, but do not count on it doing anything.
 
 ## Forcing an update, only if the builder asks
 
@@ -94,9 +100,9 @@ interactive Claude Code terminal. It does **not** run in the Claude Desktop chat
 answers *"/plugin isn't available in this environment"* (observed 2026-09-08). So never hand a
 builder `/plugin` without first telling them where to type it.
 
-**In a Claude Code terminal** — a terminal chat, or the Terminal pane inside Claude Desktop
-(the panel there works: VERIFIED 2026-09-08, `/plugin` opened and showed the bluerock
-marketplace with auto-update enabled):
+**Open a terminal first.** In Claude Desktop that is the **`>_` icon at the top right, or
+**⌘J** (VERIFIED 2026-09-08: `/plugin` opens there and showed the bluerock marketplace with
+auto-update enabled). Walk the builder to the terminal before naming any command.
 
 - **The panel:** run `/plugin`, go to **Marketplaces**, select **bluerock**, choose **Update
   marketplace**. It also shows when it last updated and whether auto-update is on, which is
@@ -113,9 +119,14 @@ teardown used to live here as the Desktop fallback; it re-authorizes GitHub, it 
 verified once on an older build, and the Terminal pane covers the case it existed for. Removed
 2026-09-08.
 
-**OPEN:** the exact affordance for opening the Terminal pane in Claude Desktop is not written
-down here yet, and builder copy should name it rather than say "find a terminal." Fill it in
-before this paragraph is quoted to a builder.
+**UNRESOLVED, and the standing report is worded around it:** does a builder's chat-panel
+session reach the current version on its own? Both of these were observed on 2026-09-08 in the
+same workspace. The **terminal** session ran the current published version. The workspace's own
+marketplace clone showed **no fetch in three weeks**, with `autoUpdate: true` whose mtime
+matches the image provisioning second, so the flag shipped on and was never flipped by a
+`check` run. Those coexist only if the terminal and the chat panel read different plugin state.
+**The test:** a fresh workspace nobody else is working in, note the chat panel's loaded version,
+leave it some days, look again. Do not soften the report copy until that is watched.
 
 ## Who depends on this file's wording
 
