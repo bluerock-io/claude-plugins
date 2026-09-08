@@ -74,8 +74,9 @@ skipped or failed, the version is simply not part of this run's report.
 - **`check` — name what is missing, offer to walk it, promise nothing.**
 
   > Your BlueRock tools are behind the published ones, so some newer skills have not
-  > reached you yet. Ask me to update them and I will walk you through it, it takes a
-  > minute.
+  > reached you yet. Updating means opening a terminal and signing in to Claude again, so
+  > it is worth doing when you have a few minutes rather than mid-task. Ask me and I will
+  > walk you through it.
 
   **This line is deliberately written so it is true either way**, because whether a
   workspace catches up on its own is **unresolved** (see below). Two rules make it that way:
@@ -100,9 +101,16 @@ interactive Claude Code terminal. It does **not** run in the Claude Desktop chat
 answers *"/plugin isn't available in this environment"* (observed 2026-09-08). So never hand a
 builder `/plugin` without first telling them where to type it.
 
-**Open a terminal first.** In Claude Desktop that is the **`>_` icon at the top right, or
-**⌘J** (VERIFIED 2026-09-08: `/plugin` opens there and showed the bluerock marketplace with
-auto-update enabled). Walk the builder to the terminal before naming any command.
+**Open a terminal first, and warn them about the sign-in before they hit it.** In Claude
+Desktop the terminal is the **`>_` icon at the top right**, or **⌘J** (VERIFIED 2026-09-08:
+`/plugin` opens there and showed the bluerock marketplace with auto-update enabled).
+
+⚠ **Opening the terminal asks the builder to authenticate their Claude account again**
+(observed 2026-09-08). Say so before they click, in the same spirit as the permission-ask
+guidance in this repo's `CLAUDE.md`: an unexpected sign-in prompt mid-walkthrough costs more
+trust than the update is worth. Word it plainly, something like *"it will ask you to sign in
+to Claude again, that is expected."* This is also why the standing report does not describe
+updating as taking a minute.
 
 - **The panel:** run `/plugin`, go to **Marketplaces**, select **bluerock**, choose **Update
   marketplace**. It also shows when it last updated and whether auto-update is on, which is
@@ -110,14 +118,18 @@ auto-update enabled). Walk the builder to the terminal before naming any command
 - **Or two commands** (VERIFIED 2026-08-16, v2.1.233): `/plugin marketplace update bluerock`,
   then `/plugin update bluerock@bluerock`.
 
-**If the builder is in the chat panel and does not want to move, the answer is to wait.**
-Auto-update carries them, and that is the truthful answer rather than a consolation. This is
-the common case, which is why the standing report says exactly that and stops.
+**If the builder is in the chat panel and does not want to move, waiting is a real option and
+often the better one.** The manual route costs a terminal and a re-authentication; the missing
+skills are usually worth less than that interruption mid-task. Offer it, do not push it, and
+never imply they are broken until they take it.
 
 **Do not walk a builder through removing and re-adding the marketplace.** That six-step
-teardown used to live here as the Desktop fallback; it re-authorizes GitHub, it was only ever
-verified once on an older build, and the Terminal pane covers the case it existed for. Removed
-2026-09-08.
+teardown used to live here as the Desktop fallback. It was only ever verified once, on an
+older build, and the Terminal pane covers the case it existed for. Note honestly that both
+routes carry an authentication cost, the teardown's being a separate GitHub authorization and
+the terminal's being a Claude sign-in, so the teardown was removed for being six steps and
+unverified rather than for that. Removed 2026-09-08; do not reintroduce it without walking it
+on a current build.
 
 **UNRESOLVED, and the standing report is worded around it:** does a builder's chat-panel
 session reach the current version on its own? Both of these were observed on 2026-09-08 in the
