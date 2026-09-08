@@ -69,9 +69,27 @@ the scan (cite the signal or source where it matters):
   windows. Without it, the general read (funding, hiring, launch, leadership change) applies.
 - **Reachability:** is there an obvious way in (a named person, a warm angle, a public
   trigger to reference)? When `inputs.md` names the function they'd need to reach, this is
-  a read on **that path in**, not a general one — and no match found for that function is
-  then a real finding about their way in, said with a reason and a remedy rather than as a
-  shrug.
+  a read on **that path in**, not a general one.
+
+**Reachability has three outcomes, not two, and getting this wrong is the easiest way to
+make the card useless.** The scout is company-level by design — filings, product news, a
+recent signal — and **it does not run a people search.** So a named contact in the
+builder's function usually will not be in `scan.md`, and that absence is a gap in your
+research, not a fact about the company.
+
+- **Never rate Low because a contact the scan never looked for did not turn up.** Almost
+  every company has someone in demand gen or marketing ops; a Low pill there is you rating
+  your own blind spot, and a dimension that reads Low on every card stops being read.
+- **Rate the way in that the scan did find**: a public trigger worth opening on, a named
+  executive who sits above the function, a warm angle. Then say plainly, in the same
+  breath, that no one in their named function surfaced, why (the scan is company-level and
+  never ran a people search), and what closes it (a targeted LinkedIn or Sales Navigator
+  pass on those titles).
+- **`Not assessed`** is the third outcome, and the honest one when the scan surfaced no way
+  in at all and never looked for one. Write it exactly that way rather than reaching for
+  Low. It carries the same reason and remedy. This is the same three-outcome honesty the
+  scan already runs on revenue and headcount (stated / `[estimated]` / `Not disclosed`):
+  **a visible blank the builder can act on beats a rating you can't defend.**
 
 **On using size and revenue in Fit.** When the builder's criteria (`inputs.md`, or
 `objectives.md`) name a company size, revenue band, or segment, the firmographics are

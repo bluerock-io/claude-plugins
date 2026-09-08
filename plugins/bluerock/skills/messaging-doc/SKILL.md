@@ -74,7 +74,10 @@ will be without them (*"it'll be a read of the site, not a comparison"*) rather 
 again.
 
 6. **Confirm before we run.** Play back the site, the audience, the intended message, and
-   anything they flagged as stale, then: *"Good to go, or anything to edit?"* **Carry it
+   anything they flagged as stale, then: *"Good to go, or anything to edit?"* **Play the
+   inputs back; do not pre-judge the site against them.** You have not read a page yet, so
+   a guess about what the site says is a guess wearing the tone of a finding. The reading
+   is the run's job. **Carry it
    forward verbatim** — the builder's own words are the half of this doc the site cannot
    supply, and paraphrasing them collapses the comparison back into a summary.
 

@@ -77,7 +77,11 @@ again.
 
 6. **Confirm before we run.** Play back target, what they sell, fit criteria, timing
    signals, and the target function as a short bullet list, then: *"Good to go, or
-   anything to edit?"* **Carry all of it forward verbatim** — these are the builder's own
+   anything to edit?"* **Play the inputs back; do not pre-judge the account against them.**
+   You have not scanned anything yet, so a size, a sector, or a fit tension asserted here
+   is a guess wearing the tone of a finding — and being confidently wrong in the one moment
+   you're asking the builder to trust the inputs is expensive. Anything that reads like a
+   verdict waits for `scan.md`. **Carry all of it forward verbatim** — these are the builder's own
    words, and paraphrasing is how a card ends up asserting something they never said.
 
 ## Setup
@@ -142,7 +146,10 @@ page. Print-friendly, read-only, no CTAs or buttons.
    (`Fit` / `Timing` / `Reachability`, small uppercase, letter-spacing), a **rating pill**
    (`High` / `Medium` / `Low`, color-coded per the palette), and the one-line rationale
    beneath in body ink. (When Fit uses the no-objectives default, render its one-line caveat
-   here in muted ink.)
+   here in muted ink.) **A dimension the scorer marked `Not assessed` renders that word in
+   the pill**, in the neutral treatment, with a hollow dot rather than a filled one — it is
+   a visible blank, not a low score, and the two must not look alike. Its reason-and-remedy
+   line renders beneath in muted ink like any other caveat.
 5. **Why now** — a highlighted callout: cream tint background, a 3px accent-blue left
    border, the one sentence in heading ink.
 
@@ -183,7 +190,9 @@ Artifact can't read the app's CSS variables):
 - Ink: heading `#1B2130`, body `#3D4658`, muted `#7B8494`.
 - Accent (BlueRock blue) `#1559C4`.
 - Rating pills: **High** bg `#E4F0E9` / text `#2F6B4C`; **Medium** bg `#F7ECD6` / text
-  `#8A5A12`; **Low** bg `#EDEEF1` / text `#5A6272`.
+  `#8A5A12`; **Low** bg `#EDEEF1` / text `#5A6272`. **Not assessed:** no fill, a `#E7E0D6`
+  hairline border, text `#7B8494` — deliberately quieter than Low, because it is the
+  absence of a rating rather than a bad one.
 
 **Type** (CSP-safe fallbacks, no web fonts): headings `Georgia, 'Times New Roman', serif`;
 body + labels `system-ui, -apple-system, sans-serif`. Labels/pills small and uppercase with
