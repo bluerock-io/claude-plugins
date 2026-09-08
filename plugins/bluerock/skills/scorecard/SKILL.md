@@ -70,6 +70,11 @@ the builder's own words — ask in the message and let them type.
 5. **Who you'd need to reach.** *"The function or title that would own this."* Optional,
    and say plainly what skipping costs: *"without it, Reachability is a general read
    rather than a read on your way in."* → **Reachability**
+**Offer, never block.** Steps 2 to 5 sharpen the run; none of them is the price of the
+first card. If the builder says "just run it," run it — and say in one line what the card
+will be without them (*"Fit will be scored against a general profile"*) rather than asking
+again.
+
 6. **Confirm before we run.** Play back target, what they sell, fit criteria, timing
    signals, and the target function as a short bullet list, then: *"Good to go, or
    anything to edit?"* **Carry all of it forward verbatim** — these are the builder's own
@@ -93,9 +98,12 @@ agent-teams tooling; this runs identically in every client.
    quick, sourced `scan.md` (what they do and what they sell, headquarters, employees,
    estimated revenue, stage, recent signal). It's bounded to a handful of fetches — let it
    be fast. Wait for it.
-4. **Dispatch `scorer`** with the same folder. It reads `scan.md` (plus `voice.md` /
-   `objectives.md` from the project root if present) and writes `scorecard.md`. Wait
-   for it.
+4. **Dispatch `scorer`** with the same folder. It reads `scan.md` and **`inputs.md`**
+   (plus `voice.md` / `objectives.md` from the project root if present) and writes
+   `scorecard.md`. Wait for it. **`inputs.md` is what makes the three ratings mean
+   something** — the fit criteria, the timing signals, and the target function reach the
+   scorer through that file and nowhere else, so an intake answer you didn't save is an
+   answer the card was never scored against.
 
 ## Publish the artifact — you, not the agents
 
@@ -138,6 +146,15 @@ page. Print-friendly, read-only, no CTAs or buttons.
 5. **Why now** — a highlighted callout: cream tint background, a 3px accent-blue left
    border, the one sentence in heading ink.
 
+6. **Recommended next step** — its own block, labeled, the concrete step in body ink.
+7. **Sources** — a small "Sources" label, then the scan's source domains as a wrapped row
+   of small mono chips (cream fill, hairline border), so the `<N> sources` count is visible
+   and clickable-looking. Keep to the domains the scout actually used.
+8. **Footer** — small muted text: `Built with BlueRock · Account Scorecard · scout + scorer`.
+
+**Three honesty marks cut across the layout above.** They are not sections of their own;
+each lands inside the block it belongs to.
+
 **A confidence mark on the research itself, when the scan warrants one.** The three
 ratings say how good the *account* looks. They say nothing about how much to trust what
 was found, and those are different axes. Where the scan came back thin or contested, carry
@@ -157,11 +174,6 @@ and mean opposite things.
 name it: *"three unrelated companies share this name; this is the one in <region> with
 <signal>."* Naming what was excluded is what makes the rest of the card trustworthy, and a
 reader who spots an unflagged collision stops believing everything above it.
-6. **Recommended next step** — its own block, labeled, the concrete step in body ink.
-7. **Sources** — a small "Sources" label, then the scan's source domains as a wrapped row
-   of small mono chips (cream fill, hairline border), so the `<N> sources` count is visible
-   and clickable-looking. Keep to the domains the scout actually used.
-8. **Footer** — small muted text: `Built with BlueRock · Account Scorecard · scout + scorer`.
 
 **Palette** (Builders "cool-paper", light-only — use these hex values directly since the
 Artifact can't read the app's CSS variables):
@@ -209,6 +221,10 @@ Not part of a run. Read this before rewording anything a builder sees.
   and operations lane**: its lane table and steps name the agents (`scout` → `scorer`),
   the folder (`my-work/account-scorecard/<company>/`), and the three dimensions (Fit,
   Timing, Reachability). Renaming any of them here strands that session's narration.
+- **`inputs.md` is a contract between this skill and `agents/scorer.md`.** This skill
+  writes it from the intake; the scorer reads it as the rubric for Fit, Timing, and
+  Reachability. Renaming the file, or changing which intake answers land in it, silently
+  changes what the three ratings are scored against.
 - **`agents/scout.md` owns `scan.md`'s fixed section shape** and `agents/scorer.md` reads
   it by section; this skill's artifact contract renders `scorecard.md`'s order. The
   three-outcome honesty rule on revenue and headcount (stated / `[estimated]` / `Not

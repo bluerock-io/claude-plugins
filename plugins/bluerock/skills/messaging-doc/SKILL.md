@@ -68,6 +68,11 @@ Ask one at a time, a line or two each. **Skip anything the opening request alrea
 5. **The paste — once, lightly.** Recent material that sounds like you *now*: a post or
    two, campaign copy, an email you were proud of. Optional; if they have nothing at hand,
    move on without ceremony.
+**Offer, never block.** Steps 2 to 5 sharpen the run; none of them is the price of the
+first doc. If the builder says "just run it," run it — and say in one line what the doc
+will be without them (*"it'll be a read of the site, not a comparison"*) rather than asking
+again.
+
 6. **Confirm before we run.** Play back the site, the audience, the intended message, and
    anything they flagged as stale, then: *"Good to go, or anything to edit?"* **Carry it
    forward verbatim** — the builder's own words are the half of this doc the site cannot
@@ -100,9 +105,12 @@ agent-teams tooling; this runs identically in every client.
    positioning lines, voice notes, and exact recurring phrases, quoted and sourced, plus a
    read-quality note. It's bounded to a handful of fetches, and may spend one more to
    verify a term that looks off-pattern rather than hedge on it — let it be fast. Wait for it.
-6. **Dispatch `distiller`** with the same folder. It reads `signals.md` (plus
-   `references.md` if present, and `voice.md` / `objectives.md` from the project root)
-   and writes `messaging-doc.md`. Wait for it.
+6. **Dispatch `distiller`** with the same folder. It reads `signals.md` and **`inputs.md`**
+   (plus `references.md` if present, and `voice.md` / `objectives.md` from the project
+   root) and writes `messaging-doc.md`. Wait for it. **`inputs.md` is the half of the doc
+   the site cannot supply** — the intended positioning and the stale-copy flags reach the
+   distiller through that file and nowhere else, so an intake answer you didn't save is an
+   answer the comparison was never made against.
 
 ## Publish the artifact — you, not the agents
 
@@ -130,7 +138,11 @@ page. Print-friendly, read-only, no CTAs or buttons.
    doc has.
 2. **Positioning** — a small uppercase section label (letter-spacing), then the two-to-
    three-sentence positioning in body ink. If it carries the "assembled from fragments"
-   caveat, render the caveat beneath in muted ink.
+   caveat, render the caveat beneath in muted ink. **When the doc carries the builder's own
+   intended positioning as well, render it beneath the site's in the same block**, in body
+   ink, under a small muted label that keeps the two apart (`WHAT THE SITE SAYS` /
+   `WHAT YOU SAY`). Two blocks, never merged into one paragraph: the whole value of the
+   section is that the reader can see the distance.
 3. **Voice** — the same section label treatment, then each attribute as a row: the
    attribute name in heading ink, its quoted example beneath in body ink with a hairline
    left border.
@@ -191,6 +203,11 @@ Not part of a run. Read this before rewording anything a builder sees.
   fragments"** to decide how the artifact renders its header and Positioning block.
   Rewording the phrase in either file silently changes the artifact. The distiller's own
   dependency notes name this coupling in return.
+- **`inputs.md` is a contract between this skill and `agents/distiller.md`.** This skill
+  writes it from the intake; the distiller reads it as the builder's half of the
+  comparison — the intended positioning it renders beside the site's, and the stale-copy
+  flags it checks `signals.md` against. Renaming the file, or changing which intake
+  answers land in it, collapses the doc back into a summary of the site.
 - **`skills/learn-meet-your-first-agent-team/SKILL.md` narrates this skill as its
   marketing lane**: its lane table and steps name the agents (`site-reader` →
   `distiller`) and the folder (`my-work/messaging-doc/<brand>/`).

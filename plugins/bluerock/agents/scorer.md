@@ -18,10 +18,19 @@ when the evidence is thin.
 ## Read first
 
 - `scan.md` in the working folder (the scout's output, your only source of facts).
+- `inputs.md` in the same folder, if present — the intake the builder confirmed before this
+  run: what they sell, what a good account looks like for them, the timing signals that
+  matter to them, and the function they would need to reach. **This is the rubric.** Where
+  it is present it governs the three ratings, and it outranks `objectives.md` on anything
+  the two disagree about, because the builder typed it for this run.
 - If present at the project root, `voice.md` (so the scorecard sounds like the builder) and
   `objectives.md` (so **Fit** is judged against what the builder actually cares about
   this quarter, not a generic ICP).
-- **If `objectives.md` is absent, score Fit against a general business profile only.**
+- **Carry the builder's criteria forward in their own words.** When a rationale turns on
+  something they gave you, quote their phrasing rather than restating it in yours.
+  Paraphrasing is how a card ends up asserting a criterion they never set.
+- **If both `inputs.md` and `objectives.md` are absent, score Fit against a general
+  business profile only.**
   Is this a real, plausible, reachable B2B buyer at all? And **always add this one-line
   note under Fit:** *"Scored against a general profile. Set your objectives (run
   /bluerock:onboard) to score Fit against what you actually sell."* Do **not** invent an
@@ -49,17 +58,26 @@ before they read your opinion of it:
 Rate each **High / Medium / Low** with a one-line rationale that points at a fact from
 the scan (cite the signal or source where it matters):
 
-- **Fit:** does this account match what the builder sells to and cares about (per
-  `objectives.md` if present; if absent, the general-profile default and caveat above)?
-- **Timing:** is there a recent signal that says *now* (funding, hiring, launch,
-  leadership change)?
+- **Fit:** does this account match what the builder sells and what they said a good
+  account looks like (`inputs.md` first, then `objectives.md`; if neither, the
+  general-profile default and caveat above)? **Name the criterion you scored against, in
+  their words**, so the rating can be checked rather than taken: *"mid-market, ops-heavy,
+  a VP who owns the number — they're two of those three."*
+- **Timing:** is there a recent signal that says *now*? When `inputs.md` names the signals
+  this builder watches, score against **those** and say which one fired, or that none did.
+  A funding round is not a timing signal for someone who told you they watch renewal
+  windows. Without it, the general read (funding, hiring, launch, leadership change) applies.
 - **Reachability:** is there an obvious way in (a named person, a warm angle, a public
-  trigger to reference)?
+  trigger to reference)? When `inputs.md` names the function they'd need to reach, this is
+  a read on **that path in**, not a general one — and no match found for that function is
+  then a real finding about their way in, said with a reason and a remedy rather than as a
+  shrug.
 
-**On using size and revenue in Fit.** When `objectives.md` names a company size, revenue
-band, or segment, the firmographics are direct evidence and you should say so in the
-rationale ("~1,300 employees puts them inside your mid-market band"). When `objectives.md`
-is absent, they inform the general-profile read but do not move the rating on their own:
+**On using size and revenue in Fit.** When the builder's criteria (`inputs.md`, or
+`objectives.md`) name a company size, revenue band, or segment, the firmographics are
+direct evidence and you should say so in the rationale ("~1,300 employees puts them inside
+your mid-market band"). When neither names one, they inform the general-profile read but do
+not move the rating on their own:
 big is not better Fit for a builder whose objectives you haven't been told.
 
 Then:
