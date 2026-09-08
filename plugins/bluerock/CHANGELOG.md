@@ -7,12 +7,16 @@ the image missed. A provisioned workspace was observed reaching the current publ
 on its own (2026-09-08). The shared drift copy had not caught up with that and was telling
 builders to go and fix something that fixes itself.
 
-- **`check` leads with "it catches up," then offers one action.** The old copy opened
+- **`check` leads with "it catches up" and stops there.** The old copy opened
   detect-but-cannot-fix, on the reasoning that nothing inside the workspace can update the
   plugin. That reasoning is wrong, and the workspace reaching 0.11.0 unaided is the proof.
-  The new line says the tools update themselves in the background and usually sort themselves
-  out next session, with `/plugin` → **Marketplaces** → **bluerock** → **Update marketplace**
-  for anyone who would rather not wait. Still no version number.
+  The new line says the tools update themselves in the background, usually sort themselves out
+  next session, and there is nothing for the builder to do. Still no version number.
+- **The standing report names no command, deliberately, because `/plugin` is surface-bound.**
+  `check` speaks in the chat panel and **`/plugin` does not run there** — it answers
+  *"/plugin isn't available in this environment."* Naming a command that fails in the surface
+  the builder is reading it in is worse than naming nothing. The manual route moved to its own
+  section, leads with **where** to type before **what**, and is offered only on request.
 - **The six-step Desktop teardown is deleted.** Remove the plugin, remove the marketplace,
   re-add it, reinstall, accept a separate GitHub authorization, quit and reopen. It existed
   because `/plugin` was unreachable from Claude Desktop. Desktop now ships a terminal where

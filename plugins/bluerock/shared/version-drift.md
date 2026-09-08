@@ -2,7 +2,7 @@
 
 Not a skill. Three skills read this file so the procedure and the wording live in one
 place: `/bluerock:wrap-up` and `/bluerock:learn` carry the tripwire, `/bluerock:check`
-carries the explanation and the one action.
+carries the explanation, and the manual route for anyone who asks.
 
 **Why this exists.** A builder installed the plugin one day and was still on the version
 from the day before, missing sessions that had shipped in between. Nothing told them. The
@@ -71,50 +71,64 @@ skipped or failed, the version is simply not part of this run's report.
   Never name which sessions, or how many. That is the manifest's job, and the manifest
   you can read is the installed one.
 
-- **`check` — the explanation and the one action.** Auto-update ships on, so lead with the
-  fact that it catches up on its own, then offer the single action for a builder who does
-  not want to wait. Something close to:
+- **`check` — the explanation, and nothing for the builder to do.** Auto-update ships on,
+  so say it catches up and stop. Something close to:
 
   > Your BlueRock tools are behind the published ones, so some newer skills have not
-  > reached you yet. They update themselves in the background, so this usually sorts
-  > itself out the next time you start a session. If you would rather have them now, open
-  > `/plugin`, go to **Marketplaces**, pick **bluerock**, and choose **Update marketplace**.
+  > reached you yet. They update themselves in the background, so this usually sorts itself
+  > out the next time you start a fresh session. Nothing for you to do.
+
+  **Do not put `/plugin` in this line.** `check` runs in the chat panel, and **`/plugin`
+  does not work there**: it answers *"/plugin isn't available in this environment."* Naming
+  a command that fails in the surface the builder is reading it in is worse than naming
+  nothing. The manual route exists below and is for a builder who **asks** how to force it,
+  not for the standing report.
 
   Never a version number. And `check` 7b still matters: it flips auto-update on for a
-  builder whose switch was never set, which is what makes the first sentence true for them.
+  builder whose switch was never set, which is what makes "nothing for you to do" true.
 
-## The one step out
+## Forcing an update, only if the builder asks
 
-**The panel, and it works anywhere `/plugin` opens** — a Claude Code terminal chat, including
-the terminal inside Claude Desktop (VERIFIED 2026-09-08): open `/plugin`, go to
-**Marketplaces**, select **bluerock**, and choose **Update marketplace**. The panel also shows
-when it last updated and states whether auto-update is on, which is the honest answer to "am I
-current?" that the **Update** button never gave.
+**The surface comes first, because the command is surface-bound.** `/plugin` runs in an
+interactive Claude Code terminal. It does **not** run in the Claude Desktop chat panel, which
+answers *"/plugin isn't available in this environment"* (observed 2026-09-08). So never hand a
+builder `/plugin` without first telling them where to type it.
 
-**The same thing as two commands** (VERIFIED 2026-08-16, v2.1.233), for a builder who would
-rather type than navigate:
+**In a Claude Code terminal** — a terminal chat, or the Terminal pane inside Claude Desktop
+(the panel there works: VERIFIED 2026-09-08, `/plugin` opened and showed the bluerock
+marketplace with auto-update enabled):
 
-1. `/plugin marketplace update bluerock` — refreshes the local catalog to current.
-2. `/plugin update bluerock@bluerock` — applies the newest version from it.
+- **The panel:** run `/plugin`, go to **Marketplaces**, select **bluerock**, choose **Update
+  marketplace**. It also shows when it last updated and whether auto-update is on, which is
+  the honest "am I current?" the **Update** button never gave.
+- **Or two commands** (VERIFIED 2026-08-16, v2.1.233): `/plugin marketplace update bluerock`,
+  then `/plugin update bluerock@bluerock`.
 
-**If neither is reachable, the honest answer is to wait.** Auto-update carries them, and
-saying so is better copy than a procedure. **Do not walk a builder through removing and
-re-adding the marketplace.** That six-step teardown used to live here as the Desktop fallback;
-it re-authorizes GitHub, it was only ever verified once on an older build, and it is
-unnecessary now that `/plugin` opens in the Desktop terminal. It was removed on 2026-09-08
-rather than left as a tempting dead end.
+**If the builder is in the chat panel and does not want to move, the answer is to wait.**
+Auto-update carries them, and that is the truthful answer rather than a consolation. This is
+the common case, which is why the standing report says exactly that and stops.
+
+**Do not walk a builder through removing and re-adding the marketplace.** That six-step
+teardown used to live here as the Desktop fallback; it re-authorizes GitHub, it was only ever
+verified once on an older build, and the Terminal pane covers the case it existed for. Removed
+2026-09-08.
+
+**OPEN:** the exact affordance for opening the Terminal pane in Claude Desktop is not written
+down here yet, and builder copy should name it rather than say "find a terminal." Fill it in
+before this paragraph is quoted to a builder.
 
 ## Who depends on this file's wording
 
 Not part of a run. Read this before rewording anything a builder sees.
 
 - **`skills/wrap-up/SKILL.md`** and **`skills/learn/SKILL.md`** quote the tripwire lines
-  above; **`skills/check/SKILL.md`** quotes the explanation and the one action. Change the
+  above; **`skills/check/SKILL.md`** quotes the explanation. Change the
   wording here and all three move together, which is the reason this file exists.
-- **The step out is the only copy of it**, and it is deliberately one step now. If a second
-  path ever earns its way back in, it belongs here and nowhere else. The Desktop menu
-  teardown was removed 2026-09-08; do not reintroduce it without walking it on a current
-  build first.
+- **The manual route is the only copy of it, and it is deliberately not in the standing
+  report.** `/plugin` is surface-bound and fails in the chat panel where `check` speaks, so
+  the report says "nothing for you to do" and the route is offered only on request. The
+  Desktop menu teardown was removed 2026-09-08; do not reintroduce it without walking it on
+  a current build first.
 - **The learn tripwire names no session numbers, deliberately.** `skills/learn/SKILL.md`
   derives everything about sessions from `curriculum/manifest.json`; a number written into
   the tripwire would be the same regression that file guards against.
