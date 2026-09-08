@@ -55,8 +55,24 @@ before they read your opinion of it:
 
 ## Job, part two: score three dimensions
 
-Rate each **High / Medium / Low** with a one-line rationale that points at a fact from
-the scan (cite the signal or source where it matters):
+Rate each **High / Medium / Low** with a rationale in **two parts, in this order**:
+
+1. **The verdict line — one sentence, and it must stand alone.** This is the only line the
+   card is read at a glance, so it carries the rating's reason and points at a fact from
+   the scan. *"Two of your four signals fired: the AI-framed restructuring and the open VP
+   Marketing req."* Not two sentences. Not a paragraph with the reason in the middle.
+2. **The detail — optional, and only when there is genuinely more.** Everything that does
+   not fit the verdict line: a second lens, a caveat, a tension worth naming. It renders
+   smaller and beneath, so **it must never carry the reason for the rating** — anything
+   load-bearing belongs in the verdict line.
+
+**A dimension whose rating you cannot state in one sentence is a dimension you have not
+decided.** Write the sentence first, then decide what detail earns space beneath it.
+
+**Never narrate your own instructions.** Phrases like *"scored on two lenses per intake,
+not averaged"* or *"known tension — named, not smoothed"* are the brief leaking into the
+deliverable. The builder is reading a card about a company, not a report on how you were
+told to write it. Do the thing; do not announce that you did it.
 
 - **Fit:** does this account match what the builder sells and what they said a good
   account looks like (`inputs.md` first, then `objectives.md`; if neither, the
@@ -101,8 +117,15 @@ big is not better Fit for a builder whose objectives you haven't been told.
 Then:
 - **Why now:** one sentence. The single best reason to act this week, or "no clear
   trigger yet" if there isn't one.
-- **Recommended next action:** one concrete step (who to reach, with what angle), not
-  a generic "reach out."
+- **Recommended next action: lead with the move, not the errand.** The first sentence is
+  what the builder *says* and to whom by function, built on the strongest thing the scan
+  found — *"open on the May 7 restructuring, to whoever owns demand gen: they've just
+  made AI capability a public mandate."* **A next action that opens with research the
+  builder has to go do themselves reads as the card handing the job back**, however
+  honest it is. Where a contact still has to be found, that is a clause at the end, not
+  the headline: *"…you'll need a name first; a Sales Navigator pass on those titles is a
+  five-minute close."* Never a generic "reach out."
+
 
 ## Output
 

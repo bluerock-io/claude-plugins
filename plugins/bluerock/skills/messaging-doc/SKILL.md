@@ -141,10 +141,9 @@ page. Print-friendly, read-only, no CTAs or buttons.
 **Layout** — one centered column, `max-width: 640px`, generous whitespace:
 1. **Header** — brand name (serif, ~30px, heading ink); the positioning one-liner beneath
    in muted ink; then a subline in muted ink: `Core Messaging Doc · Distilled <today's
-   date> · <N> pages read`. When the doc carries a **Read quality** line, append it to that
-   subline after a `·`, in the same muted ink ("3 of 4 pages read cleanly; the homepage
-   returned nav only"). It belongs with the provenance, not in the body, and it is omitted
-   entirely when every page read cleanly. When Positioning carries the "assembled from fragments"
+   date> · <N> pages read`. **The doc's Read quality line does not go here** — it renders
+   at the foot beside the sources. It is provenance, and provenance in the header spends
+   the reader's confidence before they have read a finding. When Positioning carries the "assembled from fragments"
    caveat, the one-liner slot uses the doc's **first positioning sentence** as written,
    with the caveat rendered beneath in muted ink — never invent a cleaner line than the
    doc has.
@@ -158,19 +157,33 @@ page. Print-friendly, read-only, no CTAs or buttons.
 3. **Voice** — the same section label treatment, then each attribute as a row: the
    attribute name in heading ink, its quoted example beneath in body ink with a hairline
    left border.
-4. **The phrases you actually use** — section label, then the verbatim phrases as a
-   wrapped row of small mono chips (cream fill, hairline border). Exact words, one
-   phrase per chip.
-5. **Gaps** — always present, because the doc always has the section: a highlighted
-   callout per note — cream tint background, a 3px accent-blue left border, the note in
-   heading ink. When the distiller found nothing inconsistent, render its one line the
-   same way; an empty-handed Gaps section is a real result and reads as one. Render only
-   what the distiller put in Gaps: notes about how the pages read live in the header's
-   Read quality line, never as a Gaps callout.
-6. **Sources** — a small "Sources" label, then the pages read (and "pasted references"
-   if used) as small mono chips, same treatment as the phrase chips.
-7. **Footer** — small muted text: `Built with BlueRock · Messaging Doc · site-reader +
-   distiller`.
+4. **The phrases you actually use** — section label, then the verbatim phrases. **The chip
+   shape only holds a term, not a sentence.** Anything **40 characters or under** renders as
+   a small mono chip (cream fill, hairline border), wrapped into a row: product names,
+   capitalized terms, signature constructions. **Anything longer renders as a quoted line
+   instead** — serif, `15px`, a hairline left border and `16px` of left padding, one per
+   row, no pill shape. A fifteen-word tagline stuffed into a rounded pill reads as broken
+   layout, not as a phrase bank. Exact words either way. Lead with the load-bearing few the
+   distiller put first; keep the tail short.
+5. **Gaps** — always present, because the doc always has the section. **Only the first
+   gap gets the highlighted callout**: cream tint background, a 3px accent-blue left border,
+   the note in heading ink at `16px`. It is the one the skill already leads the chat report
+   with, and it is the sharpest thing the run found. **Every gap after it renders plain** —
+   white background, no left border, a hairline rule above, the note in body ink. Four
+   identical blue callouts stacked is four things shouting, which reads as none. When the
+   distiller found nothing inconsistent, render its one line as the callout; an
+   empty-handed Gaps section is a real result and reads as one. Render only what the
+   distiller put in Gaps.
+6. **What to do about it** — the doc's last content block and the reason it is a document
+   rather than an audit: the section label, then the distiller's one-or-two-sentence
+   recommendation in heading ink at `16px`, on white with a hairline rule above. **Give it
+   the weight of an ending.** If the distiller found no change worth making, render that
+   line as written rather than dropping the section.
+7. **Footer** — small muted text, three lines: `Built with BlueRock · Messaging Doc ·
+   site-reader + distiller`; beneath it the pages read (and "pasted references" if used) as
+   plain muted text separated by ` · `, **not chips**; and beneath that the **Read quality**
+   line if the doc carries one, in the same muted ink. Provenance belongs together, and it
+   belongs last.
 
 **Palette** (Builders "cool-paper", light-only — use these hex values directly since the
 Artifact can't read the app's CSS variables):
@@ -187,17 +200,18 @@ slight letter-spacing; chips in `ui-monospace, monospace`.
 ## Finish
 
 8. The **messaging doc artifact** is the payoff — a clean, one-page view (brand header
-   with the positioning one-liner, the voice attributes with quoted examples, the
-   verbatim phrase bank, any honest gaps, and the pages read). The `messaging-doc.md`
-   is the source of record the builder keeps and can push to their repo.
+   with the positioning one-liner, the site's claims beside the builder's, the voice
+   attributes with quoted examples, the phrase bank, the gaps, and the one recommendation
+   it ends on). The `messaging-doc.md` is the source of record the builder keeps and can
+   push to their repo.
 9. **Report, gaps first.** Lead with the sharpest thing in Gaps, in one sentence, before
    anything else: it is the part they could not have written themselves, and it is what
    makes the run feel like the tool saw something they didn't. ("Nothing in your internal
    vocabulary shows up on the site" beats "here's your messaging doc.") If the distiller
    found nothing inconsistent, say that plainly and move on. Then the doc's path, the
    positioning one-liner it found (or the "assembled from fragments" caveat if the site
-   never says it cleanly), and the artifact (or the fallback note). Don't reprint the
-   whole thing.
+   never says it cleanly), **the one thing the doc recommends doing about it**, and the
+   artifact (or the fallback note). Don't reprint the whole thing.
 
 ## Why this doc matters
 

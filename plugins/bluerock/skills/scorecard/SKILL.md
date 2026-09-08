@@ -144,22 +144,35 @@ page. Print-friendly, read-only, no CTAs or buttons.
    label): the two-or-three-sentence summary in body ink, then a `Lines of business:` line
    beneath it with the entries separated by ` · `. If the scan named one line of business,
    print the one; don't pad it out. Hairline border below.
-4. **Three dimension rows**, stacked. Each row: a small rating-colored dot + the label
-   (`Fit` / `Timing` / `Reachability`, small uppercase, letter-spacing), a **rating pill**
-   (`High` / `Medium` / `Low`, color-coded per the palette), and the one-line rationale
-   beneath in body ink. (When Fit uses the no-objectives default, render its one-line caveat
-   here in muted ink.) **A dimension the scorer marked `Not assessed` renders that word in
-   the pill**, in the neutral treatment, with a hollow dot rather than a filled one — it is
-   a visible blank, not a low score, and the two must not look alike. Its reason-and-remedy
-   line renders beneath in muted ink like any other caveat.
-5. **Why now** — a highlighted callout: cream tint background, a 3px accent-blue left
-   border, the one sentence in heading ink.
+4. **Three dimension rows**, stacked — **the page's focal point, and the only part that
+   has to read at a glance.** Each row is a block with a **3px left border in its rating
+   color**, running the row's full height (`padding-left: 16px`), so the three ratings read
+   as three colored bars down the page. This is the one element that survives the card being
+   shrunk to a thumbnail where no text is legible, so it is not optional. Inside: the label
+   (`Fit` / `Timing` / `Reachability`, small uppercase, letter-spacing) and a **rating pill**
+   (`High` / `Medium` / `Low`), then the scorer's **verdict line** in body ink at the base
+   size.
+   - **The verdict line is clamped to two lines** (`display: -webkit-box; -webkit-line-clamp:
+     2; -webkit-box-orient: vertical; overflow: hidden;`) so one long rationale cannot turn
+     the row back into prose. The scorer writes it to stand alone, so nothing is lost.
+   - **The scorer's detail, where it wrote any, renders beneath the row** at `13px` in muted
+     ink, with no border and a `10px` top margin. It is depth for the reader who wants it,
+     visibly subordinate to the verdict line. (The Fit no-objectives caveat renders here.)
+   - **`Not assessed`** renders that word in the pill, in the neutral treatment, and its
+     left border uses the border hairline `#E7E0D6` rather than a rating color — a visible
+     blank, not a low score, and the two must not look alike.
+5. **Why now** — the page's one highlighted callout: cream tint background, a 3px
+   accent-blue left border, the one sentence in heading ink at `16px`. **Exactly one block
+   on the page gets this treatment, and it is this one.** The accent is what tells the eye
+   where the answer is; spend it twice and it stops pointing at anything.
 
 6. **Recommended next step** — its own block, labeled, the concrete step in body ink.
-7. **Sources** — a small "Sources" label, then the scan's source domains as a wrapped row
-   of small mono chips (cream fill, hairline border), so the `<N> sources` count is visible
-   and clickable-looking. Keep to the domains the scout actually used.
-8. **Footer** — small muted text: `Built with BlueRock · Account Scorecard · scout + scorer`.
+7. **Footer** — small muted text, two lines: `Built with BlueRock · Account Scorecard ·
+   scout + scorer`, and beneath it the scan's source domains as plain muted text separated
+   by ` · `. **No chip row.** A wrapped grid of domain pills costs a third of the page's
+   height for a fact the header subline already states as `<N> sources`, and in a screenshot
+   it reads as decoration. Keep to the domains the scout actually used, and mark any it
+   flagged `unverified`.
 
 **Three honesty marks cut across the layout above.** They are not sections of their own;
 each lands inside the block it belongs to.
@@ -194,7 +207,11 @@ Artifact can't read the app's CSS variables):
 - Rating pills: **High** bg `#E4F0E9` / text `#2F6B4C`; **Medium** bg `#F7ECD6` / text
   `#8A5A12`; **Low** bg `#EDEEF1` / text `#5A6272`. **Not assessed:** no fill, a `#E7E0D6`
   hairline border, text `#7B8494` — deliberately quieter than Low, because it is the
-  absence of a rating rather than a bad one.
+  absence of a rating rather than a bad one. Pills render at `padding: 4px 14px;
+  font-weight: 600;` — the palette is deliberately soft for reading, so the pill needs the
+  weight to stay legible when the card is scaled down.
+- **Dimension left borders** use the pill's *text* color, which is the saturated one:
+  High `#2F6B4C`, Medium `#8A5A12`, Low `#5A6272`, Not assessed `#E7E0D6`.
 
 **Type** (CSP-safe fallbacks, no web fonts): headings `Georgia, 'Times New Roman', serif`;
 body + labels `system-ui, -apple-system, sans-serif`. Labels/pills small and uppercase with
