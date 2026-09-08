@@ -1,5 +1,52 @@
 # Changelog — `bluerock` plugin
 
+## Unreleased — Competitive Intel: battlecards, the third agent team in the plugin
+
+**⚠ Time saved is an estimate, not a measurement.** `/bluerock:competitive-intel` opens with a
+time-saved figure supplied by the product owner (Linda, 2026-09-03) and labeled on its
+face as an estimate. The timed manual baseline (E6-26) has not been run. Replace the
+figure and this note when it lands; until then no surface may present it as measured.
+
+- **New use case: `/bluerock:competitive-intel`** (agents `competitor-scanner` + `analyst`).
+  Five short intake questions — category, competitors (up to 4), your differentiators,
+  personas, deal notes — then a confirm, then one docs-deep sourced scan per competitor and
+  one battlecard per competitor: kill points (sourced), silver bullets (your
+  differentiators, aimed), where they're genuinely better, their attack with the answer, a
+  head-to-head, and one question to ask.
+- **The separation rule is the card's spine:** claims about a competitor carry the
+  scanner's sources and its `[their claim]` / `[unverified]` markers; the builder's own
+  differentiators are aimed but labeled theirs. Neither is allowed to dress up as the other.
+- **Scans go below the homepage on purpose:** docs, pricing, release notes, and reviews
+  before news — a battlecard built from marketing pages falls apart the first time a
+  prospect quotes the competitor's docs back.
+- **Runs accumulate:** each run writes a dated folder under `my-work/competitive-intel/`
+  plus an `inputs.md` seed; a rerun reports what changed since the previous battlecard,
+  and only from dated evidence in the fresh scans.
+- **Positioning inputs sharpen, never gate:** the skill reads `objectives.md`, `voice.md`,
+  and the latest messaging doc when they're real, pre-fills the intake from them, and runs
+  honestly without them (the silver-bullets section says so instead of inventing).
+- **Wording contracts** added to `scorecard` and `messaging-doc` (the two shipped use-case
+  skills carried none), and `competitive-intel` ships with one from its first draft.
+- **Converged with the internal prototype** (2026-09-03) — the prototype's intake and
+  field-craft, adopted: the three-question differentiator interview for builders with
+  nothing written down, skip-what-you-already-told-me with a "taking as given" read-back,
+  concurrent scanner dispatch with a set-the-wait expectation message, builder notes as
+  hard constraints ("we can't claim X" means X appears nowhere), unverified builder leads
+  passed to the right scanner to come back sourced or `[not found]`, the four-line kill
+  point (point / proof / **ask** / they'll say), per-person persona lanes, the no-FUD rule,
+  refresh-don't-rot staleness marking, and on multi-competitor runs two field-level
+  syntheses: **The field** and a Harvey-ball **Capability chart** (fixed five-symbol scale,
+  rationale per cell, Us always `●` because differentiators are asserted, not verified).
+  Kept from the toolkit side: the tool design contract with exact tokens, manifest
+  registration, dated run history with "since your last run", the wording contract, and
+  the timed-provenance gate on every time-saved claim.
+- **The artifact is a tool, not a report** (product decision, 2026-08-31): the design
+  contract now specifies tabbed per-competitor panels, semantic color lanes (kill points,
+  silver bullets, don't-take-the-fight-here, attack-and-answer), a 30-second read, THEM/US
+  volleys, and full light + dark theming in the Builders design language. Read-only stays
+  absolute: no CTAs, no dead controls. The rule is now repo-wide in CLAUDE.md § Hard rules,
+  and this skill's contract is the reference other use cases copy.
+
 ## 0.11.0 — both first-win work products say who the subject is, and stop hedging
 
 Two agent teams, one change of posture: say what you found, and say plainly what you could

@@ -26,7 +26,7 @@ line items; they roll up into the four-line report.
 
 - **BlueRock plugin skills always take the full prefix:** `/bluerock:check`,
   `/bluerock:onboard`, `/bluerock:today`, `/bluerock:wrap-up`, `/bluerock:scorecard`,
-  `/bluerock:messaging-doc`, `/bluerock:help`.
+  `/bluerock:messaging-doc`, `/bluerock:competitive-intel`, `/bluerock:help`.
   Never write the bare short form for a plugin skill, even though it resolves.
 - **The builder's project contains their own skills and agents** in `.claude/skills/` and
   `.claude/agents/`. When the builder asks for something those cover, read the matching
