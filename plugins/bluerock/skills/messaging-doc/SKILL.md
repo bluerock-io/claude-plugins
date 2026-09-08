@@ -68,6 +68,11 @@ Ask one at a time, a line or two each. **Skip anything the opening request alrea
 5. **The paste — once, lightly.** Recent material that sounds like you *now*: a post or
    two, campaign copy, an email you were proud of. Optional; if they have nothing at hand,
    move on without ceremony.
+   - **A URL is a fine answer here, and often a better one.** Builders reach for a link
+     before they reach for the clipboard. Take it: **hand extra URLs to the site reader as
+     additional pages to read** rather than asking them to paste the text instead. Say in
+     one line that that is what you are doing, so they know the link was used and not
+     filed. Pasted text still goes to `references.md`; a URL goes to the reader.
 **Offer, never block.** Steps 2 to 5 sharpen the run; none of them is the price of the
 first doc. If the builder says "just run it," run it — and say in one line what the doc
 will be without them (*"it'll be a read of the site, not a comparison"*) rather than asking
@@ -88,7 +93,11 @@ again.
 2. **Save the paste before dispatching.** If they pasted anything, write it as
    `references.md` in the working folder, labeled by what each piece is ("LinkedIn post,
    July", "campaign email"). The agents read files, not this conversation — an unsaved
-   paste is invisible to them.
+   paste is invisible to them. **If step 5 produced URLs instead**, they are not references;
+   carry them into the site reader's dispatch as extra pages and record them in `inputs.md`
+   as what they are, so a rerun reads the same set. **Note in `inputs.md` which arrived as
+   a paste and which as a link** — the two travel different routes, and a rerun that mixes
+   them up reads a different site than the first run did.
 3. **Write `inputs.md` before dispatching.** The confirmed intake, verbatim. The agents
    read files rather than this conversation, and the next run pre-fills from it rather
    than starting cold.

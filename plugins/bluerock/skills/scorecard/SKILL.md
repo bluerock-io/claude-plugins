@@ -54,7 +54,9 @@ the answer is genuinely a choice among a few. Everywhere else the answer is free
 the builder's own words — ask in the message and let them type.
 
 1. **The target.** A company name, plus any hint (sector, region, domain) if the name is
-   ambiguous. If it's genuinely ambiguous, resolve it before spending the run.
+   ambiguous. If it's genuinely ambiguous, resolve it before spending the run. **A URL is a
+   fine answer** — take it as the disambiguating hint and hand it to the scout as a page to
+   start from, rather than asking for the name a second time.
 2. **What you sell.** Pre-fill from `objectives.md` or the messaging doc and confirm.
    Ask only if both are absent: *"One line — what do you sell, and to whom?"* → **Fit**
 3. **What a good account looks like for you.** *"Two or three real criteria beat a profile
