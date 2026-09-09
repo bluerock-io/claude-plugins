@@ -62,9 +62,15 @@ Keep it to what helps them act. Longer is not kinder.
   work. It is yours; nothing here is locked away in someone's product.
 - **Your Cloud AI Workspace** is where it runs: a machine in the cloud rather than your laptop,
   so your project and everything in it stay put between sessions.
-- **Skills** are things you run by name — `/bluerock:scorecard`, `/bluerock:messaging-doc`.
-  **Agents** are workers you dispatch; they do one job and report back. A team is two or three
-  agents that hand work to each other through your files.
+- **Skills** are things you run by name. **Agents** are workers you dispatch; they do one job and
+  report back. A team is two or three agents that hand work to each other through your files.
+  ⚑ **Never name which skills exist from memory.** Read `library` from
+  `${CLAUDE_PLUGIN_ROOT}/curriculum/manifest.json` and take the names from there. This bullet
+  hardcoded `/bluerock:scorecard` and `/bluerock:messaging-doc` until 2026-09-08, and by then
+  five more use cases had shipped, so the two it named were the two oldest. Same failure as the
+  sessions bullet below, same fix: the manifest ships in the same release as the skills, so the
+  two cannot drift. **Naming what exists is all this bullet does** — which one to suggest is not
+  settled, and this skill is not where it gets settled.
 - **The learning path** is eight sessions from setup to a system running a real slice of your week.
   ⚑ **Never state from memory which sessions run in this chat.** Read `delivery` for each session
   from `${CLAUDE_PLUGIN_ROOT}/curriculum/manifest.json` and say what it actually reports — the
@@ -95,6 +101,10 @@ should make the next one less necessary.
   the job. Two half-versions of a session is worse than one.
 - **Do not invent a fix for account, billing, or access problems.** Escalate.
 - **Do not invent capabilities, commands, or channels.** If a skill does not exist, say so.
+- **Do not name a skill you have not read out of the manifest.** A skill you remember and the
+  builder does not have is worse than saying you are not sure: they will type it and it will
+  fail. The manifest is installed alongside the skills, so it is always right about what they
+  have.
 - **Do not run a fix the builder should run.** Same rule as the sessions: their hands on the
   keys, narrate once if they ask.
 - **Do not produce an audit.** A wall of green checks reads as "everything is fine" to someone
