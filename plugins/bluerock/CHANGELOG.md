@@ -1,6 +1,33 @@
 # Changelog — `bluerock` plugin
 
-## Unreleased — Signal Monitor: a ranked signal digest across a dropped account list
+## 0.12.0 — five use cases: the toolkit stops being a few handy skills
+
+Competitive Intel, AEO Visibility, Personalized Outreach, Process to Skill and GTM Signal
+Monitor all land together. Each is an agent team plus a skill plus a named work product a
+builder would actually send, and each has a maintained flow doc in `marketing-hub` at
+`09-product/use-case-flows/`. Merged as #19 through #23 on 2026-09-08.
+
+**The version bump is the release.** All five merged to main at 0.11.0, the version they
+were already on, which meant auto-update saw nothing to fetch and `/bluerock:check` compared
+0.11.0 against 0.11.0 and reported every builder as current. Five use cases were live in the
+repo and reachable by nobody. This is the failure `bfb-plugin-auto-update-spec.md` §7 proposed
+CI for: fail the merge when files under `plugins/bluerock/` change and the version does not.
+That guard still does not exist.
+
+**Time saved is the product owner's estimate on every one of them, labeled on its face as
+"estimated and not yet timed"** (Linda, 2026-09-03). The timed baseline (E6-26) has not been
+run. No surface may present these figures as measured.
+
+**Also in this release:** `prospect-scanner` and `outreach-writer` gain their registry entries
+in `curriculum/manifest.json`. Every other use case's agents had one; Personalized Outreach's
+two did not, so they were named only by their skill's `team` field and were invisible to
+anything reading the registry.
+
+The four entries below carry the per-use-case detail as written on their branches, newest
+first. One of them covers two use cases, Competitive Intel and Personalized Outreach, because
+that is how it was authored.
+
+### Signal Monitor: a ranked signal digest across a dropped account list
 
 **⚠ Time saved is an estimate, not a measurement.** `/bluerock:signal-monitor` opens with a
 time-saved figure supplied by the product owner (Linda, 2026-09-03) and labeled on its
@@ -51,7 +78,7 @@ figure and this note when it lands; until then no surface may present it as meas
 - **Not in v1** (deliberate): the scheduled weekly form — that is the intermediate version and
   the archetype of E6-23 — and any CRM read.
 
-## Unreleased — Process to Skill: the use case that points at the builder
+### Process to Skill: the use case that points at the builder
 
 **⚠ Time saved is an estimate, not a measurement.** `/bluerock:process-to-skill` opens
 with a time-saved figure supplied by the product owner (Linda, 2026-09-03) and labeled on
@@ -113,7 +140,7 @@ per-process by construction and ships as a named example, never a cross-builder 
   8), Session 5 already owns the "first thing you built" share, and a fourth is one too
   many. Use-case skills follow `competitive-intel` and close on the depth offer.
 
-## Unreleased — AEO Visibility: do you show up when a buyer asks an AI?
+### AEO Visibility: do you show up when a buyer asks an AI?
 
 **⚠ Time saved is an estimate, not a measurement.** `/bluerock:aeo-visibility` opens with a
 time-saved figure supplied by the product owner (Linda, 2026-09-03) and labeled on its
@@ -181,7 +208,7 @@ what the honesty rule forbids.
 - **Wording contract** ships with the skill from its first draft, and `messaging-doc`'s
   contract now names this skill as a second consumer of `my-work/messaging-doc/`.
 
-## Unreleased — two use-case agent teams: Competitive Intel and Personalized Outreach
+### two use-case agent teams: Competitive Intel and Personalized Outreach
 
 **⚠ Time saved is an estimate, not a measurement.** `/bluerock:competitive-intel` and `/bluerock:outreach-prep` each open
 with a time-saved figure supplied by the product owner (Linda, 2026-09-03) and labeled on
