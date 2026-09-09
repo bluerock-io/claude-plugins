@@ -1,0 +1,48 @@
+name: Release hygiene
+
+# Merge to main IS the release for this plugin, so the checks that would normally
+# sit on a release step have to sit on the pull request instead.
+#
+# Guard 1: a change to what builders run requires a version bump. Without one,
+# auto-update fetches nothing and /bluerock:check reports every builder as current,
+# so the change ships to nobody and nothing says so. On 2026-09-08 five use cases
+# landed that way across five PRs.
+# Guard 2: the JSON files parse. manifest.json took four hand-resolved add/add
+# conflicts in that same afternoon.
+#
+# The logic lives in .github/scripts/check_release_hygiene.py so it can be run
+# locally against any two refs, rather than only being observable in CI.
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  guards:
+    runs-on: ubuntu-latest
+    # Skipping is deliberate and visible in the PR's own labels. A guard with a
+    # silent override is a guard that gets deleted the first time it is inconvenient.
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'no-version-bump') }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history: the guard diffs HEAD against the base branch, and it reads
+          # the version out of the base commit's blob.
+          fetch-depth: 0
+
+      - name: Fetch the base branch
+        run: git fetch --no-tags origin "${{ github.base_ref }}"
+
+      - name: Run the release guards
+        run: python3 .github/scripts/check_release_hygiene.py "origin/${{ github.base_ref }}"
+
+      - name: Explain a skip
+        if: ${{ failure() }}
+        run: |
+          echo "::notice::If this change genuinely ships nothing to builders, add the"
+          echo "::notice::'no-version-bump' label to the PR. Otherwise bump the version"
+          echo "::notice::in plugins/bluerock/.claude-plugin/plugin.json and add a"
+          echo "::notice::CHANGELOG entry under it."
