@@ -1,5 +1,37 @@
 # Changelog — `bluerock` plugin
 
+## 0.12.2 — the library says what a builder may be offered
+
+Nothing a builder runs changes in this release. The manifest gains the field every
+discovery surface will read, and CI gains the guard that keeps it true.
+
+- **`tier` carries real values on all 40 library records.** It has been on every record
+  since the manifest existed and said `core` on every one, so it carried no information
+  and nothing read it. It now answers exactly one question — may a discovery surface
+  offer this? — across six values: `use-case` (7), `held` (1), `system` (5), `utility`
+  (5), `team-member` (16), `concept` (6).
+- **`held` is `research` (Account Research).** Use-case-shaped, deliberately not offered.
+  It is in `library`, so a surface reading `library` would name it as an eighth use case
+  without a predicate that excludes it. `held` is also where a use case sits after it is
+  built and before it is published, so it is a category rather than a special case for
+  one record.
+- **`ships_from` records whether a record lives in the toolkit or is seeded into the
+  builder's project** — `toolkit` (25), `project` (9), and absent on the 6 topics, which
+  are neither. Nine library records do not ship in this plugin, and that fact had been
+  hand-verified twice in one day.
+- **`team` and `artifact` filled on `scorecard` and `messaging-doc`.** Both predate the
+  convention and carried neither, so the two use cases a builder meets first were the two
+  a rule keyed on those fields would silently skip. `scorecard` runs `scout` → `scorer`;
+  `messaging-doc` runs `site-reader` → `distiller`, both read from the skill files.
+- **`time_saved` is deliberately not backfilled.** The figures are labelled estimates and
+  the copy leads on compounding, so a required `time_saved` would have forced two
+  estimates to be invented for numbers nobody may speak. The guard's rule: require what
+  must be true, never require what we have decided not to say.
+
+**Guard 3 in `check_release_hygiene.py`** fails a PR when a record carries an unknown
+tier, when a `use-case` is missing `team` / `artifact` / `roles` / `one_liner`, when a
+`use-case` does not ship in the toolkit, or when `ships_from` disagrees with the tree.
+
 ## 0.12.1 — `/bluerock:help` stops naming skills from memory
 
 `help`'s orientation block named `/bluerock:scorecard` and `/bluerock:messaging-doc` as its
