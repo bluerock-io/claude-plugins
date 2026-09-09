@@ -759,6 +759,38 @@
       "one_liner": "Preps you before a call with a focused brief."
     },
     {
+      "id": "prospect-scanner",
+      "type": "agent",
+      "category": "research-intelligence",
+      "roles": [
+        "sales"
+      ],
+      "tier": "core",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "recommended_after": [],
+      "one_liner": "A bounded, sourced scan of one prospect's public professional footprint: who they are and what they own, the company in a line, the dated reasons this is the moment, what they say in their own words, and what could not be found."
+    },
+    {
+      "id": "outreach-writer",
+      "type": "agent",
+      "category": "research-intelligence",
+      "roles": [
+        "sales"
+      ],
+      "tier": "core",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "recommended_after": [],
+      "one_liner": "Turns the scans into an outreach kit: one panel per prospect with who they are and why now, the angle aimed at that person, a draft in your voice marked as a draft, follow-up beats, and the gap turned into a first question. Never sends."
+    },
+    {
       "id": "anatomy-of-an-agent",
       "type": "topic",
       "category": "concepts",
