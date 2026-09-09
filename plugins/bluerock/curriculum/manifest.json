@@ -197,6 +197,29 @@
       ]
     },
     {
+      "id": "aeo-visibility",
+      "type": "skill",
+      "category": "research-intelligence",
+      "roles": [
+        "marketing",
+        "sales"
+      ],
+      "tier": "core",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "recommended_after": [],
+      "one_liner": "Find out whether you show up when buyers ask an AI which product to use — the verdict on each of your buyer questions, and a fix queue ordered by impact and effort with an owner on every line.",
+      "artifact": "AEO Scorecard",
+      "time_saved": "about 1.5 hours by hand, estimated and not yet timed",
+      "team": [
+        "answer-sampler",
+        "visibility-auditor"
+      ]
+    },
+    {
       "id": "research",
       "type": "skill",
       "category": "research-intelligence",
@@ -462,6 +485,40 @@
       ],
       "recommended_after": [],
       "one_liner": "Turns the scans into battlecards: kill points sourced, silver bullets aimed, the fights not to pick, their likely attack answered, and one question to ask."
+    },
+    {
+      "id": "answer-sampler",
+      "type": "agent",
+      "category": "research-intelligence",
+      "roles": [
+        "marketing",
+        "sales"
+      ],
+      "tier": "core",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "recommended_after": [],
+      "one_liner": "Samples one buyer question and writes down what actually came back: the sources, the brands named, and the verbatim passages currently answering it."
+    },
+    {
+      "id": "visibility-auditor",
+      "type": "agent",
+      "category": "research-intelligence",
+      "roles": [
+        "marketing",
+        "sales"
+      ],
+      "tier": "core",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "recommended_after": [],
+      "one_liner": "Turns the samples into an AEO Scorecard: the verdict per question, a dated presence count, and a fix queue ordered by impact and effort."
     },
     {
       "id": "researcher",
