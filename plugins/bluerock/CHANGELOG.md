@@ -1,5 +1,27 @@
 # Changelog — `bluerock` plugin
 
+## 0.12.1 — `/bluerock:help` stops naming skills from memory
+
+`help`'s orientation block named `/bluerock:scorecard` and `/bluerock:messaging-doc` as its
+examples of what a skill is. After 0.12.0 those are the two **oldest** of seven, so a builder
+asking "what can I even ask for" heard about the two things they had already met.
+
+- **The bullet now reads `library` from `curriculum/manifest.json`** and takes the names from
+  there. This is the same failure the sessions bullet directly below it already guards against,
+  with the same fix and the same reason: the manifest ships in the same release as the skills,
+  so the two cannot drift. That bullet hardcoded "Sessions 1 and 2 run here" until 2026-08-18
+  and told builders their sessions were unavailable long after they had all landed.
+- **A matching line in the must-not list:** do not name a skill you have not read out of the
+  manifest. A skill you remember and the builder does not have is worse than saying you are not
+  sure, because they will type it and it will fail.
+
+**Deliberately not in this release: which use case to suggest.** `help` is triage for a builder
+who is stuck, and its own first rule is that it is not a manual, a menu, or an audit. Naming
+what exists is all that bullet does. Recommendation is a product-experience question, it wants
+the surfaces builders actually pass through (`onboard`, `learn`, `wrap-up`, the first-run menu),
+and it is being designed rather than decided inside a skill. Note for whoever picks that up:
+`recommended_after` exists on all 40 library entries and is populated on none of them.
+
 ## 0.12.0 — five use cases: the toolkit stops being a few handy skills
 
 Competitive Intel, AEO Visibility, Personalized Outreach, Process to Skill and GTM Signal
