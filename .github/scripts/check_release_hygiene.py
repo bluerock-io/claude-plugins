@@ -23,6 +23,18 @@ GUARD 2 — the JSON files must parse.
 afternoon during that same release. A malformed manifest would not have surfaced until
 a builder's session failed to load it.
 
+GUARD 3 — every library record carries a tier, and ships_from matches the tree.
+
+`tier` is the single predicate a discovery surface reads to decide what a builder may
+be offered. Before it existed the question was answered by the presence of optional
+fields, so `scorecard` and `messaging-doc` — the two use cases a builder meets first —
+silently failed the test for months, because they predate the convention that filled
+`artifact` and `team`. An optional marker is not a marker, which is why this guard
+requires the classification rather than hoping for it.
+
+`ships_from` is derivable from the tree, so the guard re-derives it instead of trusting
+what is typed. The repo rule is generate facts, never type them.
+
 CHANGELOG.md is deliberately exempt from guard 1: fixing a typo in a release note is
 not a release. Everything else under plugins/bluerock/ counts.
 
@@ -40,6 +52,34 @@ PLUGIN_DIR = "plugins/bluerock/"
 MANIFEST = "plugins/bluerock/.claude-plugin/plugin.json"
 EXEMPT = {"plugins/bluerock/CHANGELOG.md"}
 JSON_FILES = [MANIFEST, "plugins/bluerock/curriculum/manifest.json"]
+
+LIBRARY_MANIFEST = "plugins/bluerock/curriculum/manifest.json"
+
+# tier answers exactly one question: may a discovery surface offer this record?
+# It carries no meaning about where a record ships from — that is ships_from,
+# and keeping the two apart is what makes reclassifying one record cheap.
+TIERS = {
+    "use-case",    # offered as a thing to run. The predicate every surface reads
+    "held",        # use-case-shaped, deliberately not offered (today: research)
+    "system",      # housekeeping: today, wrap-up, onboard, check, help
+    "utility",     # findable conveniences, never headline
+    "team-member",  # runs inside a use-case team, never offered alone
+    "concept",     # reading material
+}
+
+REQUIRED_ON_USE_CASE = ("team", "artifact", "roles", "one_liner")
+
+
+def derive_ships_from(rid, rtype):
+    """Where a record actually lives, read off the tree. None for a topic."""
+    if rtype == "skill":
+        path = Path(PLUGIN_DIR) / "skills" / rid / "SKILL.md"
+    elif rtype == "agent":
+        path = Path(PLUGIN_DIR) / "agents" / f"{rid}.md"
+    else:
+        return None
+    return "toolkit" if path.exists() else "project"
+
 
 
 def git(*args):
@@ -120,12 +160,89 @@ def check_json_parses():
     return ok
 
 
+def check_library_shape():
+    """GUARD 3 — every library record is classified, and ships_from is re-derived.
+
+    `tier` is the one predicate a discovery surface reads to decide what a builder
+    may be offered. Before it existed, "is this a use case" was answered by the
+    presence of optional fields, so `scorecard` and `messaging-doc` — the two use
+    cases a builder meets first — silently failed the test for months because they
+    predate the convention. An optional marker is not a marker.
+
+    `ships_from` is derivable from the tree, so it is re-derived here rather than
+    trusted. A hand-typed derivable fact is the shape that put nine wrong numbers
+    in bfb-what-is-built.md.
+
+    Required-field rule: require what must be true, never require what we have
+    decided not to say. `time_saved` is deliberately absent from REQUIRED — the
+    figures are labelled estimates and copy leads on compounding, so requiring the
+    field would force two estimates to be invented for numbers nobody may speak.
+    """
+    print("\nGUARD 3: library records are classified")
+    p = Path(LIBRARY_MANIFEST)
+    if not p.exists():
+        print(f"  SKIP  {LIBRARY_MANIFEST} (absent)")
+        return True
+    try:
+        records = json.loads(p.read_text(encoding="utf-8")).get("library", [])
+    except json.JSONDecodeError:
+        print("  SKIP  manifest does not parse (GUARD 2 reports it)")
+        return True
+
+    problems = []
+    for e in records:
+        rid, rtype, tier = e.get("id", "?"), e.get("type"), e.get("tier")
+
+        if tier not in TIERS:
+            problems.append(f"{rid}: tier is {tier!r}, not one of {sorted(TIERS)}")
+            continue
+
+        if tier == "use-case":
+            missing = [f for f in REQUIRED_ON_USE_CASE if not e.get(f)]
+            if missing:
+                problems.append(f"{rid}: tier use-case is missing {', '.join(missing)}")
+            if e.get("ships_from") != "toolkit":
+                problems.append(
+                    f"{rid}: tier use-case must ship in the toolkit, not "
+                    f"{e.get('ships_from')!r} — a use case a builder cannot run is "
+                    f"a menu item that fails when clicked"
+                )
+
+        actual = derive_ships_from(rid, rtype)
+        declared = e.get("ships_from")
+        if actual is None:
+            if declared is not None:
+                problems.append(f"{rid}: type {rtype} has no file, so it takes no ships_from")
+        elif declared != actual:
+            problems.append(
+                f"{rid}: ships_from says {declared!r}, the tree says {actual!r}"
+            )
+
+    if problems:
+        print(f"  {len(problems)} problem(s):")
+        for line in problems:
+            print(f"    {line}")
+        print("\nFAIL: the library is what every discovery surface reads to decide what")
+        print("      a builder may be offered. An unclassified record is offered by")
+        print("      nothing, or named by everything, and neither failure is visible")
+        print("      until a builder types a command that does not work.")
+        return False
+
+    counts = {}
+    for e in records:
+        counts[e["tier"]] = counts.get(e["tier"], 0) + 1
+    print(f"  ok    {len(records)} records: " +
+          ", ".join(f"{k} {v}" for k, v in sorted(counts.items())))
+    return True
+
+
 def main():
     if len(sys.argv) != 2:
         print(__doc__)
         return 2
     base = sys.argv[1]
-    results = [check_version_bump(base), check_json_parses()]
+    results = [check_version_bump(base), check_json_parses(),
+               check_library_shape()]
     if all(results):
         print("\nAll release guards passed.")
         return 0

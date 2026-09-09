@@ -27,7 +27,11 @@ jobs:
     # silent override is a guard that gets deleted the first time it is inconvenient.
     if: ${{ !contains(github.event.pull_request.labels.*.name, 'no-version-bump') }}
     steps:
-      - uses: actions/checkout@v4
+      # Pinned to a full-length SHA because the org requires it. Unpinned, the job
+      # dies at "Prepare all required actions" before a single guard runs — which is
+      # how all three runs of this workflow failed, including the one on the PR that
+      # introduced it. A guard that has never executed is not a guard.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
         with:
           # Full history: the guard diffs HEAD against the base branch, and it reads
           # the version out of the base commit's blob.

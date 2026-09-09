@@ -144,7 +144,7 @@
         "sales",
         "marketing"
       ],
-      "tier": "core",
+      "tier": "use-case",
       "used_in_sessions": [
         2
       ],
@@ -152,8 +152,14 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
-      "one_liner": "Point a small agent team at a company and get a fast, one-page scorecard: what they do, where they are and how big, then Fit, Timing, Reachability, and a recommended next action."
+      "one_liner": "Point a small agent team at a company and get a fast, one-page scorecard: what they do, where they are and how big, then Fit, Timing, Reachability, and a recommended next action.",
+      "team": [
+        "scout",
+        "scorer"
+      ],
+      "artifact": "scorecard"
     },
     {
       "id": "messaging-doc",
@@ -162,7 +168,7 @@
       "roles": [
         "marketing"
       ],
-      "tier": "core",
+      "tier": "use-case",
       "used_in_sessions": [
         2
       ],
@@ -170,8 +176,14 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
-      "one_liner": "Point a small agent team at your website and get your core messaging doc: positioning, voice, and the phrases you actually use — the doc every later draft leans on."
+      "one_liner": "Point a small agent team at your website and get your core messaging doc: positioning, voice, and the phrases you actually use — the doc every later draft leans on.",
+      "team": [
+        "site-reader",
+        "distiller"
+      ],
+      "artifact": "messaging doc"
     },
     {
       "id": "competitive-intel",
@@ -181,12 +193,13 @@
         "sales",
         "marketing"
       ],
-      "tier": "core",
+      "tier": "use-case",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Point an agent team at the competitors you face (up to 4) and get a battlecard per competitor: sourced kill points, your differentiators aimed, where they're genuinely better, and one question to ask.",
       "artifact": "battlecard",
@@ -204,12 +217,13 @@
         "marketing",
         "sales"
       ],
-      "tier": "core",
+      "tier": "use-case",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Find out whether you show up when buyers ask an AI which product to use — the verdict on each of your buyer questions, and a fix queue ordered by impact and effort with an owner on every line.",
       "artifact": "AEO Scorecard",
@@ -226,12 +240,13 @@
       "roles": [
         "sales"
       ],
-      "tier": "core",
+      "tier": "use-case",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Point an agent team at the people you want to reach (up to 4) and get an outreach kit: who they are and why now, sourced, the angle, and a draft in your voice. Nothing is sent.",
       "artifact": "outreach kit",
@@ -250,12 +265,13 @@
         "sales",
         "marketing"
       ],
-      "tier": "core",
+      "tier": "use-case",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Talk through a process that only lives in your head, one question at a time, and get back two things that work: a skill in your project that runs it, and a runbook someone else could follow.",
       "artifact": "runbook",
@@ -273,12 +289,13 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "use-case",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Drop in your account list (up to 40) and get a signal digest: what moved on which accounts, ranked act-this-week first, with the accounts that are genuinely quiet named as quiet.",
       "artifact": "signal digest",
@@ -296,7 +313,7 @@
         "sales",
         "marketing"
       ],
-      "tier": "core",
+      "tier": "held",
       "used_in_sessions": [
         6
       ],
@@ -304,6 +321,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "project",
       "recommended_after": [],
       "one_liner": "Point a three-agent team at a company for a sourced dossier — the 20 minutes before a call, in about 90 seconds."
     },
@@ -316,7 +334,7 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "utility",
       "used_in_sessions": [
         5
       ],
@@ -324,6 +342,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "project",
       "recommended_after": [],
       "one_liner": "Turn a call into a structured follow-up you can send."
     },
@@ -336,12 +355,13 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "utility",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "project",
       "recommended_after": [],
       "one_liner": "Drop a note any time; the scribe agent files it in your project."
     },
@@ -354,12 +374,13 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "system",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Your living to-do for the day, pulled from your objectives."
     },
@@ -372,7 +393,7 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "system",
       "used_in_sessions": [
         2,
         3,
@@ -386,6 +407,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Close out the chat: logs what happened, refreshes your dashboard, and (with your okay) saves a checkpoint."
     },
@@ -398,7 +420,7 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "system",
       "used_in_sessions": [
         4
       ],
@@ -406,6 +428,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Teach your project who you are and how you write — writes your CLAUDE.md, voice, and objectives."
     },
@@ -418,7 +441,7 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "system",
       "used_in_sessions": [
         1
       ],
@@ -426,6 +449,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Confirm your workspace is set up and healthy."
     },
@@ -438,12 +462,13 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "system",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Stuck? One diagnosis and one next step — setup, the learning path, a skill that came back thin, or not knowing what to ask."
     },
@@ -455,7 +480,7 @@
         "sales",
         "marketing"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [
         2
       ],
@@ -463,6 +488,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "A fast, sourced scan of a target company: what they do, size and stage, one or two recent signals."
     },
@@ -474,7 +500,7 @@
         "sales",
         "marketing"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [
         2
       ],
@@ -482,6 +508,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Carries the company snapshot forward, grades the account for Fit, Timing, and Reachability, and recommends a concrete next action."
     },
@@ -492,7 +519,7 @@
       "roles": [
         "marketing"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [
         2
       ],
@@ -500,6 +527,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Reads a brand's website like an editor: captures the positioning lines, the voice, and the exact recurring phrases, quoted and sourced."
     },
@@ -510,7 +538,7 @@
       "roles": [
         "marketing"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [
         2
       ],
@@ -518,6 +546,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Turns the site read plus anything you paste into your core messaging doc — positioning, voice, and your phrases, every line traceable to a source."
     },
@@ -529,12 +558,13 @@
         "sales",
         "marketing"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "A docs-deep, sourced scan of one competitor: what the product actually does, pricing posture, traction, their own pitch, and where they are genuinely strong."
     },
@@ -546,12 +576,13 @@
         "sales",
         "marketing"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Turns the scans into battlecards: kill points sourced, silver bullets aimed, the fights not to pick, their likely attack answered, and one question to ask."
     },
@@ -563,12 +594,13 @@
         "marketing",
         "sales"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Samples one buyer question and writes down what actually came back: the sources, the brands named, and the verbatim passages currently answering it."
     },
@@ -580,12 +612,13 @@
         "marketing",
         "sales"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Turns the samples into an AEO Scorecard: the verdict per question, a dated presence count, and a fix queue ordered by impact and effort."
     },
@@ -598,12 +631,13 @@
         "sales",
         "marketing"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Reads your new skill file cold, with no memory of the conversation that made it, tries to follow it, and reports every place it had to guess — the test of whether someone else could run this when you're out."
     },
@@ -616,12 +650,13 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Sweeps a batch of accounts for recent, dated, sourced signals — bounded to a few fetches each — and names any account it can't pin down instead of guessing."
     },
@@ -634,12 +669,13 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Ranks the scans into a board: act this week, worth knowing, quiet accounts named as quiet — each signal framed against what you sell, with a suggested next touch."
     },
@@ -651,7 +687,7 @@
         "sales",
         "marketing"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [
         6
       ],
@@ -659,6 +695,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "project",
       "recommended_after": [],
       "one_liner": "Builds the company profile: what they do, their stage, size, and who is who."
     },
@@ -670,7 +707,7 @@
         "sales",
         "marketing"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [
         6
       ],
@@ -678,6 +715,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "project",
       "recommended_after": [],
       "one_liner": "Surfaces recent, dated signals — funding, leadership moves, launches."
     },
@@ -689,7 +727,7 @@
         "sales",
         "marketing"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [
         6
       ],
@@ -697,6 +735,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "project",
       "recommended_after": [],
       "one_liner": "Writes the dossier — overview, signals, and the angles that matter to you, in your voice."
     },
@@ -709,7 +748,7 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "utility",
       "used_in_sessions": [
         3
       ],
@@ -717,6 +756,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "project",
       "recommended_after": [],
       "one_liner": "Files the notes you capture into the right place in your project."
     },
@@ -729,7 +769,7 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "utility",
       "used_in_sessions": [
         7
       ],
@@ -737,6 +777,7 @@
         "desktop",
         "cursor"
       ],
+      "ships_from": "project",
       "recommended_after": [],
       "one_liner": "Assembles a morning brief that closes yesterday's loop and sets today's priorities."
     },
@@ -749,12 +790,13 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "utility",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "project",
       "recommended_after": [],
       "one_liner": "Preps you before a call with a focused brief."
     },
@@ -765,12 +807,13 @@
       "roles": [
         "sales"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "A bounded, sourced scan of one prospect's public professional footprint: who they are and what they own, the company in a line, the dated reasons this is the moment, what they say in their own words, and what could not be found."
     },
@@ -781,12 +824,13 @@
       "roles": [
         "sales"
       ],
-      "tier": "core",
+      "tier": "team-member",
       "used_in_sessions": [],
       "surfaces": [
         "desktop",
         "cursor"
       ],
+      "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Turns the scans into an outreach kit: one panel per prospect with who they are and why now, the angle aimed at that person, a draft in your voice marked as a draft, follow-up beats, and the gap turned into a first question. Never sends."
     },
@@ -799,7 +843,7 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "concept",
       "used_in_sessions": [
         3
       ],
@@ -819,7 +863,7 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "concept",
       "used_in_sessions": [
         4
       ],
@@ -839,7 +883,7 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "concept",
       "used_in_sessions": [
         5
       ],
@@ -859,7 +903,7 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "concept",
       "used_in_sessions": [
         6
       ],
@@ -879,7 +923,7 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "concept",
       "used_in_sessions": [
         7
       ],
@@ -899,7 +943,7 @@
         "marketing",
         "operations"
       ],
-      "tier": "core",
+      "tier": "concept",
       "used_in_sessions": [
         8
       ],
