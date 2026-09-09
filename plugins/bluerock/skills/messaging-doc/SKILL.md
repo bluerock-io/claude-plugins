@@ -149,7 +149,10 @@ Not part of a run. Read this before rewording anything a builder sees.
   `distiller`) and the folder (`my-work/messaging-doc/<brand>/`).
 - **`curriculum/manifest.json`** carries this skill's `one_liner` and **README.md
   § Messaging Doc** quotes the flow; the menu and the site read both.
-- **`/bluerock:competitive-intel` reads the latest doc under `my-work/messaging-doc/`**
-  to pre-fill a builder's differentiators, **`/bluerock:aeo-visibility` reads it** to
-  build the buyer questions it proposes, and **`/bluerock:outreach-prep` reads it** to
-  pre-fill what the builder sells — the folder shape is load-bearing beyond this skill.
+- **Four use cases read the latest doc under `my-work/messaging-doc/`** — the folder shape is
+  load-bearing well beyond this skill. `/bluerock:competitive-intel` reads it to pre-fill a
+  builder's differentiators; `/bluerock:aeo-visibility` reads it to build the buyer questions
+  it proposes; `/bluerock:outreach-prep` reads it to pre-fill what the builder sells; and
+  `/bluerock:signal-monitor` reads it to aim the "why it matters" line on every signal card.
+  Change the folder shape and all four go quiet rather than failing loudly, since each is
+  written to degrade honestly when it is absent.

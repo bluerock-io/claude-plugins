@@ -1,5 +1,56 @@
 # Changelog — `bluerock` plugin
 
+## Unreleased — Signal Monitor: a ranked signal digest across a dropped account list
+
+**⚠ Time saved is an estimate, not a measurement.** `/bluerock:signal-monitor` opens with a
+time-saved figure supplied by the product owner (Linda, 2026-09-03) and labeled on its
+face as an estimate. The timed manual baseline (E6-26) has not been run. Replace the
+figure and this note when it lands; until then no surface may present it as measured.
+
+- **New use case: `/bluerock:signal-monitor`** (agents `account-scanner` + `signal-analyst`).
+  Solves "something happened on one of my accounts last week and I found out after my
+  competitor did." Five short intake questions — the account list as a dropped file, what
+  counts as a signal **in the builder's own words**, how far back, what they sell, any notes —
+  then a confirm, then a bounded sweep across the list and a ranked **signal digest**.
+- **The digest is a board, not a chronology.** Three lanes in fixed order: **act this week**
+  first, then **worth knowing**, then **quiet accounts** — and the third one is the point. A
+  checked account with no signal is a finding, named with the date it was checked, never folded
+  into a count. Knowing twenty-eight of thirty accounts were genuinely quiet is what tells a
+  builder where the other two deserve their week.
+- **A fourth lane exists so the digest can't overstate its coverage: could not check.** An
+  account list entry that can't be disambiguated to one company is **named and skipped, never
+  guessed** — with the candidates seen and what would fix it. Checked-and-quiet and
+  never-checked are never merged; a confident sourced signal filed against the wrong company is
+  worse than no signal.
+- **Filter chips per account, not one tab per account.** A dropped list can be dozens, and
+  dozens of tabs is a filing cabinet. The chip row is the account list: every checked account,
+  colored by its lane, selectable in one click. Selecting a quiet account shows its quiet state
+  in words rather than an empty screen.
+- **The fetch budget is bounded and stated out loud: 2 to 3 per account.** This is a wide
+  shallow sweep, not a deep read, and the artifact's meta line says so, so the builder can
+  calibrate rather than over-trust it. Accounts run in batches of 8 — a 40-account list is five
+  scanners, not forty, which is what keeps the run cheap enough to be weekly.
+- **Method borrowed from the in-house intel skills, positioning left behind:** scan, dedupe
+  against the previous run, score, and classify source tier before framing. Ranking is on fit
+  to *their* signal definition, actionability, recency, and source strength — and **the score
+  never ships**, because a number implies a precision this doesn't have. The builder gets a
+  lane and a reason.
+- **Nothing unconfirmed reaches the act-this-week lane, ever.** A Tier 3 item can be important
+  and still not be something to act on; it lands in worth-knowing with its `[unconfirmed]`
+  marker intact and a next touch that finds out rather than acts.
+- **The separation rule, in this use case's shape:** *what happened* is sourced and dated;
+  *why it matters* and the *next touch* are the builder's positioning applied, labeled as
+  theirs. The artifact keeps them in different colors — the next touch takes the same `bullet`
+  token the battlecard gives silver bullets, because it is the same kind of statement.
+- **Positioning sharpens, never gates:** with a real messaging doc the "why it matters" line is
+  aimed; without one the digest still ranks and says so on the card instead of inventing a
+  positioning.
+- **Runs accumulate:** each run writes a dated folder under `my-work/signal-monitor/` plus an
+  `inputs.md` seed; a rerun dedupes against the previous digest and reports what moved lane,
+  including an account quiet across two runs.
+- **Not in v1** (deliberate): the scheduled weekly form — that is the intermediate version and
+  the archetype of E6-23 — and any CRM read.
+
 ## Unreleased — Process to Skill: the use case that points at the builder
 
 **⚠ Time saved is an estimate, not a measurement.** `/bluerock:process-to-skill` opens

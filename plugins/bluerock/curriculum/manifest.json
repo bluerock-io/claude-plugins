@@ -265,6 +265,30 @@
       ]
     },
     {
+      "id": "signal-monitor",
+      "type": "skill",
+      "category": "research-intelligence",
+      "roles": [
+        "sales",
+        "marketing",
+        "operations"
+      ],
+      "tier": "core",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "recommended_after": [],
+      "one_liner": "Drop in your account list (up to 40) and get a signal digest: what moved on which accounts, ranked act-this-week first, with the accounts that are genuinely quiet named as quiet.",
+      "artifact": "signal digest",
+      "time_saved": "about 1.5 hours by hand, estimated and not yet timed",
+      "team": [
+        "account-scanner",
+        "signal-analyst"
+      ]
+    },
+    {
       "id": "research",
       "type": "skill",
       "category": "research-intelligence",
@@ -582,6 +606,42 @@
       ],
       "recommended_after": [],
       "one_liner": "Reads your new skill file cold, with no memory of the conversation that made it, tries to follow it, and reports every place it had to guess — the test of whether someone else could run this when you're out."
+    },
+    {
+      "id": "account-scanner",
+      "type": "agent",
+      "category": "research-intelligence",
+      "roles": [
+        "sales",
+        "marketing",
+        "operations"
+      ],
+      "tier": "core",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "recommended_after": [],
+      "one_liner": "Sweeps a batch of accounts for recent, dated, sourced signals — bounded to a few fetches each — and names any account it can't pin down instead of guessing."
+    },
+    {
+      "id": "signal-analyst",
+      "type": "agent",
+      "category": "research-intelligence",
+      "roles": [
+        "sales",
+        "marketing",
+        "operations"
+      ],
+      "tier": "core",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "recommended_after": [],
+      "one_liner": "Ranks the scans into a board: act this week, worth knowing, quiet accounts named as quiet — each signal framed against what you sell, with a suggested next touch."
     },
     {
       "id": "researcher",
