@@ -242,6 +242,29 @@
       ]
     },
     {
+      "id": "process-to-skill",
+      "type": "skill",
+      "category": "automation-scheduling",
+      "roles": [
+        "operations",
+        "sales",
+        "marketing"
+      ],
+      "tier": "core",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "recommended_after": [],
+      "one_liner": "Talk through a process that only lives in your head, one question at a time, and get back two things that work: a skill in your project that runs it, and a runbook someone else could follow.",
+      "artifact": "runbook",
+      "time_saved": "varies by process; about 2 hours by hand for a typical pass, estimated and not yet timed",
+      "team": [
+        "understudy"
+      ]
+    },
+    {
       "id": "research",
       "type": "skill",
       "category": "research-intelligence",
@@ -541,6 +564,24 @@
       ],
       "recommended_after": [],
       "one_liner": "Turns the samples into an AEO Scorecard: the verdict per question, a dated presence count, and a fix queue ordered by impact and effort."
+    },
+    {
+      "id": "understudy",
+      "type": "agent",
+      "category": "automation-scheduling",
+      "roles": [
+        "operations",
+        "sales",
+        "marketing"
+      ],
+      "tier": "core",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "recommended_after": [],
+      "one_liner": "Reads your new skill file cold, with no memory of the conversation that made it, tries to follow it, and reports every place it had to guess — the test of whether someone else could run this when you're out."
     },
     {
       "id": "researcher",

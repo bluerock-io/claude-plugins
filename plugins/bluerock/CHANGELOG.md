@@ -1,5 +1,67 @@
 # Changelog — `bluerock` plugin
 
+## Unreleased — Process to Skill: the use case that points at the builder
+
+**⚠ Time saved is an estimate, not a measurement.** `/bluerock:process-to-skill` opens
+with a time-saved figure supplied by the product owner (Linda, 2026-09-03) and labeled on
+its face as an estimate. The timed baseline (E6-26) has not been run, and this card's
+baseline is deliberately different from the others (decision 2026-09-03): one timed manual
+run of the builder's own *process*, not of skill authoring. The figure is therefore
+per-process by construction and ships as a named example, never a cross-builder average.
+
+- **New use case: `/bluerock:process-to-skill`** (agent `understudy`). An interview, one
+  question at a time — what starts it, the steps, the decision points, what done looks
+  like, the edge cases, plus one or two real examples pasted in — then two deliverables:
+  **a working skill in the builder's own project** at `.claude/skills/<their-name>/SKILL.md`
+  and **a printable runbook** in `my-work/process-to-skill/`. The aha is running a tool that
+  did not exist an hour ago and is theirs.
+- **The first Phase 1 use case whose input is entirely the builder's own head.** No web, no
+  dropped file, no credential — which is also why there is no research stage and no scan to
+  wait on. The interview is the run, so the read-back is the technique: a process someone
+  has run two hundred times is compressed in their head, and the steps they skip in the
+  telling are the ones they have stopped noticing they do.
+- **One agent, and it is a cold reader rather than a writer.** `understudy` gets the
+  generated skill file and the builder's real example and **nothing else** — explicitly not
+  `process.md`, not the interview — walks the file as written, and reports where it had to
+  guess, what it could not find, which decisions had no rule, and which exceptions went
+  unstated. The thread that ran the interview cannot do this: it reads its own draft as
+  complete because it remembers what the builder meant. This is also the literal form of the
+  problem the use case names — could someone else run this when you are out.
+- **Findings are answered by the builder, never filled in.** A gap the understudy found is a
+  decision the builder makes automatically and has never written down; supplying it invents
+  their process. A gap they cannot close stays visibly open, in the skill as a step that
+  hands the call back and in the runbook's decision lane as an unwritten rule. Same floor as
+  Session 5's: this skill does the typing, not the deciding.
+- **Nothing generated reaches the outside world.** Every generated skill carries three
+  constant never-do rules — never send, post, or submit; never write outside this project;
+  never invent a missing input — plus the ones from the interview. Where a process ends in
+  a send or a record update, the skill drafts and stops, and the builder is told why at the
+  moment it comes up rather than at the end. The understudy runs a guardrail check for the
+  same three cases, and the runbook states the split on its face.
+- **The generated file is Session 5's file.** Two-field frontmatter, trigger phrases inside
+  the `description`, bare `/<name>` invocation, `.claude/skills/`. Session 5 teaches a
+  builder to write it by hand and is this skill's depth link; the two are pinned to each
+  other in both wording contracts. Session 7 (scheduling) is named as the natural next step
+  and is **not** in v1 — a builder who hears otherwise goes looking for a button.
+- **The artifact is a spine, not tabs** (tool-not-report rule, 2026-08-31): one process is
+  one entity and a runbook read out of order is not a runbook. Every step visible in
+  sequence with a 4px lane stripe, click-to-focus on one step, and two filters that get used
+  under pressure — decisions only, edge cases only. Five semantic lanes (step, input,
+  decision, edge case, done) over the Competitive Intel token palette **by reference, not by
+  copy**, so the Phase 1 tools stay one family. No checkboxes: a checkbox that saves nothing
+  is a dead control. Prints expanded, because the printed page is what the person covering
+  actually holds.
+- **A section that is never omitted:** *What the stand-in couldn't work out* — the
+  understudy's findings, closed or open. A clean cold run says so in one line. It is the
+  evidence the runbook is followable, and a runbook with nothing to declare should say that
+  out loud.
+- **Wording contracts** on both new files, from the first draft, pinning the `cold-run.md`
+  section names, the understudy's do-not-read rule, the Session 5 file shape, the four
+  places the guardrail is stated, and the token-table reference.
+- **No Slack beat, deliberately.** The path's three share/ask beats are set (Sessions 5, 7,
+  8), Session 5 already owns the "first thing you built" share, and a fourth is one too
+  many. Use-case skills follow `competitive-intel` and close on the depth offer.
+
 ## Unreleased — AEO Visibility: do you show up when a buyer asks an AI?
 
 **⚠ Time saved is an estimate, not a measurement.** `/bluerock:aeo-visibility` opens with a
