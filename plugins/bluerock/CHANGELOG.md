@@ -1,5 +1,29 @@
 # Changelog — `bluerock` plugin
 
+## 0.12.3 — time saved becomes summable
+
+Nothing a builder runs changes. This is the data a tally needs, ahead of the tally.
+
+- **`time_saved_minutes` on all seven use cases**, a positive whole number of minutes per
+  run: 120, 240, 60, 90, 60, 120, 90. The existing `time_saved` prose stays and is what a
+  human reads. Prose cannot be summed, and one entry reads "varies by process; about 2
+  hours by hand for a typical pass", so a tally reading the old field would be parsing
+  English.
+- **`scorecard` and `messaging-doc` gain `time_saved` at last**, at 2 hours per account and
+  4 hours (Linda, 2026-09-09). They were deliberately left blank on 2026-09-08 because the
+  figures were unspeakable, and they are the two use cases a builder meets first, so a
+  tally without them would have excluded most of a new builder's activity and looked broken.
+- **Both fields are now required on a `use-case` record**, and `time_saved_minutes` must be
+  a positive integer. **This reverses a rule written yesterday** and the reason is that the
+  reason changed: the field was excluded from the required set while copy could not speak
+  it, and it is now a value driver tallied on the builder's own dashboard. A use case that
+  ships without an estimate contributes nothing to that tally.
+
+**Still not in this release: the tally itself.** The estimates are per run and multiply run
+counts that `wrap-up` already records. The tally, its provenance label, and the question
+that asks a builder what the task used to take them are specified in `marketing-hub` at
+`09-product/beta-plan/bfb-time-saved-tally-requirement.md` and are a separate build.
+
 ## 0.12.2 — the library says what a builder may be offered
 
 Nothing a builder runs changes in this release. The manifest gains the field every

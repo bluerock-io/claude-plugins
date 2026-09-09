@@ -67,7 +67,16 @@ TIERS = {
     "concept",     # reading material
 }
 
-REQUIRED_ON_USE_CASE = ("team", "artifact", "roles", "one_liner")
+REQUIRED_ON_USE_CASE = ("team", "artifact", "roles", "one_liner",
+                        "time_saved", "time_saved_minutes")
+
+# time_saved was deliberately NOT required when tier landed on 2026-09-08: the
+# figures were labelled estimates and copy led on compounding, so requiring the
+# field would have forced two estimates to be invented for numbers nobody could
+# speak. That reasoning ended on 2026-09-09, when time saved was elevated to a
+# use-case value driver and became a tally on the builder's own dashboard. A use
+# case with no estimate now contributes nothing to that tally and looks broken,
+# so the field must exist before the use case ships.
 
 
 def derive_ships_from(rid, rtype):
@@ -198,9 +207,18 @@ def check_library_shape():
             continue
 
         if tier == "use-case":
-            missing = [f for f in REQUIRED_ON_USE_CASE if not e.get(f)]
+            # presence, not truthiness: a time_saved_minutes of 0 is present and
+            # wrong, and reporting it as "missing" sends the reader to the wrong fix
+            missing = [f for f in REQUIRED_ON_USE_CASE if f not in e or e[f] in ("", None, [])]
             if missing:
                 problems.append(f"{rid}: tier use-case is missing {', '.join(missing)}")
+            mins = e.get("time_saved_minutes")
+            if mins is not None and not (isinstance(mins, int) and mins > 0):
+                problems.append(
+                    f"{rid}: time_saved_minutes is {mins!r}; it is summed into a "
+                    f"builder-visible tally, so it must be a positive whole number "
+                    f"of minutes per run, not prose"
+                )
             if e.get("ships_from") != "toolkit":
                 problems.append(
                     f"{rid}: tier use-case must ship in the toolkit, not "

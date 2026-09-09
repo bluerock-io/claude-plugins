@@ -159,7 +159,9 @@
         "scout",
         "scorer"
       ],
-      "artifact": "scorecard"
+      "artifact": "scorecard",
+      "time_saved": "about 2 hours by hand per account, estimated and not yet timed",
+      "time_saved_minutes": 120
     },
     {
       "id": "messaging-doc",
@@ -183,7 +185,9 @@
         "site-reader",
         "distiller"
       ],
-      "artifact": "messaging doc"
+      "artifact": "messaging doc",
+      "time_saved": "about 4 hours by hand, estimated and not yet timed",
+      "time_saved_minutes": 240
     },
     {
       "id": "competitive-intel",
@@ -204,6 +208,7 @@
       "one_liner": "Point an agent team at the competitors you face (up to 4) and get a battlecard per competitor: sourced kill points, your differentiators aimed, where they're genuinely better, and one question to ask.",
       "artifact": "battlecard",
       "time_saved": "about 1 hour by hand, estimated and not yet timed",
+      "time_saved_minutes": 60,
       "team": [
         "competitor-scanner",
         "analyst"
@@ -228,6 +233,7 @@
       "one_liner": "Find out whether you show up when buyers ask an AI which product to use — the verdict on each of your buyer questions, and a fix queue ordered by impact and effort with an owner on every line.",
       "artifact": "AEO Scorecard",
       "time_saved": "about 1.5 hours by hand, estimated and not yet timed",
+      "time_saved_minutes": 90,
       "team": [
         "answer-sampler",
         "visibility-auditor"
@@ -251,6 +257,7 @@
       "one_liner": "Point an agent team at the people you want to reach (up to 4) and get an outreach kit: who they are and why now, sourced, the angle, and a draft in your voice. Nothing is sent.",
       "artifact": "outreach kit",
       "time_saved": "about 1 hour by hand, estimated and not yet timed",
+      "time_saved_minutes": 60,
       "team": [
         "prospect-scanner",
         "outreach-writer"
@@ -276,6 +283,7 @@
       "one_liner": "Talk through a process that only lives in your head, one question at a time, and get back two things that work: a skill in your project that runs it, and a runbook someone else could follow.",
       "artifact": "runbook",
       "time_saved": "varies by process; about 2 hours by hand for a typical pass, estimated and not yet timed",
+      "time_saved_minutes": 120,
       "team": [
         "understudy"
       ]
@@ -300,6 +308,7 @@
       "one_liner": "Drop in your account list (up to 40) and get a signal digest: what moved on which accounts, ranked act-this-week first, with the accounts that are genuinely quiet named as quiet.",
       "artifact": "signal digest",
       "time_saved": "about 1.5 hours by hand, estimated and not yet timed",
+      "time_saved_minutes": 90,
       "team": [
         "account-scanner",
         "signal-analyst"
