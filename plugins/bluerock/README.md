@@ -30,6 +30,7 @@ The **run-as-is core** — you drive these; you don't edit them:
 | **Messaging Doc** | Point a fast team at your website for your core messaging doc: `/bluerock:messaging-doc` (agents `site-reader` + `distiller`) |
 | **Competitive Intel** | Battlecards for the competitors you face: `/bluerock:competitive-intel` (agents `competitor-scanner` + `analyst`) |
 | **AEO Visibility** | Whether you show up when buyers ask an AI: `/bluerock:aeo-visibility` (agents `answer-sampler` + `visibility-auditor`) |
+| **Personalized Outreach** | Prep and drafts for the people you want to reach: `/bluerock:outreach-prep` (agents `prospect-scanner` + `outreach-writer`) |
 
 ## Account Scorecard — the fast first win
 
@@ -111,6 +112,26 @@ it is **a dated sample, never a rank tracker**: AI answers are generated fresh e
 and vary between runs, so two runs are two samples, not a before and after. Every verdict
 on the card carries the day it was taken.
 
+## Personalized Outreach — the reading you never have time for
+
+`/bluerock:outreach-prep` (or *"prep me for outreach to Dana"*, *"research these four
+prospects"*) asks you four short questions — who you're writing to (up to 4), what you're
+selling, which channel, anything shaping it — confirms, then runs two agents:
+
+- **`prospect-scanner`** — one bounded, sourced scan per person: what they actually own,
+  the dated reasons this is the moment, and what they've said in public, in their own
+  words. Public professional footprint only, and it never collects contact details.
+- **`outreach-writer`** — one panel per prospect: who they are and why now with sources,
+  the angle (your offer aimed at this person), a draft in your voice, follow-up beats, and
+  the thing it couldn't find turned into your first question.
+
+Three kinds of statement never blur: facts about them carry sources, the angle is yours to
+say, and every draft is labeled a draft. **Nothing is ever sent** — this tool has no send
+step, no sequences, and no CRM write; you edit and send from your own account. A prospect
+with a thin public record gets a short honest panel rather than a padded one, because
+opening with a real question beats opening with a press release. Runs save to dated folders
+in `my-work/outreach-prep/`, so the next kit won't reuse an opener you already sent.
+
 ## Your project comes with more — and they're yours
 
 Your project (from [the starter kit](https://github.com/bluerock-io/my-workspace)) ships seeded
@@ -141,7 +162,7 @@ run it in — [the starter kit](https://github.com/bluerock-io/my-workspace) giv
 
 - The plugin's core (`/bluerock:onboard`, `/bluerock:today`, `/bluerock:wrap-up`,
   `/bluerock:check`, `/bluerock:scorecard`, `/bluerock:messaging-doc`,
-  `/bluerock:competitive-intel`, `/bluerock:aeo-visibility`) you run as-is.
+  `/bluerock:competitive-intel`, `/bluerock:aeo-visibility`, `/bluerock:outreach-prep`) you run as-is.
   `/bluerock:wrap-up` and `/bluerock:check` especially stay plugin-owned so they keep your
   dashboard correct.
 - Everything in your project's `.claude/` is yours: edit it in place, or build your own

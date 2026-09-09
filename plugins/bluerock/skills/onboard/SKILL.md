@@ -181,3 +181,17 @@ sharper it is, the sharper every morning brief.
 - **Their files, their workspace.** Everything you write stays in their project.
   Nothing leaves. Say so if they hesitate to paste personal context.
 - **Plain English.** No jargon, no ceremony. Warm and brief.
+
+## Who depends on this skill's wording
+
+Not part of a run. Read this before rewording anything a builder sees.
+
+- **This skill owns `voice.md` and `writing-samples/`** — the file names, and the split
+  between them (the file describes the voice, the folder holds the specimens). Use-case
+  skills read both: `agents/outreach-writer.md` reads `voice.md` **and a specimen from
+  `writing-samples/`** before drafting anything a builder puts their name on, and
+  `/bluerock:outreach-prep` names running this skill as the fix when drafts don't sound
+  like them. `agents/scorer.md`, `agents/distiller.md`, and `agents/analyst.md` read
+  `voice.md` too. Renaming either strands all of them.
+- **This skill owns `objectives.md`**, which `daily-brew` reads to rank focus and the
+  use-case skills read to pre-fill intake.
