@@ -1,5 +1,47 @@
 # Changelog — `bluerock` plugin
 
+## 0.13.0 — the Account Scorecard and the Messaging Doc get a guided intake
+
+The two shipped Beginner use cases were shallow, for a different reason each. The Account
+Scorecard rated Fit, Timing, and Reachability against criteria nobody supplied, so the
+agent invented the rubric and scored against it. The Messaging Doc had one URL to work
+from, so it could only ever hand back a well-organised mirror of the homepage.
+
+- **`/bluerock:scorecard` now asks what you sell, what a good account looks like for you,
+  which timing signals you watch, and who you'd need to reach** — one question at a time,
+  each one there because it changes one of the three ratings. `agents/scorer.md` reads
+  those answers as the rubric, names the criterion it scored against in your own words,
+  and no match found for *your* function is now a finding about your way in rather than a
+  shrug.
+- **`/bluerock:messaging-doc` now asks who you sell to, what you want people to understand
+  about you, and what on the site you wouldn't say any more.** `agents/distiller.md`
+  carries your positioning beside the site's rather than merged into it, and checks the
+  site for the copy you flagged as retired. The doc stops being a summary of the site and
+  becomes the comparison: what the site says, what you say, and the gap.
+- **Both skills read before they ask** — `objectives.md`, `voice.md`, the latest messaging
+  doc, and the previous run's `inputs.md`. A returning builder never re-answers a question
+  they already answered, and a builder who just answered them is no longer told to go set
+  their objectives.
+- **Both write `inputs.md`** into the run folder, so the answers reach the agents (which
+  read files, not the conversation) and the next run pre-fills instead of starting cold.
+- **Offer, never block.** Every enriching input is optional, and "just run it" runs — with
+  one line on what the artifact will be without them.
+- **Reachability has three outcomes now.** The scout is company-level and does not run a
+  people search, so a missing contact in your function is a gap in the research, not a fact
+  about the company. It is never rated Low on that basis: the card rates the way in that
+  was actually found, says plainly that no one in your named function surfaced and what
+  closes it, and uses **`Not assessed`** — a visible blank, quieter than Low — when there
+  was no way in found at all. Same three-outcome honesty the scan already runs on revenue
+  and headcount.
+- **The confirm step plays inputs back rather than pre-judging the account against them.**
+  Nothing has been scanned at that point, so a fit verdict there is a guess in the tone of
+  a finding.
+- **A URL is a fine answer to "anything to paste?"** Builders reach for a link before the
+  clipboard. Extra URLs go to the site reader as additional pages; pasted text still goes
+  to `references.md`; `inputs.md` records which arrived as which so a rerun reads the same
+  set. The scorecard takes a URL as its disambiguating hint the same way.
+- No new agents, no new work products, and neither agent's research behaviour changed.
+
 ## 0.12.4 — three use cases change who they are for
 
 Role tags only. Nothing a builder runs changes, and no skill copy moves.
