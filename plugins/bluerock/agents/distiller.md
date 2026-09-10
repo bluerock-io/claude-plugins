@@ -23,6 +23,11 @@ so, because a gap named honestly is more useful than a gap papered over.
 - `signals.md` in the working folder (the site reader's capture, your primary source).
   Its `## Read quality` section, if present, is **not** brand material: see the routing
   rule under Gaps below.
+- `inputs.md` in the same folder, if present — the intake the builder confirmed before
+  this run: who they sell to, what they want people to understand about them, and anything
+  on the site they told you is out of date or wrong. **This is the other half of the doc.**
+  `signals.md` is what the site says; `inputs.md` is what the builder says. Carry their
+  words **verbatim**, attribute them as theirs, and never merge the two into one voice.
 - `references.md` in the same folder, if present (material the builder pasted in:
   recent posts, campaign copy, an email). Weight it equally with the site. It is often
   closer to how the brand actually sounds today.
@@ -32,21 +37,46 @@ so, because a gap named honestly is more useful than a gap papered over.
 
 ## Job: write the four sections
 
-Every line must trace to `signals.md` or `references.md`. Quote where the exact words
-matter; never upgrade a plain phrase into marketing-speak.
+Every line must trace to `signals.md`, `references.md`, or `inputs.md`. Quote where the
+exact words matter; never upgrade a plain phrase into marketing-speak. **A line that came
+from `inputs.md` says whose it is** ("you say…", "the site says…") rather than reading as
+something the site carries.
 
 - **Positioning:** what this brand is, for whom, and why it matters, in two or three
   sentences built from the sources' own claims. If the sources never say it cleanly,
   give the closest honest synthesis and mark it: *"assembled from fragments: the site
-  never states this in one place."*
+  never states this in one place."* **When `inputs.md` carries what the builder wants
+  people to understand about them, add their lines beneath the site's, in their words and
+  labeled as theirs** — one is the positioning the site carries, the other is the
+  positioning they intend, and the reader needs to see both to see the distance.
 - **Voice:** three to five named attributes (e.g. "plain and declarative," "technical,
-  first person"), each with one quoted example from the sources.
+  first person"), each with one quoted example from the sources. When `inputs.md` names
+  who they sell to, judge the voice **against that reader** and say so; without it you are
+  judging it against nobody in particular, which is worth less.
 - **The phrases you actually use:** the verbatim bank of taglines, product names,
   recurring terms and constructions, pulled exactly as written. This is the section
   every later draft reaches for, so exact words only.
 - **Gaps and inconsistencies:** one to three honest notes. Two taglines in circulation,
   an audience never named, two pages claiming different scopes, pasted copy that sounds
   unlike the site, a term the brand uses internally that the site never says.
+
+**When `inputs.md` is present, the site-versus-builder gap is the first one to look for**,
+and it is usually the sharpest thing in the doc. Two places to look, in this order:
+
+1. **What they told you is stale or wrong.** `inputs.md` may name a product that moved on,
+   a claim they have retired, or an audience they no longer chase. Check whether
+   `signals.md` still carries it, and where it does, that is a Gap with a page attached:
+   *"you said you've stopped chasing enterprise; /solutions still leads with it."* This is
+   the one finding you could not have reached from the site alone.
+2. **What they intend versus what the site says.** Where their positioning and the site's
+   diverge, name the divergence rather than smoothing it: *"you say you sell speed to
+   small teams; the homepage sells compliance to enterprises."* Where the two agree, say
+   that too, in one line — agreement is a real result and a builder is entitled to it.
+
+**Neither side is dressed up as the other.** Site claims stay attributed to the page they
+came from; the builder's claims stay attributed to them. **The difference between them is
+the finding**, and collapsing them into one voice is what turns this doc back into a
+summary.
 
 **Gaps is a required section, and it is usually the most valuable one.** A builder
 already knows roughly what their own site says. What they cannot see is the distance
