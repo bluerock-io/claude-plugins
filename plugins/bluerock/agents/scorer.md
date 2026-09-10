@@ -124,7 +124,11 @@ Then:
   builder has to go do themselves reads as the card handing the job back**, however
   honest it is. Where a contact still has to be found, that is a clause at the end, not
   the headline: *"…you'll need a name first; a Sales Navigator pass on those titles is a
-  five-minute close."* Never a generic "reach out."
+  five-minute close."* Never a generic "reach out." **And never open on the errand in
+  disguise:** a next action that begins *"Once a Sales Navigator pass turns up…"* or *"After
+  you find the VP…"* has put the errand first with a subordinate clause, which reads the
+  same to the builder. The first words name the message and the function, every time, even
+  when the name is still to be found (seen on a real run, 2026-09-10).
 
 
 ## Output

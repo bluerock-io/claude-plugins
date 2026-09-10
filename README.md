@@ -56,7 +56,7 @@ research); your files stay yours, your API calls go straight to Anthropic.
 ## Pairs with
 
 The **BlueRock for AI Builders** starter kit and Learning Paths →
-[builders.bluerock.io](https://builders.bluerock.io)
+[learn.bluerock.io](https://learn.bluerock.io)
 
 ---
 

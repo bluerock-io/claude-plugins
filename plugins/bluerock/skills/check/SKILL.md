@@ -24,12 +24,12 @@ line items; they roll up into the four-line report.
 
 ## Naming (applies to everything you write back)
 
-- **BlueRock plugin skills always take the full prefix:** `/bluerock:check`,
-  `/bluerock:onboard`, `/bluerock:today`, `/bluerock:wrap-up`, `/bluerock:scorecard`,
-  `/bluerock:messaging-doc`, `/bluerock:competitive-intel`, `/bluerock:aeo-visibility`,
-  `/bluerock:outreach-prep`, `/bluerock:process-to-skill`, `/bluerock:signal-monitor`,
-  `/bluerock:help`.
-  Never write the bare short form for a plugin skill, even though it resolves.
+- **BlueRock plugin skills always take the full prefix** (`/bluerock:check`,
+  `/bluerock:wrap-up`). Never write the bare short form for a plugin skill, even though it
+  resolves. **Never list the skills from memory:** what a builder may be offered comes from
+  `${CLAUDE_PLUGIN_ROOT}/curriculum/manifest.json` by the rule in
+  `${CLAUDE_PLUGIN_ROOT}/shared/use-case-catalog.md`. This section named eleven commands by
+  hand until 0.14.0, which is exactly the drift that file exists to end.
 - **The builder's project contains their own skills and agents** in `.claude/skills/` and
   `.claude/agents/`. When the builder asks for something those cover, read the matching
   file from the project and follow it. Do not offer project-seeded skills as slash commands; the
@@ -202,8 +202,12 @@ line items; they roll up into the four-line report.
    it. (No `learning/` folder at all: skip it too, same reasoning.) When it does run: read
    the project's `CLAUDE.md`,
    `voice.md`, and `objectives.md` and look for the bracketed placeholders they ship with
-   (`[e.g., ...]`, `[Words and phrasings that sound like me.]`). Same class, one line
-   cheaper: `your-toolkit.md` still carrying `bluerock-toolkit-version: placeholder`.
+   (`[e.g., ...]`, `[Words and phrasings that sound like me.]`). **Say nothing about
+   `your-toolkit.md`.** Until 0.14.0 this check also flagged that file for its placeholder
+   version marker and routed to `/bluerock:onboard`, which fills three different files; the
+   generator that refreshed it was retired, so the report named a staleness with no remedy.
+   The toolkit map does not come back as a file (product decision, 2026-09-09); what a
+   builder can run is answered live, in the Next block below.
    This is not a failure — everything runs — so report it as the thing that will make
    their output better, name the cost in their terms (every skill that writes for them
    reads those files, and unfilled means generic output with no signal why), and route to
@@ -230,18 +234,79 @@ builder language — no bare command names, no version numbers.
 Your project runs in your workspace, and every BlueRock skill writes there. Your project's own
 skills and agents are linked for new chats.
 
+```
+
+Then the **Next block**, and which line leads is a three-state rule read from
+`learning/progress.json` (product decision, 2026-09-09). **It is an ordering rule, not a
+gate:** the next session and the use cases are both available in every state after the
+first, and the state decides which leads and which is the quieter second line. Read the use
+cases by the rule in `${CLAUDE_PLUGIN_ROOT}/shared/use-case-catalog.md`, in its order, with
+its titles; read session titles, times, and outcomes from the manifest (outcome
+role-resolved). Never from memory.
+
+| State | Read from `progress.json` | Leads with |
+|---|---|---|
+| 1 | Session 2 is not `complete` (or there is no `learning/` folder yet) | Session 2, today's copy |
+| 2 | Not all eight `complete`, and any session is `in_progress` or the latest `completed` date is within the last 14 days | The next session, by name |
+| 3 | All eight `complete`; or Session 2 `complete`, nothing `in_progress`, and no `completed` date within the last 14 days | The use cases |
+
+The 14 days is a starting point, not a derived figure, and getting it wrong costs nothing:
+the builder sees both lines either way. If a session record carries no `completed` date,
+state 2 rests on `in_progress` alone.
+
+**State 1.** Session 2 is how a builder meets their first use case, so seven choices offered
+to someone who has not yet watched one work is the wrong shape:
+
+```
 **Next: build your first real thing — right here.**
 Say **teach me Session 2** in this chat and the session runs with you: about 5
 minutes, and you finish with a one-page work product you'd actually send someone.
 Prefer to see it first? The session page has the overview and a short video:
 https://learn.bluerock.io/session/meet-your-first-agent-team
+```
 
+**State 2.** The next session leads (the first not `complete`; one `in_progress` resumes at
+its checkpoint), and the use cases are the quieter second line, titles and commands in
+order, on one line:
+
+```
+**Next: pick the path back up — right here.**
+Say **teach me Session 3** in this chat and Anatomy of an agent runs with you: about 20
+minutes. [Its outcome, one sentence, from the manifest.]
+
+Or run one of your ready-made agent teams on something real: Brand Messaging Doc
+(`/bluerock:messaging-doc`) · Account Scorecard (`/bluerock:scorecard`) · [the rest, in
+order, from the manifest].
+```
+
+**State 3.** A builder who finished has no next session, and one who stopped is not being
+pulled back by the sessions; they look alike in the data and want the same offer. The use
+cases lead, one per line, and the next session, if any remain, is the quieter second line.
+For a use case the builder has already run (the shared rule reads `.bluerock/runs.json`),
+append *· run before* to its line; the order does not change:
+
+```
+**Next: run something real — right here.**
+Say the one you want, or its command, and the agent team runs it in this chat:
+
+- **Brand Messaging Doc** — `/bluerock:messaging-doc`
+- **Account Scorecard** — `/bluerock:scorecard` · run before
+- [the rest, one per line, in order, from the manifest]
+
+Ask what any of them does and I'll tell you.
+[Only when sessions remain:] Want the path instead? Session 5, Turn a task into a skill,
+picks up where you left off: say **teach me Session 5**.
+```
+
+In every state, close with the room, one line, never given equal weight:
+
+```
 Questions as you go? The BlueRock Builders Slack is the fastest way to get unstuck:
 https://builders.bluerock.io/community
 ```
 
 Substitute the project's real folder name on the project line. If the links were created or
-repointed in this run, add one sentence before the Next block: "Open a new Claude Code
+repointed in this run, add one sentence between the checklist and the Next block: "Open a new Claude Code
 chat before using your project's own skills and agents; plugins only load when a session
 starts." **The in-chat action is the call to action** — the builder is already sitting in
 the one place where the next step can begin, and every session runs in-session, so sending
@@ -346,6 +411,14 @@ Not part of a run. Read this before rewording anything a builder sees.
   copy of the starter kit" and "Clone your project into your workspace" — steps retired with
   the pre-baked image, which would have sent a stuck builder after instructions that no longer
   exist. If the delivery model ever changes back, this message changes with it.
+- **The Next block's three states and the use-case list read
+  `shared/use-case-catalog.md`.** `/bluerock:onboard` and `/bluerock:wrap-up` read the same
+  file, so the titles, the order, and the "never a time figure before a run" rule move
+  together. The three-state table itself lives here because only this skill leads with it.
+  Session 2's copy in state 1 is quoted by the Session 1 page's closing step.
+- **This skill no longer mentions `your-toolkit.md`.** The seeded file in `my-workspace`
+  still tells a builder to say "what can I do" to regenerate it; that generator is retired
+  and the file is the starter kit's to fix. Do not reintroduce a nudge at it here.
 - **The version-drift explanation and its steps live in
   `shared/version-drift.md`, not here.** `/bluerock:wrap-up` and `/bluerock:learn` carry
   the tripwire that sends builders to this skill, and all three read that one file so the

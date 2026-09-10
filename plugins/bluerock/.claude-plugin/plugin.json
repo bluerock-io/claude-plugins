@@ -1,12 +1,12 @@
 {
   "name": "bluerock",
   "displayName": "BlueRock Builder Toolkit",
-  "description": "The tools that come with BlueRock for AI Builders. They run inside your agentic project, the repo you set up in the learning path. A research team sizes up any company and hands back a one-page Account Scorecard: what they do, where they are and how big, then Fit, Timing, Reachability, and the recommended next step. Onboarding learns how you write, a living list holds your daily priorities, and an end-of-day wrap-up keeps your dashboard current. Everything it writes is plain markdown in your own repo.",
-  "version": "0.13.1",
+  "description": "The tools that come with BlueRock for AI Builders. They run inside your agentic project, the repo you set up in the learning path. Ready-made agent teams turn a job into a shareable deliverable, a few questions and one run each: an Account Scorecard on a company, a Brand Messaging Doc from your own site, Competitor Battlecards, Answer Engine Visibility, Sales Outreach Prep, a Weekly Signal Digest across your accounts, and Process to Skill, which turns a process in your head into a skill you run. Onboarding learns how you write, a living list holds your daily priorities, and an end-of-day wrap-up keeps your dashboard current and points you at the next use case. Everything it writes is plain markdown in your own repo.",
+  "version": "0.14.0",
   "author": {
     "name": "BlueRock"
   },
-  "homepage": "https://builders.bluerock.io",
+  "homepage": "https://learn.bluerock.io",
   "repository": "https://github.com/bluerock-io/claude-plugins",
   "keywords": [
     "gtm",

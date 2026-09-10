@@ -23,7 +23,9 @@ GUARD 2 — the JSON files must parse.
 afternoon during that same release. A malformed manifest would not have surfaced until
 a builder's session failed to load it.
 
-GUARD 3 — every library record carries a tier, and ships_from matches the tree.
+GUARD 3 — every library record carries a tier, ships_from matches the tree, and the
+use-case records carry what the discovery surfaces read (title, concept, and a
+recommended_after that forms one chain).
 
 `tier` is the single predicate a discovery surface reads to decide what a builder may
 be offered. Before it existed the question was answered by the presence of optional
@@ -67,8 +69,15 @@ TIERS = {
     "concept",     # reading material
 }
 
-REQUIRED_ON_USE_CASE = ("team", "artifact", "roles", "one_liner",
-                        "time_saved", "time_saved_minutes")
+REQUIRED_ON_USE_CASE = ("title", "team", "artifact", "roles", "one_liner",
+                        "time_saved", "time_saved_minutes", "concept")
+
+# title and concept landed 2026-09-10 with the discovery surfaces (0.14.0). `title` is
+# the builder-facing name every surface prints, the same seven the catalog page on
+# learn.bluerock.io prints, so one order has two readers and neither improvises. `concept`
+# names the concept record (and so the session) that explains what a use case just ran;
+# wrap-up's continuation prompt points at it. `recommended_after` is required to form one
+# chain: the authored order, not a model. Checked below.
 
 # time_saved was deliberately NOT required when tier landed on 2026-09-08: the
 # figures were labelled estimates and copy led on compounding, so requiring the
@@ -226,6 +235,20 @@ def check_library_shape():
                     f"a menu item that fails when clicked"
                 )
 
+        if tier == "use-case":
+            concept_tiers = {r.get("id"): r.get("tier") for r in records}
+            c = e.get("concept")
+            if c is not None and concept_tiers.get(c) != "concept":
+                problems.append(
+                    f"{rid}: concept is {c!r}, which is not the id of a concept record; "
+                    f"wrap-up points a builder at the session that teaches it"
+                )
+            for after in e.get("recommended_after", []):
+                if concept_tiers.get(after) != "use-case":
+                    problems.append(
+                        f"{rid}: recommended_after names {after!r}, which is not a use case"
+                    )
+
         actual = derive_ships_from(rid, rtype)
         declared = e.get("ships_from")
         if actual is None:
@@ -235,6 +258,40 @@ def check_library_shape():
             problems.append(
                 f"{rid}: ships_from says {declared!r}, the tree says {actual!r}"
             )
+
+    # recommended_after is one chain over the use cases: exactly one root, every other
+    # use case follows exactly one, and walking from the root reaches all of them. The
+    # three discovery surfaces walk this chain to list the use cases in order, so a fork
+    # or a cycle would list them differently in different skills.
+    use_cases = [e for e in records if e.get("tier") == "use-case"]
+    roots = [e["id"] for e in use_cases if not e.get("recommended_after")]
+    if len(use_cases) > 1:
+        if len(roots) != 1:
+            problems.append(
+                f"recommended_after: expected exactly one use case with an empty list "
+                f"(the first in order); found {len(roots)}: {roots}"
+            )
+        followers = {}
+        for e in use_cases:
+            for after in e.get("recommended_after", []):
+                followers.setdefault(after, []).append(e["id"])
+        forks = {k: v for k, v in followers.items() if len(v) > 1}
+        if forks:
+            problems.append(f"recommended_after: more than one use case follows {forks}")
+        multi = [e["id"] for e in use_cases if len(e.get("recommended_after", [])) > 1]
+        if multi:
+            problems.append(f"recommended_after: {multi} name more than one predecessor")
+        if len(roots) == 1 and not forks and not multi:
+            seen, cur = [], roots[0]
+            while cur and cur not in seen:
+                seen.append(cur)
+                nxt = followers.get(cur, [])
+                cur = nxt[0] if nxt else None
+            missing = sorted({e["id"] for e in use_cases} - set(seen))
+            if missing:
+                problems.append(
+                    f"recommended_after: walking from {roots[0]!r} never reaches {missing}"
+                )
 
     if problems:
         print(f"  {len(problems)} problem(s):")
