@@ -64,6 +64,47 @@ this session.") Then:
 - **Tally today's priorities.** Read `today.md` and count Focus items: `set` (total),
   `closed` (`[x]`), `carried` (`[>]`). Offer to check off anything I finished this
   session that's still `[ ]`. This feeds the dashboard's "priorities set vs. closed."
+- **Tally time saved, and say what it is made of.** The rule for attributing an atom to a
+  use case, and for counting runs, is in `${CLAUDE_PLUGIN_ROOT}/shared/use-case-catalog.md`;
+  read it rather than working from memory. Across the whole run history in
+  `.bluerock/runs.json` (not only this session), count runs per use case, multiply each by
+  its estimate, and sum. The estimate is **the builder's own number** when they have given
+  one (next bullet), otherwise the manifest's `time_saved_minutes` for that use case. A use
+  case with no estimate is left out and said to be left out, never counted as zero. Atoms
+  that attribute to no use case (the builder's own skills and agents) are not in the tally;
+  if there were any this session, say so in a clause. **The label states what the number
+  is: a count of runs times an estimate per run, and whose estimate.** Two labels exist and
+  no line blurs them: *from what you told us* for a use case the builder priced, *our
+  estimate* for one they have not. Never "measured," never "baseline runs": no run of any
+  use case has ever been timed, and the note claims no measurement we have not made. Round
+  to the half hour. Example of the readout line:
+
+  > Time saved so far, estimated: about 6 hours across 3 runs. That is a count of your runs
+  > times an estimate per run: yours for the Account Scorecard (1.5 hours each, from what
+  > you told us), ours for the Brand Messaging Doc (4 hours).
+
+  The tally lives in the plain readout below. **The dashboard contract carries no
+  time-saved field today**, so it does not go on the dashboard artifact and no field is
+  added to `design/dashboard-data.js` for it (the contract rule further down). It goes on
+  the dashboard the day `design/dashboard-data-contract.md` in the builder's project defines
+  a field for it, with this label.
+- **Ask the baseline question once per use case, after their first run of it, in its own
+  message.** Before the readout, for each use case run this session that has no entry in the
+  project's `.bluerock/baselines.json`, ask, alone, nothing else in the message:
+
+  > One quick question before your numbers: how long did an Account Scorecard like this used
+  > to take you by hand? A rough number is fine, or say skip.
+
+  Record the answer, merged into `.bluerock/baselines.json` (create it if absent; never
+  remove another entry): `{ "<use-case id>": { "minutes": <number or null>, "asked":
+  "YYYY-MM-DD", "skipped": <true or false>, "said": "<their words>" } }`. **Never re-ask,
+  whether they answered or skipped**, and never bundle it with a question about their work;
+  a stored-fact question sent beside a work question does not get answered. It is a
+  baseline question, not a value question: "how long did this used to take you" is a number
+  they can defend, and it is what grounds every later estimate. Their number drives their
+  tally from then on, and the label says so. The file is the builder's, in their project;
+  the manifest never learns it. Two new use cases in one session means two messages, one
+  each, which is rare and fine.
 - **Roll up the sections and overwrite the dashboard data file** so my dashboard
   repaints — match the pinned contract exactly, all keys present:
   `window.__BR_DASH__ = { meta, productivity, cost, actions, guardrail, perf, brag, priorities, runs }`
@@ -120,7 +161,8 @@ the file as it is now.
 **First, show me my numbers in the panel.** Before opening the visual dashboard, print a
 short, plain readout of this session so the payoff lands even if the page doesn't open:
 the runs this session and what each did, session length, priorities set / closed /
-carried (from `today.md`), success rate, and cost only if a pricing table was present
+carried (from `today.md`), success rate, **time saved so far with its label** (the tally
+above), and cost only if a pricing table was present
 (else "not tracked this session" — never a guessed number). A few honest lines, "from
 your sessions." This always works, with no server or port involved.
 
@@ -254,10 +296,42 @@ Then print a short prompt I can paste into my next session:
 I'm continuing work in my project.
 
 Last session (YYYY-MM-DD): [one sentence: what got done]
-Next up: [what to work on]
+Next up: [unfinished work, if any; then the next use case, by title and command]
+When you want the how: [the concept pointer, one line, only when a use case ran]
 
 Read session-log.md for context.
 ```
+
+**Next up carries the next use case** (product decision, 2026-09-09: a substitution in the
+slot that already exists, never a new block; the habit and community lines below are
+untouched). Fill it in this order: anything this session left unfinished, in a few words;
+then the next use case by the rule in `${CLAUDE_PLUGIN_ROOT}/shared/use-case-catalog.md`,
+which is the first in its order the builder has not run (read from `.bluerock/runs.json`),
+or, when they ran one this session, the one that follows it. Name it by `title` and full
+command, aimed at something concrete from their work when that is obvious:
+
+> Next up: finish the Ramp follow-up note; then run the Competitor Battlecards
+> (`/bluerock:competitive-intel`) on the two names from today's scorecard.
+
+If all seven have run, Next up carries the unfinished work alone. Never a time figure
+here, and never a use case named from memory.
+
+**The third line is the concept pointer, and it appears only when a use case ran this
+session.** Resolve it by the rule in the same shared file: the use case's `concept`, the
+session that teaches it, and the earliest of that session's prerequisites not yet
+`complete` in `learning/progress.json`. Frame it as depth available when they want it,
+never as progress:
+
+> When you want the how: Session 6, Assemble a team of agents, explains the agent team that
+> ran today.
+
+or, when prerequisites are unmet:
+
+> When you want the how: Session 3, Anatomy of an agent, is where the explanation of today's
+> agent team starts.
+
+If the concept's own session is already complete, omit the line. No "3 of 8," no count of
+sessions left.
 
 That's the whole point of the ritual: the next session starts already knowing
 what this one knew — and my dashboard already shows the work.
@@ -316,6 +390,24 @@ Not part of a run. Read this before rewording anything a builder sees.
   for.
 - **The tripwire wording lives in `shared/version-drift.md`**, shared with
   `/bluerock:check` and `/bluerock:learn`. Reword it there, not here.
+- **The use-case order, titles, run attribution, and the concept pointer live in
+  `shared/use-case-catalog.md`**, shared with `/bluerock:check` and `/bluerock:onboard`.
+  Step 2's tally and step 6's Next up both read it. Reword the rule there, not here.
+- **`.bluerock/baselines.json` is this skill's file**, in the builder's project beside
+  `runs.json`. It holds one entry per use case: the builder's own by-hand estimate, or the
+  fact that they were asked and skipped. Nothing else writes it, and nothing reads it but
+  step 2. If the Console ever reads it, the shape here is the contract.
+- **The time-saved tally is in the plain readout and not on the dashboard, on purpose.**
+  `design/dashboard-data-contract.md` defines no field for it, and this skill writes only
+  the fields that contract defines. When `my-workspace` adds the field (and its renderer
+  paints the label, a count times an estimate and whose), the tally moves onto the artifact
+  and this note goes. Until then a tally on the dashboard would be an invented field.
+- **The baseline question is a new prompt a builder sees at the end of Session 2**, since
+  Session 2 runs a use case and closes with this skill. That is behavior-visible: the
+  Session 2 page and `skills/learn-meet-your-first-agent-team/` describe wrap-up as logging
+  the session and refreshing the dashboard, and checkpoint 5 passes on those two alone. The
+  question is skippable and does not gate the checkpoint, so the checkpoint holds; the page
+  diff is the one line that says wrap-up may ask one question about the work it just did.
 - **learn.bluerock.io's session pages describe what wrap-up does at the end of a
   session.** Behavior-visible changes here need the page diff against the session's live
   page and the session's copy doc before finishing.

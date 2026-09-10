@@ -138,6 +138,7 @@
   "library": [
     {
       "id": "scorecard",
+      "title": "Account Scorecard",
       "type": "skill",
       "category": "research-intelligence",
       "roles": [
@@ -154,18 +155,22 @@
         "cursor"
       ],
       "ships_from": "toolkit",
-      "recommended_after": [],
+      "recommended_after": [
+        "messaging-doc"
+      ],
       "one_liner": "Point a small agent team at a company and get a fast, one-page scorecard: what they do, where they are and how big, then Fit, Timing, Reachability, and a recommended next action.",
       "team": [
         "scout",
         "scorer"
       ],
+      "concept": "subagent-teams",
       "artifact": "scorecard",
       "time_saved": "about 2 hours by hand per account, estimated and not yet timed",
       "time_saved_minutes": 120
     },
     {
       "id": "messaging-doc",
+      "title": "Brand Messaging Doc",
       "type": "skill",
       "category": "research-intelligence",
       "roles": [
@@ -186,12 +191,14 @@
         "site-reader",
         "distiller"
       ],
+      "concept": "subagent-teams",
       "artifact": "messaging doc",
       "time_saved": "about 4 hours by hand, estimated and not yet timed",
       "time_saved_minutes": 240
     },
     {
       "id": "competitive-intel",
+      "title": "Competitor Battlecards",
       "type": "skill",
       "category": "research-intelligence",
       "roles": [
@@ -206,7 +213,9 @@
         "cursor"
       ],
       "ships_from": "toolkit",
-      "recommended_after": [],
+      "recommended_after": [
+        "scorecard"
+      ],
       "one_liner": "Point an agent team at the competitors you face (up to 4) and get a battlecard per competitor: sourced kill points, your differentiators aimed, where they're genuinely better, and one question to ask.",
       "artifact": "battlecard",
       "time_saved": "about 1 hour by hand, estimated and not yet timed",
@@ -214,10 +223,12 @@
       "team": [
         "competitor-scanner",
         "analyst"
-      ]
+      ],
+      "concept": "subagent-teams"
     },
     {
       "id": "aeo-visibility",
+      "title": "Answer Engine Visibility",
       "type": "skill",
       "category": "research-intelligence",
       "roles": [
@@ -230,7 +241,9 @@
         "cursor"
       ],
       "ships_from": "toolkit",
-      "recommended_after": [],
+      "recommended_after": [
+        "signal-monitor"
+      ],
       "one_liner": "Find out whether you show up when buyers ask an AI which product to use — the verdict on each of your buyer questions, and a fix queue ordered by impact and effort with an owner on every line.",
       "artifact": "AEO Scorecard",
       "time_saved": "about 1.5 hours by hand, estimated and not yet timed",
@@ -238,10 +251,12 @@
       "team": [
         "answer-sampler",
         "visibility-auditor"
-      ]
+      ],
+      "concept": "subagent-teams"
     },
     {
       "id": "outreach-prep",
+      "title": "Sales Outreach Prep",
       "type": "skill",
       "category": "research-intelligence",
       "roles": [
@@ -254,7 +269,9 @@
         "cursor"
       ],
       "ships_from": "toolkit",
-      "recommended_after": [],
+      "recommended_after": [
+        "aeo-visibility"
+      ],
       "one_liner": "Point an agent team at the people you want to reach (up to 4) and get an outreach kit: who they are and why now, sourced, the angle, and a draft in your voice. Nothing is sent.",
       "artifact": "outreach kit",
       "time_saved": "about 1 hour by hand, estimated and not yet timed",
@@ -262,10 +279,12 @@
       "team": [
         "prospect-scanner",
         "outreach-writer"
-      ]
+      ],
+      "concept": "subagent-teams"
     },
     {
       "id": "process-to-skill",
+      "title": "Process to Skill",
       "type": "skill",
       "category": "automation-scheduling",
       "roles": [
@@ -280,17 +299,21 @@
         "cursor"
       ],
       "ships_from": "toolkit",
-      "recommended_after": [],
+      "recommended_after": [
+        "outreach-prep"
+      ],
       "one_liner": "Talk through a process that only lives in your head, one question at a time, and get back two things that work: a skill in your project that runs it, and a runbook someone else could follow.",
       "artifact": "runbook",
       "time_saved": "varies by process; about 2 hours by hand for a typical pass, estimated and not yet timed",
       "time_saved_minutes": 120,
       "team": [
         "understudy"
-      ]
+      ],
+      "concept": "reading-and-editing-skills"
     },
     {
       "id": "signal-monitor",
+      "title": "Weekly Signal Digest",
       "type": "skill",
       "category": "research-intelligence",
       "roles": [
@@ -305,7 +328,9 @@
         "cursor"
       ],
       "ships_from": "toolkit",
-      "recommended_after": [],
+      "recommended_after": [
+        "competitive-intel"
+      ],
       "one_liner": "Drop in your account list (up to 40) and get a signal digest: what moved on which accounts, ranked act-this-week first, with the accounts that are genuinely quiet named as quiet.",
       "artifact": "signal digest",
       "time_saved": "about 1.5 hours by hand, estimated and not yet timed",
@@ -313,7 +338,8 @@
       "team": [
         "account-scanner",
         "signal-analyst"
-      ]
+      ],
+      "concept": "subagent-teams"
     },
     {
       "id": "research",

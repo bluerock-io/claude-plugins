@@ -143,6 +143,14 @@ Keep it concrete and paste-ready — a brief I'd hand a new assistant on day one
    parts and offer to adjust — these are theirs.
 4. **Confirm and point forward.** One line per file on what you captured, then
    send them to their next step (the learning path, or running `daily-brew`).
+   **Then one closing line, and only one, no list** (product decision, 2026-09-09): every
+   ready-made agent team in their toolkit reads these three files before it works, and the
+   way to see the difference is to run one on something real. Say it roughly this way:
+   *"Every ready-made agent team in your toolkit reads these three files from now on. Run
+   one on something real to see the difference: `/bluerock:check` shows what you can run."*
+   A list of use cases inside this skill competes with the ten-minute interview it exists
+   to run; the list lives in `${CLAUDE_PLUGIN_ROOT}/shared/use-case-catalog.md` and
+   `/bluerock:check` renders it. Never a time figure, never a use case named from memory.
 
 ## The three artifacts
 
@@ -195,3 +203,7 @@ Not part of a run. Read this before rewording anything a builder sees.
   `voice.md` too. Renaming either strands all of them.
 - **This skill owns `objectives.md`**, which `daily-brew` reads to rank focus and the
   use-case skills read to pre-fill intake.
+- **The closing line in step 4 points at `/bluerock:check` as the place to see what a
+  builder can run.** That is true because `check`'s Next block lists the use cases (states 2
+  and 3 of its rule) or leads with Session 2, which runs the first one. Both read
+  `shared/use-case-catalog.md`. If `check` stops listing them, this line goes stale.

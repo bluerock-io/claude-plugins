@@ -1,5 +1,60 @@
 # Changelog — `bluerock` plugin
 
+## 0.14.0 — the use cases become findable in-session, and wrap-up tallies time saved
+
+Seven use cases shipped and nothing in the session told a builder they existed. Autocomplete
+was the only discovery, and autocomplete is passive: a builder has to already suspect there is
+something new. This release is three copy changes on three skills, one shared rule they all
+read, and the tally Harold asked for.
+
+- **`shared/use-case-catalog.md` is the one rule for offering a use case.** `/bluerock:check`
+  shows the list, `/bluerock:onboard` names where it is, `/bluerock:wrap-up` picks one. Same
+  source (`tier: use-case` in the manifest, and the skill file actually present), same order,
+  same titles. Three skills each growing their own copy is the drift the manifest work fixed
+  one level down, so the rule lives once.
+- **`/bluerock:check` leads by a three-state rule.** Session 2 not finished: Session 2, as
+  today. Moving through the path (a session in progress, or one completed in the last 14 days):
+  the next session by name, with the use cases as the quieter second line. Finished, or
+  stopped: the use cases, one per line, with the next session as the quieter line. It is an
+  ordering rule, not a gate: both are available in every state after the first. The two-state
+  version would have handed a builder at Session 5 a list of seven while they had momentum.
+- **`check` stops flagging `your-toolkit.md`.** The generator that refreshed it was retired,
+  so the check reported a staleness whose only remedy it could not name, and routed to
+  `/bluerock:onboard`, which fills three different files. What a builder can run is now
+  answered live from the manifest, in the Next block.
+- **`check` no longer lists the skills from memory.** Its naming section named eleven
+  commands by hand; it now points at the manifest and the shared rule.
+- **`/bluerock:onboard` closes with one line, not a list:** every ready-made agent team reads
+  the three files it just wrote, and the way to see the difference is to run one.
+- **`/bluerock:wrap-up`'s Next up carries the next use case**, in the continuation prompt's
+  existing slot: unfinished work first, then the first use case in order the builder has not
+  run, by title and command, aimed at something from their work. A third line points at the
+  concept behind what ran today, and at the earliest unmet session when the concept's session
+  assumes ones they have not done, framed as depth when they want it, never as progress.
+- **`wrap-up` tallies time saved, and says what the number is made of.** Runs per use case,
+  read from the run history, times an estimate per run; the label says it is a count times
+  an estimate and whose estimate. After a builder's first run of a use case it asks once, in
+  its own message, how long that used to take them by hand; their answer drives their tally
+  from then on and is never asked again, whether they answered or skipped. Answers live in
+  the project's `.bluerock/baselines.json`. The tally is in the plain readout; it goes on the
+  dashboard when the starter kit's data contract carries a field for it.
+- **The manifest carries three more fields on every use case.** `title`, the builder-facing
+  name (the same seven the catalog page prints, so one order has two readers); `concept`, the
+  concept record that explains it; and `recommended_after`, populated as one authored chain
+  in catalog order. CI now requires `title` and `concept`, checks that `concept` names a
+  concept record, and checks that `recommended_after` is one chain with one root.
+- **The scorer's next action opens on the move even when the name is still to be found.**
+  A real run on 2026-09-10 began *"Once a Sales Navigator pass turns up…"*, which is the
+  errand first in a subordinate clause. The rule now names that shape.
+- **Marketplace and plugin manifests catch up.** The descriptions named three of the seven
+  use cases; they now describe what ships. The homepage moves from builders.bluerock.io,
+  which redirects into Learn from 2026-09-11, to learn.bluerock.io, as do the two README
+  links to the program.
+
+Behavior-visible, so noted for the pages: the baseline question is a new, skippable prompt at
+the end of any session that ran a use case, including Session 2. Checkpoint 5 of Session 2
+still passes on the log entry and the dashboard refresh alone.
+
 ## 0.13.1 — the two deliverables read at a glance, and the messaging doc ends on a decision
 
 Two reviews of real 2026-09-08 output — a builder's and a designer's — landed on the same
