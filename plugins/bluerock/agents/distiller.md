@@ -35,7 +35,7 @@ so, because a gap named honestly is more useful than a gap papered over.
   not a source of brand claims. Never import the builder's personal voice as the
   brand's voice; if the two clearly differ, note it in Gaps.
 
-## Job: write the four sections
+## Job: write the five sections
 
 Every line must trace to `signals.md`, `references.md`, or `inputs.md`. Quote where the
 exact words matter; never upgrade a plain phrase into marketing-speak. **A line that came
@@ -54,8 +54,13 @@ something the site carries.
   who they sell to, judge the voice **against that reader** and say so; without it you are
   judging it against nobody in particular, which is worth less.
 - **The phrases you actually use:** the verbatim bank of taglines, product names,
-  recurring terms and constructions, pulled exactly as written. This is the section
-  every later draft reaches for, so exact words only.
+  recurring terms and constructions, pulled exactly as written. This is the section every
+  later draft reaches for, so exact words only. **Load-bearing, not exhaustive.** A builder
+  can search their own site; what they cannot do is see which handful of phrases the brand
+  actually runs on. **Lead with the three or four that carry the most weight** — the ones
+  that recur, that name something, or that a draft would be wrong without — and keep the
+  rest to a short tail. Sixteen equal bullets is an inventory, and an inventory is
+  something they scroll past.
 - **Gaps and inconsistencies:** one to three honest notes. Two taglines in circulation,
   an audience never named, two pages claiming different scopes, pasted copy that sounds
   unlike the site, a term the brand uses internally that the site never says.
@@ -78,6 +83,26 @@ came from; the builder's claims stay attributed to them. **The difference betwee
 the finding**, and collapsing them into one voice is what turns this doc back into a
 summary.
 
+- **What to do about it:** the doc's last section, and the one that makes it a document
+  rather than an audit. **One recommendation, in one or two sentences**, aimed at the
+  single sharpest thing in Gaps. Not a list, not a project plan, and never advice a
+  consultant could have written without reading the sources.
+
+**The recommendation earns its place by being specific to what you found.** Where the
+builder's intended positioning and the site's diverge, the useful move is usually **a
+sentence they could actually use** — built from their own words in `inputs.md` and the
+site's own phrases in `signals.md`, so it sounds like them rather than like you: *"you say
+'say yes to agentic workflows in production' and the site says 'the visibility, guardrails,
+and control to enable them with confidence' — the line that carries both is the one to
+put on the homepage, and it starts from your verb, not the site's noun."* Where the
+sharpest gap is a stale claim, the move is the page and the fix. Where the two sides
+already agree, say the doc found no change worth making and stop — **a recommendation
+invented to fill the section costs more credibility than an empty one.**
+
+**Do not narrate your own instructions.** No "carried verbatim per the separation rule,"
+no "scored against the reader named in intake." Do the thing; the builder is reading a
+document about their brand, not a report on how you were told to write it.
+
 **Gaps is a required section, and it is usually the most valuable one.** A builder
 already knows roughly what their own site says. What they cannot see is the distance
 between the language they use in the room and the language the site actually carries,
@@ -88,9 +113,11 @@ rather than reporting it only when it falls out of the read.
 thin, what the site reader verified or could not verify: none of that goes in Gaps. It is
 a note about the tool's own confidence, and in Gaps it competes for space with real
 findings and dilutes the section a builder is told to read first. Carry it instead as a
-single **Read quality** line at the top of the doc, under the header, in the site reader's
-own terms ("3 of 4 pages read cleanly; the homepage returned nav only"). One line. If
-everything read cleanly, write nothing at all.
+single **Read quality** line **at the foot of the doc, beside the sources** — not under the
+header — in the site reader's own terms ("3 of 4 pages read cleanly; the homepage returned
+nav only"). One line. If everything read cleanly, write nothing at all. **It goes last
+because it is provenance, and provenance at the top spends the reader's confidence before
+they have read a single finding.**
 
 **Stale copy the site reader verified is a Gap, and usually the sharpest one.** When the
 capture confirms a term is live on the site but reads as older naming (an old product
@@ -115,10 +142,13 @@ failure.
 ## Output
 
 Write `messaging-doc.md` in the working folder: the sections above, with a one-line
-header naming the brand, the site, the date, and the sources read, followed by the
-**Read quality** line when there is one to write. Close with one
-line: *"This doc is the baseline your project drafts against. Keep it current and every
-draft gets sharper."* Never invent facts beyond the sources.
+header naming the brand, the site, and the date. **Sources and the Read quality line go
+last**, at the foot, after *What to do about it* — provenance closes the doc, it does not
+open it. Never invent facts beyond the sources.
+
+**The doc ends on the recommendation, not on a promise.** *"This doc is the baseline your
+project drafts against"* is a claim about a future artifact and it reads as one; the
+builder wants the thing they can act on today to be the last thing they read.
 
 Your job ends at the markdown. The `/bluerock:messaging-doc` skill that dispatched you
 reads `messaging-doc.md` and renders the one-page doc artifact. Don't attempt to

@@ -1,5 +1,33 @@
 # Changelog — `bluerock` plugin
 
+## 0.13.1 — the two deliverables read at a glance, and the messaging doc ends on a decision
+
+Two reviews of real 2026-09-08 output — a builder's and a designer's — landed on the same
+sentence: the artifacts promise glance-and-know and do not glance. The intake made this
+visible by removing the excuse that the input was thin.
+
+- **The scorecard's three dimensions are the page now.** Each row carries a 3px left border
+  in its rating colour, so the ratings read as three coloured bars even at thumbnail size;
+  the verdict line is clamped to two lines and the scorer's depth renders smaller beneath
+  it. **The scorer writes a verdict line that stands alone** — a dimension whose rating
+  cannot be said in one sentence is one it has not decided.
+- **One accent callout per page.** Why now on the scorecard, the first gap on the messaging
+  doc. Four identical blue callouts stacked is four things shouting, which reads as none.
+- **The recommended next action leads with the move, not the errand.** A next step that
+  opens with research the builder has to go do themselves reads as the card handing the job
+  back, however honest it is. Where a contact still has to be found, that is a clause at
+  the end.
+- **The messaging doc ends on a recommendation** — one or two sentences aimed at the
+  sharpest gap, usually a sentence the builder could actually use, built from their words
+  and the site's. Without it the doc is an audit, and an audit is something you file.
+- **Provenance moved to the foot.** The Read quality line no longer opens the doc: it spent
+  the reader's confidence before they had read a finding. Sources are plain muted text in
+  the footer on both artifacts rather than a chip row that cost a third of the page.
+- **The phrase bank leads with the load-bearing few**, and a phrase over 40 characters
+  renders as a quoted line rather than stuffed into a pill, which read as broken layout.
+- **Neither agent narrates its own brief any more.** "Scored on two lenses per intake, not
+  averaged" is the instructions leaking into the deliverable.
+
 ## 0.13.0 — the Account Scorecard and the Messaging Doc get a guided intake
 
 The two shipped Beginner use cases were shallow, for a different reason each. The Account
