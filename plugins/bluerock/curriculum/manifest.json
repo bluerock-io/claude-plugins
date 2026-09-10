@@ -142,7 +142,8 @@
       "category": "research-intelligence",
       "roles": [
         "sales",
-        "marketing"
+        "marketing",
+        "operations"
       ],
       "tier": "use-case",
       "used_in_sessions": [
@@ -195,7 +196,8 @@
       "category": "research-intelligence",
       "roles": [
         "sales",
-        "marketing"
+        "marketing",
+        "operations"
       ],
       "tier": "use-case",
       "used_in_sessions": [],
@@ -219,8 +221,7 @@
       "type": "skill",
       "category": "research-intelligence",
       "roles": [
-        "marketing",
-        "sales"
+        "marketing"
       ],
       "tier": "use-case",
       "used_in_sessions": [],

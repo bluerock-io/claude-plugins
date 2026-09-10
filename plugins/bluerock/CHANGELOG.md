@@ -1,5 +1,23 @@
 # Changelog — `bluerock` plugin
 
+## 0.12.4 — three use cases change who they are for
+
+Role tags only. Nothing a builder runs changes, and no skill copy moves.
+
+- **Account Scorecard and Competitor battlecards gain `operations`.** Both were tagged
+  sales and marketing. A revenue-operations builder rates accounts and reads competitors
+  like anyone else, and the narrower tagging was not deliberate.
+- **AEO Visibility drops `sales` and is marketing only.** That read *is* deliberate.
+
+**Why the manifest moved rather than the doc.** `bfb-use-case-matrix-for-review.md` in
+`marketing-hub` names the manifest as its source of truth and disagreed with it on exactly
+these three rows. Linda's call (2026-09-09) was that the doc's table is the considered view
+and the manifest catches up. This is that catch-up, so the two now agree.
+
+**Consequence worth stating, because a count in that doc rests on it: four use cases now
+serve all three roles**, not three. `scorecard`, `competitive-intel`, `signal-monitor`, and
+`process-to-skill`.
+
 ## 0.12.3 — time saved becomes summable
 
 Nothing a builder runs changes. This is the data a tally needs, ahead of the tally.
