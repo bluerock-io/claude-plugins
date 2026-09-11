@@ -234,6 +234,19 @@ battlecard — sourced facts and our own judgment never share a color:
      shows its quiet state in words** (`Checked <date>. Nothing in the window.`) — never an
      empty screen, because an empty screen reads as a bug where the finding is that there is
      nothing.
+   **Signal counters** (added 0.14.1, Linda, 2026-09-11: the board's top has to say what
+   moved before anyone scrolls). Between the meta line and the chip row, four blocks in one
+   row (`grid-template-columns: repeat(4, 1fr); gap: 10px;`, two by two under 640px), one per
+   lane in lane order, each on `var(--card)` with `var(--line)` and a **4px left border in the
+   lane's token**: the count in `Source Serif 4` at ~30px in the lane's token color (quiet in
+   `var(--ink)`, since neutral is deliberately quiet), the lane name as a mono uppercase
+   label, and one line in `var(--ink-3)`: for **act this week** the signal kinds that fired,
+   separated by ` · ` (`new CFO · Series B · CRM move`); for **worth knowing** how many are
+   unconfirmed; for **quiet** the fixed line `checked, nothing in the window`; for **could not
+   check** the reason class (`ambiguous name`). **The four counts must equal the lane counts
+   below**, read from the same data; a counter that disagrees with its lane is a bug, not a
+   rounding. Hidden under `@media print`, where the lanes carry the counts.
+
 2. **Legend row** naming the four lanes with color dots: act this week · worth knowing · quiet
    (checked, nothing found) · could not check (not scanned).
 3. **"Since your last run" strip** — only when a previous run existed: an accent-soft callout,

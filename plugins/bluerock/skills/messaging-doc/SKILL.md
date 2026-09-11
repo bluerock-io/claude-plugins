@@ -147,6 +147,20 @@ page. Print-friendly, read-only, no CTAs or buttons.
    caveat, the one-liner slot uses the doc's **first positioning sentence** as written,
    with the caveat rendered beneath in muted ink — never invent a cleaner line than the
    doc has.
+1b. **At a glance** (added 0.14.1, Linda, 2026-09-11: the top of the doc carries the
+   comparison the doc exists to make). Directly beneath the header, two blocks side by side
+   (`grid-template-columns: 1fr 1fr; gap: 12px;`, stacking under 460px): **WHAT THE SITE
+   SAYS**, cream fill, carrying the site's positioning one-liner as a serif quote (the same
+   line the header uses; when Positioning carries the "assembled from fragments" caveat, the
+   doc's first positioning sentence); and **WHAT YOU SAY**, white with a 3px accent-blue left
+   border, carrying the builder's intended line **verbatim from `inputs.md`** as a serif
+   quote. Labels small uppercase muted. **When `inputs.md` carries no intended line, render
+   the site block alone at full width and never invent the other half.** Beneath the two, a
+   row of pill counters in small sans: `N gaps found` (accent border and text; the count of
+   entries in Gaps), `N stale name(s), confirmed live` (Medium amber fill; **only when the
+   site reader verified a stale term**, otherwise the pill is absent), and `N phrases you
+   run on` (hairline; the count of load-bearing entries the distiller led the phrase bank
+   with). Counts are read from the doc's own sections, never typed.
 2. **Positioning** — a small uppercase section label (letter-spacing), then the two-to-
    three-sentence positioning in body ink. If it carries the "assembled from fragments"
    caveat, render the caveat beneath in muted ink. **When the doc carries the builder's own

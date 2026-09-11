@@ -1,5 +1,31 @@
 # Changelog — `bluerock` plugin
 
+## 0.14.1 — four deliverables carry their summary at the top
+
+Linda, reviewing the seven example renders as catalog tiles, 2026-09-11: the tops read as
+randomly cropped documents, because the top of each artifact was chrome and the substance
+started a screen down. A thumbnail, a shared link, and a catalog card all show the top, so
+the top has to carry the summary. Four design contracts gain one block each, placed directly
+under the header and above everything that was already there; nothing below moves.
+
+- **Account Scorecard: a ratings strip.** Fit, Timing, and Reachability as three tinted
+  blocks with the rating word large in the pill's text color and one line cut from the
+  verdict line. The three dimension rows keep the full verdicts.
+- **Messaging Doc: an at-a-glance row.** *What the site says* beside *what you say*, the
+  builder's line verbatim from `inputs.md`, then pill counters: gaps found, stale names
+  confirmed live (only when the reader verified one), the phrases you run on. No `inputs.md`,
+  no second block; never an invented half.
+- **Signal Monitor: signal counters in the masthead.** Act this week, worth knowing, quiet,
+  could not check, each with its count in the lane's color and a one-line note. The counts
+  must equal the lanes below.
+- **Process to Skill: the process as a flow.** A BlueRock-blue panel with the process as
+  boxes and arrows, decision steps in amber, edge cases outlined, done in green, and the § 7
+  rule under it with the command in a chip. At most six step boxes; the spine carries the
+  rest.
+
+No intake, agent, or output-file change. Builders with an artifact already published see the
+new block on their next run.
+
 ## 0.14.0 — the use cases become findable in-session, and wrap-up tallies time saved
 
 Seven use cases shipped and nothing in the session told a builder they existed. Autocomplete
