@@ -161,6 +161,15 @@ page. Print-friendly, read-only, no CTAs or buttons.
    site reader verified a stale term**, otherwise the pill is absent), and `N phrases you
    run on` (hairline; the count of load-bearing entries the distiller led the phrase bank
    with). Counts are read from the doc's own sections, never typed.
+   **Read by** (added 0.14.2, Linda, 2026-09-11): under the counters, a small uppercase
+   `READ BY` label followed by one accent-soft pill per use case that reads the latest
+   messaging doc, by its manifest `title`: read them from
+   `${CLAUDE_PLUGIN_ROOT}/curriculum/manifest.json` as the use-case records whose skill
+   reads `my-work/messaging-doc/` (today Competitor Battlecards, Answer Engine Visibility,
+   Sales Outreach Prep, Weekly Signal Digest; see "Who depends on this skill's wording"
+   below). This is the compounding made visible on the doc itself: the reader sees that
+   the page they are holding is the one four other deliverables start from. Pills name
+   deliverables, never commands, and name only use cases present in the installed manifest.
 2. **Positioning** — a small uppercase section label (letter-spacing), then the two-to-
    three-sentence positioning in body ink. If it carries the "assembled from fragments"
    caveat, render the caveat beneath in muted ink. **When the doc carries the builder's own
