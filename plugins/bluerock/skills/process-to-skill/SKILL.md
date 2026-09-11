@@ -299,6 +299,23 @@ The lane meanings here are what differ:
    `All steps` · `Decisions only` · `Edge cases only`. Buttons with `aria-pressed`, 3px
    accent underline on the active one; filtering toggles the `hidden` attribute on step
    cards and sub-cards, never `style.display`.
+1b. **The process as a flow** (added 0.14.1, Linda, 2026-09-11: this use case is a
+   transformation of a process, and the page should show the process before it shows the
+   paperwork). Between the masthead and the header block, a panel filled **BlueRock blue**
+   (`background: var(--accent); border-radius: 14px 14px 0 0; padding: 16px;`) holding the
+   process as boxes in a three-per-row grid with arrows between them (`grid-template-columns:
+   1fr auto 1fr auto 1fr`; the arrows in `var(--paper)`; the arrow after every third box is
+   hidden so rows break cleanly). Boxes, in order: **STARTS** (accent-soft fill: what
+   triggers the process and when), one box per step (white `var(--card)`, the step number in
+   mono, the action as a bold title of at most four words, a one-line sub in `var(--ink-2)`),
+   and **DONE** (bullet-soft fill: what exists and who gets it). A step that carries a
+   decision takes the mine-soft fill and the label `N · IT DEPENDS` with the decision's
+   question as its sub-line; a step that carries an edge case takes a kill-line border. **At
+   most six step boxes**: a longer process shows its first two and last two with a middle box
+   reading `… N more steps`, and the spine below carries them all. Under the grid, still on
+   the blue, one line in `var(--paper)`: `Now a skill in your project:` then the command in a
+   white mono chip, then `runs it, drafts, and stops. Nothing goes out without you.` That
+   sentence is the § 7 rule stated a fifth time, on purpose, where a thumbnail shows it.
 2. **The header block** — a bordered card with a dark bar header (`background: var(--ink)`,
    `color: var(--paper)`) and labeled grid rows (`128px + 1fr`; mono uppercase labels, serif
    values): **RUN IT** (the command, in mono, as literal text — never a button, because it

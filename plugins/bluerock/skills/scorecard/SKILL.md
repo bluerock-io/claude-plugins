@@ -130,7 +130,21 @@ page. Print-friendly, read-only, no CTAs or buttons.
    muted ink (stage + what they do, e.g. `Series B · B2B analytics SaaS for GTM teams`, from
    the scan); then a subline in muted ink: `Account Scorecard · Scored <today's date> · <N>
    sources`.
-2. **Facts row** — three equal columns directly beneath the header's hairline rule:
+1b. **Ratings strip** (added 0.14.1, Linda, 2026-09-11: the card's top has to carry its
+   summary, because the top is what a thumbnail, a shared link, and a catalog tile show).
+   Directly beneath the header's hairline rule, three equal blocks in one row
+   (`display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;`), one per
+   dimension in the fixed order Fit · Timing · Reachability. Each block: the label in small
+   uppercase muted ink with letter-spacing; the rating word in serif at ~30px in that
+   rating's **pill text color** (High `#2F6B4C`, Medium `#8A5A12`, Low `#5A6272`); then one
+   line of at most twelve words in body ink, cut from the scorer's verdict line, never a new
+   sentence. Block background is the rating's **pill background** (High `#E4F0E9`, Medium
+   `#F7ECD6`, Low `#EDEEF1`), radius 12px, a 1px border a shade darker than the fill.
+   `Not assessed` renders the phrase in muted ink on no fill with the `#E7E0D6` hairline,
+   the same quiet treatment as its pill. The strip is the glance; the three dimension rows
+   below (4) keep the full verdict lines and detail, unchanged. Stacks to one column under
+   460px.
+2. **Facts row** — three equal columns directly beneath the ratings strip:
    `HQ`, `Employees`, `Est. revenue`. Label on top in small uppercase muted ink with
    letter-spacing; value below in body ink at the base size. **All three columns always
    render**, including when the scan found nothing: an unknown value reads `Not disclosed`
