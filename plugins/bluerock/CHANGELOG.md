@@ -1,5 +1,14 @@
 # Changelog — `bluerock` plugin
 
+## 0.14.2 — the Messaging Doc says who reads it
+
+One row under the at-a-glance counters: `READ BY`, then a pill per use case that starts from
+the latest messaging doc, named by title from the installed manifest (today Competitor
+Battlecards, Answer Engine Visibility, Sales Outreach Prep, Weekly Signal Digest). Linda,
+2026-09-11, on whether an "AEO" pill belonged here: a pill on a phrase claiming answer-engine
+relevance would assert something the distiller does not assess; what is true is that four
+deliverables read this one, and that is the row.
+
 ## 0.14.1 — four deliverables carry their summary at the top
 
 Linda, reviewing the seven example renders as catalog tiles, 2026-09-11: the tops read as
