@@ -27,7 +27,7 @@ The **run-as-is core** — you drive these; you don't edit them:
 | **When you're stuck** | One diagnosis, one next step: `/bluerock:help` |
 | **Your daily rhythm** | Today's priorities and the end-of-session wrap: `/bluerock:today`, `/bluerock:wrap-up` |
 | **Account Scorecard** | Point a fast team at a company for a one-page scorecard: `/bluerock:scorecard` (agents `scout` + `scorer`) |
-| **Messaging Doc** | Point a fast team at your website for your core messaging doc: `/bluerock:messaging-doc` (agents `site-reader` + `distiller`) |
+| **Messaging Doc** | Answer a few short questions and a fast team writes your core messaging doc, then checks your site against it: `/bluerock:messaging-doc` (agents `site-reader` + `distiller`) |
 | **Competitive Intel** | Battlecards for the competitors you face: `/bluerock:competitive-intel` (agents `competitor-scanner` + `analyst`) |
 | **AEO Visibility** | Whether you show up when buyers ask an AI: `/bluerock:aeo-visibility` (agents `answer-sampler` + `visibility-auditor`) |
 | **Personalized Outreach** | Prep and drafts for the people you want to reach: `/bluerock:outreach-prep` (agents `prospect-scanner` + `outreach-writer`) |
@@ -54,16 +54,24 @@ deep, multi-section dossier, that's the **Account Research team** seeded in your
 
 ## Messaging Doc — the marketing first win
 
-`/bluerock:messaging-doc <your site>` (or *"build my messaging doc"*) runs two agents and hands
-you your **core messaging doc** — positioning, voice, and the phrases your brand actually uses:
+`/bluerock:messaging-doc <your site>` (or *"build my messaging doc"*) asks you a few short
+questions — who you sell to and what's happening when they come looking, what it is in plain
+language, what they do today instead, why yours is better, the one thing to remember, and
+anything on the site you'd no longer say — confirms, then runs two agents:
 
 - **`site-reader`** — reads your homepage and the pages that carry the messaging, capturing
-  exactly what the site says: quoted, sourced, never paraphrased.
-- **`distiller`** — turns that (plus anything you paste in: a recent post, campaign copy) into
-  the one-page doc, with honest gaps named.
+  exactly what the site says: quoted, sourced, never paraphrased, and checks every term you
+  said is retired.
+- **`distiller`** — writes your **Brand Messaging Doc** from your answers (who it's for, what
+  it is, instead of, why you, up to three pillars with proof or marked open, a drafted
+  positioning statement, voice, and the phrases you actually use), then the **Messaging
+  Assessment**: what your site says today set beside the doc, the gaps, and one thing to fix
+  first.
 
-One website address plus whatever you paste — no exports, no logins. The doc saves in your project
-and becomes the baseline every later draft leans on.
+A few answers plus one website address — no exports, no logins. Run it with the URL alone and
+you get the assessment only, and it says so. The doc saves in your project and is what
+Competitor Battlecards, Answer Engine Visibility, Sales Outreach Prep, and the Weekly Signal
+Digest start from.
 
 ## Competitive Intel — the deal-room win
 

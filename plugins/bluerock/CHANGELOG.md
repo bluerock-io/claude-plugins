@@ -1,5 +1,44 @@
 # Changelog — `bluerock` plugin
 
+## 0.15.0 — the Messaging Doc is written from your answers, and the site is checked against it
+
+Linda, 2026-09-11: *"I originally had it scan our site for feedback / alignment on what we want it
+to be. This doesn't seem like a pure way to approach it."* A messaging doc is a statement of
+intent; the website is one of its outputs. Every earlier version read the site first and set the
+builder's words beside it, which made the doc a well-organised mirror of the homepage. Research the
+same day (marketing-hub `09-product/research/bmd-ai-messaging-doc/`) found no practitioner
+framework that derives a messaging doc from the company's own site, and no AI tool that authors
+positioning from intent, shows evidence, flags disagreeing sources, or diffs on rerun. This
+release flips the run.
+
+- **The intake is the doc.** Seven short questions, one at a time, pre-filled from the workspace
+  where it can be: who you sell to and what's happening when they come looking; what it is in
+  plain language; what they do today instead; why yours is better, with one push-back (*"which
+  part couldn't a competitor say?"*); the one thing to remember; where the site is out of date;
+  the paste. Each answer is rated clear, vague, or missing, once, in a word. Vague gets one
+  follow-up. Missing is a real answer: the section renders open.
+- **Two files from one run.** `messaging-doc.md` is the Brand Messaging Doc, eight sections in the
+  builder's words: who it's for, what it is, what they do today instead, why you (with a
+  subtraction-test line), up to three pillars each with proof or marked open, a drafted
+  positioning statement labelled as a draft, voice (pasted material read before the site), and
+  the phrases you actually use. `messaging-assessment.md` is what the site says today set beside
+  the doc: site positioning, agrees/differs per section, gaps, since last run, what to fix first.
+- **A URL alone produces the assessment only, and says so.** No `messaging-doc.md` is written, so
+  the four use cases that read it keep degrading honestly instead of reading the site's words as
+  the builder's.
+- **Since last run.** The skill moves the previous run's files into `previous/`; the distiller
+  reports which gaps closed and which remain.
+- **The site reader checks retired terms.** Every term the builder says is out of date is searched
+  for on every page read, and reported with page and count, or reported as not found.
+- **The artifact leads with you.** *What you say* sits first in the at-a-glance row, the header
+  subline reads *Generated* rather than *Distilled*, pillars render as three blocks with proof
+  (dashed when open), the positioning statement is a labelled draft, and the assessment follows
+  under one divider. A new counter: `N pillars, M open`.
+- **Downstream reads are named by section.** Competitive Intel pre-fills differentiators from
+  *Why you*; Answer Engine Visibility builds questions from *What it is* and the phrases; Sales
+  Outreach Prep pre-fills the offer from *What it is* and *Why you*; the Weekly Signal Digest aims
+  its "why it matters" line from sections 1 to 6.
+
 ## 0.14.2 — the Messaging Doc says who reads it
 
 One row under the at-a-glance counters: `READ BY`, then a pill per use case that starts from
