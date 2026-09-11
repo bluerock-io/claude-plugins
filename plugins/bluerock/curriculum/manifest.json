@@ -186,7 +186,7 @@
       ],
       "ships_from": "toolkit",
       "recommended_after": [],
-      "one_liner": "Point a small agent team at your website and get your core messaging doc: positioning, voice, and the phrases you actually use — the doc every later draft leans on.",
+      "one_liner": "Answer a few short questions about what your brand should say, and a small agent team writes your core messaging doc — positioning, voice, and the phrases you actually use — then checks your website against it.",
       "team": [
         "site-reader",
         "distiller"
@@ -584,7 +584,7 @@
       ],
       "ships_from": "toolkit",
       "recommended_after": [],
-      "one_liner": "Turns the site read plus anything you paste into your core messaging doc — positioning, voice, and your phrases, every line traceable to a source."
+      "one_liner": "Writes your messaging doc from your own answers, then the assessment: what your site says today set beside it, gaps named, one thing to fix first, every line traceable to a source."
     },
     {
       "id": "competitor-scanner",

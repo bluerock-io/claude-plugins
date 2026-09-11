@@ -89,10 +89,11 @@ saved in their project. **Time:** about 5 minutes. **Prerequisites:** Session 1
   "score Ramp" → a two-agent team (scout does a fast, sourced web scan; scorer
   grades Fit, Timing, Reachability) → you get a one-page scorecard: who the
   company is, and whether to go after them.
-  Messaging-doc lane: you say "build my messaging doc" → a two-agent team
-  (site-reader reads your website and captures exactly what it says;
-  distiller turns it into your core messaging doc) → you get the one-pager
-  every later draft leans on. Either way: they don't build this team today —
+  Messaging-doc lane: you say "build my messaging doc", answer a few short
+  questions about what your brand should say → a two-agent team (site-reader
+  reads your website and captures exactly what it says; distiller writes your
+  core messaging doc from your answers and checks the site against it) → you
+  get the one-pager every later draft leans on. Either way: they don't build this team today —
   they *run* it. Session 3 takes a single agent apart.
 
 Then teach the steps for their lane. The two tracks below are the same lesson
@@ -175,9 +176,10 @@ chatting: you finish with something you can hand to someone.
 ### 1. Name the brand — theirs
 
 The first win is a **core messaging doc** for the brand they actually market:
-positioning, voice, and the phrases the brand really uses, distilled from its
-website. All they need is the website address — no exports, no analytics
-logins, nothing to connect. Their own brand is the right first target (the doc
+positioning, voice, and the phrases the brand really uses, written from a few
+short answers in their own words and checked against the website. All they
+need is the website address and a couple of minutes for the questions — no
+exports, no analytics logins, nothing to connect. Their own brand is the right first target (the doc
 becomes the baseline everything later drafts against); a competitor's site is
 a trick for Session 6. Use the suggestions and framing in `examples/roles.md`.
 
@@ -191,12 +193,16 @@ One optional extra before they send it: if they have a recent post, a campaign
 email, or copy they're proud of, they can paste it in — the run folds it into
 the doc. Nothing at hand? Skip it; the website alone works.
 
-Set expectations in three beats: site-reader reads their homepage and the two
-or three pages that carry the messaging, capturing exactly what the site says —
-quoted, not paraphrased; distiller turns that (plus anything pasted) into the
-doc — **positioning**, **voice**, and **the phrases you actually use**; the
-finished doc opens as a **Claude Artifact** and the source saves in their
-project at `my-work/messaging-doc/<brand>/`.
+Set expectations in four beats: the skill asks a few short questions (who
+they sell to, what it is, what people do today instead, why theirs is better,
+the one thing to remember, anything on the site they'd no longer say) and plays
+the answers back; site-reader reads their homepage and the two or three pages
+that carry the messaging, capturing exactly what the site says — quoted, not
+paraphrased; distiller writes the doc from their answers — **positioning**,
+**voice**, and **the phrases you actually use** — and then the assessment of
+where the site agrees and where it differs; the finished doc opens as a
+**Claude Artifact** and the source saves in their project at
+`my-work/messaging-doc/<brand>/`.
 
 Claude will ask permission before reaching the web or writing to their
 project. That's not a hurdle — it's them deciding what their agents are
@@ -212,8 +218,8 @@ allow" option when offered so each one only asks once.
 While it runs, name what they're seeing: they dispatched a **team**, not one
 bot, and it runs itself in order — nobody prompts each step. **site-reader**
 captures what the site actually says, verbatim and sourced; **distiller**
-turns it into the doc and names honest gaps. That hand-off is the thing to
-notice.
+writes the doc from their own answers and holds the site up against it, naming
+honest gaps. That hand-off is the thing to notice.
 
 - *Recovery:* if the doc comes back thin, the site just says little — the team
   reports that honestly rather than inventing messaging. That's a finding, not
@@ -224,9 +230,10 @@ notice.
 
 ### 4. Open it, then send it
 
-The doc opens as a Claude Artifact: a clean one-pager — the positioning line,
-the voice attributes with quoted examples, the verbatim phrase bank, and the
-gaps the team found. The markdown source is saved at
+The doc opens as a Claude Artifact: a clean one-pager — what they say beside
+what the site says, their positioning in their words, the voice attributes
+with quoted examples, the verbatim phrase bank, and beneath it the assessment
+with the gaps the team found and one thing to fix first. The markdown source is saved at
 `my-work/messaging-doc/<brand>/`, theirs to keep and edit.
 
 Then the actual win: **share it.** Send it to the person named in their role's
