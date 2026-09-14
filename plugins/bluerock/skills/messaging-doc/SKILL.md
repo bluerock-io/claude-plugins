@@ -193,7 +193,7 @@ questions on a rerun and this becomes your Brand Messaging Doc."*
    doc, by its manifest `title`: read them from
    `${CLAUDE_PLUGIN_ROOT}/curriculum/manifest.json` as the use-case records whose skill
    reads `my-work/messaging-doc/` (today Competitor Battlecards, Answer Engine Visibility,
-   Sales Outreach Prep, Weekly Signal Digest). Pills name deliverables, never commands, and
+   Sales Outreach Prep, Account Signal Digest). Pills name deliverables, never commands, and
    name only use cases present in the installed manifest.
 
 **Part one — the Brand Messaging Doc.** Each section: a small uppercase label
@@ -275,7 +275,7 @@ slight letter-spacing; chips in `ui-monospace, monospace`.
 10. **Say what it's for on Monday.** One line: this is the page to hand an agency at
     kickoff, a new writer on day one, or whoever keeps rewriting the homepage, and it is
     what Competitor Battlecards, Sales Outreach Prep, Answer Engine Visibility and the
-    Weekly Signal Digest start from.
+    Account Signal Digest start from.
 
 ## Why this doc matters
 

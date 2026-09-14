@@ -70,7 +70,7 @@ anything on the site you'd no longer say — confirms, then runs two agents:
 
 A few answers plus one website address — no exports, no logins. Run it with the URL alone and
 you get the assessment only, and it says so. The doc saves in your project and is what
-Competitor Battlecards, Answer Engine Visibility, Sales Outreach Prep, and the Weekly Signal
+Competitor Battlecards, Answer Engine Visibility, Sales Outreach Prep, and the Account Signal
 Digest start from.
 
 ## Competitive Intel — the deal-room win
