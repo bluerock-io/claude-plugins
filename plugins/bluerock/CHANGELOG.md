@@ -1,14 +1,20 @@
 # Changelog — `bluerock` plugin
 
-## 0.15.1 — the Weekly Signal Digest is the Account Signal Digest
+## 0.15.1 — the Weekly Signal Digest is the Account Signal Digest, and `learn` knows when you are done
 
-A rename, nothing else. David G. asked for a more specific name for the digest and Linda agreed
+A rename, and one line the learn skill was missing. David G. asked for a more specific name for the digest and Linda agreed
 (2026-09-14); the new one names the object, your accounts, and drops "Weekly," which is a cadence
 rather than a deliverable. The manifest title, the plugin description, the Messaging Doc's
 deliverable pills, and the README follow. Nothing a builder runs or saves changes: the skill is
 still `/bluerock:signal-monitor`, the team is still `account-scanner` and `signal-analyst`, the
 digests still land in `my-work/signal-monitor/`, and the artifact is still headed *Signal digest*.
 Same day, learn.bluerock.io's use-case page took the name and moved to `/account-signal-digest`.
+
+**`/bluerock:learn` with every session complete.** Until now the skill offered "the first session
+not complete" and had nothing written for the builder who has none left; the first one to get
+there asked how to keep building. It now says so in a line and offers the next use case by the
+shared catalog rule, the same one `wrap-up` uses, named by title and command. The sessions stay
+there to redo. A finished path is an offer to build, not a certificate.
 
 ## 0.15.0 — the Messaging Doc is written from your answers, and the site is checked against it
 

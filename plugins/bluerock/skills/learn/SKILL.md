@@ -175,6 +175,19 @@ If a session shows `in_progress` with a `checkpoint`, offer to resume exactly
 there — the session skill picks up at that checkpoint with a recap, never from
 the top.
 
+**When every session in the manifest is `complete`** (2026-09-14, after the first builder
+finished the path and asked how to keep building): say so in one plain line, recap the last
+artifact, and then offer the **next use case** instead of a session — by the rule in
+`${CLAUDE_PLUGIN_ROOT}/shared/use-case-catalog.md`: the first in its order the builder has
+not run, read from `.bluerock/runs.json`, named by `title` and full `/bluerock:<id>` command,
+with its `one_liner`. Aim it at their own work when that is obvious from the project. For
+example: "Every session is behind you; the last one left you with a running system. Next
+thing to build: Competitor Battlecards, `/bluerock:competitive-intel` — one sourced card per
+competitor you actually face. Want to start?" The sessions stay available to redo (the
+Route rules below), and their pages are on learn.bluerock.io under *The learning path*.
+Never invent a session that is not in the manifest, and never a "9 of 8." A finished path is
+an offer to build, not a certificate.
+
 ## Route
 
 Builders say sessions by number, by name, or by vibe ("the setup one"). The
