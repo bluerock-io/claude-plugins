@@ -313,7 +313,7 @@
     },
     {
       "id": "signal-monitor",
-      "title": "Weekly Signal Digest",
+      "title": "Account Signal Digest",
       "type": "skill",
       "category": "research-intelligence",
       "roles": [
