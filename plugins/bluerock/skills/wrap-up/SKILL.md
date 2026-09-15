@@ -248,9 +248,14 @@ depends on what you find:
   leaves their workspace either way, and that wrap-up will offer again next time. Then
   skip the save and carry on with the rest of the wrap-up — the log and the dashboard
   don't depend on it.
-- **No remote** → the save is local only. Do not mention pushing, backup, or GitHub.
-  There is nothing to push to, and raising it invents a problem the builder does not
-  have.
+- **No remote** → the save is local only. On a builder's first use-case run, say nothing
+  about pushing, backup, or GitHub: there is nothing to push to, and raising it on day one
+  invents a problem before they have work worth protecting. **From the second use-case run
+  onward** (count runs across `.bluerock/runs.json`, the same count the tally uses), one
+  line, once per wrap-up, after the save: "Your project is only in this workspace. Back it
+  up with `/bluerock:learn-save-your-work`." Never more than the line, never a push you
+  know will fail. (Linda, 2026-09-15: a use-case-first builder's project lives in a
+  workspace with a 14-day retention window and, until now, no surface told them so.)
 - **The remote is BlueRock's template** (`bluerock-io/my-workspace` in its URL) → treat
   it as no backup at all, because it is the shared template every builder starts from,
   not theirs; earlier workspace images left it pointed there. Never offer to back up to

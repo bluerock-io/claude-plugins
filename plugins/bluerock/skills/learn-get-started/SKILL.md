@@ -285,9 +285,14 @@ When checkpoint 3 passes:
    cloud workspace, not just chat with it in a browser tab. That was the
    one-time setup, and `/bluerock:check` confirms it any time something looks
    off.
-4. Point forward: Session 2, **Meet your first agent team** — about 5 minutes,
-   and they walk out with a real work product. They can start it right now by
-   saying **teach me Session 2**.
+4. Point forward to a **use case first**, not to Session 2 (Linda, 2026-09-15: after
+   Get started the next step is building something; the sessions are the concepts
+   behind the use cases). Name one by the rule in
+   `${CLAUDE_PLUGIN_ROOT}/shared/use-case-catalog.md` — the first in its order they
+   have not run, by `title` and full `/bluerock:<id>` command, with its `one_liner` —
+   and say it takes about 15 minutes to a first result. Then, in one line, the other
+   lane: when they want to understand how it worked, Session 2, **Meet your first
+   agent team**, is where the learning path starts — **teach me Session 2**.
 5. Suggest `/bluerock:wrap-up` so the save habit starts on day one. (Session 2
    teaches it properly; a one-line mention is enough here.) Don't promise what
    it will do with their work beyond that — wrap-up checks what is actually

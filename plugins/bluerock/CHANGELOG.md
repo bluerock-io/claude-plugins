@@ -1,5 +1,20 @@
 # Changelog — `bluerock` plugin
 
+## 0.15.2 — after Get started, build first; and wrap-up says where your work lives
+
+Two lines that follow the Learn cutover (2026-09-15), where the use cases became the front
+door and the sessions became the concepts behind them.
+
+**`/bluerock:learn-get-started` closes on a use case, not Session 2.** It names the first use
+case you have not run, by the shared catalog rule, and offers Session 2 second, as where the
+learning path starts when you want the why. The web page already closes this way.
+
+**`/bluerock:wrap-up` tells you where your project lives, once.** Until now, a project with no
+GitHub backup heard nothing about it. From your second use-case run onward, wrap-up adds one
+line after the save: your project is only in this workspace; back it up with
+`/bluerock:learn-save-your-work`. Nothing on the first run, never more than the line, and no
+push it knows would fail. The workspace keeps your work for 14 days; a backup keeps it.
+
 ## 0.15.1 — the Weekly Signal Digest is the Account Signal Digest, and `learn` knows when you are done
 
 A rename, and one line the learn skill was missing. David G. asked for a more specific name for the digest and Linda agreed
