@@ -221,6 +221,14 @@ This is a "signs of life" milestone: headline, then the receipt, then where to g
 Four checklist lines, always in this order, each one ✅ when it passes. Keep every line in
 builder language — no bare command names, no version numbers.
 
+**Print every block in this section exactly as written.** Fill in only what is marked to
+fill: the project's folder name, the use-case lines (title and command from the manifest,
+in order), the learning-path line from its table, and anything in square brackets. Do not
+reword, shorten, or re-punctuate the rest, and keep the colons as they are. Every builder
+should read the same words, and a run on 0.16.1 that paraphrased the report also broke a
+line mid-word. The consent questions in the checks above are the exception: those say
+"roughly this way" and are yours to phrase.
+
 **No preamble.** The first thing the builder reads is the headline, **Your agentic project
 is live.** Do not announce the skill or the checks ("I'll run the check skill", "I'll run
 the checks now", "Let me check your setup"); the report is the announcement. The only thing
@@ -232,10 +240,10 @@ and it opens on the question itself.
 ```
 **Your agentic project is live.**
 
-✅ **Claude Code** — running
-✅ **Your project** — `my-ai-work-hub`
-✅ **The BlueRock toolkit** — ready
-✅ **Under the hood** — Python and Git ready
+✅ **Claude Code**: running
+✅ **Your project**: `my-ai-work-hub`
+✅ **The BlueRock toolkit**: ready
+✅ **Under the hood**: Python and Git ready
 
 Your project runs in your workspace, and every BlueRock skill writes there. Your project's own
 skills and agents are linked for new chats.
@@ -253,11 +261,11 @@ session titles, times, and outcomes from the manifest (outcome role-resolved). N
 memory.
 
 ```
-**Next: build something real — right here.**
+**Next: build something real, right here.**
 Say the one you want, or its command, and it runs in this chat:
 
-- **Brand Messaging Doc** — `/bluerock:messaging-doc`
-- **Account Scorecard** — `/bluerock:scorecard` · run before
+- **Brand Messaging Doc**: `/bluerock:messaging-doc`
+- **Account Scorecard**: `/bluerock:scorecard` · run before
 - [the rest, one per line, in order, from the manifest]
 
 Ask what any of them does and I'll tell you.
@@ -346,7 +354,7 @@ everything that could be wrong.
 **When the project doesn't exist yet (the one "needs attention" case):**
 
 ```
-**Your project isn't here yet** — and that almost always means this chat isn't
+**Your project isn't here yet**, and that almost always means this chat isn't
 running in your BlueRock workspace, not that anything is missing. Your project
 comes with the workspace, already set up.
 
@@ -354,7 +362,7 @@ Head back to Get Started and finish connecting: get your Enrollment URL, then
 point your tool at your workspace.
 https://learn.bluerock.io/get-started
 
-Already connected and still seeing this? Ask in the Slack — that one's on us:
+Already connected and still seeing this? Ask in the Slack. That one's on us:
 https://builders.bluerock.io/community
 ```
 
