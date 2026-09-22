@@ -204,6 +204,6 @@ Not part of a run. Read this before rewording anything a builder sees.
 - **This skill owns `objectives.md`**, which `daily-brew` reads to rank focus and the
   use-case skills read to pre-fill intake.
 - **The closing line in step 4 points at `/bluerock:check` as the place to see what a
-  builder can run.** That is true because `check`'s Next block lists the use cases (states 2
-  and 3 of its rule) or leads with Session 2, which runs the first one. Both read
+  builder can run.** That is true because `check`'s Next block leads with the use cases in
+  every state (since 0.16.0). Both read
   `shared/use-case-catalog.md`. If `check` stops listing them, this line goes stale.

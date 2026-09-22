@@ -1,5 +1,21 @@
 # Changelog — `bluerock` plugin
 
+## 0.16.0 — `/bluerock:check` leads with the use cases
+
+**After your project reports live, the first thing you see is what you can run.**
+`/bluerock:check` now lists the use cases first in every case, one per line with its command,
+and the learning path follows as one quieter line: Session 2 if you have not started, the
+session you paused if you are partway through, the next one otherwise. You choose by what you
+type. Nothing is asked and nothing is stored.
+
+Until now, a builder who had not finished Session 2 saw Session 2 and nothing else, which
+is every new builder at the end of Get started. That contradicted the 0.15.2 close of
+`/bluerock:learn-get-started` and the Learn site, which both lead with a use case. The
+ordering rule from 2026-09-09 is retired (Linda, 2026-09-22).
+
+`/bluerock:onboard`'s closing note and the shared use-case rule are updated to describe
+`check` accurately. Nothing about how a use case runs changes.
+
 ## 0.15.2 — after Get started, build first; and wrap-up says where your work lives
 
 Two lines that follow the Learn cutover (2026-09-15), where the use cases became the front

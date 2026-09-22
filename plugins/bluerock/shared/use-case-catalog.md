@@ -91,7 +91,7 @@ left. (Decision 2026-08-30: Sessions 3 to 8 are reference depth, not a syllabus.
 
 Not part of a run. Read this before rewording anything a builder sees.
 
-- **`skills/check/SKILL.md`** (the Next block's three states), **`skills/onboard/SKILL.md`**
+- **`skills/check/SKILL.md`** (the Next block, which leads with the use cases in every state), **`skills/onboard/SKILL.md`**
   (its closing line), and **`skills/wrap-up/SKILL.md`** (step 2's tally and step 6's Next
   up) read this file. Reword the rule here and all three move together, which is the reason
   this file exists.
