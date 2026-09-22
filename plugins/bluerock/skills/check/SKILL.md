@@ -236,67 +236,44 @@ skills and agents are linked for new chats.
 
 ```
 
-Then the **Next block**, and which line leads is a three-state rule read from
-`learning/progress.json` (product decision, 2026-09-09). **It is an ordering rule, not a
-gate:** the next session and the use cases are both available in every state after the
-first, and the state decides which leads and which is the quieter second line. Read the use
-cases by the rule in `${CLAUDE_PLUGIN_ROOT}/shared/use-case-catalog.md`, in its order, with
-its titles; read session titles, times, and outcomes from the manifest (outcome
-role-resolved). Never from memory.
-
-| State | Read from `progress.json` | Leads with |
-|---|---|---|
-| 1 | Session 2 is not `complete` (or there is no `learning/` folder yet) | Session 2, today's copy |
-| 2 | Not all eight `complete`, and any session is `in_progress` or the latest `completed` date is within the last 14 days | The next session, by name |
-| 3 | All eight `complete`; or Session 2 `complete`, nothing `in_progress`, and no `completed` date within the last 14 days | The use cases |
-
-The 14 days is a starting point, not a derived figure, and getting it wrong costs nothing:
-the builder sees both lines either way. If a session record carries no `completed` date,
-state 2 rests on `in_progress` alone.
-
-**State 1.** Session 2 is how a builder meets their first use case, so seven choices offered
-to someone who has not yet watched one work is the wrong shape:
+Then the **Next block**. **The use cases lead in every state, and the learning path is the
+quieter second line** (Linda, 2026-09-22, superseding the 2026-09-09 ordering, which led with
+Session 2 until it was complete). The builder chooses by what they type; nothing is asked and
+nothing is stored. After Get started, the next step is building something, and the sessions
+are the concepts behind the use cases: `learn-get-started` already closes that way, and this
+block is where every new builder lands after it. Read the use cases by the rule in
+`${CLAUDE_PLUGIN_ROOT}/shared/use-case-catalog.md`, in its order, with its titles; read
+session titles, times, and outcomes from the manifest (outcome role-resolved). Never from
+memory.
 
 ```
-**Next: build your first real thing — right here.**
-Say **teach me Session 2** in this chat and the session runs with you: about 5
-minutes, and you finish with a one-page work product you'd actually send someone.
-Prefer to see it first? The session page has the overview and a short video:
-https://learn.bluerock.io/session/meet-your-first-agent-team
-```
-
-**State 2.** The next session leads (the first not `complete`; one `in_progress` resumes at
-its checkpoint), and the use cases are the quieter second line, titles and commands in
-order, on one line:
-
-```
-**Next: pick the path back up — right here.**
-Say **teach me Session 3** in this chat and Anatomy of an agent runs with you: about 20
-minutes. [Its outcome, one sentence, from the manifest.]
-
-Or run one of your ready-made agent teams on something real: Brand Messaging Doc
-(`/bluerock:messaging-doc`) · Account Scorecard (`/bluerock:scorecard`) · [the rest, in
-order, from the manifest].
-```
-
-**State 3.** A builder who finished has no next session, and one who stopped is not being
-pulled back by the sessions; they look alike in the data and want the same offer. The use
-cases lead, one per line, and the next session, if any remain, is the quieter second line.
-For a use case the builder has already run (the shared rule reads `.bluerock/runs.json`),
-append *· run before* to its line; the order does not change:
-
-```
-**Next: run something real — right here.**
-Say the one you want, or its command, and the agent team runs it in this chat:
+**Next: build something real — right here.**
+Say the one you want, or its command, and it runs in this chat:
 
 - **Brand Messaging Doc** — `/bluerock:messaging-doc`
 - **Account Scorecard** — `/bluerock:scorecard` · run before
 - [the rest, one per line, in order, from the manifest]
 
 Ask what any of them does and I'll tell you.
-[Only when sessions remain:] Want the path instead? Session 5, Turn a task into a skill,
-picks up where you left off: say **teach me Session 5**.
+
+[The learning-path line, chosen from the table below.]
 ```
+
+For a use case the builder has already run (the shared rule reads `.bluerock/runs.json`),
+append *· run before* to its line; the order does not change. Each line is title and command
+only: seven one-liners after a milestone is a wall, so give a use case's `one_liner` when the
+builder asks what it does. No time figure on any line: the catalog rule forbids one before a
+run.
+
+**The learning-path line** is one line, read from `learning/progress.json`. It names the
+session; it never leads.
+
+| When | The line |
+|---|---|
+| Session 2 is not `complete`, nothing is `in_progress` (or there is no `learning/` folder yet) | "Want to see how it works first? Say **teach me Session 2** and Meet your first agent team runs with you, in about [N] minutes (its `time` from the manifest, written out: `~5 min` becomes *about 5 minutes*). The session page has a short video: https://learn.bluerock.io/session/meet-your-first-agent-team" |
+| A session is `in_progress` | "Or pick the path back up: Session [N], [title], is paused where you left it. Say **teach me Session [N]**." |
+| Sessions remain, none `in_progress` | "Want the path instead? Session [N], [title], is next: say **teach me Session [N]**." |
+| All eight `complete` | No line. |
 
 In every state, close with the room, one line, never given equal weight:
 
@@ -411,11 +388,14 @@ Not part of a run. Read this before rewording anything a builder sees.
   copy of the starter kit" and "Clone your project into your workspace" — steps retired with
   the pre-baked image, which would have sent a stuck builder after instructions that no longer
   exist. If the delivery model ever changes back, this message changes with it.
-- **The Next block's three states and the use-case list read
-  `shared/use-case-catalog.md`.** `/bluerock:onboard` and `/bluerock:wrap-up` read the same
-  file, so the titles, the order, and the "never a time figure before a run" rule move
-  together. The three-state table itself lives here because only this skill leads with it.
-  Session 2's copy in state 1 is quoted by the Session 1 page's closing step.
+- **The Next block's use-case list reads `shared/use-case-catalog.md`.** `/bluerock:onboard`
+  and `/bluerock:wrap-up` read the same file, so the titles, the order, and the "never a time
+  figure before a run" rule move together. The learning-path line's table lives here because
+  only this skill picks a session for the Next block.
+- **Until 0.16.0 this block led with Session 2 for every new builder** (a three-state rule,
+  2026-09-09), so a builder who finished Get started saw no use case at all, while
+  `learn-get-started` had already moved to use case first on 2026-09-15. Found on a fresh
+  sandbox, 2026-09-22. Do not reintroduce a state in which the sessions lead.
 - **This skill no longer mentions `your-toolkit.md`.** The seeded file in `my-workspace`
   still tells a builder to say "what can I do" to regenerate it; that generator is retired
   and the file is the starter kit's to fix. Do not reintroduce a nudge at it here.
