@@ -221,6 +221,12 @@ This is a "signs of life" milestone: headline, then the receipt, then where to g
 Four checklist lines, always in this order, each one ✅ when it passes. Keep every line in
 builder language — no bare command names, no version numbers.
 
+**No preamble.** The first thing the builder reads is the headline, **Your agentic project
+is live.** Do not announce the skill or the checks ("I'll run the check skill", "I'll run
+the checks now", "Let me check your setup"); the report is the announcement. The only thing
+that may come before the headline is a consent question for a repair (check 3, 5, or 7b),
+and it opens on the question itself.
+
 **When the project is here (right here or as a nearby subfolder):**
 
 ```

@@ -1,5 +1,12 @@
 # Changelog — `bluerock` plugin
 
+## 0.16.1 — `/bluerock:check` opens on the headline
+
+`/bluerock:check` no longer announces itself. The first thing you read is **Your agentic
+project is live.**, not "I'll run the checks now." The one exception is a question asking
+your okay for a repair, which comes first because the check needs your answer to finish.
+Nothing else changes.
+
 ## 0.16.0 — `/bluerock:check` leads with the use cases
 
 **After your project reports live, the first thing you see is what you can run.**
