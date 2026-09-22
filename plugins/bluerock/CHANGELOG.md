@@ -1,5 +1,14 @@
 # Changelog — `bluerock` plugin
 
+## 0.16.2 — `/bluerock:check` says the same thing every time
+
+The report `/bluerock:check` prints is now fixed wording, printed exactly as written. Only
+your project's name, the use cases, and the learning-path line are filled in. The last run
+paraphrased it, and one line broke mid-word.
+
+The checklist and the use-case list now use colons instead of dashes
+(**Claude Code**: running), and so does the message you see when your project isn't found.
+
 ## 0.16.1 — `/bluerock:check` opens on the headline
 
 `/bluerock:check` no longer announces itself. The first thing you read is **Your agentic
