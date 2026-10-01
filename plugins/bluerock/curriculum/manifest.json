@@ -342,6 +342,37 @@
       "concept": "subagent-teams"
     },
     {
+      "id": "crm-cleanup",
+      "title": "CRM Cleanup and Enrichment",
+      "type": "skill",
+      "category": "research-intelligence",
+      "roles": [
+        "sales",
+        "marketing",
+        "operations"
+      ],
+      "tier": "use-case",
+      "level": "intermediate",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "ships_from": "toolkit",
+      "recommended_after": [
+        "process-to-skill"
+      ],
+      "one_liner": "Drop in a CSV export of accounts from your CRM and get back a cleaned file to re-import, plus a change log naming every edit: formats fixed, duplicates found, and missing industry, size, and headquarters filled from public sources, each with its source. Up to 24 rows looked up per run.",
+      "artifact": "change log",
+      "time_saved": "about 1.5 hours by hand, estimated and not yet timed",
+      "time_saved_minutes": 90,
+      "team": [
+        "record-enricher",
+        "record-auditor"
+      ],
+      "concept": "connecting-your-data"
+    },
+    {
       "id": "research",
       "type": "skill",
       "category": "research-intelligence",
@@ -869,6 +900,44 @@
       "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Turns the scans into an outreach kit: one panel per prospect with who they are and why now, the angle aimed at that person, a draft in your voice marked as a draft, follow-up beats, and the gap turned into a first question. Never sends."
+    },
+    {
+      "id": "record-enricher",
+      "type": "agent",
+      "category": "research-intelligence",
+      "roles": [
+        "sales",
+        "marketing",
+        "operations"
+      ],
+      "tier": "team-member",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "ships_from": "toolkit",
+      "recommended_after": [],
+      "one_liner": "Looks up a batch of incomplete CRM accounts, up to 3 lookups each, and finds the missing industry, employee count, and headquarters from public sources, with a source for every value. Names any account it can't pin to one company instead of guessing."
+    },
+    {
+      "id": "record-auditor",
+      "type": "agent",
+      "category": "research-intelligence",
+      "roles": [
+        "sales",
+        "marketing",
+        "operations"
+      ],
+      "tier": "team-member",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "ships_from": "toolkit",
+      "recommended_after": [],
+      "one_liner": "Decides what of the lookups belongs in your CRM file: fills empty cells using the values your CRM already uses, lists differences with your existing values for you to decide, and rules on each possible duplicate."
     },
     {
       "id": "anatomy-of-an-agent",

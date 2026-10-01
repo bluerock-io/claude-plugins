@@ -33,6 +33,7 @@ The **run-as-is core** — you drive these; you don't edit them:
 | **Personalized Outreach** | Prep and drafts for the people you want to reach: `/bluerock:outreach-prep` (agents `prospect-scanner` + `outreach-writer`) |
 | **Process to Skill** | Turn a process that lives in your head into a skill you can run and a runbook you can hand over: `/bluerock:process-to-skill` (agent `understudy`) |
 | **Signal Monitor** | A signal digest across your account list: `/bluerock:signal-monitor` (agents `account-scanner` + `signal-analyst`) |
+| **CRM Cleanup and Enrichment** | A cleaned accounts export to re-import, plus a change log with a source for every value added: `/bluerock:crm-cleanup` (agents `record-enricher` + `record-auditor`) |
 
 ## Account Scorecard — the fast first win
 
@@ -193,6 +194,26 @@ doesn't have. Runs save to dated folders in `my-work/signal-monitor/`, so next w
 tells you what moved.
 
 When one account turns out to matter, `/bluerock:scorecard` is the deep read on it.
+
+## CRM Cleanup and Enrichment — an export in, a file to re-import out
+
+`/bluerock:crm-cleanup` (or *"clean up my CRM export"*, *"fill in the missing industries"*)
+takes a CSV export of **accounts** from your CRM, or a sample export if you'd rather not use
+real data on a first run. It shows you which column it read as which field, then:
+
+- **A script** fixes formats to the form each column already uses, finds duplicates, and
+  picks the rows missing industry, employee count, or headquarters. **Lookups are capped at
+  24 rows per run, up to 3 each, newest records first**, and the rest wait for the next run.
+- **`record-enricher`** looks those rows up in batches and finds the missing values from
+  public sources, with a source for each. A row it can't pin to one company is named and
+  skipped, never guessed.
+- **`record-auditor`** decides what belongs in your file. It fills empty cells using the
+  values your CRM already uses, and lists every disagreement with a value you already have
+  under **Needs your call**. It never overwrites that value.
+
+You get the cleaned CSV, with the same columns and rows as your export, and a change log
+naming every edit. Nothing is written to your CRM: you import the file yourself, as an update
+matched on the record ID. Runs save to dated folders in `my-work/crm-cleanup/`.
 
 ## Your project comes with more — and they're yours
 
