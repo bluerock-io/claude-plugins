@@ -342,6 +342,37 @@
       "concept": "subagent-teams"
     },
     {
+      "id": "news-reaction",
+      "title": "Verified News Reaction",
+      "type": "skill",
+      "category": "research-intelligence",
+      "roles": [
+        "sales",
+        "marketing",
+        "operations"
+      ],
+      "tier": "use-case",
+      "level": "beginner",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "ships_from": "toolkit",
+      "recommended_after": [
+        "process-to-skill"
+      ],
+      "one_liner": "Paste a news story or announcement and get a reaction kit: every claim in it checked against independent sources, what was dropped and why, your angle on it, and drafted posts in your voice that only say what checked out.",
+      "artifact": "reaction kit",
+      "time_saved": "about 45 minutes by hand, estimated and not yet timed",
+      "time_saved_minutes": 45,
+      "team": [
+        "fact-checker",
+        "reaction-writer"
+      ],
+      "concept": "subagent-teams"
+    },
+    {
       "id": "research",
       "type": "skill",
       "category": "research-intelligence",
@@ -869,6 +900,44 @@
       "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Turns the scans into an outreach kit: one panel per prospect with who they are and why now, the angle aimed at that person, a draft in your voice marked as a draft, follow-up beats, and the gap turned into a first question. Never sends."
+    },
+    {
+      "id": "fact-checker",
+      "type": "agent",
+      "category": "research-intelligence",
+      "roles": [
+        "sales",
+        "marketing",
+        "operations"
+      ],
+      "tier": "team-member",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "ships_from": "toolkit",
+      "recommended_after": [],
+      "one_liner": "Reads one story, sorts its source, and checks each claim a reaction would lean on against independent sources, the mechanism separately from the headline, then says whether it is safe to draft yet."
+    },
+    {
+      "id": "reaction-writer",
+      "type": "agent",
+      "category": "research-intelligence",
+      "roles": [
+        "sales",
+        "marketing",
+        "operations"
+      ],
+      "tier": "team-member",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "ships_from": "toolkit",
+      "recommended_after": [],
+      "one_liner": "Turns the check into a reaction kit: your angle, drafted posts for the channels you chose that use only claims that checked out, and a trace from every line back to its claim. Writes no drafts on a hold. Never posts."
     },
     {
       "id": "anatomy-of-an-agent",
