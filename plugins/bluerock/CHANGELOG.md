@@ -1,5 +1,26 @@
 # Changelog — `bluerock` plugin
 
+## 0.17.0 — CRM Cleanup and Enrichment
+
+**New use case, intermediate: `/bluerock:crm-cleanup`.** Drop in a CSV export of accounts from
+your CRM. You get back a cleaned file to re-import and a change log that names every edit.
+
+- **Format fixes** follow the form each column already uses: domains, state and country
+  names, employee and revenue numbers, the spelling of your Industry values.
+- **Duplicates** are listed for you to merge in your CRM. A shared domain counts as a match;
+  a shared name alone is only a possible one. The file never deletes a row.
+- **Missing industry, employee count, and headquarters** are filled from public sources,
+  each with its source link. Industry fills use the values your CRM already has.
+- **Lookups are capped at 24 rows per run, up to 3 lookups each, newest records first.** The
+  cap is stated before the run, in the change log, and in the report, and the rows over it
+  are listed for the next run.
+- **Values you already have are never overwritten.** Where a source disagrees, the change log
+  lists it under **Needs your call**, and the file changes only for the items you name.
+- **Nothing is written to your CRM.** You import the file yourself.
+
+Accounts exports only, for now. A 46-row sample export ships with it, so a first run needs no
+real data. Agents `record-enricher` + `record-auditor`.
+
 ## 0.16.2 — `/bluerock:check` says the same thing every time
 
 The report `/bluerock:check` prints is now fixed wording, printed exactly as written. Only
