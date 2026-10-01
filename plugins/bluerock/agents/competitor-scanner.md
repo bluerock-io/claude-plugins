@@ -57,6 +57,24 @@ beat confident filler.
   an empty one reads as propaganda and the analyst will bounce it back. If they are
   well-funded, well-reviewed, or first to something real, write it down.
 
+## When the dispatch hands you a previous scan (a refresh)
+
+`/bluerock:battlecard-refresh` passes the path of this competitor's scan from an earlier run,
+and its date. You still write a complete scan in the shape below, so the analyst never has to
+read two files to know where this competitor stands today. Two things change:
+
+- **Spend the fetches on what moves.** Start with the changelog or release notes, the pricing
+  page, and news since the previous scan's date. Then re-check the previous scan's specific
+  claims: every pricing figure, every "beta" or "waitlist" status, and every `[their claim]`
+  and `[unverified]` marker. Same 6-to-8 bound; a refresh is not a licence to fetch more.
+- **Re-confirm or contradict, out loud.** In **Recent changes**, list what is new since the
+  previous date, dated and sourced. In **Gaps and open questions**, add one line per claim
+  from the previous scan you tried and failed to re-confirm. Do not repeat a previous claim
+  as current unless a fetch from this run supports it. Carried forward unverified, it keeps
+  its marker.
+
+You do not compare the two scans yourself. `change-reader` does that from your file.
+
 ## Output
 
 Write `scan-<competitor-slug>.md` in the working folder you were given, in this shape.

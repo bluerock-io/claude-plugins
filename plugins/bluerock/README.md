@@ -29,6 +29,7 @@ The **run-as-is core** — you drive these; you don't edit them:
 | **Account Scorecard** | Point a fast team at a company for a one-page scorecard: `/bluerock:scorecard` (agents `scout` + `scorer`) |
 | **Messaging Doc** | Answer a few short questions and a fast team writes your core messaging doc, then checks your site against it: `/bluerock:messaging-doc` (agents `site-reader` + `distiller`) |
 | **Competitive Intel** | Battlecards for the competitors you face: `/bluerock:competitive-intel` (agents `competitor-scanner` + `analyst`) |
+| **Battlecard Refresh** | Bring those battlecards up to date against what changed: `/bluerock:battlecard-refresh` (agents `competitor-scanner` + `change-reader` + `analyst`) |
 | **AEO Visibility** | Whether you show up when buyers ask an AI: `/bluerock:aeo-visibility` (agents `answer-sampler` + `visibility-auditor`) |
 | **Personalized Outreach** | Prep and drafts for the people you want to reach: `/bluerock:outreach-prep` (agents `prospect-scanner` + `outreach-writer`) |
 | **Process to Skill** | Turn a process that lives in your head into a skill you can run and a runbook you can hand over: `/bluerock:process-to-skill` (agent `understudy`) |
@@ -91,6 +92,13 @@ your own differentiators are aimed but labeled yours. Runs save to dated folders
 `my-work/competitive-intel/`, so a rerun before the next meeting tells you what changed.
 This is the deep read of the pair — minutes, not seconds; the Account Scorecard stays the
 fast one.
+
+**Battlecard Refresh** (`/bluerock:battlecard-refresh`, or *"refresh my battlecards"*) is the
+follow-up once you have a set. It re-checks every claim on your earlier cards, retires the
+kill points that stopped being true, adds what's new, and opens on what changed. A third
+agent, **`change-reader`**, does the comparison; the rule it follows lives in
+`shared/run-comparison.md`, so every use case that reports "what changed" means the same thing
+by it.
 
 ## AEO Visibility — do you show up when a buyer asks an AI?
 

@@ -1,5 +1,22 @@
 # Changelog — `bluerock` plugin
 
+## 0.17.0 — Battlecard Refresh: bring your battlecards up to date without starting over
+
+**A new use case, `/bluerock:battlecard-refresh`.** It takes the battlecards you already
+have in `my-work/competitive-intel/` and checks them against what has changed since. Your
+earlier answers carry over, so the only question is whether anything changed on your side.
+`competitor-scanner` re-checks each competitor, starting with their changelog, pricing, and
+news since your last run, and re-tests every claim the earlier cards made. A new agent,
+`change-reader`, sets the new scans beside the old ones and writes down what changed: new,
+changed, gone, not re-found, or unchanged, each with the before, the now, and the evidence.
+`analyst` then edits your earlier cards rather than writing new ones. A kill point that is
+no longer true is retired and shown struck through, so you stop using it.
+
+**What changed comes first.** The artifact opens on a What changed tab, then the cards, with
+every line tagged carried, updated, new, or retired. The refresh saves as a new dated run
+beside the old one, which is never edited. No battlecards yet? It says so and offers to build
+the first set.
+
 ## 0.16.2 — `/bluerock:check` says the same thing every time
 
 The report `/bluerock:check` prints is now fixed wording, printed exactly as written. Only

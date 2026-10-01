@@ -342,6 +342,38 @@
       "concept": "subagent-teams"
     },
     {
+      "id": "battlecard-refresh",
+      "title": "Battlecard Refresh",
+      "type": "skill",
+      "category": "research-intelligence",
+      "roles": [
+        "sales",
+        "marketing",
+        "operations"
+      ],
+      "tier": "use-case",
+      "level": "intermediate",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "ships_from": "toolkit",
+      "recommended_after": [
+        "process-to-skill"
+      ],
+      "one_liner": "Bring the battlecards you already have up to date instead of starting over: every earlier claim re-checked, the kill points that stopped being true retired, what's new added, and what changed shown first.",
+      "artifact": "refreshed battlecard",
+      "time_saved": "about 45 minutes by hand, estimated and not yet timed",
+      "time_saved_minutes": 45,
+      "team": [
+        "competitor-scanner",
+        "change-reader",
+        "analyst"
+      ],
+      "concept": "subagent-teams"
+    },
+    {
       "id": "research",
       "type": "skill",
       "category": "research-intelligence",
@@ -869,6 +901,25 @@
       "ships_from": "toolkit",
       "recommended_after": [],
       "one_liner": "Turns the scans into an outreach kit: one panel per prospect with who they are and why now, the angle aimed at that person, a draft in your voice marked as a draft, follow-up beats, and the gap turned into a first question. Never sends."
+    },
+    {
+      "id": "change-reader",
+      "type": "agent",
+      "category": "research-intelligence",
+      "roles": [
+        "sales",
+        "marketing",
+        "operations"
+      ],
+      "tier": "team-member",
+      "used_in_sessions": [],
+      "surfaces": [
+        "desktop",
+        "cursor"
+      ],
+      "ships_from": "toolkit",
+      "recommended_after": [],
+      "one_liner": "Sets a run beside the earlier one and writes down what changed, item by item: new, changed, gone, not re-found, or unchanged, each with the before, the now, and the evidence. Never calls a change the files don't show."
     },
     {
       "id": "anatomy-of-an-agent",
