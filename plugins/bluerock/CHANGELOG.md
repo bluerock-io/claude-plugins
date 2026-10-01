@@ -1,5 +1,20 @@
 # Changelog — `bluerock` plugin
 
+## 0.17.0 — Verified News Reaction: check a story before you post about it
+
+**A new use case, `/bluerock:news-reaction`.** Paste a link to a news story or announcement,
+or its text, and a two-agent team hands you a reaction kit. `fact-checker` reads the story,
+sorts the source (the company itself, an established outlet, or a repost), and checks each
+claim a post would lean on against independent sources. When the story is about how
+something happened, it checks the how separately from the headline. It scores how much the
+story matters to what you sell, then says whether it is safe to draft yet. `reaction-writer`
+drafts for the channels you pick (LinkedIn, X, a note to customers, a note to your team),
+using only the claims that held, and traces every line back to the claim it rests on.
+
+**When the story does not check out, you get no drafts.** The kit says what is unconfirmed
+and what would change that. Nothing is posted; every draft is marked as a draft. The kit
+saves to `my-work/news-reaction/` and opens as a Claude Artifact.
+
 ## 0.16.2 — `/bluerock:check` says the same thing every time
 
 The report `/bluerock:check` prints is now fixed wording, printed exactly as written. Only
