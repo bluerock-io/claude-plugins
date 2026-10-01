@@ -205,6 +205,13 @@ words.
    - **Before you post** — the checklist as plain list items with an empty square glyph, not
      form controls (no dead checkboxes).
 3. **Facts checked** panel:
+   - **The key**, first, as one compact row of chips each followed by its gloss in ink-3:
+     **Confirmed** said by the source with the authority, or two independent outlets ·
+     **Single source** only the story says it; drafts attribute it · **Contradicted** a better
+     source says otherwise · **Not confirmed** nothing solid behind it; in no draft. Beneath
+     it, one line for the source types: **Primary** the organisation itself · **Established
+     outlet** a publication with editors · **Secondary** a repost, summary, or social post.
+     A builder who sees a chip must be able to read what it means on the same screen.
    - **The story** — the two sentences and the kit's Source line, then one numbered item-card
      per row of **Facts you can use**: a 4px left stripe and a chip in its status color, the
      fact, the `Line in the item` in serif italic inside quotation marks, one mono chip per
@@ -274,6 +281,10 @@ Not part of a run. Read this before rewording anything a builder sees.
 - The working folder shape `my-work/news-reaction/<YYYY-MM-DD>-<slug>/` is what step 7's
   same-story check reads; `/bluerock:wrap-up` logs runs against the agent-team label
   **Verified News Reaction** with members `fact-checker` + `reaction-writer`.
+- **The flow doc mirrors this skill** (content repo, private:
+  `09-product/use-case-flows/news-reaction-flow.md`), and the concept ledger carries this
+  skill's rows. Any change to the intake, dispatch, artifact, or close updates both in the
+  same pass.
 - **Generalized from two BlueRock-internal skills** (`industry-intel` for relevance scoring
   against positioning and the same-story check, `industry-pov` for the source gate, the
   mechanism check, and the dropped-claims log). Those stay BlueRock's; nothing here reads them.
