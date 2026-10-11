@@ -20,7 +20,7 @@ sees the three lines that moved, not a new card to reread.
 
 **What it replaces:** going back through every competitor's site, pricing page, and changelog
 to check whether last quarter's battlecards are still true, then editing them by hand.
-**Time saved:** about 45 minutes by hand, estimated and not yet timed.
+**Time saved:** about 2 hours by hand, estimated and not yet timed.
 
 ## First — anchor to the project
 

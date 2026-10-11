@@ -364,8 +364,8 @@
       ],
       "one_liner": "Bring the battlecards you already have up to date instead of starting over: every earlier claim re-checked, the kill points that stopped being true retired, what's new added, and what changed shown first.",
       "artifact": "refreshed battlecard",
-      "time_saved": "about 45 minutes by hand, estimated and not yet timed",
-      "time_saved_minutes": 45,
+      "time_saved": "about 2 hours by hand, estimated and not yet timed",
+      "time_saved_minutes": 120,
       "team": [
         "competitor-scanner",
         "change-reader",

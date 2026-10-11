@@ -72,6 +72,12 @@ read two files to know where this competitor stands today. Two things change:
   from the previous scan you tried and failed to re-confirm. Do not repeat a previous claim
   as current unless a fetch from this run supports it. Carried forward unverified, it keeps
   its marker.
+- **A kill point's proof gets its own words back.** When the previous card's kill point
+  rests on a limit or a price (a cap, a seat price, a plan's feature list) and a fetch hands
+  you a summary instead of the page's text, spend one fetch of the same page asking for the
+  verbatim wording of that plan's row. Record what it says, quoted. A plan row that now lists
+  the feature with no limit is a contradiction, not a gap; "could not confirm" is only for a
+  page you could not get the words from.
 
 You do not compare the two scans yourself. `change-reader` does that from your file.
 
