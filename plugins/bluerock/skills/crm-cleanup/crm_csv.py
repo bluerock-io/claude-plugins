@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-crm_csv.py — the exact half of CRM Cleanup and Enrichment.
+crm_csv.py — the exact half of CRM Cleanup & Enrichment.
 
 The agents look things up and make judgment calls. Everything that has to be exact lives
 here: reading the export, mapping its columns, the format fixes, the duplicate candidates,
@@ -904,7 +904,7 @@ def render_md(res):
               os.path.basename(res["cleaned_csv"]), res["columns"].get("id", "your record ID")),
           "", "---", "",
           "Sourced values carry their link. Format fixes follow the form your column already "
-          "uses. Built with BlueRock · CRM Cleanup and Enrichment · record-enricher + record-auditor", ""]
+          "uses. Built with BlueRock · CRM Cleanup & Enrichment · record-enricher + record-auditor", ""]
     return "\n".join(L)
 
 
@@ -1102,7 +1102,7 @@ def render_html(res):
     P.append('<footer><p>%d complete rows were not looked up, so a wrong value in a complete row is not '
              'caught. Annual revenue is never filled. %s</p><p>Import <span class="mono">%s</span> as an '
              'update matched on <b>%s</b>.</p><p>Account data from your CRM. Keep it in your project.</p>'
-             '<p class="mono">Built with BlueRock · CRM Cleanup and Enrichment · record-enricher + record-auditor</p>'
+             '<p class="mono">Built with BlueRock · CRM Cleanup &amp; Enrichment · record-enricher + record-auditor</p>'
              '</footer>' % (res["not_looked_up"], e(res["coverage"]), e(os.path.basename(res["cleaned_csv"])),
                             e(res["columns"].get("id", "your record ID"))))
     P.append("</div><script>%s</script></body></html>" % JS)

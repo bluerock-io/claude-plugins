@@ -1,6 +1,6 @@
 # Changelog — `bluerock` plugin
 
-## 0.17.0 — CRM Cleanup and Enrichment
+## 0.17.0 — CRM Cleanup & Enrichment
 
 **New use case, intermediate: `/bluerock:crm-cleanup`.** Drop in a CSV export of accounts from
 your CRM. You get back a cleaned file to re-import and a change log that names every edit.

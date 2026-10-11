@@ -33,7 +33,7 @@ The **run-as-is core** — you drive these; you don't edit them:
 | **Personalized Outreach** | Prep and drafts for the people you want to reach: `/bluerock:outreach-prep` (agents `prospect-scanner` + `outreach-writer`) |
 | **Process to Skill** | Turn a process that lives in your head into a skill you can run and a runbook you can hand over: `/bluerock:process-to-skill` (agent `understudy`) |
 | **Signal Monitor** | A signal digest across your account list: `/bluerock:signal-monitor` (agents `account-scanner` + `signal-analyst`) |
-| **CRM Cleanup and Enrichment** | A cleaned accounts export to re-import, plus a change log with a source for every value added: `/bluerock:crm-cleanup` (agents `record-enricher` + `record-auditor`) |
+| **CRM Cleanup & Enrichment** | A cleaned accounts export to re-import, plus a change log with a source for every value added: `/bluerock:crm-cleanup` (agents `record-enricher` + `record-auditor`) |
 
 ## Account Scorecard — the fast first win
 
@@ -195,7 +195,7 @@ tells you what moved.
 
 When one account turns out to matter, `/bluerock:scorecard` is the deep read on it.
 
-## CRM Cleanup and Enrichment — an export in, a file to re-import out
+## CRM Cleanup & Enrichment — an export in, a file to re-import out
 
 `/bluerock:crm-cleanup` (or *"clean up my CRM export"*, *"fill in the missing industries"*)
 takes a CSV export of **accounts** from your CRM, or a sample export if you'd rather not use

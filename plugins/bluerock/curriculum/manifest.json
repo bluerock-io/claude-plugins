@@ -343,7 +343,7 @@
     },
     {
       "id": "crm-cleanup",
-      "title": "CRM Cleanup and Enrichment",
+      "title": "CRM Cleanup & Enrichment",
       "type": "skill",
       "category": "research-intelligence",
       "roles": [
@@ -364,8 +364,8 @@
       ],
       "one_liner": "Drop in a CSV export of accounts from your CRM and get back a cleaned file to re-import, plus a change log naming every edit: formats fixed, duplicates found, and missing industry, size, and headquarters filled from public sources, each with its source. Up to 24 rows looked up per run.",
       "artifact": "change log",
-      "time_saved": "about 1.5 hours by hand, estimated and not yet timed",
-      "time_saved_minutes": 90,
+      "time_saved": "about 2 hours by hand, estimated and not yet timed",
+      "time_saved_minutes": 120,
       "team": [
         "record-enricher",
         "record-auditor"

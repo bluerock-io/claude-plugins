@@ -1,7 +1,7 @@
 ---
 name: crm-cleanup
 description: >-
-  CRM Cleanup and Enrichment — drop in a CSV export of accounts from your CRM and get back
+  CRM Cleanup & Enrichment — drop in a CSV export of accounts from your CRM and get back
   a cleaned file ready to re-import, plus a change log naming every edit and the source
   for every value added. Fixes formats, finds duplicates, and fills missing industry,
   employee count, and headquarters from public sources, capped per run. Use when I say
@@ -23,7 +23,7 @@ enrichment fills.
 
 **What it replaces:** looking up each incomplete account by hand, one tab at a time, and
 fixing formats in a spreadsheet before an import.
-**Time saved:** about 1.5 hours by hand per run, estimated and not yet timed.
+**Time saved:** about 2 hours by hand per run, estimated and not yet timed.
 
 **This use case never writes to a CRM.** It writes a file. The builder imports it.
 
