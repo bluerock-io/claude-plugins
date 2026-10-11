@@ -1,0 +1,47 @@
+Record ID,Company name,Company Domain Name,Industry,Number of Employees,Annual Revenue,City,State/Region,Country/Region,Phone Number,Company owner,Create Date,Lifecycle Stage
+1001,HubSpot,hubspot.com,Computer Software,8200,,Cambridge,Massachusetts,United States,+1 555-0101,Jordan Lee,2026-07-08 09:12,Customer
+1002,Datadog,datadoghq.com,Computer Software,6500,,New York,New York,United States,+1 555-0102,Priya Shah,2026-07-09 10:40,Opportunity
+1003,Twilio,twilio.com,Computer Software,5500,,San Francisco,California,United States,+1 555-0103,Sam Ortiz,2026-07-10 14:05,Customer
+1004,Delta Air Lines,delta.com,Airlines/Aviation,100000,61600000000,Atlanta,Georgia,United States,+1 555-0104,Jordan Lee,2026-07-13 11:30,Lead
+1005,Delta Dental,deltadental.com,Insurance,5000,,Oak Brook,Illinois,United States,+1 555-0105,Priya Shah,2026-07-14 16:20,Lead
+1006,Etsy,etsy.com,Internet,2400,,Brooklyn,New York,United States,+1 555-0106,Sam Ortiz,2026-07-15 08:55,Lead
+1007,Duolingo,duolingo.com,E-Learning,830,,Pittsburgh,Pennsylvania,United States,+1 555-0107,Jordan Lee,2026-07-16 13:10,Opportunity
+1008,Wayfair,wayfair.com,Retail,12000,,Boston,Massachusetts,United States,+1 555-0108,Priya Shah,2026-07-17 15:45,Lead
+1009,Zillow,zillow.com,Real Estate,6000,,Portland,Oregon,United States,+1 555-0109,Sam Ortiz,2026-07-20 09:00,Lead
+1010,"  Okta, Inc. ",https://www.okta.com/,Computer Software,"6,000",,San Francisco,CA,United States,+1 555-0110,Jordan Lee,2026-07-21 10:15,Customer
+1011,MongoDB,MONGODB.COM,Computer Software,5000,$1.68B,New York,NY,USA,+1 555-0111,Priya Shah,2026-07-22 11:25,Opportunity
+1012,Cloudflare,cloudflare.com/,Computer Software,"4,200",,San Francisco,California,US,+1 555-0112,Sam Ortiz,2026-07-23 12:35,Lead
+1013,Toast,toasttab.com,computer software,5500,,Boston,Massachusetts,United States,+1 555-0113,Jordan Lee,2026-07-24 14:50,Lead
+1014,Zoom,www.zoom.us,Computer Software,7400,,San Jose,california,United States,+1 555-0114,Priya Shah,2026-07-27 09:30,Customer
+1015,DocuSign,docusign.com,Computer Software,6800,2.8 billion,San Francisco,California,U.S.A.,+1 555-0115,Sam Ortiz,2026-07-28 10:45,Lead
+1016,Squarespace,squarespace.com,Internet,1.7k,,New York,New York,united states,+1 555-0116,Jordan Lee,2026-07-29 16:05,Lead
+1017,Asana,asana.com,,,,San Francisco,California,United States,+1 555-0117,Priya Shah,2026-09-28 09:10,Lead
+1018,Dropbox,dropbox.com,Computer Software,,,,,,+1 555-0118,Sam Ortiz,2026-08-07 10:00,Lead
+1019,Figma,figma.com,,,,San Francisco,California,United States,+1 555-0119,Jordan Lee,2026-09-25 11:20,Lead
+1020,Airtable,airtable.com,Computer Software,,,,,United States,+1 555-0120,Priya Shah,2026-09-24 13:40,Lead
+1021,Rippling,rippling.com,,3500,,,,,+1 555-0121,Sam Ortiz,2026-09-23 15:00,Lead
+1022,Ramp,ramp.com,Financial Services,,,,,,+1 555-0122,Jordan Lee,2026-09-22 09:45,Opportunity
+1023,Gusto,gusto.com,,,,San Francisco,,United States,+1 555-0123,Priya Shah,2026-09-21 10:30,Lead
+1024,Calendly,calendly.com,Computer Software,,,Atlanta,,,+1 555-0124,Sam Ortiz,2026-09-18 14:15,Lead
+1025,Workday,workday.com,,18000,,,California,United States,+1 555-0125,Jordan Lee,2026-09-17 16:25,Lead
+1026,ServiceNow,servicenow.com,Computer Software,,,Santa Clara,California,,+1 555-0126,Priya Shah,2026-09-16 08:50,Opportunity
+1027,Box,box.com,Tech,,,,,,+1 555-0127,Sam Ortiz,2026-09-15 11:05,Lead
+1028,Peloton,onepeloton.com,Consumer Goods,,,New York,New York,,+1 555-0128,Jordan Lee,2026-09-14 13:35,Lead
+1029,Warby Parker,warbyparker.com,,,,,,United States,+1 555-0129,Priya Shah,2026-09-11 15:55,Lead
+1030,Chewy,chewy.com,Retail,,,,Florida,United States,+1 555-0130,Sam Ortiz,2026-09-10 09:20,Lead
+1031,Expensify,expensify.com,,51-200,,Portland,,United States,+1 555-0131,Jordan Lee,2026-09-09 10:50,Lead
+1032,Canva,canva.com,,,,,,Australia,+1 555-0132,Priya Shah,2026-09-08 12:10,Lead
+1033,Carvana,carvana.com,,,,Tempe,Arizona,United States,+1 555-0133,Sam Ortiz,2026-09-07 14:30,Lead
+1034,Patagonia,patagonia.com,Apparel & Fashion,,,,California,United States,+1 555-0134,Jordan Lee,2026-09-04 16:40,Lead
+1035,Allbirds,,,,,San Francisco,California,United States,+1 555-0135,Priya Shah,2026-09-03 09:05,Lead
+1036,Mercury,,,,,,,,+1 555-0136,Sam Ortiz,2026-09-02 10:25,Lead
+1037,Salesforce,salesforce.com,Computer Software,45,,,,United States,+1 555-0137,Jordan Lee,2026-09-01 11:45,Opportunity
+1038,Zendesk,zendesk.com,Retail,,,San Francisco,California,United States,+1 555-0138,Priya Shah,2026-08-31 13:15,Lead
+1039,Instacart,instacart.com,Internet,,,Chicago,Illinois,United States,+1 555-0139,Sam Ortiz,2026-08-28 15:35,Lead
+1040,Hubspot Inc,hubspot.com,,,,,,,+1 555-0140,Jordan Lee,2026-09-26 10:00,Lead
+1041,"Datadog, Inc.",,Computer Software,,,New York,,United States,+1 555-0141,Priya Shah,2026-08-27 09:40,Lead
+1042,Twilio,https://www.twilio.com,,,,,,,+1 555-0142,Sam Ortiz,2026-09-19 12:00,Lead
+1043,Delta,,,,,Atlanta,Georgia,United States,+1 555-0143,Jordan Lee,2026-08-26 14:20,Lead
+1044,Lyft,lyft.com,,,,,,,+1 555-0144,Priya Shah,2026-08-04 09:00,Lead
+1045,Pinterest,pinterest.com,Internet,,,,,,+1 555-0145,Sam Ortiz,2026-08-05 10:00,Lead
+1046,Roku,roku.com,,,,San Jose,,,+1 555-0146,Jordan Lee,2026-08-06 11:00,Lead
