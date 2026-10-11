@@ -1,6 +1,6 @@
 # Changelog — `bluerock` plugin
 
-## 0.17.0 — CRM Cleanup & Enrichment
+## 0.18.0 — CRM Cleanup & Enrichment
 
 **New use case, intermediate: `/bluerock:crm-cleanup`.** Drop in a CSV export of accounts from
 your CRM. You get back a cleaned file to re-import and a change log that names every edit.
@@ -20,6 +20,21 @@ your CRM. You get back a cleaned file to re-import and a change log that names e
 
 Accounts exports only, for now. A 46-row sample export ships with it, so a first run needs no
 real data. Agents `record-enricher` + `record-auditor`.
+
+## 0.17.0 — News Monitoring & Response: check a story before you post about it
+
+**A new use case, `/bluerock:news-reaction`.** Paste a link to a news story or announcement,
+or its text, and a two-agent team hands you a reaction kit. `fact-checker` reads the story,
+sorts the source (the company itself, an established outlet, or a repost), and checks each
+claim a post would lean on against independent sources. When the story is about how
+something happened, it checks the how separately from the headline. It scores how much the
+story matters to what you sell, then says whether it is safe to draft yet. `reaction-writer`
+drafts for the channels you pick (LinkedIn, X, a note to customers, a note to your team),
+using only the claims that held, and traces every line back to the claim it rests on.
+
+**When the story does not check out, you get no drafts.** The kit says what is unconfirmed
+and what would change that. Nothing is posted; every draft is marked as a draft. The kit
+saves to `my-work/news-reaction/` and opens as a Claude Artifact.
 
 ## 0.16.2 — `/bluerock:check` says the same thing every time
 
