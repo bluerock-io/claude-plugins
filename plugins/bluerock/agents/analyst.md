@@ -127,6 +127,39 @@ list per competitor — only entries backed by a dated item in the fresh scan (s
 raised, repriced, repositioned). Never infer a delta the scans do not show. When nothing
 changed, say "no material change since <date>" — that is a finding, not filler.
 
+## Refresh mode — when the dispatch gives you `changes.md`
+
+`/bluerock:battlecard-refresh` dispatches you with the previous `battlecard.md` **and** a
+`changes.md` written by `change-reader` (its shape is in
+`${CLAUDE_PLUGIN_ROOT}/shared/run-comparison.md`). Then the job is to **refresh the previous
+card, not write a new one.** The builder has been using those cards; a refresh that rewrites
+every line makes them reread everything to find the three lines that moved.
+
+- **Start from the previous card.** Keep every line whose fact `changes.md` lists as
+  Unchanged, in the builder's words as they were. Do not re-polish what did not change.
+- **Change only what `changes.md` supports.** A Changed fact updates the line it underpins.
+  A New fact may become a new kill point, strength, or attack line if it earns one. Nothing
+  else moves.
+- **Every kill point, "where they're genuinely better" line, and head-to-head row carries one
+  status tag:** `[carried]`, `[updated]`, `[new]`, or `[retired]`. A kill point whose
+  supporting fact is now Gone or Changed against it is **retired**: keep it, struck through
+  in the markdown (`~~point~~`), with one line saying why, so the builder stops using it. A
+  kill point resting on a Not re-found fact stays, tagged `[carried]` and with
+  `[not re-confirmed <date>]` beside its proof.
+- **Write a `## What changed` section first, before the cards:** per competitor, the most
+  material lines from `changes.md`, then any retired kill points by name. Lead with what
+  breaks a talking point. When `changes.md` says no material change for a competitor, the
+  section says that in one line and the card is carried whole.
+- **Inputs can change too.** If the builder changed their differentiators or personas for
+  this refresh (`inputs.md` records `changed since <date>`), the silver bullets and persona
+  lanes are re-aimed in full, tagged `[updated]`. That is the one place a refresh rewrites.
+- A competitor added for this refresh gets a full first card, tagged `[new]` at its heading.
+  A competitor dropped from this refresh is listed under What changed as dropped by the
+  builder, and gets no card.
+
+The "What changed" section above replaces the "Since" list in refresh mode. The card section
+names do not change.
+
 ## On a thin scan
 
 A competitor whose scan is thin gets a short, honest card that says so and carries what
