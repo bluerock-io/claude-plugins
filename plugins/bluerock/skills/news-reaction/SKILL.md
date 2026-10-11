@@ -1,7 +1,7 @@
 ---
 name: news-reaction
 description: >-
-  Verified News Reaction — point an agent team at a news story or announcement
+  News Monitoring & Response — point an agent team at a news story or announcement
   and get a reaction kit: the claims in it checked against independent sources,
   what was dropped and why, your angle on it, and drafted posts in your voice
   that only say what checked out. Use when I say "react to this", "should I post
@@ -11,7 +11,7 @@ description: >-
   my-work/news-reaction/. Holds the drafts when the story is not confirmed yet.
 ---
 
-Run the Verified News Reaction team on one story and produce a **reaction kit**: the facts
+Run the News Monitoring & Response team on one story and produce a **reaction kit**: the facts
 checked, the drafts written from only the facts that held. You orchestrate two agents; they
 do the work. The order is the point. The fact-checker runs first and can stop the
 reaction-writer, because a post that repeats a wrong claim costs the builder more than no
@@ -19,7 +19,7 @@ post.
 
 **What it replaces:** reading a story, checking whether it is true, finding what it means for
 what you sell, and drafting the post, by hand.
-**Time saved:** about 45 minutes by hand, estimated and not yet timed. The timed baseline
+**Time saved:** about 1 hour by hand, estimated and not yet timed. The timed baseline
 (E6-26) replaces this figure when it lands.
 
 ## First — anchor to the project
@@ -227,7 +227,7 @@ words.
    read`), the full URL as plain text, and the fact-checker's note on it in ink-3. Web
    searches with no URL are not rows.
 5. **Footer** — `Drafts only. Nothing here has been posted.` and `Built with BlueRock ·
-   Verified News Reaction · fact-checker + reaction-writer`.
+   News Monitoring & Response · fact-checker + reaction-writer`.
 
 **The scan test:** a builder about to post has about five seconds. The verdict strip and the
 claim colors must tell them whether it is safe to post before they read a sentence.
@@ -280,7 +280,7 @@ Not part of a run. Read this before rewording anything a builder sees.
   opening lines here.
 - The working folder shape `my-work/news-reaction/<YYYY-MM-DD>-<slug>/` is what step 7's
   same-story check reads; `/bluerock:wrap-up` logs runs against the agent-team label
-  **Verified News Reaction** with members `fact-checker` + `reaction-writer`.
+  **News Monitoring & Response** with members `fact-checker` + `reaction-writer`.
 - **The flow doc mirrors this skill** (content repo, private:
   `09-product/use-case-flows/news-reaction-flow.md`), and the concept ledger carries this
   skill's rows. Any change to the intake, dispatch, artifact, or close updates both in the

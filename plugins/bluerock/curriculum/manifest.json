@@ -343,7 +343,7 @@
     },
     {
       "id": "news-reaction",
-      "title": "Verified News Reaction",
+      "title": "News Monitoring & Response",
       "type": "skill",
       "category": "research-intelligence",
       "roles": [
@@ -364,8 +364,8 @@
       ],
       "one_liner": "Paste a news story or announcement and get a reaction kit: every claim in it checked against independent sources, what was dropped and why, your angle on it, and drafted posts in your voice that only say what checked out.",
       "artifact": "reaction kit",
-      "time_saved": "about 45 minutes by hand, estimated and not yet timed",
-      "time_saved_minutes": 45,
+      "time_saved": "about 1 hour by hand, estimated and not yet timed",
+      "time_saved_minutes": 60,
       "team": [
         "fact-checker",
         "reaction-writer"

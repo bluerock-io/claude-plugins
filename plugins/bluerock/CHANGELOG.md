@@ -1,6 +1,6 @@
 # Changelog — `bluerock` plugin
 
-## 0.17.0 — Verified News Reaction: check a story before you post about it
+## 0.17.0 — News Monitoring & Response: check a story before you post about it
 
 **A new use case, `/bluerock:news-reaction`.** Paste a link to a news story or announcement,
 or its text, and a two-agent team hands you a reaction kit. `fact-checker` reads the story,
