@@ -72,13 +72,20 @@ TIERS = {
 REQUIRED_ON_USE_CASE = ("title", "team", "artifact", "roles", "one_liner",
                         "time_saved", "time_saved_minutes", "concept", "output")
 
-# output landed 2026-10-12 (BFB-108): a glob for the file whose first write means a run of
-# this use case finished, e.g. "my-work/account-scorecard/*/scorecard.md". Builder usage is
-# counted from it: a daily query reads this manifest from main and counts
-# bfb.usecase.<id>.complete as the first write matching `output` and none of
-# `output_excludes`. Required so a new use case is counted from the day it ships, with no
-# query to edit. `output_excludes` is optional, for use cases that share a folder (a
-# Battlecard Refresh run lives beside the Competitor Battlecards runs it updates).
+# output landed 2026-10-12 (BFB-108): a list of globs for the file a finished run of this
+# use case leaves behind, e.g. ["my-work/account-scorecard/*/scorecard.md"]. Builder usage is
+# counted from it: a daily query reads this manifest from main and counts a finished run as a
+# distinct run folder holding a file that matches any `output` glob and no `output_excludes`
+# glob. Required so a new use case is counted from the day it ships, with no query to edit.
+# `output_excludes` is optional, for use cases that share a folder (a Battlecard Refresh run
+# lives beside the Competitor Battlecards runs it updates).
+#
+# A LIST, AND APPEND-ONLY (0.19.2). The same query backfills runs from every earlier toolkit
+# version, so the list must describe every place a version ever saved. Brand Messaging Doc
+# saved only messaging-doc.md before 0.15.0 and messaging-assessment.md on every run since;
+# both are listed. When a use case moves where it saves, ADD the new glob and keep the old
+# one. check_output_kept() fails a release that drops one, because the runs it matched
+# would silently stop counting.
 
 # title and concept landed 2026-09-10 with the discovery surfaces (0.14.0). `title` is
 # the builder-facing name every surface prints, the same seven the catalog page on
@@ -108,49 +115,89 @@ def derive_ships_from(rid, rtype):
 
 
 
+def as_globs(value):
+    """`output` as a list. 0.19.1 shipped it as a single string."""
+    if isinstance(value, str):
+        return [value]
+    return value if isinstance(value, list) else None
+
+
 def check_output(e, records):
-    """The `output` glob on one use case: well formed, named in its own skill, and
+    """The `output` globs on one use case: well formed, named in its own skill, and
     distinct from every other use case's, so one finished run is counted once."""
-    rid, out = e.get("id", "?"), e.get("output")
-    if not isinstance(out, str) or not out:
+    from fnmatch import fnmatch
+    rid, raw = e.get("id", "?"), e.get("output")
+    if raw in ("", None, []):
         return []  # reported as missing by the required-field check
+    globs = raw if isinstance(raw, list) else None
+    if not globs or not all(isinstance(g, str) and g for g in globs):
+        return [f"{rid}: output must be a non-empty list of globs, not {raw!r}"]
     problems = []
-    folder, _, filename = out.rpartition("/")
-    if not out.startswith("my-work/") or "*" not in folder or "*" in filename:
-        problems.append(
-            f"{rid}: output is {out!r}; it must be my-work/<folder>/<glob>/<file>, a "
-            f"glob over run folders ending in one fixed file name"
-        )
-        return problems
     excludes = e.get("output_excludes", [])
     if not isinstance(excludes, list) or not all(isinstance(x, str) for x in excludes):
         problems.append(f"{rid}: output_excludes must be a list of globs")
         excludes = []
     skill = Path(PLUGIN_DIR) / "skills" / rid / "SKILL.md"
-    if skill.exists():
-        text = skill.read_text(encoding="utf-8")
-        base = folder.split("*")[0]
-        for needle in (base, filename):
-            if needle not in text:
-                problems.append(
-                    f"{rid}: output names {needle!r}, which its SKILL.md never mentions; "
-                    f"the glob must describe where this skill actually writes"
-                )
-    # Two use cases whose globs both match the same finished run would count it twice.
-    # Probe each other use case's glob with a concrete path and require it to be
-    # excluded. fnmatch's * crosses "/", which is fine here: a probe has one run folder.
-    from fnmatch import fnmatch
-    for other in records:
-        oo = other.get("output")
-        if other is e or other.get("tier") != "use-case" or not isinstance(oo, str):
-            continue
-        probe = oo.replace("*", "2026-01-01-probe")
-        if fnmatch(probe, out) and not any(fnmatch(probe, x) for x in excludes):
+    text = skill.read_text(encoding="utf-8") if skill.exists() else None
+    for out in globs:
+        folder, _, filename = out.rpartition("/")
+        if not out.startswith("my-work/") or "*" not in folder or "*" in filename:
             problems.append(
-                f"{rid}: output {out!r} also matches {other.get('id')}'s runs "
-                f"({probe}); add an output_excludes so each run is counted once"
+                f"{rid}: output {out!r} must be my-work/<folder>/<glob>/<file>, a "
+                f"glob over run folders ending in one fixed file name"
             )
+            continue
+        if text is not None:
+            for needle in (folder.split("*")[0], filename):
+                if needle not in text:
+                    problems.append(
+                        f"{rid}: output names {needle!r}, which its SKILL.md never "
+                        f"mentions; the glob must describe where this skill writes"
+                    )
+    # Two use cases whose globs both match the same finished run would count it twice.
+    # Probe each other use case's globs with a concrete path and require it excluded.
+    # fnmatch's * crosses "/", which is fine here: a probe has one run folder.
+    for other in records:
+        if other is e or other.get("tier") != "use-case":
+            continue
+        for oo in as_globs(other.get("output")) or []:
+            probe = oo.replace("*", "2026-01-01-probe")
+            if any(fnmatch(probe, g) for g in globs) and not any(fnmatch(probe, x) for x in excludes):
+                problems.append(
+                    f"{rid}: output also matches {other.get('id')}'s runs ({probe}); "
+                    f"add an output_excludes so each run is counted once"
+                )
     return problems
+
+
+def check_output_kept(base):
+    """GUARD 4 — no release drops an `output` glob the previous one had.
+
+    The usage query backfills runs from every earlier toolkit version through these
+    globs. A glob removed here un-counts every run it matched, with no error anywhere.
+    """
+    print("\nGUARD 4: output globs are only ever added")
+    try:
+        old = json.loads(git("show", f"{base}:{LIBRARY_MANIFEST}")).get("library", [])
+        new = json.loads(Path(LIBRARY_MANIFEST).read_text(encoding="utf-8")).get("library", [])
+    except (subprocess.CalledProcessError, json.JSONDecodeError, FileNotFoundError):
+        print("  SKIP  cannot read the manifest at both refs")
+        return True
+    now = {e.get("id"): set(as_globs(e.get("output")) or []) for e in new}
+    dropped = []
+    for e in old:
+        for g in as_globs(e.get("output")) or []:
+            if g not in now.get(e.get("id"), set()):
+                dropped.append(f"{e.get('id')}: {g}")
+    if dropped:
+        print("  dropped:")
+        for d in dropped:
+            print(f"    {d}")
+        print("\nFAIL: runs saved under a dropped glob stop counting, including every")
+        print("      earlier run. Keep the old glob and add the new one beside it.")
+        return False
+    print("  ok    no output glob removed")
+    return True
 
 
 def git(*args):
@@ -371,7 +418,7 @@ def main():
         return 2
     base = sys.argv[1]
     results = [check_version_bump(base), check_json_parses(),
-               check_library_shape()]
+               check_library_shape(), check_output_kept(base)]
     if all(results):
         print("\nAll release guards passed.")
         return 0

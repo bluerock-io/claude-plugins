@@ -1,5 +1,17 @@
 # Changelog — `bluerock` plugin
 
+## 0.19.2 — Finished-run files cover every earlier version
+
+**Nothing changes in how any use case runs.** `output` in `curriculum/manifest.json` is now a
+list, so it can name every file a use case has finished a run with, across versions. Brand
+Messaging Doc saved only `messaging-doc.md` before 0.15.0 and saves `messaging-assessment.md` on
+every run since, so it lists both. A finished run is counted once per run folder, however many
+of its files match.
+
+The release check now refuses to drop an `output` entry. If a use case ever moves where it
+saves, the new location is added beside the old one, so runs from earlier versions keep
+counting.
+
 ## 0.19.1 — Each use case names the file that marks a finished run
 
 **Nothing changes in how any use case runs.** Each use case in `curriculum/manifest.json` now
