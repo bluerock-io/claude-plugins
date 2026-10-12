@@ -70,7 +70,15 @@ TIERS = {
 }
 
 REQUIRED_ON_USE_CASE = ("title", "team", "artifact", "roles", "one_liner",
-                        "time_saved", "time_saved_minutes", "concept")
+                        "time_saved", "time_saved_minutes", "concept", "output")
+
+# output landed 2026-10-12 (BFB-108): a glob for the file whose first write means a run of
+# this use case finished, e.g. "my-work/account-scorecard/*/scorecard.md". Builder usage is
+# counted from it: a daily query reads this manifest from main and counts
+# bfb.usecase.<id>.complete as the first write matching `output` and none of
+# `output_excludes`. Required so a new use case is counted from the day it ships, with no
+# query to edit. `output_excludes` is optional, for use cases that share a folder (a
+# Battlecard Refresh run lives beside the Competitor Battlecards runs it updates).
 
 # title and concept landed 2026-09-10 with the discovery surfaces (0.14.0). `title` is
 # the builder-facing name every surface prints, the same seven the catalog page on
@@ -98,6 +106,51 @@ def derive_ships_from(rid, rtype):
         return None
     return "toolkit" if path.exists() else "project"
 
+
+
+def check_output(e, records):
+    """The `output` glob on one use case: well formed, named in its own skill, and
+    distinct from every other use case's, so one finished run is counted once."""
+    rid, out = e.get("id", "?"), e.get("output")
+    if not isinstance(out, str) or not out:
+        return []  # reported as missing by the required-field check
+    problems = []
+    folder, _, filename = out.rpartition("/")
+    if not out.startswith("my-work/") or "*" not in folder or "*" in filename:
+        problems.append(
+            f"{rid}: output is {out!r}; it must be my-work/<folder>/<glob>/<file>, a "
+            f"glob over run folders ending in one fixed file name"
+        )
+        return problems
+    excludes = e.get("output_excludes", [])
+    if not isinstance(excludes, list) or not all(isinstance(x, str) for x in excludes):
+        problems.append(f"{rid}: output_excludes must be a list of globs")
+        excludes = []
+    skill = Path(PLUGIN_DIR) / "skills" / rid / "SKILL.md"
+    if skill.exists():
+        text = skill.read_text(encoding="utf-8")
+        base = folder.split("*")[0]
+        for needle in (base, filename):
+            if needle not in text:
+                problems.append(
+                    f"{rid}: output names {needle!r}, which its SKILL.md never mentions; "
+                    f"the glob must describe where this skill actually writes"
+                )
+    # Two use cases whose globs both match the same finished run would count it twice.
+    # Probe each other use case's glob with a concrete path and require it to be
+    # excluded. fnmatch's * crosses "/", which is fine here: a probe has one run folder.
+    from fnmatch import fnmatch
+    for other in records:
+        oo = other.get("output")
+        if other is e or other.get("tier") != "use-case" or not isinstance(oo, str):
+            continue
+        probe = oo.replace("*", "2026-01-01-probe")
+        if fnmatch(probe, out) and not any(fnmatch(probe, x) for x in excludes):
+            problems.append(
+                f"{rid}: output {out!r} also matches {other.get('id')}'s runs "
+                f"({probe}); add an output_excludes so each run is counted once"
+            )
+    return problems
 
 
 def git(*args):
@@ -228,6 +281,7 @@ def check_library_shape():
                     f"builder-visible tally, so it must be a positive whole number "
                     f"of minutes per run, not prose"
                 )
+            problems.extend(check_output(e, records))
             if e.get("ships_from") != "toolkit":
                 problems.append(
                     f"{rid}: tier use-case must ship in the toolkit, not "

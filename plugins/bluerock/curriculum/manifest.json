@@ -165,6 +165,7 @@
       ],
       "concept": "subagent-teams",
       "artifact": "scorecard",
+      "output": "my-work/account-scorecard/*/scorecard.md",
       "time_saved": "about 2 hours by hand per account, estimated and not yet timed",
       "time_saved_minutes": 120
     },
@@ -193,6 +194,7 @@
       ],
       "concept": "subagent-teams",
       "artifact": "messaging doc",
+      "output": "my-work/messaging-doc/*/messaging-assessment.md",
       "time_saved": "about 4 hours by hand, estimated and not yet timed",
       "time_saved_minutes": 240
     },
@@ -218,6 +220,8 @@
       ],
       "one_liner": "Point an agent team at the competitors you face (up to 4) and get a battlecard per competitor: sourced kill points, your differentiators aimed, where they're genuinely better, and one question to ask.",
       "artifact": "battlecard",
+      "output": "my-work/competitive-intel/*/battlecard.md",
+      "output_excludes": ["my-work/competitive-intel/*-refresh/*"],
       "time_saved": "about 1 hour by hand, estimated and not yet timed",
       "time_saved_minutes": 60,
       "team": [
@@ -246,6 +250,7 @@
       ],
       "one_liner": "Find out whether you show up when buyers ask an AI which product to use — the verdict on each of your buyer questions, and a fix queue ordered by impact and effort with an owner on every line.",
       "artifact": "AEO Scorecard",
+      "output": "my-work/aeo-visibility/*/aeo-scorecard.md",
       "time_saved": "about 1.5 hours by hand, estimated and not yet timed",
       "time_saved_minutes": 90,
       "team": [
@@ -274,6 +279,7 @@
       ],
       "one_liner": "Point an agent team at the people you want to reach (up to 4) and get an outreach kit: who they are and why now, sourced, the angle, and a draft in your voice. Nothing is sent.",
       "artifact": "outreach kit",
+      "output": "my-work/outreach-prep/*/outreach-kit.md",
       "time_saved": "about 1 hour by hand, estimated and not yet timed",
       "time_saved_minutes": 60,
       "team": [
@@ -304,6 +310,7 @@
       ],
       "one_liner": "Talk through a process that only lives in your head, one question at a time, and get back two things that work: a skill in your project that runs it, and a runbook someone else could follow.",
       "artifact": "runbook",
+      "output": "my-work/process-to-skill/*/runbook.md",
       "time_saved": "varies by process; about 2 hours by hand for a typical pass, estimated and not yet timed",
       "time_saved_minutes": 120,
       "team": [
@@ -333,6 +340,7 @@
       ],
       "one_liner": "Drop in your account list (up to 40) and get a signal digest: what moved on which accounts, ranked act-this-week first, with the accounts that are genuinely quiet named as quiet.",
       "artifact": "signal digest",
+      "output": "my-work/signal-monitor/*/signal-digest.md",
       "time_saved": "about 1.5 hours by hand, estimated and not yet timed",
       "time_saved_minutes": 90,
       "team": [
@@ -364,6 +372,7 @@
       ],
       "one_liner": "Paste a news story or announcement and get a reaction kit: every claim in it checked against independent sources, what was dropped and why, your angle on it, and drafted posts in your voice that only say what checked out.",
       "artifact": "reaction kit",
+      "output": "my-work/news-reaction/*/reaction-kit.md",
       "time_saved": "about 1 hour by hand, estimated and not yet timed",
       "time_saved_minutes": 60,
       "team": [
@@ -1082,6 +1091,7 @@
       ],
       "one_liner": "Drop in a CSV export of accounts from your CRM and get back a cleaned file to re-import, plus a change log naming every edit: formats fixed, duplicates found, and missing industry, size, and headquarters filled from public sources, each with its source. Up to 24 rows looked up per run.",
       "artifact": "change log",
+      "output": "my-work/crm-cleanup/*/change-log.md",
       "time_saved": "about 2 hours by hand, estimated and not yet timed",
       "time_saved_minutes": 120,
       "team": [
@@ -1151,6 +1161,7 @@
       ],
       "one_liner": "Bring the battlecards you already have up to date instead of starting over: every earlier claim re-checked, the kill points that stopped being true retired, what's new added, and what changed shown first.",
       "artifact": "refreshed battlecard",
+      "output": "my-work/competitive-intel/*-refresh/battlecard.md",
       "time_saved": "about 2 hours by hand, estimated and not yet timed",
       "time_saved_minutes": 120,
       "team": [

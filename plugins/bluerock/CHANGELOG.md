@@ -1,5 +1,18 @@
 # Changelog — `bluerock` plugin
 
+## 0.19.1 — Each use case names the file that marks a finished run
+
+**Nothing changes in how any use case runs.** Each use case in `curriculum/manifest.json` now
+carries `output`, the file whose first write means a run finished: for example
+`my-work/account-scorecard/*/scorecard.md`. Battlecard Refresh and Competitor Battlecards share
+a folder, so Competitor Battlecards also carries `output_excludes` to keep a refresh from
+counting as a new set of battlecards.
+
+This is what lets BlueRock count finished runs per use case from the manifest itself, so a
+use case is counted from the day it ships. The release check now fails a use case that has no
+`output`, names a folder or file its own skill never mentions, or would count another use
+case's runs as its own.
+
 ## 0.19.0 — Battlecard Refresh: bring your battlecards up to date without starting over
 
 **A new use case, `/bluerock:battlecard-refresh`.** It takes the battlecards you already
