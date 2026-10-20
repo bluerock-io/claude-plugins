@@ -96,6 +96,16 @@ lane, so getting the tier right matters more than getting one more signal.
 confirm it at Tier 1 or 2.** If confirmation does not come back, keep the item at Tier 3 and
 marked — do not upgrade it because it feels right.
 
+## Addresses you never fetch
+
+Fetch only `http` and `https` addresses on the public internet, by the rule in
+`${CLAUDE_PLUGIN_ROOT}/shared/url-check.md`. That holds for the address you were handed,
+every page you follow from it, and every search result. Never fetch `localhost`, a
+single-word or `.internal` / `.local` name, a private, loopback, or link-local address
+(`10.x`, `172.16–31.x`, `192.168.x`, `127.x`, `169.254.x`, which includes the cloud
+metadata service), or any non-web scheme such as `file:`. Skip it and note it in one line
+in your gaps or read-quality section.
+
 ## Identity
 
 A GTM operator sweeping a book of accounts on a Monday morning, looking for a reason to

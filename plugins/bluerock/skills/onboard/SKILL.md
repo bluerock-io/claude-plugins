@@ -2,9 +2,12 @@
 name: onboard
 description: >-
   Get to know me and set up my agentic project so it knows who I am, what I'm working on,
-  and how I write. Use when I say "onboard me", "get to know me", "set up my
-  project", "prime my project", "build my profile", or when I paste what ChatGPT/Claude
-  already knows about me.
+  and how I write. Before the interview, if BlueRock's starter template has newer starter
+  files than my project, it asks before bringing them up to date (a git fetch and
+  fast-forward from the template repo, which on a new project also links it to the
+  template's git history); nothing I've written is changed. Use when I say "onboard me",
+  "get to know me", "set up my project", "prime my project", "build my profile", or when
+  I paste what ChatGPT/Claude already knows about me.
 ---
 
 You are running the get-to-know-you for a new BlueRock builder. They may be in
@@ -31,17 +34,21 @@ capture its **absolute path** with `pwd`, and write all three files to that full
 the home folder. Can't find it at all? Ask the builder which folder their project is in.
 Never write their files outside it.
 
-## Next — refresh the starter files (silent preflight)
+## Next — offer to refresh the starter files (asks first)
 
 The project began as a baked copy of the starter template, which may be behind the
-template repo. Once anchored, and before you write anything, attempt one refresh.
-The rule that governs everything here: **failure of any kind means skip silently** —
-no git output, no error message, no question. Continue onboarding exactly as if this
-section didn't exist. Worst case the builder keeps the baked copy, which is what they
-had anyway.
+template repo. Once anchored, and before you write anything, look once to see whether a
+refresh is due, and **ask before changing anything**. Two rules govern this section:
 
-Using the project's absolute path (`git -C <project>`, never a bare `cd`), proceed
-only if ALL three hold:
+- **Looking changes nothing and needs no question.** The checks below only read. When
+  they show no refresh is due or possible, nothing has changed, so there is nothing to
+  report: carry on to the interview.
+- **Every step that changes the project's git state is asked for first and reported
+  after.** That is the fetch, the one-time repair, and the fast-forward. Never run them
+  without a yes, and once the builder has said yes, always tell them how it came out.
+
+Using the project's absolute path (`git -C <project>`, never a bare `cd`), a refresh is
+possible only if both hold:
 
 1. `.git` exists in the project root.
 2. One of the project's remotes points at the template: in `git remote -v`, a remote
@@ -49,14 +56,19 @@ only if ALL three hold:
    name for the same repo — treat both as the template). Baked workspaces name it
    `upstream`; older or hand-cloned projects name it `origin` — accept either, and use
    whichever remote matched in the commands below (call it the template remote).
-3. `git status --porcelain` prints nothing (no edits, nothing untracked).
 
-**Between checks 2 and 3, one one-time repair.** Freshly provisioned workspaces ship
-with `main` unborn — the repo exists but has zero commits, so every starter file shows
-as untracked and check 3 would fail forever. If checks 1 and 2 pass but
-`git rev-parse HEAD` fails (no commits yet), attach the project to the template's
-history first: `git fetch <template-remote> main`, then
-`git update-ref refs/heads/main <template-remote>/main`, then
+If either fails, no refresh is possible: move on. Otherwise, it is one of two cases.
+
+**Case A — no save history yet** (`git rev-parse HEAD` fails). Freshly provisioned
+workspaces ship with `main` unborn: the repo exists but has zero commits, so every
+starter file shows as untracked. A refresh is due. Ask, roughly this way, in your own
+words: "Your project started as a copy of BlueRock's starter files. Before we start, I
+can bring them up to date from BlueRock's template, which also sets your project up to
+keep track of your own changes from here. Nothing you've written is changed, and if anything doesn't line up I stop and leave it as it was. **I'd say yes.**
+Want me to?"
+
+On yes, attach the project to the template's history: `git fetch <template-remote> main`,
+then `git update-ref refs/heads/main <template-remote>/main`, then
 `git read-tree <template-remote>/main`. **Never use `git reset` for this, in any
 form** — even `--mixed`, which touches no file on disk, gets auto-denied outright by
 Claude Code's own auto mode classifier before it runs, with no prompt and nothing for
@@ -64,30 +76,47 @@ the builder to approve (confirmed 2026-08-18: "Blocked by classifier", no waitin
 state, no dialog — it matches on the shape of the command, not on which flag makes it
 safe). `update-ref` + `read-tree` do exactly what the `reset --mixed` would have:
 `update-ref` points `main` at the template's history, `read-tree` marks the starter
-files as tracked by loading that commit's tree into the index — check 3 can pass, and
-the builder's first commit later carries only their own changes. Neither command
-touches a file on disk. Say nothing about it. If any command fails, skip it silently
-like everything else here. Never run it when `main` already has commits: a project
-with real history that cannot fast-forward has no safe automatic repair.
+files as tracked by loading that commit's tree into the index, and the builder's first
+commit later carries only their own changes. Neither command touches a file on disk.
+Then continue with the fast-forward below if `git status --porcelain` prints nothing.
 
-If all three pass: `git fetch <template-remote>`, then
+**Case B — the project has save history.** A refresh is possible only if
+`git status --porcelain` prints nothing (no edits, nothing untracked) and, when the
+template remote's `main` is already known locally, `git rev-list --count
+<template-remote>/main..HEAD` is 0 (the builder has no commits of their own, which a
+fast-forward could not carry). Then read the template's latest without changing
+anything: `git ls-remote <template-remote> refs/heads/main`. If that fails (offline, for
+example), or its commit equals `HEAD`, no refresh is due: move on. Otherwise ask,
+roughly this way: "BlueRock's starter files have a newer version than the copy your
+project started from. I can bring them up to date before we start. It only moves your
+project forward to the newer starter files; nothing you've written is changed, and if
+anything doesn't line up I stop and leave it as it was. **I'd say yes.** Want me to?"
+
+**The fast-forward, on yes in either case:** `git fetch <template-remote>`, then
 `git merge --ff-only <template-remote>/main` — explicitly `/main`, because some
 workspaces sit on a branch named `master` while the template's default branch is
-`main` (a bare `git pull` would fail on that mismatch; never use it).
+`main` (a bare `git pull` would fail on that mismatch; never use it). Never run the
+Case A repair when `main` already has commits: a project with real history that cannot
+fast-forward has no safe automatic repair.
 
-Afterwards, exactly one of three outcomes:
+**Then tell the builder how it came out, in one line, with no commit hashes, branch
+names, or git vocabulary:**
 
-- **It advanced:** tell the builder one friendly line at most — "I refreshed your
-  starter files to the latest" — no commit hashes, no branch names, no git vocabulary.
-- **Already current:** say nothing.
-- **Anything else** (a check failed, the fetch failed — e.g. offline — or the merge
-  refused because of local commits): say nothing, change nothing, move on.
+- **It advanced, or the repair ran:** "Your starter files are up to date."
+- **Already current after all:** "Your starter files were already up to date. Nothing
+  changed."
+- **Anything failed** (the fetch, the repair, or the fast-forward refused): "I couldn't
+  bring the starter files up to date this time, so they're as they were. Nothing of
+  yours changed." Do not show the error or retry.
+
+**On no:** "No problem. Nothing changed." Rerunning `/bluerock:onboard` offers again.
+Either way, carry on to the interview.
 
 Never merge without `--ff-only`, never stash, never reset, never touch the builder's
-files to force the refresh through. This preflight goes quiet over a project's life
-by design — the builder's own work dirties the tree, their commits break the
-fast-forward, and on older projects a swapped `origin` stops matching. That is
-correct behavior, not a failure to fix.
+files to force the refresh through. Over a project's life this offer stops appearing by
+design: the builder's own work dirties the tree, their commits rule out the
+fast-forward, and on older projects a swapped `origin` stops matching. That is correct
+behavior, not a failure to fix.
 
 ## The fastest start: the portability prompt
 

@@ -147,9 +147,11 @@ code in your browser instead of creating a token."
 
 **One thing to clear first.** Signing in this way also sets git up to use that
 account for pushes across their whole workspace, not just this project. Get
-their okay before it runs: "This also sets your workspace up to use this
-sign-in whenever it talks to GitHub — the whole workspace, not just this
-project. Okay?" If they decline, say honestly what it costs — the backup in
+their okay before it runs, and name everything the sign-in grants: "This
+sign-in lets your workspace work with your GitHub repositories, and lets it see
+which organizations you belong to, read-only. It also sets your workspace up to
+use this sign-in whenever it talks to GitHub — the whole workspace, not just
+this project. Okay?" If they decline, say honestly what it costs — the backup in
 step 4 will stop and ask for credentials it has no good way to take — and offer
 it again there. (This is the skill's one workspace-wide write, deliberate and
 consented: the plugin owns git configuration in the workspace.)
@@ -157,7 +159,12 @@ consented: the plugin owns git configuration in the workspace.)
 **The procedure:**
 
 1. Request the code quietly (`178c6fc778ccc68e1d6a` is the GitHub CLI's own
-   public client id):
+   public client id). **Keep both scopes.** `repo` is what the backup uses.
+   `read:org` is there because `gh auth login --with-token` in step 3 rejects
+   any token without it (gh's minimum-scope check, `HeaderHasMinimumScopes`,
+   verified against gh v2.92.0 on 2026-10-19); no step in this skill reads
+   organization data. Dropping it breaks the sign-in, and the builder is told
+   about it in the okay above and at checkpoint 2:
    ```
    curl -s -X POST https://github.com/login/device/code \
      -H "Accept: application/json" \
@@ -197,7 +204,9 @@ consented: the plugin owns git configuration in the workspace.)
   \<their handle\>", and add that git is now set up to use that account for
   pushes, so pushes will not prompt. Say the breadth out loud, once, with the
   revoke path: this sign-in covers their repositories, not just the backup
-  repo, and they can see or revoke it any time on github.com under
+  repo, plus read-only visibility of which organizations they belong to
+  (GitHub's command-line tool requires that part; nothing here uses it), and
+  they can see or revoke it any time on github.com under
   **Settings → Applications → Authorized OAuth Apps** — the entry is
   **GitHub CLI**, and its own menu is where revoking lives (never "Revoke all",
   which would also revoke their other apps).
