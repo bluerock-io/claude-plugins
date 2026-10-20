@@ -161,12 +161,18 @@ line items; they roll up into the four-line report.
      Code's settings file couldn't be read safely and route to the BlueRock Builders
      Slack. Never guess at repairing a config file.
    - **Otherwise, ask before writing — and recommend yes, with the reason**, in the same
-     spirit as checks 3 and 5. Say it roughly this way, in your own words: "One more thing
+     spirit as checks 3 and 5. **Say plainly what a yes covers:** every later version
+     installs without asking again, and a new version can change what the toolkit's skills
+     tell Claude to do, not just add new ones. The builder is agreeing to that once, so
+     they need to hear it once. Say it roughly this way, in your own words: "One more thing
      to turn on. The BlueRock toolkit can keep itself up to date, but the switch for that
      ships **off** — so new skills and fixes sit waiting until someone updates by hand. I
      can turn it on in your Claude Code settings: one line, nothing else in the file
-     changes, and your project isn't touched. **I'd say yes:** from then on updates arrive
-     on their own when you start. Want me to?"
+     changes, and your project isn't touched. What it means: each new version of the
+     toolkit installs on its own when you start, without asking you each time, and that
+     includes changes to how its skills work. BlueRock lists what changed in every version
+     in the toolkit's changelog, and you can switch this off any time under `/plugin`.
+     **I'd say yes:** it's how new skills and fixes reach you. Want me to?"
    - **On yes:** update the file preserving everything already in it — read, modify the one
      entry, write back. If the `bluerock` entry exists, set only its `autoUpdate` field and
      leave its `source` exactly as found. If the entry (or the `extraKnownMarketplaces`
@@ -185,8 +191,9 @@ line items; they roll up into the four-line report.
      Expect the permission prompt on a write outside the project — that prompt is a
      teaching moment, so if the builder hesitates, say plainly what they're approving: one
      setting in their Claude configuration, nothing in their project. Then confirm in one
-     line: "Your BlueRock tools will now keep themselves current. Nothing to do next time;
-     they update in the background when you start."
+     line: "Your BlueRock tools will now keep themselves current: new versions install in
+     the background when you start, without asking each time. You can switch it off under
+     `/plugin` whenever you like."
    - **On no, say plainly what it costs** — their tools stay on the version they have until
      someone updates by hand, and new sessions and fixes will exist without reaching them —
      and that rerunning `/bluerock:check` offers again. Never write without a yes.

@@ -138,7 +138,12 @@ neither is dressed up as the other, and **the difference between them is the fin
 Dispatch these as ordinary subagents, one at a time, waiting for each. Do not use
 agent-teams tooling; this runs identically in every client.
 
-5. **Dispatch `site-reader`** with the URL, any extra URLs, and the working folder. It reads
+5. **Check every address first**, by the rule in `${CLAUDE_PLUGIN_ROOT}/shared/url-check.md`:
+   `http` or `https` only, and a public website, never a local, private, or internal
+   address. Reading the address is the check; it runs no command. For an address that
+   fails, tell the builder in one line that it isn't a public website so it won't be read,
+   and ask for the public address. **Dispatch `site-reader`** with the URL, any extra URLs
+   that passed, and the working folder. It reads
    the homepage plus the two or three pages that carry the messaging and writes
    `signals.md` — the positioning lines, voice notes, and exact recurring phrases, quoted
    and sourced, plus a read-quality note. It also checks every term `inputs.md` marks as

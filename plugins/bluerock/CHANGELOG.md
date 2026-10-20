@@ -1,5 +1,29 @@
 # Changelog — `bluerock` plugin
 
+## 0.19.3 — Onboard asks before refreshing your starter files, and web reads stay on public sites
+
+**`/bluerock:onboard` asks before it touches your project's git state.** When BlueRock's
+starter template has newer starter files than your project, onboard now asks before
+bringing them up to date, and tells you how it came out. Before, it did this without
+asking and said nothing when it found the files current or the refresh failed. The
+refresh itself is unchanged: it only fast-forwards, and never changes a file you wrote.
+Say no and nothing changes.
+
+**Agents fetch only public websites.** Every agent that reads the web, and
+`/bluerock:messaging-doc` before it hands off a URL, now skips addresses that are not
+`http`/`https` or that point at a local, private, or internal network, including the
+cloud metadata service. The rule is in `shared/url-check.md`. A public address works as
+before.
+
+**Two consent questions say more.** `/bluerock:check` now says what turning on automatic
+updates means: later versions install without asking each time, including changes to how
+the skills work, the changelog lists each version, and you can switch it off under
+`/plugin`. `/bluerock:learn-save-your-work` now says the GitHub sign-in also gives
+read-only visibility of which organizations you belong to. GitHub's command-line tool
+will not accept a sign-in without it, so the permission stays.
+
+These answer five findings from BlueRock's Agentic Trust Registry scan of this repo (BFB-117).
+
 ## 0.19.2 — Finished-run files cover every earlier version
 
 **Nothing changes in how any use case runs.** `output` in `curriculum/manifest.json` is now a
