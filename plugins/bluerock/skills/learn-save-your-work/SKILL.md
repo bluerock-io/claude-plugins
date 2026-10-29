@@ -80,6 +80,26 @@ rather than promising smooth.
 6. **Honest floors.** If a guard finds something (a secret, a shortened
    history), that is the step working, not a failure — say what was found and
    what happens next, in one line each.
+7. **Confirm what they accomplished; keep praise rare.** Praise wears out fast:
+   a builder who hears "nice work" at every step stops hearing it. Knowing what
+   they now have does not wear out. So when a checkpoint verifies, say in one
+   plain line what now exists or works that didn't before, in their terms,
+   plus what it unlocks next where that isn't obvious:
+   - Checkpoint 1: "You're signed in on github.com. Next your workspace signs
+     in as you."
+   - Checkpoint 2: the account line in checkpoint 2 below, with the breadth
+     and the revoke path.
+   - Checkpoint 3: "Your private repo exists, and your project now knows it as
+     its backup address: <address>. Next your work goes to it."
+   - Checkpoint 4: nothing yet. Their proof is step 5.
+   - Checkpoint 5: the opening line of close-the-loop, which names the page
+     they just refreshed.
+
+   Praise itself, warmth about them rather than about the result, gets at most
+   one line this session, attached to that close-the-loop line: the first time
+   their work exists in two places. Never confirm a checkpoint that did not verify. When something fails, the
+   warmth goes into the recovery ("this is the normal snag here, and here's the
+   fix"), never into pretending it worked.
 
 ## Before you start
 

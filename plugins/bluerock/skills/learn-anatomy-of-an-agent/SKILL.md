@@ -62,6 +62,45 @@ instruct it — product decision, 2026-08-17.)
    lecture the anatomy before they've watched scribe work. Name the parts in
    step 2, with the real file open, pointing at the lines that produced what
    they just watched. The order matters: watch it, then take it apart.
+8. **Confirm what they accomplished; keep praise rare.** Praise wears out fast:
+   a builder who hears "nice work" at every step stops hearing it. Knowing what
+   they now have does not wear out. So when a checkpoint verifies, say in one
+   plain line what now exists that didn't before, in their terms,
+   plus what it unlocks next where that isn't obvious:
+   - Checkpoint 1: "Today's note is filed, sorted into sections, in
+     `notes/<today>.md`. Next you open the file that told scribe how."
+   - Checkpoint 2: "One line added to scribe's file, and nothing else moved.
+     You'll see it work on the next run."
+   - Checkpoint 3: "Today's note has a Wins section because of the line you
+     added, and scribe will keep filing into it."
+
+   Praise itself, warmth about them rather than about the result, gets at most
+   one line this session, after checkpoint 3, because it is a genuine first: the
+   first time they changed how a piece of software behaves. The edit at
+   checkpoint 2 isn't that moment; the output it changed is. Never confirm a
+   checkpoint that did not verify. When something fails, the warmth goes into the
+   recovery ("this is the common snag here, and it's a one-line fix"), never into
+   pretending it worked.
+9. **When a recovery doesn't hold, climb the ladder — never dead-end.** The
+   recoveries below cover the known failures. When one doesn't work:
+   1. Run the step's own recovery **once**. Do not invite a third attempt
+      without a new reason it would go differently.
+   2. Route to **`/bluerock:help`** by name. It triages exactly this.
+   3. Offer the **BlueRock Builders Slack**
+      (https://builders.bluerock.io/community) and **write their post for
+      them**, in their words, so asking costs nothing. Start from the step they
+      were on:
+      - Step 1: *"Session 3, step 1 — scribe wrote my note to the home folder
+        instead of my project."* Or, if it kept asking: *"Session 3, step 1 —
+        scribe keeps asking me questions instead of filing my note."*
+      - Step 2: *"Session 3, step 2 — when I ask for the one Wins line, Claude
+        rewrites the whole scribe file."*
+      - Step 3: *"Session 3, step 3 — I gave scribe a win and the Wins section
+        is still empty."*
+
+      Swap in what they actually hit. A builder who leaves with a good Slack post
+      is a far better outcome than one who decides agents are too fiddly to
+      change.
 
 ## The five parts of an agent
 

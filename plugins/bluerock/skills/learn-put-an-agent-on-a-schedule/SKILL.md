@@ -68,6 +68,27 @@ broken.
    `surface` in `progress.json`. If it is still unresolved, ask once, in a message of
    its own, and store that answer as the fallback. A detected value always beats a
    stored one and is never written back. Surface changes one phrase only.
+7. **Confirm what they accomplished; keep praise rare.** Praise wears out fast:
+   a builder who hears "nice work" at every step stops hearing it. Knowing what
+   they now have does not wear out. So when a checkpoint verifies, say in one
+   plain line what now exists or works that didn't before, in their terms,
+   plus what it unlocks next where that isn't obvious:
+   - Checkpoint 1: "One job, on <cadence>, and it earned <the trigger>. Next you
+     write what it should do, before creating anything."
+   - Checkpoint 2: "The instruction is written, and it names exactly where the
+     result lands: <path>. That path is where you'll go to check on it."
+   - Checkpoint 3: "You know what it does with nobody in the room: <their
+     sentence>. That's what keeps a scheduled run from stalling on a question."
+   - Checkpoint 4: "Your routine is on the Routines page, next run <time>. Next
+     you fire it by hand and go find the result."
+   - Checkpoint 5: the opening line of close-the-loop, which names the routine,
+     its cadence, and the file they just opened.
+
+   Praise itself, warmth about them rather than about the result, gets at most
+   one line this session, attached to that close-the-loop line: the first work
+   in their system that happens without them. Never confirm a checkpoint that did not verify. When something fails, the
+   warmth goes into the recovery ("this is the normal snag here, and here's the
+   fix"), never into pretending it worked.
 
 ## The idea, in one frame
 

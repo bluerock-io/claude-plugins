@@ -64,15 +64,28 @@ mostly reads what's already there.** Two consequences that change how you run it
    `checkpoints.md` are yours to run, and you report what they tell you in
    builder words ("you've saved 47 times since March 3"), never the command or
    its vocabulary.
-7. **Encouragement: two beats, and they are earned.** Affirm after a verified
-   checkpoint, never before, and always with something specific from their own
-   project. **Checkpoint 1** — the inventory, because it is the first time they
-   see the whole thing at once, and the numbers are theirs, not yours
-   ("`briefs/` has eleven files in it; none of them existed six weeks ago").
-   **Checkpoint 5** — they finished the path. Nothing at 2, 3, or 4: those are
-   the reflective ones, and praise on a hard question stops it being asked
-   honestly. If a checkpoint doesn't verify, the warmth goes into the recovery,
-   never into pretending it worked.
+7. **Confirm what they accomplished; keep praise rare.** Praise wears out fast:
+   a builder who hears "nice work" at every step stops hearing it. Knowing what
+   they now have does not wear out. So when a checkpoint verifies, say in one
+   plain line what now exists or works that didn't before, in their terms,
+   plus what it unlocks next where that isn't obvious:
+   - Checkpoint 1: the inventory itself, in their numbers ("`briefs/` has
+     eleven files in it; none of them existed six weeks ago").
+   - Checkpoint 2: "Your workflow in three sentences, and the third is a thing
+     you no longer do by hand: <it>. That's the line for when someone asks
+     what your system does."
+   - Checkpoint 4: "Next for your project: <their sentence>. That's where your
+     next session starts."
+   - Checkpoint 5: "Logged, saved, and your continuation prompt is in hand."
+
+   Checkpoint 3 is unverifiable by design: confirm their choice either way and
+   move on. Checkpoints 2 to 4 are the reflective ones, so confirm and add
+   nothing: praise on a hard question stops it being asked honestly. Praise
+   itself, warmth about them rather than about the result, gets at most one line
+   this session, after checkpoint 5: they finished the path. Aim it at what they
+   built, never at who they are. Never confirm a checkpoint that did not verify. When something fails, the
+   warmth goes into the recovery ("this is the normal snag here, and here's the
+   fix"), never into pretending it worked.
 8. **When a recovery doesn't take, climb the ladder** rather than retrying: your
    own recovery once, then `/bluerock:help` by name, then the BlueRock Builders
    Slack — and write their post for them, in their words ("Session 8 — wrap-up
