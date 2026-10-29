@@ -204,6 +204,16 @@ Never leave a builder holding an error with no named next move.
 - **Releases are deliberate.** Edits merge to a branch; a release is a `plugin.json` version
   bump plus a CHANGELOG entry, batched, on the product owner's and Eng's cadence. The plugin is public and
   live — main reaches real builders.
+  - **Direct push to `main` is blocked.** Everything merges with `gh pr merge <n> --squash --delete-branch`.
+  - **A change under `plugins/bluerock/` needs a version bump** in
+    `plugins/bluerock/.claude-plugin/plugin.json`, or CI fails the PR. A new skill or agent is a minor; a
+    copy fix is a patch. `plugins/bluerock/CHANGELOG.md` is exempt, since fixing a release note is not a
+    release. To ship something that genuinely reaches no builder, label the PR `no-version-bump`.
+  - **Why:** Claude Code's auto-update and `/bluerock:check` both compare versions, so a change merged
+    without a bump ships to nobody and nothing says so. On 2026-09-08 five use cases landed across five
+    PRs at an unchanged version and reached no one until the bump.
+  - **Check before opening the PR:** `python3 .github/scripts/check_release_hygiene.py origin/main` runs
+    the same logic as `.github/workflows/release-hygiene.yml`.
 - **Never write a builder's file outside their project.** Anchor first, capture the absolute
   path, write to it. Never delete or replace a real file without consent.
   - **One carve-out (product decision, 2026-08-17): the builder's Claude configuration, one field.**
