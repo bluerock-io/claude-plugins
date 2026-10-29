@@ -116,19 +116,28 @@ same breath and where its depth lives. **The skill and its page share one row** 
 glosses a concept and the page does not, the row says so, and that disagreement travels on the
 page diff that behavior-visible changes already require.
 
-### Encouragement — earned, specific, after the work (product decision, 2026-08-15)
+### Confirmation first, praise rare (product decision 2026-08-15, revised 2026-10-29)
 
-- **Affirm after a verified checkpoint, never before.** Same law as the green callout: praise
-  is a reward, and it attaches to something that verifiably just happened.
-- **Specific beats warm-generic.** "That scorecard cites five sources you didn't have twenty
-  minutes ago" lands; "Great job!" is filler and reads as canned. Name what they made, in
-  their terms.
-- **Milestones get a beat; steps don't.** One sentence of recognition at a session's close and
-  at genuine firsts (first agent run, first edit that changed behavior, first save). Per-step
-  cheerleading trains skimming, the same way a tripwire that always fires does.
-- **Never false-positive warmth.** If the checkpoint didn't verify, the encouragement goes
-  into the recovery ("this is a normal snag — here's the fix"), never into pretending it
-  worked. An honest "not yet" from a teacher a builder trusts is itself encouraging.
+Linda, 2026-10-29: "we need to balance praise with confirmation of what they accomplished.
+praise gets old." Every session skill carries this as a rule in its "How to teach" list, with
+one example confirmation per checkpoint.
+
+- **Confirm every verified checkpoint in one plain line: what now exists or works that
+  didn't before, in their terms.** "One line added to scribe's file, and nothing else
+  moved." Add what it unlocks next where that isn't obvious ("You'll see it work on the
+  next run"): feedback that says where to next does more than feedback that only says done.
+  This is most of the encouragement a session needs, and unlike praise it does not wear out. Feedback research points the same way: feedback that carries information about
+  the task helps, and feedback aimed at the person is the weakest kind and sometimes lowers
+  performance (Kluger and DeNisi 1996; Hattie and Timperley 2007).
+- **Praise is at most one line per session**, at a genuine first (first agent run, first
+  edit that changed behavior, first save off the machine, the path finished), after that
+  checkpoint verifies. Aim it at what they did ("you found the one line that makes three
+  specs a team"), never at who they are. "Great job" is filler and reads as canned.
+- **Reflective checkpoints get a confirmation and nothing more.** Praise on a hard question
+  stops it being asked honestly.
+- **Never confirm a checkpoint that did not verify.** The warmth goes into the recovery
+  ("this is a normal snag, and here's the fix"), never into pretending it worked. An honest
+  "not yet" from a teacher a builder trusts is itself encouraging.
 
 ### When the skill can't fix it — the help ladder (product decision, 2026-08-15)
 

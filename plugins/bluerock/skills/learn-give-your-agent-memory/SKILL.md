@@ -67,6 +67,49 @@ and prove it worked. Do not re-implement the interview — dispatch the skill.
    changes one phrase only: the builder types in **the Claude Code panel**
    (Cursor) or **their connected Claude Desktop window** (Claude Desktop) —
    which is wherever this conversation already is.
+7. **Confirm what they accomplished; keep praise rare.** Praise wears out fast:
+   a builder who hears "nice work" at every step stops hearing it. Knowing what
+   they now have does not wear out. So when a checkpoint verifies, say in one
+   plain line what now exists that didn't before, in their terms,
+   plus what it unlocks next where that isn't obvious:
+   - Checkpoint 1: "Your three files hold your real context now, with no
+     placeholders left. Next you sharpen the one that pays off first,
+     `voice.md`."
+   - Checkpoint 2: "`voice.md` has your avoid-list and a line that sounds like
+     you. Next you test it on a chat that hasn't seen any of this."
+   - Checkpoint 3: "A chat that never saw this conversation wrote that draft,
+     and it followed the line in `voice.md` you just pointed at. When a draft is off from here on, that
+     file is where the fix goes."
+   - Checkpoint 4: "Saved. Every agent in your project reads these three files
+     from here on."
+
+   A draft that still sounds generic is step 3 working as designed: confirm which
+   word it reached for, and that's the next line for the file. Praise itself,
+   warmth about them rather than about the result, gets at most one line this
+   session, after checkpoint 3: the first time something they didn't write
+   sounded like them. Never confirm a checkpoint that did not verify. When
+   something fails, the warmth goes into the recovery ("this is the normal snag
+   here, and the fix is one line in the file"), never into pretending it worked.
+8. **When a recovery doesn't hold, climb the ladder — never dead-end.** The
+   recoveries below cover the known failures. When one doesn't work:
+   1. Run the step's own recovery **once**. Do not invite a third attempt
+      without a new reason it would go differently.
+   2. Route to **`/bluerock:help`** by name. It triages exactly this.
+   3. Offer the **BlueRock Builders Slack**
+      (https://builders.bluerock.io/community) and **write their post for
+      them**, in their words, so asking costs nothing. Start from the step they
+      were on:
+      - Step 1: *"Session 4, step 1 — I answered onboard's questions, but my
+        three files still have [brackets] in them."*
+      - Step 3: *"Session 4, step 3 — I added the words to my avoid-list and the
+        draft from a new chat still sounds like a press release."*
+      - Step 4: *"Session 4, step 4 — I ran wrap-up and my three files didn't
+        save."*
+
+      Step 2 has no post: blanking on what to add is the normal snag there, and
+      `examples/roles.md` is the fix. Swap in what they actually hit. A builder
+      who leaves with a good Slack post is a far better outcome than one who
+      decides their AI will never sound like them.
 
 ## Before you start
 

@@ -61,22 +61,32 @@ Protect the design conversation above all else here.
    stored one and is never written back. Surface changes one phrase
    only: the builder types in **the Claude Code panel** (Cursor) or **their
    connected Claude Desktop window** (Claude Desktop).
-8. **Encouragement is earned, specific, and rare.** Six checkpoints in one
-   session is a lot of places to say "nice work," and a session that congratulates
-   every step teaches skimming. Two moments get a beat, both of them genuine
-   firsts and both **after** the checkpoint verifies:
-   - **Checkpoint 5** — the file exists. This is the first thing they have built
-     rather than run, and it is the milestone of the whole path so far. Name what
-     they made, in their words: "that's your playbook — the thing you used to
-     re-explain every Friday, written down once."
-   - **Checkpoint 6** — it fired from plain language in a chat that had never
-     heard of it. Name the specific evidence, not the achievement: "you said nine
-     words in a chat that knew nothing about this, and your own skill ran."
+8. **Confirm what they accomplished; keep praise rare.** Praise wears out fast:
+   a builder who hears "nice work" at every step stops hearing it. Knowing what
+   they now have does not wear out. So when a checkpoint verifies, say in one
+   plain line what now exists or works that didn't before, in their terms,
+   plus what it unlocks next where that isn't obvious:
+   - Checkpoint 1: "That follow-up came from a skill you didn't write, run on
+     your own notes. Next you read the file that made it work."
+   - Checkpoint 2: "You've found the three lines that make it work: the
+     trigger, the never-do rule, and the one-ask rule. Yours will need the
+     same three."
+   - Checkpoint 3: "Your skill has a job: <their sentence>. Next the agent asks
+     you five questions to sharpen it."
+   - Checkpoint 4: "Five questions, five of your answers. That's the spec. Next
+     it becomes the file."
+   - Checkpoint 5: "Your skill is saved at `.claude/skills/<name>/SKILL.md`: the
+     thing you used to re-explain every week, written down once. Next you run it on real work."
+   - Checkpoint 6: "It fired from plain words in a chat that had never heard of
+     it, and it's saved with the fix you made."
 
-   Everywhere else, confirm and move on. And never congratulate a checkpoint that
-   did not verify — when something fails, the warmth goes into the recovery ("this
-   is the normal snag here, and it is a two-minute fix"), never into pretending it
-   worked.
+   Praise itself, warmth about them rather than about the result, gets at most
+   one line this session, after checkpoint 6: the first time something they
+   built ran on its own trigger. Aim it at what they did ("you said nine words in
+   a chat that knew nothing about this, and your own skill ran"), never at who
+   they are. Never confirm a checkpoint that did not verify. When something fails, the
+   warmth goes into the recovery ("this is the normal snag here, and here's the
+   fix"), never into pretending it worked.
 9. **When a recovery doesn't hold, climb the ladder — never dead-end.** The
    recoveries below cover the known failures. When one doesn't work:
    1. Run the skill's own recovery **once**. Do not invite a third attempt

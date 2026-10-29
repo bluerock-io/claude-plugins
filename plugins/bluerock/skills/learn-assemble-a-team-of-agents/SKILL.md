@@ -69,16 +69,31 @@ wrong. One honest sentence prevents that.
    stored one and is never written back. Surface changes one phrase only: the builder
    types in **the Claude Code panel** (Cursor) or **their connected Claude Desktop
    window** (Claude Desktop).
-7. **Two beats of recognition, both earned, and no more.** This session has two
-   genuine firsts, and they are the only places a beat belongs: **checkpoint 2**,
-   where they explain the handoff themselves — the end of part one, and where the
-   two-sitting split lands — and **checkpoint 5**, where a team they named ran on
-   real work. Name what they made, in their terms: "you just read three specs and
-   found the one line that makes them a team" lands; "great job" reads as canned.
-   **Never before a checkpoint verifies.** If it didn't verify, the warmth goes
-   into the recovery ("this is the normal snag here — here's the fix"), never
-   into pretending it worked. Nothing at the other three checkpoints;
-   per-step cheerleading trains skimming.
+7. **Confirm what they accomplished; keep praise rare.** Praise wears out fast:
+   a builder who hears "nice work" at every step stops hearing it. Knowing what
+   they now have does not wear out. So when a checkpoint verifies, say in one
+   plain line what now exists or works that didn't before, in their terms,
+   plus what it unlocks next where that isn't obvious:
+   - Checkpoint 1: "A dossier on <company> is in `my-work/account-research/`,
+     and you watched three roles build it in order. Next you read the three
+     specs that made it."
+   - Checkpoint 2: "You found the one line that makes three specs a team, and
+     why each one is allowed different tools. That handoff line is what
+     you'll write for your own team."
+   - Checkpoint 3: "Your team on paper: <roles>, each with one job and a named
+     handoff. Next each role becomes an agent file."
+   - Checkpoint 4: "Each role is now an agent file in `.claude/agents/`, with
+     only the tools its job needs. Next you dispatch them on a real job."
+   - Checkpoint 5: "Your team ran on <the job>, handing off through files, and
+     the result is one you'd use."
+
+   Praise itself, warmth about them rather than about the result, gets at most
+   one line this session, after checkpoint 5: the first time a team they named
+   did real work. Aim it at what they did, never at who they are. Checkpoint 2
+   closes part one and is where the two-sitting split lands, so its confirmation
+   carries that break; it doesn't need praise too. Never confirm a checkpoint that did not verify. When something fails, the
+   warmth goes into the recovery ("this is the normal snag here, and here's the
+   fix"), never into pretending it worked.
 8. **Say "save a checkpoint," never bare *commit*, *sync*, or *push*.** The
    builder has not been shown those words — nothing in the eight sessions teaches
    them — and `/bluerock:wrap-up` deliberately avoids them for that reason. Two

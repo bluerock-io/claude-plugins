@@ -1,5 +1,25 @@
 # Changelog — `bluerock` plugin
 
+## 0.19.4 — Every session tells you what you now have, and Sessions 1 to 4 never leave you stuck
+
+**When a fix doesn't work in Sessions 1 to 4, you have somewhere to go.** Each step's own
+fix is tried once. If it doesn't hold, the session sends you to `/bluerock:help`, and then
+to the BlueRock Builders Slack (https://builders.bluerock.io/community) with your question
+already written: which session, which step, and what went wrong. Sessions 5 to 8 and Save
+your work have worked this way since August. Before, Session 1 pointed to the Slack after a
+second failed try, and Sessions 2 to 4 stopped at their own fix.
+
+**Each checkpoint tells you what you now have, instead of cheering.** In every session,
+Sessions 1 to 8 and Save your work, a step that checks out gets one line saying what exists
+or works that didn't before, and what that unlocks next: "One line added to scribe's file,
+and nothing else moved. You'll see it work on the next run."
+Praise is kept to at most one line per session, at the moment that is a genuine first.
+Sessions 5, 6, and 8 had two such moments and now have one. A step that didn't work gets
+the fix, not a confirmation.
+
+(The 0.9.2 notes below say Session 4 got the help ladder then. It did not; it arrives
+here.)
+
 ## 0.19.3 — Onboard asks before refreshing your starter files, and web reads stay on public sites
 
 **`/bluerock:onboard` asks before it touches your project's git state.** When BlueRock's

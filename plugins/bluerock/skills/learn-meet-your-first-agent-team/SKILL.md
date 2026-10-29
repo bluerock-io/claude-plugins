@@ -62,6 +62,50 @@ saved in their project. **Time:** about 5 minutes. **Prerequisites:** Session 1
    stored one and is never written back. Surface only changes one phrase: the builder
    types in **the Claude Code panel** (Cursor) or **their connected Claude Desktop
    window** (Claude Desktop) — which is wherever this conversation already is.
+7. **Confirm what they accomplished; keep praise rare.** Praise wears out fast:
+   a builder who hears "nice work" at every step stops hearing it. Knowing what
+   they now have does not wear out. So when a checkpoint verifies, say in one
+   plain line what now exists that didn't before, in their terms,
+   plus what it unlocks next where that isn't obvious ("messaging doc"
+   in place of "scorecard" on that lane):
+   - Checkpoint 3: "Your scorecard on <their company> is in your project, with
+     its sources. Two specialists built it, one after the other, and you didn't
+     prompt either. Next you open it and send it on."
+   - Checkpoint 4: "It's open, and the file is in `my-work/` whenever you need it
+     again."
+   - Checkpoint 5: "Today is logged, and your dashboard shows it. Every session
+     you wrap up adds to that picture."
+
+   Checkpoints 1 and 2 are moves, not results; go straight on. A thin result is a
+   finding, so confirm what it found rather than cheering it or apologizing for
+   it. Praise itself, warmth about them rather than about the result, gets at
+   most one line this session, after checkpoint 3: it is the first time an agent
+   team worked for them. On the messaging-doc lane that line is the debrief's
+   opening gap in close-the-loop step 2, so don't add another. Never confirm a
+   checkpoint that did not verify. When something fails, the warmth goes into the
+   recovery ("this is a normal snag, and here's the fix"), never into pretending
+   it worked.
+8. **When a recovery doesn't hold, climb the ladder — never dead-end.** The
+   recoveries below cover the known failures. When one doesn't work:
+   1. Run the step's own recovery **once**. Do not invite a third attempt
+      without a new reason it would go differently.
+   2. Route to **`/bluerock:help`** by name. It triages exactly this.
+   3. Offer the **BlueRock Builders Slack**
+      (https://builders.bluerock.io/community) and **write their post for
+      them**, in their words, so asking costs nothing. Start from the step they
+      were on, and say "messaging doc" in place of "scorecard" on that lane:
+      - Step 2: *"Session 2, step 2 — I gave the team the website and it still
+        asks which company I mean."*
+      - Step 3: *"Session 2, step 3 — the team started, but there's no finished
+        scorecard in my project."*
+      - Step 4: *"Session 2, step 4 — my scorecard didn't open, and I can't find
+        where it was saved."* (A scorecard that saved but couldn't publish is
+        step 4's normal recovery, not a reason to climb.)
+      - Step 5: *"Session 2, step 5 — I ran wrap-up and my dashboard didn't
+        update."*
+
+      Swap in what they actually hit. A builder who leaves with a good Slack post
+      is a far better outcome than one who decides agent teams aren't for them.
 
 ## Before you start
 

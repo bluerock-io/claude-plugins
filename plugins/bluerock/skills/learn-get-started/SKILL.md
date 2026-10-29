@@ -75,6 +75,51 @@ edited far more often than this file. Where the two disagree, the page is right
    the generic framing and move on. Session 2 asks for it at the point it
    decides something, which is where a builder can see why the question is being
    asked at all.
+7. **Confirm what they accomplished; keep praise rare.** Praise wears out fast:
+   a builder who hears "nice work" at every step stops hearing it. Knowing what
+   they now have does not wear out. So when a checkpoint verifies, say in one
+   plain line what now works that didn't before, in their terms,
+   plus what it unlocks next where that isn't obvious:
+   - Checkpoint 1: "The Connector is signed in and knows your workspace.
+     Next it connects Claude to it."
+   - Checkpoint 2: "Claude is connected to your workspace, with your project
+     folder open. Everything from here happens inside it."
+   - Checkpoint 3: "Your project is live, and `/bluerock:check` will confirm that
+     any time something looks off."
+
+   On the short path, where setup already worked before you arrived, checkpoints
+   1 and 2 collapse into one line: "you've already connected; here's what that
+   did." Praise itself, warmth about them rather than about the result, gets at
+   most one line this session, at the close, and only attached to that evidence.
+   Never confirm a checkpoint that did not verify. When something fails, the
+   warmth goes into the recovery ("this is a normal snag on a first connect, and
+   here's the fix"), never into pretending it worked.
+8. **When a recovery doesn't hold, climb the ladder — never dead-end.** The
+   recoveries below cover the known failures. When one doesn't work:
+   1. Run the step's own recovery **once**. Do not invite a third attempt
+      without a new reason it would go differently.
+   2. Route to **`/bluerock:help`** by name. It triages exactly this.
+   3. Offer the **BlueRock Builders Slack**
+      (https://builders.bluerock.io/community) and **write their post for
+      them**, in their words, so asking costs nothing. Setup snags are easier to
+      answer with a picture, so suggest they attach a screenshot of what they
+      see. Start from the step they were on:
+      - Claude Desktop, step 1: *"Session 1, setting up the Connector on Claude
+        Desktop — it won't sign in to BlueRock."*
+      - Claude Desktop, step 2: *"Session 1, connecting Claude to my workspace —
+        I get Connection failed: ECONNREFUSED and the Connector won't go green."*
+      - Cursor, step 1: *"Session 1, Cursor — I can't find where to install the
+        BlueRock Connector extension."*
+      - Cursor, step 2: *"Session 1, Cursor — Attach says it failed to connect to
+        the remote host, and no workspace window opens."*
+      - Cursor, step 3: *"Session 1, Cursor — Claude Code keeps asking me to sign
+        in, in my workspace window."*
+      - The check: *"Session 1 — /bluerock:check says it can't find my
+        project."*
+
+      Swap in what they actually hit. A builder who leaves day one with a good
+      Slack post is a far better outcome than one who decides the setup beat
+      them.
 
 ## First — figure out where you both are
 
@@ -306,12 +351,6 @@ When checkpoint 3 passes:
 If a checkpoint could not be verified, the session stays `in_progress` at that
 checkpoint — say so plainly, with what's left. Honest state beats a green
 dashboard.
-
-## If they're stuck beyond the step recoveries
-
-The Slack is the human backstop: https://builders.bluerock.io/community — post
-where they got stuck and a screenshot. Offer it after a second failed attempt at
-any step, not as a first resort.
 
 ## Who depends on this skill's wording
 
