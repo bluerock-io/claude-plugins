@@ -31,7 +31,8 @@ share it, wrap up):
 | `marketing` | **Core messaging doc** — positioning, voice, and the phrases their brand actually uses | `site-reader` → `distiller` | `my-work/messaging-doc/<brand>/` |
 
 **Outcome:** the lane's one-page work product, opened as a Claude Artifact and
-saved in their project. **Time:** about 5 minutes. **Prerequisites:** Session 1
+saved in their project. **Time:** about 5 minutes; about 15 on the messaging-doc lane,
+which asks a few questions about the brand first. **Prerequisites:** Session 1
 (their project set up and live).
 
 ## How to teach (this applies to every step)
@@ -270,7 +271,9 @@ honest gaps. That hand-off is the thing to notice.
   a failure (and often the most useful line in the doc). Pasting a recent post
   or email and re-running gives the distiller more to work with.
 - *Checkpoint 3:* both specialists ran in order and the finished messaging doc
-  exists in the project.
+  exists in the project, or, when they skipped the brand questions, the messaging
+  assessment does. That is a pass: confirm it, and say once that answering the
+  questions and running it again writes the doc.
 
 ### 4. Open it, then send it
 

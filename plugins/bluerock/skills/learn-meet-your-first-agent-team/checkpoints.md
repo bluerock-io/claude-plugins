@@ -12,7 +12,7 @@ file names differ. `<slug>` below is the slugified name the run used.
 | Target | a real company | a real website (theirs) |
 | Folder | `my-work/account-scorecard/<slug>/` | `my-work/messaging-doc/<slug>/` |
 | First file | `scan.md` (scout) | `signals.md` (site-reader) |
-| Final file | `scorecard.md` (scorer) | `messaging-doc.md` (distiller) |
+| Final file | `scorecard.md` (scorer) | `messaging-doc.md` (distiller); `messaging-assessment.md` alone when the brand questions were skipped |
 
 ## Checkpoint 1 — a real target named
 
@@ -47,6 +47,13 @@ file names differ. `<slug>` below is the slugified name the run used.
 - A thin-but-honest result passes (a small web footprint, or a site that says
   little, is a fact, not a failure). A missing file fails: diagnose which
   specialist stopped and why before rerunning.
+- **A messaging-doc run with the brand questions skipped passes on
+  `messaging-assessment.md` alone.** "Just run it" with only a URL writes the
+  assessment and no `messaging-doc.md`, by design: the doc is written from the
+  builder's answers, and there were none. Check the assessment for its parts
+  (site positioning, gaps, what to fix first). Confirm it, then say once how to
+  get the doc: answer the questions and run it again. Never diagnose a missing
+  `messaging-doc.md` on a skipped intake as a specialist that stopped.
 - **`Not disclosed` and `[estimated]` in the snapshot are passes, not gaps.**
   Most private companies never publish revenue. A scorecard that says so is the
   honesty rule working; do not send the builder back to "fill in" a field, and

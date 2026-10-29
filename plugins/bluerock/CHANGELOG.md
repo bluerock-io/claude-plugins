@@ -1,5 +1,17 @@
 # Changelog — `bluerock` plugin
 
+## 0.19.5 — Session 2's marketing path passes when you skip the brand questions, and says how long it takes
+
+**Skipping the brand questions in Session 2 no longer looks like a failure.** On the
+marketing path, saying "just run it" with only your website gives you the Messaging
+Assessment, a read of what your site says today, and no messaging doc, because the doc is
+written from your answers. Session 2 used to treat the missing doc as a sign that something
+stopped. It now counts the assessment as a pass and tells you once how to get the full doc:
+answer the questions and run it again.
+
+**Session 2 says about 15 minutes on the marketing path.** It said about 5 for everyone, and
+the marketing path asks a few questions about your brand first.
+
 ## 0.19.4 — Every session tells you what you now have, and Sessions 1 to 4 never leave you stuck
 
 **When a fix doesn't work in Sessions 1 to 4, you have somewhere to go.** Each step's own
